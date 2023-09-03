@@ -5,8 +5,8 @@
             
             <div class="top_util">
                 <ul class="menu_list">
-                    <li class="join">회원가입</li>
-                    <li class="login">로그인</li>
+                    <li class="join" @click="goJoin">회원가입</li>
+                    <li class="login" @click="goLogin">로그인</li>
                     <li class="cart">장바구니</li>
                     <li class="order">주문배송</li>
                     <li class="customer">고객센터</li>
@@ -395,10 +395,761 @@ export default {
     return {
       
     }
+  },
+  methods: {
+    goLogin() {
+        this.$router.push('/login');
+    },
+    goJoin() {
+        this.$router.push('/join');
+    }
   }
 }
 </script>
 
-<style>
+<style scoped>
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: #666;
+    font-family:Montserrat,-apple-system,NotoSansCJKkr,AppleSDGothicNeo,Roboto,dotum,"돋움",sans-serif;
+    font-size:14px;
+}
+* {
+    box-sizing: border-box;
+}
+a, address, blockquote, body, dd, div, dl, dt, em, fieldset, form, h1, h2, h3, h4, h5, h6, img, input, label, li, ol, p, pre, select, span, strong, textarea, ul {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
 
+.wrapper {
+    width: 100%;
+    min-width: 1068px;
+    /* background-color: mediumaquamarine; */
+}
+.Header {
+    width: 1020px;
+    margin: 0 auto;
+}
+.top_util {
+    width: 100%;
+    height: 40px;
+    position:relative;
+}
+.menu_list {
+    position:absolute;
+    right: 0px;
+    bottom: 0px;
+}
+.menu_list li {
+    list-style: none;
+    float: left;
+    padding: 0 9px 0 10px;
+}
+.menu_list li+li {
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/bar_1x11.gif") 0 50% no-repeat;
+}
+
+
+.header_inner {
+    height: 90px;
+    width: 1020px;
+}
+
+/* 
+* div 영역 안에서 float를 시전하면
+* 영역 만큼 행 하나로 배치 
+*/
+.header_inner h1{
+    margin-top: 21px;
+    float: left;
+}
+
+.header_inner h1 a img{
+    width: 248px;
+    height: 42px;
+}
+
+.header_inner .search_box {
+    float:left;
+    position:relative;
+    width:340px;
+    height: 40px;
+    padding: 0 45px 0 20px;
+    margin: 22px 0 0 90px;
+    border: 2px solid #9bce26;
+    border-radius: 20px;
+    background:#fff;
+}
+
+.header_inner .search_box #searchSubmit{
+    position:absolute;
+    top:7px;
+    right:18px;
+    width:21px;
+    height: 21px;
+    background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_search21x212.png") 50% 50% no-repeat;
+    text-indent: -9999px;
+}
+
+.header_inner .search_box input[type=text] {
+    background-color:transparent;
+    border:0;
+    height: 40px;
+}
+button {
+    border:0;
+    text-align:center;
+    color: #fff;
+    text-indent:100px;
+}
+.header_inner .mymenu-area{
+    float:right;
+    margin-top: 10px;
+}
+
+.header_inner .mymenu-area ul{
+    padding: 0px;
+    width: 120px;
+    height:65px;
+}
+
+.header_inner .mymenu-area > li{
+    list-style: none;
+    /* padding-top: px; */
+    float:left;
+}
+.header_inner .mymenu-area .delivery a{
+    text-decoration: none;
+    padding: 4px 27px 3px 0;
+    color: black;
+    background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_delivery_flag.png") right 2px/22px 20px no-repeat;
+}
+#Gnb {
+    position:relative;
+    width:100%;
+    min-width:1020px;
+    height:47px;
+    background:#fff;
+    border-top: 1px solid #ddd;
+    border-bottom: 2px solid #555;
+    z-index: 10;
+}
+#gnbWrap {
+    position:relative;
+    width: 1020px;
+    margin: 0 auto;
+}
+#btnGnbOpen {
+    float:left;
+    width:170px;
+    height:44px;
+    padding-left:27px;
+    border-right:1px solid #ddd;
+    border-left:1px solid #ddd;
+    line-height:44px;
+    color: #000;
+    font-size: 15px;
+    font-weight:700;
+    text-align:left;
+}
+a {
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+
+#btnGnbOpen:before {
+    content:"";
+    display:inline-block;
+    margin: 0 8px 0 0;
+    background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_menu_off.png") 0 14px no-repeat;
+    width:24px;
+    height:44px;
+    vertical-align:middle;
+}
+
+#Gnb .layer_all_menu {
+    position: absolute;
+    top:44px;
+    width:1020px;
+    border:2px solid #2f3030;
+    z-index:20;
+    display:none;
+}
+
+#Gnb .gnb_menu_list {
+    position:relative;
+    top: 0;
+    right: 0;
+}
+#Gnb .gnb_menu_list>li {
+    float:left;
+    margin-left:45px;
+}
+#Gnb .gnb_menu_list>li:first-child {
+    margin-left:50px;
+}
+
+#Gnb .gnb_menu_list>li>a{
+    display:block;
+    height:44px;
+    line-height:44px;
+    color:#000;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing:-.04em;
+}
+
+#Container {
+    width: 100%;
+    min-width: 1020px;
+}
+
+#Contents {
+    width:1020px;
+    height:100%;
+    margin: 0 auto;
+}
+
+.main_full_banner {
+    width: 100%;
+    height: 450px;
+}
+
+.main_full_banner .banner_wrap {
+    position: absolute;
+    width: 100%;
+    left:0;
+    background: #f5f5f5;
+    z-index: 0;
+    height:450px;
+    min-width:1020px;
+    overflow:hidden;
+}
+
+.slick-slider {
+    display:block;
+    position:relative;
+}
+
+.main_full_banner .banner_wrap .slick-arrow.slick-prev {
+    left: 50%;
+    margin-left:-290px;
+}
+
+.main_full_banner .banner_wrap .slick-arrow {
+    position: absolute;
+    bottom:30px;
+    z-index: 2;
+}
+
+.slick-arrow.slick-prev {
+    background-position: 0 0;
+}
+
+.slick-arrow {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_arrow40x40_2.png") no-repeat;
+    text-indent: -9999px;
+}
+
+.main_full_banner .banner_wrap .slick-list {
+    min-width: 1020px;
+}
+
+.slick-list {
+    position:relative;
+    display: block;
+    overflow:hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.slick-track {
+    min-width:1020px;
+}
+
+.slick-track {
+    position: relative;
+    top:0;
+    left:0;
+    display:block;
+    z-index: 1;
+}
+
+.slick-initialized .slick-slide {
+    display:block;
+}
+
+.slick-slide {
+    float: left;
+    height:100%;
+    min-height:1px;
+}
+
+.main_full_banner .banner_link {
+    display:block;
+    position:relative;
+    height:450px;
+    overflow:hidden;
+}
+
+.main_full_banner .banner_link .banner_desc {
+    position:absolute;
+    top:52px;
+    left:50%;
+    font-size:18px;
+    color:#666;
+    z-index:1;
+    margin-left:-290px;
+    font-weight:700;
+}
+
+.main_full_banner .banner_link .banner_desc .tit{
+    display:block;
+    font-size:18px;
+    color:#000;
+}
+
+.main_full_banner .banner_link .banner_desc strong {
+    display:block;
+    width:360px;
+    margin-bottom: 10px;
+    font-size:48px;
+    color:#1f1f1f;
+    line-height:56px;
+    word-break: keep-all;
+    font-weight: 400;
+}
+
+strong { 
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.main_full_banner .banner_link img {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform:translateX(-50%);
+}
+
+img {
+    border: 0;
+    vertical-align:top;
+    color: #666;
+}
+
+.main_mid_banner {
+    margin: 50px 0 0;
+}
+
+.main_mid_banner > a{
+    display:block;
+    width:1020px;
+    vertical-align:bottom;
+}
+
+.main_mid_banner img {
+    width: 1020px;
+    height:102px;
+}
+
+.two {
+    height: auto;
+    margin-top: 0;
+    border-bottom: 0;
+}
+
+.inner {
+    overflow: hidden;
+    float:left;
+    width:50%;
+    height:575px;
+}
+
+.curation_slide .type03 {
+    margin-top: 26px;
+    margin-bottom:27px;
+}
+
+.curation_area .curation_slide {
+    position:relative;
+    margin-top: 50px;
+}
+
+.curation_area .two .tit_type03 {
+    height:62px;
+}
+
+.tit_type03 {
+    margin: 60px 30px 0;
+    font-weight: 700;
+    font-size:24px;
+    color: #000;
+    position:relative;
+    line-height:1.3;
+    letter-spacing:0;
+}
+
+.tit_type03 .moreBtn {
+    position:absolute;
+    bottom:3px;
+    right:0;
+    background: #fff;
+}
+
+.tit_type03 .moreBtn span {
+    padding-right: 11px;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/curation/ico_more_5x10.png") center right 0/5px auto no-repeat;
+    font-size: 15px;
+    font-weight:500;
+    color: #aaa;
+}
+
+.curation_area .two .curation_slide .type03 .slick-list {
+    overflow:hidden;
+    height:320px;
+}
+
+.slick-list {
+    position:relative;
+    display:block;
+    margin:0;
+    padding: 0;
+}
+
+.slick-track {
+    position:relative;
+    top:0;
+    left:0;
+    display:block;
+    z-index: 1;
+}
+
+.curation_list {
+    font-size: 0;
+}
+.curation_list .curation_item {
+    display:inline-block;
+    position:relative;
+    width:255px;
+    padding:0 10px;
+    vertical-align: top;
+}
+
+.curation_area .slide_list .item {
+    display:block;
+    position:relative;
+    text-align: center;
+}
+
+.curation_area .slide_list .item .thumb_flag{
+    position:absolute;
+    top:7px;
+    left:17px;
+    line-height: 44px!important;
+}
+
+.curation_area .slide_list .item .thumbImg {
+    display:block;
+    width:215px;
+    height:215px;
+    margin: 0 auto;
+}
+
+.curation_area .slide_list .item .thumbImg>img{
+    width: auto!important;
+    max-width:215px;
+    height:auto!important;
+    max-height:215px;
+}
+.curation_area .slide_list .item .prd_name {
+    display:block;
+    width:215px;
+    min-height:40px;
+    padding: 0 10px;
+    margin:8px auto 0;
+    text-decoration: none;
+}
+
+.curation_area .slide_list .item .prd_name .tx_name{
+    overflow:hidden;
+    height:40px;
+    padding:2px 0;
+    line-height:18px;
+    text-overflow: ellipsis;
+    color:#000;
+    font-size:14px;
+    text-align: left;
+}
+
+.curation_area .slide_list .item .prd_price {
+    position:relative;
+    width:215px;
+    height:25px;
+    margin: 5px auto 0;
+    padding: 0 10px;
+    line-height:22px;
+    text-align:left;
+}
+.curation_area .slide_list .item .prd_price .tx_org{ 
+    color:#a9a9a9;
+    font-size:12px;
+    text-decoration:line-through;
+    vertical-align: middle;
+    font-weight: 400;
+}
+
+.curation_area .slide_list .item .prd_price .tx_org+.tx_cur{ 
+    margin:0 0 0 7px;
+    vertical-align: bottom;
+}
+
+.curation_area .slide_list .item .prd_price .tx_cur{ 
+    display:inline-block;
+    color:#e02020;
+    font-size: 14px;
+    font-weight:700;
+}
+
+.curation_area .slide_list .item .prd_price .tx_cur>span{ 
+    display:inline-block;
+    font-size:20px;
+    vertical-align: -1px;
+}
+
+.tx_num {
+    letter-spacing: -.02em!important;
+    font-weight: 500;
+}
+
+.curation_area .slide_list .item .prd_flag {
+    width:215px;
+    margin:5px auto 0;
+    padding: 0 10px;
+    text-align:left;
+}
+
+.prd_flag {
+    overflow:hidden;
+}
+
+
+.curation_area .slide_list .item .prd_flag>.icon_flag {
+    float:none;
+}
+
+.icon_flag.sale {
+    background-color: #f65c60;
+}
+.icon_flag.coupon {
+    background-color: #9bce26;
+}
+.icon_flag.delivery {
+    width:60px;
+    background-color: #f374b7;
+}
+
+.icon_flag {
+    display:inline-block;
+    width:40px;
+    height: 18px;
+    border-radius: 9px;
+    line-height: 17px!important;
+    color: #fff !important;
+    font-size:12px!important;
+    text-align:center;
+    vertical-align:middle;
+    text-decoration: none!important;
+    margin:0!important;
+}
+.curation_area .two {
+    height:auto;
+    margin-top:0;
+    border-bottom:0;
+}
+
+.curation_area {
+    position:relative;
+    height:525px;
+    margin-top:49px;
+}
+.curation_area .two .curation_slide .type03 .btnRef {
+    margin-top:40px;
+}
+
+#Container .curation_area .two .btnRef .btn{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.btnRef .btn {
+    width: 335px;
+    height: 40px;
+    background: 0 0;
+}
+
+.main_sub_tit {
+    height:40px;
+    margin: 51px 0 8px;
+    font-size:26px;
+    color: #000;
+    text-align: center;
+    line-height: 40px;
+}
+strong {
+    margin: 0; padding: 0; border: 0;
+}
+
+.recomm_plan {
+    margin: 0 auto 10px;
+    width: 1020px;
+}
+
+.recomm_plan_list {
+    font-size:0;
+}
+.recomm_plan_list li:first-child {
+    margin-left:0;
+}
+.recomm_plan_list li{
+    overflow:hidden;
+    display:inline-block;
+    width:500px;
+    height:227px;
+    border-radius:8px;
+    vertical-align:top;
+    margin-left:20px;
+}
+
+.recomm_plan_list li a {
+    display:block;
+    position:relative;
+    width:100%;
+    height:100%;
+}
+
+.recomm_plan_list li a img {
+    position:absolute;
+    left:0;
+    top:50%;
+    transform: translateY(-50%);
+    width:100%;
+} 
+
+.recomm_plan_list li a .text_wrap {
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:1;
+}
+
+.recomm_plan_list li a .text_wrap dl {
+    margin-left: 28px;
+}
+
+.recomm_plan_list li a .text_wrap dt {
+    overflow:hidden;
+    max-width:222px;
+    font-size:21px;
+    line-height: 1.35;
+    letter-spacing: -.67px;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.recomm_plan_list li a .text_wrap dd {
+    overflow:hidden;
+    margin-top:15px;
+    max-width: 215px;
+    font-size: 16px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.main_plan_banner .ty02 {
+    position: relative;
+}
+
+.main_sub_tit {
+    height:40px;
+    margin: 51px 0 8px;
+    font-size:26px;
+    color: #000;
+    text-align:center;
+    line-height: 40px;
+}
+
+.main_plan_banner .ty02 .banner_wrap{
+    position: relative;
+    width:1020px;
+    height:auto;
+    overflow:hidden;
+}
+
+.main_plan_banner .ty02 .banner_wrap .slick_slider {
+    margin-left: -10px;
+    width: 1040px;
+}
+
+.slick-slider {
+    position:relative;
+    display:block;
+}
+
+.slider_unit {
+    position:relative;
+    float:left;
+    padding:0 10px;
+    width:520px!important;
+    height:620px;
+}
+
+.plan_top {
+    height:300px;
+}
+
+.plan_banner {
+    position: relative;
+    overflow:hidden;
+    width: 500px;
+    height:300px;
+    background-size: 500px auto;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+}
+
+.plan_banner > a {
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    width:500px;
+    height:259px;
+    padding:0;
+}
+
+.plan_banner > a > p {
+    position:relative;
+    top:inherit;
+    left:inherit;
+    margin-left: 28px;
+    max-width: 360px;
+    color:#000;
+    text-align: left;
+}
 </style>
