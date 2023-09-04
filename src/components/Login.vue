@@ -15,13 +15,25 @@
 
         <button class="login_btn">로그인</button>
       </div>
-      <div class="join"><span class="join_btn">회원가입</span></div>
+      <div class="join"><span class="join_btn" @click="goJoin">회원가입</span></div>
 
     </div>
   </div>
 </template>
 
 <script>
+export default {
+  data() {
+    return {
+      
+    }
+  },
+  methods: {
+    goJoin() {
+        this.$router.push('/join');
+    }
+  }
+}
 </script>
 
 <style scoped>
