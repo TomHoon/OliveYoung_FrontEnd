@@ -356,7 +356,7 @@
                     </div>
                 </div>
 
-                <!-- 인기 행사만 모았어요! -->
+                <!-- 인기 행사만 모았어요! 시작 -->
                 <div class="main_plan_banner ty02">
                     <h3 class="main_sub_tit">
                         <strong>인기 행사만 모았어요!</strong>
@@ -534,6 +534,72 @@
                         </div>
                     </div>
                 </div>
+                <!-- 인기 행사만 모았어요! 끝 -->
+
+                <!-- 올리브영 매거진 시작 -->
+                <div class="oy-magazine">
+                    <h3>
+                        <strong>올리브영 매거진</strong>
+                    </h3>
+                    <ul>
+                        <li>
+                            <a href="">
+                                <img src="https://image.oliveyoung.co.kr/uploads/images/display/90000010001/398/7945107532754907535.jpg" alt="">
+                                <p>완전 유기농 순면</p>
+                                <p>프리미엄 생리대</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img src="https://image.oliveyoung.co.kr/uploads/images/display/90000010001/398/1008831639456367841.jpg" alt="">
+                                <p>멋쟁이들이 알려주는</p>
+                                <p>남자들의 뷰티 루틴</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img src="https://image.oliveyoung.co.kr/uploads/images/display/90000010001/398/5954966327415583604.jpg" alt="">
+                                <p>시멘트로 그린 그림</p>
+                                <p>믿겨지나요?</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img src="https://image.oliveyoung.co.kr/uploads/images/display/90000010001/398/1669789264065522165.jpg" alt="">
+                                <p>곰손도 쉽게 하는</p>
+                                <p>웨트헤어 치트키</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 오직 올리브영에서만 시작 -->
+                <div class="main_onlyone_wrap">
+                    <h3>
+                        <strong>오직 올리브영에서만</strong>
+                    </h3>
+                    <ul>
+                        <li>
+                            <img src="https://image.oliveyoung.co.kr/uploads/images/display/90000010001/6/6480657806655260020.jpg" alt="">
+                            <h3 class="sub-tit1">필리밀리올영세일<br></h3>
+                            <h3 class="sub-tit2">900원 부터</h3>
+                            <p>#미용소품#디바이스</p>
+                        </li>
+                        <li>
+                            <img src="https://image.oliveyoung.co.kr/uploads/images/display/90000010001/6/8990908815822036160.jpg" alt="">
+                            <h3 class="sub-tit1">최대 42% 할인<br></h3>
+                            <h3 class="sub-tit2">올영세일 특가</h3>
+                            <p>#바이오힐보#브링그린</p>
+                        </li>
+                        <li>
+                            <img src="https://image.oliveyoung.co.kr/uploads/images/display/90000010001/6/4343211278105723213.jpg" alt="">
+                            <h3 class="sub-tit1">꼭 담으세요!<br></h3>
+                            <h3 class="sub-tit2">인기간식 특가</h3>
+                            <p>#UPTO 57%</p>
+                        </li>
+                    </ul>
+                </div>
+                <!-- 오직 올리브영에서만 끝 -->
             </div>
         </div>
         <!-- slick 끝 -->
@@ -1478,5 +1544,110 @@ strong {
     display: inline-block;
     font-size:20px;
     vertical-align: -1px;
+}
+#Container .oy-magazine {
+    margin-top: 80px;
+}
+#Container .oy-magazine h3{
+    text-align: center;
+}
+#Container .oy-magazine h3 strong{
+    font-size: 26px;
+    line-height: 31px;
+    color:#131518;
+}
+#Container .oy-magazine ul {
+    display: flex;
+    justify-content: space-between;
+    gap:20px;
+    margin-top:25px;
+}
+
+#Container .oy-magazine ul li a img {
+    width: 240px;
+    height: 288px;
+    border-radius: 4px;
+}
+#Container .oy-magazine ul li a p:first-of-type {
+    margin-top:15px;
+}
+
+#Container .oy-magazine ul li a p {
+    font-weight: 700;
+    font-size:20px;
+    line-height: 24px;
+    color:#131518;
+}
+.main_onlyone_wrap {
+    max-width:1048px;
+}
+.main_onlyone_wrap h3 {
+    text-align:center;
+    margin-top:65px;
+    margin-bottom:25px;
+}
+.main_onlyone_wrap h3 strong{
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.main_onlyone_wrap img {
+    width: 314px;
+    height:140px;
+    border-radius: 10px;
+}
+
+.main_onlyone_wrap ul {
+    display:flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+.main_onlyone_wrap ul li{
+    position:relative;
+}
+.main_onlyone_wrap ul li:first-child .sub-tit1{
+    position:absolute;
+    top:-36px;
+    left:10px;
+}
+.main_onlyone_wrap ul li:nth-child(2) .sub-tit1{
+    position:absolute;
+    top:-36px;
+    left:10px;
+}
+.main_onlyone_wrap ul li:nth-child(3) .sub-tit1{
+    position:absolute;
+    top:-36px;
+    left:10px;
+}
+.main_onlyone_wrap ul li:first-child .sub-tit2{
+    position:absolute;
+    top:-10px;
+    left:10px;
+}
+.main_onlyone_wrap ul li:nth-child(2) .sub-tit2{
+    position:absolute;
+    top:-10px;
+    left:10px;
+}
+.main_onlyone_wrap ul li:nth-child(3) .sub-tit2{
+    position:absolute;
+    top:-10px;
+    left:10px;
+}
+.main_onlyone_wrap ul li:first-child p{
+    position: absolute;
+    top:97px;
+    left:10px;
+}
+.main_onlyone_wrap ul li:nth-child(2) p{
+    position: absolute;
+    top:97px;
+    left:10px;
+}
+.main_onlyone_wrap ul li:nth-child(3) p{
+    position: absolute;
+    top:97px;
+    left:10px;
 }
 </style>
