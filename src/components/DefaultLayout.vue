@@ -372,11 +372,162 @@
                                                     <p>
                                                         <strong class="tit">다가오는 가을에는</strong>
                                                         <strong class="tit">나를 위한 IT ITEM</strong>
-                                                        <strong class="desc">#알고보니꿀템가득</strong>
+                                                        <span class="desc" style="color:#000000">#알고보니꿀템가득</span>
                                                     </p>
                                                 </a>
                                             </div>
                                         </div>
+                                        <ul class="cate_prd_list">
+                                            <li>
+                                                <div class="prd_info">
+                                                    <a href="" class="prd_thumb goodList">
+                                                        <span class="thumb_flag best">베스트</span>
+                                                        <img src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0016/A00000016619214ko.jpg?l=ko" alt="">
+                                                    </a>
+                                                    <div class="prd_name">
+                                                        <a href="" class="goodsList">
+                                                            <span class="tx_brand">스너글</span>
+                                                            <p class="tx_name">스너글 섬유탈취제 150ml 6종 택1</p>
+
+                                                        </a>
+                                                    </div>
+                                                    <!-- <button class="btn_zzim jeem">
+                                                        <span>찜하기전</span>
+                                                    </button> -->
+                                                    <p class="prd_price">
+                                                        <span class="tx_org">
+                                                            <span class="tx_num">5,000</span>
+                                                            원
+                                                        </span>
+                                                        <span class="tx_cur">
+                                                            <span class="tx_num">3,500</span>
+                                                            원~
+                                                        </span>
+                                                    </p>
+                                                    <p class="prd_flag">
+                                                        <span class="icon_flag sale">세일</span>
+                                                        <!-- <span class="icon_flag coupon">쿠폰</span> -->
+                                                        <span class="icon_flag delivery">오늘드림</span>
+                                                    </p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="prd_info">
+                                                    <a href="" class="prd_thumb goodList">
+                                                        <span class="thumb_flag best">베스트</span>
+                                                        <img src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0018/B00000018622003ko.jpg?l=ko" alt="">
+                                                    </a>
+                                                    <div class="prd_name">
+                                                        <a href="" class="goodsList">
+                                                            <span class="tx_brand">베리시</span>
+                                                            <p class="tx_name">스너글 섬유탈취제 150ml 6종 택1</p>
+
+                                                        </a>
+                                                    </div>
+                                                    <!-- <button class="btn_zzim jeem">
+                                                        <span>찜하기전</span>
+                                                    </button> -->
+                                                    <p class="prd_price">
+                                                        <span class="tx_org">
+                                                            <span class="tx_num">32,900</span>
+                                                            원
+                                                        </span>
+                                                        <span class="tx_cur">
+                                                            <span class="tx_num">29,400</span>
+                                                            원~
+                                                        </span>
+                                                    </p>
+                                                    <p class="prd_flag">
+                                                        <!-- <span class="icon_flag sale">세일</span> -->
+                                                        <span class="icon_flag coupon">쿠폰</span>
+                                                        <!-- <span class="icon_flag delivery">오늘드림</span> -->
+                                                    </p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="slick-track" style="opacity:1;width:6240px;">
+                                    <div class="slider_unit slick-slide slick-current slick-active" style="width:520px;">
+                                        <div class="plan_top">
+                                            <div class="plan_banner" style="background-image:url('https://image.oliveyoung.co.kr/uploads/images//categoryBanner/7255110681305104571.jpg');">
+                                                <a href="">
+                                                    <p>
+                                                        <strong class="tit">다가오는 가을에는</strong>
+                                                        <strong class="tit">나를 위한 IT ITEM</strong>
+                                                        <span class="desc" style="color:#000000">#알고보니꿀템가득</span>
+                                                    </p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <ul class="cate_prd_list">
+                                            <li>
+                                                <div class="prd_info">
+                                                    <a href="" class="prd_thumb goodList">
+                                                        <span class="thumb_flag best">베스트</span>
+                                                        <img src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0018/A00000018830410ko.jpg?l=ko" alt="">
+                                                    </a>
+                                                    <div class="prd_name">
+                                                        <a href="" class="goodsList">
+                                                            <span class="tx_brand">클린</span>
+                                                            <p class="tx_name">[클린X제로베이스원] 클린 ZB1 30ml 기획(+포토카드1종 증정)/ZB160ml을 사은품</p>
+
+                                                        </a>
+                                                    </div>
+                                                    <!-- <button class="btn_zzim jeem">
+                                                        <span>찜하기전</span>
+                                                    </button> -->
+                                                    <p class="prd_price">
+                                                        <span class="tx_org">
+                                                            <span class="tx_num">57,000</span>
+                                                            원
+                                                        </span>
+                                                        <span class="tx_cur">
+                                                            <span class="tx_num">33,920</span>
+                                                            원~
+                                                        </span>
+                                                    </p>
+                                                    <p class="prd_flag">
+                                                        <span class="icon_flag sale">세일</span>
+                                                        <span class="icon_flag coupon">쿠폰</span>
+                                                        <span class="icon_flag delivery">오늘드림</span>
+                                                    </p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="prd_info">
+                                                    <a href="" class="prd_thumb goodList">
+                                                        <span class="thumb_flag best">베스트</span>
+                                                        <img src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0018/A00000018908801ko.jpg?l=ko" alt="">
+                                                    </a>
+                                                    <div class="prd_name">
+                                                        <a href="" class="goodsList">
+                                                            <span class="tx_brand">몽블랑</span>
+                                                            <p class="tx_name">몽블랑 익스플로러 EDP 3종 중 택1</p>
+
+                                                        </a>
+                                                    </div>
+                                                    <!-- <button class="btn_zzim jeem">
+                                                        <span>찜하기전</span>
+                                                    </button> -->
+                                                    <p class="prd_price">
+                                                        <span class="tx_org">
+                                                            <span class="tx_num">67,000</span>
+                                                            원
+                                                        </span>
+                                                        <span class="tx_cur">
+                                                            <span class="tx_num">41,280</span>
+                                                            원~
+                                                        </span>
+                                                    </p>
+                                                    <p class="prd_flag">
+                                                        <span class="icon_flag sale">세일</span>
+                                                        <span class="icon_flag coupon">쿠폰</span>
+                                                        <span class="icon_flag delivery">오늘드림</span>
+                                                    </p>
+                                                </div>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -1151,5 +1302,181 @@ strong {
     max-width: 360px;
     color:#000;
     text-align: left;
+}
+
+.plan_banner>a>p>strong.tit{
+    overflow:hidden;
+    max-width:222px;
+    height:inherit;
+    margin-top: 0;
+    font-size: 21px;
+    line-height: 1.35;
+    letter-spacing:-.67px;
+    font-weight:700;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
+.plan_banner>a>p>strong{
+    display:block;
+    overflow:hidden;
+    height:30px;
+    margin-top:-4px;
+    font-size:20px;
+}
+.plan_banner>a>p>span.desc{
+    overflow:hidden;
+    height:inherit;
+    margin-top:15px;
+    max-width:215px;
+    font-size: 16px;
+    line-height: 20px;
+    color:#333;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+}
+.cate_prd_list {
+    position:relative;
+    margin:-41px auto 0 12px;
+    padding:15px 15px 0;
+    width:475px;
+    font-size: 0;
+    background-color: #fff;
+    border-bottom: 0;
+    z-index:1;
+}
+
+.cate_prd_list > li:first-child{
+    margin-left:0;
+
+}
+
+.cate_prd_list > li{
+    float:inherit;
+    padding:0;
+    display:inline-block;
+    margin-left:15px;
+    width:215px;
+    vertical-align:top;
+}
+.cate_prd_list>li.prd_info {
+    text-align: center;
+    font-size: 14px;
+}
+.cate_prd_list>li.prd_info.prd_thumb{
+    position:relative;
+    display: block;
+    width:215px;
+    height: 215px;
+    background: #fff;
+}
+.prd_thumb .thumb_flag{
+    position: absolute;
+    top:18px;
+    left:16px;
+    line-height: 44px!important;
+}
+.best{
+    color:#f05a5e;
+    border-color:#f05a5e;
+}
+
+.thumb_flag {
+    display:inline-block;
+    width:48px;
+    height: 48px;
+    font-size: 14px;
+    background: #fff;
+    border-radius: 24px;
+    border-width:2px;
+    border-style: solid;
+    text-align: center;
+    font-weight: 700;
+}
+.prd_thumb > img {
+    width: auto!important;
+    max-width: 215px;
+    height: auto!important;
+    max-height: 215px;
+}
+.cate_prd_list .prd_info {
+    text-align: center;
+    font-size:14px;
+}
+.prd_info .prd_name {
+    margin-top:15px;
+    display:block;
+    min-height: 62px;
+    margin:8px 0 0;
+    text-decoration: none;
+}
+.prd_name > a {
+    display:block;
+}
+.prd_name .tx_brand {
+    display: block;
+    height: 20px;
+    line-height: 20px;
+    color:#777;
+    font-weight:700;
+}
+.prd_name .tx_name {
+    margin-top:5px;
+    overflow:hidden;
+    height: 40px;
+    padding: 2px 0;
+    line-height: 18px;
+    text-overflow: ellipsis;
+    color:#000;
+    font-size:14px;
+    text-align:center;
+}
+
+.prd_info .btn_zzim {
+    position:absolute;
+    top:175px;
+    left:auto;
+    right:0;
+    width:40px;
+    height:40px;
+    border:1px solid #ebebeb;
+    font-size:0;
+    background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_zzim.png") 50% 50% no-repeat #fff;
+}
+.prd_price {
+    height: 25px;
+    line-height:22px;
+}
+.tx_org {
+    color:#777;
+    font-size:12px;
+    text-decoration: line-through;
+    vertical-align: middle;
+    font-weight:700;
+}
+.tx_org > span {
+    display: inline-block;
+    font-size:14px;
+    text-decoration: line-through;
+    vertical-align: 0;
+}
+
+.tx_num {
+    letter-spacing: -.02em!important;
+    font-weight:500;
+}
+.tx_cur{
+    margin:0 0 0 7px;
+    vertical-align: bottom;
+}
+.prd_price .tx_cur {
+    display:inline-block;
+    color:#e02020;
+    font-weight: 700;
+}
+.tx_cur > span {
+    display: inline-block;
+    font-size:20px;
+    vertical-align: -1px;
 }
 </style>
