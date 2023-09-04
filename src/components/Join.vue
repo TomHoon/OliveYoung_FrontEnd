@@ -15,7 +15,7 @@
         <label for="member_id">아이디</label>
         <span class="float-right">
               <input type="text" id="member_id" class="member_id" placeholder="아이디를 입력해주세요."
-                    maxlength="15" autocomplete="off">
+                     maxlength="15" autocomplete="off">
             <span>
               <img class="id_check">
             </span>
@@ -26,7 +26,7 @@
         <label for="member_pw">비밀번호</label>
         <span class="float-right">
             <input type="password" id="member_pw" class="member_pw" placeholder="비밀번호를 입력해주세요."
-                  maxlength="15">
+                   maxlength="15">
             <span>
               <img class="pw_check">
             </span>
@@ -37,7 +37,7 @@
         <label for="member_pw_check">비밀번호확인</label>
         <span class="float-right">
             <input type="password" id="member_pw_check" class="member_pw_check"
-                  placeholder="비밀번호를 입력해주세요." maxlength="15">
+                   placeholder="비밀번호를 입력해주세요." maxlength="15">
             <span>
               <img class="pwchk_check">
             </span>
