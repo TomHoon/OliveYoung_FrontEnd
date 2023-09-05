@@ -1,35 +1,31 @@
 import { createApp } from 'vue';
+import { createStore } from 'vuex';
 import App from './App.vue';
-import DefaultLayout from '@/components/DefaultLayout.vue';
-import Login from '@/components/Login.vue';
-import Join from '@/components/Join.vue';
+import router from '@/router.js'
+import GlobalJs from '@/js/global.js'
 
-import {createWebHistory, createRouter} from 'vue-router'
+// 전역 컴포넌트 등록 (StackLayer)
+import Main from '@/components/Main.vue'
+import TestStack from '@/components/TestStack.vue'
 
-const routes = [
-    {
-        path: '/',
-        component: DefaultLayout
-    },
-    {
-        path: '/login',
-        component: Login
-    },
-    {
-        path: '/join',
-        component: Join
-    },
-];
 
-const router = createRouter({
-    history: createWebHistory(),
-    routes
+const store = createStore({
+    state() {
+        return {
+            mainLayer: [
+                {pageName: 'Main', pageInfo: {temp: '1234'}, transferObj: {test: '1'}}
+            ]
+        };
+    }
 });
 
 const app = createApp(App);
 
-app.component('DefaultLayout', DefaultLayout);
+
+app.component('Main', Main);
+app.component('TestStack', TestStack)
 
 app.use(router);
-
+app.use(store);
+app.use(GlobalJs);
 app.mount('#app');
