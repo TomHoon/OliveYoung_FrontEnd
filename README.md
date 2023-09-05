@@ -1,4 +1,4 @@
-# 🍒OliveYoung [이동하기](http://oliveyoungproject.shop/)
+# 🍒OliveYoung [링크](http://oliveyoungproject.shop/)
 
 ### 프로젝트 주제
 
