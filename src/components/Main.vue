@@ -5,6 +5,7 @@
             
             <div class="top_util">
                 <ul class="menu_list">
+                    <li class="test">테스트</li>
                     <li class="join" @click="goJoin">회원가입</li>
                     <li class="login" @click="goLogin">로그인</li>
                     <li class="cart">장바구니</li>
