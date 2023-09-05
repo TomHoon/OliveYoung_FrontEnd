@@ -10,7 +10,7 @@
                     <li class="cart">장바구니</li>
                     <li class="order">주문배송</li>
                     <li class="customer">고객센터</li>
-                    <li class="store" @click="goDetails()">매장안내</li>
+                    <li class="store" @click="goDetails">매장안내</li>
                 </ul>
             </div>
 
