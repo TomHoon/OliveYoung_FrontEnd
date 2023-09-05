@@ -1,4 +1,4 @@
-# oliveyoung
+# OliveYoung
 
 ## Project setup
 ```
