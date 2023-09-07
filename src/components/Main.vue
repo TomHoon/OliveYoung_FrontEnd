@@ -135,7 +135,7 @@
                                     <br>
                                     많이 구매했어요
                                     <button class="moreBtn" id="crt_more_p002">
-                                        <span>더보기</span>
+                                        <span>더보기</span>ƒ
                                     </button>
                                 </div>
 
@@ -827,7 +827,7 @@
                             <!-- 신상업데이트 끝 -->
 
                             <!-- 주목해야 할 브랜드 시작 -->
-                            <h3 style="font-size:25px; margin-top:40px;">
+                            <h3 style="font-size:25px; margin-top:100px;">
                                 <strong>주목해야 할 브랜드</strong>
                             </h3>
                             <ul class="attention_brand" style="display:flex; justify-content:center;">
@@ -863,12 +863,84 @@
                                 </li>
                             </ul>
 
-                            <div>
-                                <!-- <div style="background-image:url('https://image.oliveyoung.co.kr/uploads/images/display/90000010001/380/6131140391181323767.jpg');"> -->
-
-                                <!-- </div> -->
+                            <div class="attention_product" style="display:flex;">
+                                <div>
+                                    <img src="https://image.oliveyoung.co.kr/uploads/images/display/90000010001/380/2817562983546810098.jpg" alt="">
+                                </div>
                             </div>
                             <!-- 주목해야 할 브랜드 끝 -->
+
+                            <!-- 실시간 view 랭킹 시작 -->
+                            <div class="realtime-view-rank">
+                                <h3>
+                                    <strong>
+                                        <span>실시간 View 랭킹</span>
+                                    </strong>
+                                </h3>
+                                <div class="realtime-view-main" style="display:flex; border-top:1px solid #d8d8d8; margin-top:10px; padding:10px;">
+                                    <ul class="realtime-view-ul" style="flex-grow:1; margin-top:20px;">
+                                        <li class="realtime-img">
+                                            <div>
+                                                <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0018/A00000018791813ko.jpg?l=ko" alt="">
+                                                <h3>
+                                                    <span>씨드비</span>
+                                                </h3>
+                                                <p style="text-align:left;">
+                                                    [심으뜸 PICK] 씨드비 이슬 페미닌 포밍 워시 150ml
+                                                </p>
+                                                <p class="prd_price" style="margin:2px 0 9px 0; text-align:left;">
+                                                    <span class="tx_org">
+                                                        <span class="tx_num">39,900</span>
+                                                        원
+                                                    </span>
+                                                    <span class="tx_cur">
+                                                        <span class="tx_num">27,900</span>
+                                                        원~
+                                                    </span>
+                                                </p>
+                                                <p class="prd_flag" style="text-align:left;line-height:3rem;">
+                                                    <span class="icon_flag sale">세일</span>
+                                                    <span class="icon_flag coupon">쿠폰</span>
+                                                    <span class="icon_flag delivery">오늘드림</span>
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <ul class="ranking-ul" style="height:50px;flex-grow:1; margin-left:100px; margin-top:20px; "> 
+                                        <li class="ranking-li ranking-active">
+                                            <a class="ranking" href="">
+                                                <span style="margin:15px; ">1</span>
+                                                <span>[심으뜸 PICK] 씨드비 이슬 페미닌 포밍 워시 150ml</span>
+                                            </a>
+                                        </li>
+                                        <li class="ranking-li">
+                                            <a class="ranking" href="">
+                                                <span style="margin:15px;">2</span>
+                                                <span>[올영단독/휴대용증정] 아비노 바디로션 532ml+71ml기획</span>
+                                            </a>
+                                        </li>
+                                        <li class="ranking-li">
+                                            <a class="ranking" href="">
+                                                <span style="margin:15px; ">3</span>
+                                                <span>웨이크메이크 소프트 블러링 아이팔레트 10COLOR</span>
+                                            </a>
+                                        </li>
+                                        <li class="ranking-li">
+                                            <a class="ranking" href="">
+                                                <span style="margin:15px; ">4</span>
+                                                <span>[NEW] 클리오 킬커버 하이 글로우 쿠션(본품+하이라이터+리필+퍼프...</span>
+                                            </a>
+                                        </li>
+                                        <li class="ranking-li">
+                                            <a class="ranking" href="">
+                                                <span style="margin:15px; ">5</span>
+                                                <span>[NEW color 추가] 클리오 쉬폰블러틴트</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- 실시간 view 랭킹 끝-->
                         </div>
                     </div>
                 </div>
@@ -2055,5 +2127,68 @@ strong {
     color: #fff;
     background:#000;
     font-size:14px;
+}
+.attention_product {
+    display:flex;
+}
+.attention_product div{
+    margin-top:45px;
+    width:1020px;
+    background-image:url('https://image.oliveyoung.co.kr/uploads/images/display/90000010001/380/2817562983546810098.jpg');
+}
+.realtime-view-rank {
+    display:relative;
+    border-bottom: 1px solid #d8d8d8;
+}
+
+.realtime-view-rank>h3{
+    font-size:32px;
+    margin-top:30px;
+    margin-bottom: 30px;
+}
+.realtime-view-ul{
+    display:flex;
+}
+.realtime-img{
+    flex-grow:1;
+}
+.realtime-img img {
+    width:175px;
+    max-width:175px;
+    max-height:175px;
+    margin-right:20px;
+    float:left;
+}
+.realtime-img h3{
+    text-align:left;
+    color:#777;
+    height:47px;
+    line-height:46px;
+}
+.realtime-img span{
+    
+}
+.ranking {
+    color: #777
+}
+.realtime-view-ul {
+    display:flex;
+    flex-direction: column;
+}
+.realtime-ul li{
+    flex-grow:1;
+}
+.ranking-li {
+    padding:8px;
+    text-align:left;
+}
+.ranking-active {
+    border:1px solid black;
+    border-radius:5px;
+    font-size:18px;
+}
+.ranking-active {
+    color:#333;
+    font-weight:700;
 }
 </style>
