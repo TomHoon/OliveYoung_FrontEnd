@@ -941,6 +941,45 @@
                                 </div>
                             </div>
                             <!-- 실시간 view 랭킹 끝-->
+                            <div class="notice-area">
+                                <div class="notice-tit">
+                                    <h4>공지사항</h4>
+                                    <p>새로운 소식이 없어요</p>
+                                    <a href="">더보기</a>
+                                </div>
+                                <div class="notice-sub">
+                                    <strong>고객센터<br>이용안내</strong>
+                                    <ul class="sub-ul">
+                                        <li style="color:#888;">온라인몰 고객센터</li>
+                                        <img src="https://static.oliveyoung.co.kr/pc-static-root/image/main/img_online_tel.png" alt="">
+                                        <li style="color:#888; margin-top:20px;">매장 고객센터</li>
+                                        <img src="https://static.oliveyoung.co.kr/pc-static-root/image/main/img_offline_tel.png" alt="">
+                                    </ul>
+                                </div>
+                                <div class="notice-onebyone">
+                                    <div style="position:relative">
+                                        <p>고객센터 운영시간[평일 09:00 - 18:00]</p>
+                                        <p>주말 및 공휴일은 1:1문의하기를 이용해주세요.</p>
+                                        <p>업무가 시작되면 바로 처리해 드립니다.</p>
+
+                                        <button class="obo-btn" style="position:absolute; left:0; top:85px;">
+                                            <p style="float:left;">
+                                                <span></span>
+                                            </p>
+                                            <p style="float:left; width:70px; margin-left:10px;line-height:1rem;">1:1 문의하기</p>
+                                        </button>
+                                        <button class="obo-btn" style="position:absolute; right:45px; top:85px;">
+                                            <p style="float:left;">
+                                                <span class="fre"></span>
+                                            </p>
+                                            <p style="float:left; width:76px; margin-left:10px;line-height:1rem;">자주하는 질문</p>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="qr-link">
+                                    <img src="https://static.oliveyoung.co.kr/pc-static-root/image/main/img_mobile_app.png" alt="">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2139,6 +2178,7 @@ strong {
 .realtime-view-rank {
     display:relative;
     border-bottom: 1px solid #d8d8d8;
+    margin-bottom:100px;
 }
 
 .realtime-view-rank>h3{
@@ -2190,5 +2230,99 @@ strong {
 .ranking-active {
     color:#333;
     font-weight:700;
+}
+.notice-area {
+    position:relative;
+    border-top:1px solid black;
+    width:100%;
+    height:246px;
+}
+.notice-tit {
+    width:600px;
+    position:relative;
+    border-bottom:1px solid #d8d8d8;
+    height:60px;
+}
+.notice-tit h4{
+    float:left;
+    text-align: left;
+    width:130px;
+    padding-top: 0.9rem;
+    font-size: 20px;
+}
+.notice-tit p{
+    float:left;
+    width:150px;
+    line-height: 3.5rem;
+    color:#a8a8a8
+}
+.notice-tit a {
+    background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_arrow7x11_2.png") 100% 50% no-repeat;
+    position:absolute;
+    right:0;
+    color:#888;
+    line-height:3.5rem;
+    padding-right: 15px;
+}
+.notice-sub {
+    float:left;
+    width:299px;
+}
+.notice-sub strong{
+    float:left;
+    width: 70px;
+    font-size: 20px;
+    line-height: 2rem;
+    padding-top:1rem;
+}
+.sub-ul {
+    float:left;
+    width:140px;
+    margin-left:32px;
+    margin-top:20px;
+}
+.sub-ul li{
+    text-align: left;
+    padding: 5px;
+}
+.notice-onebyone {
+    float:left;
+    width:300px;
+}
+.notice-onebyone div{
+    margin-top:20px;
+    margin-bottom: 15px;
+}
+.notice-onebyone div p:nth-child(1){
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.notice-onebyone div p{
+    text-align: left;
+}
+.obo-btn:nth-child(2){
+    width: 145px;
+}   
+.obo-btn{
+    background: #ccc;
+    width:120px;
+    height:60px;
+    text-indent: 0!important;
+}
+.obo-btn span{
+    display: inline-block;
+    width:22px;
+    height: 22px;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/main/ico_customer.png") no-repeat;
+}
+
+.fre{
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/main/ico_customer.png") no-repeat !important;
+    background-position: 0 -27px;
+}
+.qr-link {
+    position:absolute;
+    top:0;
+    right: 0;
 }
 </style>
