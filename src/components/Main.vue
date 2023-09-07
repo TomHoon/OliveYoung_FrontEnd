@@ -601,6 +601,278 @@
                     </ul>
                 </div>
                 <!-- 오직 올리브영에서만 끝 -->
+
+                <!-- MD가 추천해요! 시작 -->
+                <div class="main_recommendation_wrap">
+                    <h3 class="main_sub_tit">
+                        <strong>MD가 추천해요!</strong>
+                        <span class="tit-flag ad">
+                            AD
+                        </span>
+                    </h3>
+                    <div>
+                        <!-- <ul class="cate_prd_list no_line horizontal">
+                            <li class="flag">
+                                <div class="prd_info">
+                                    <a href="" class="prd_thumb goodsList">
+                                        <img src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0018/A00000018924805ko.jpg?l=ko" alt="">
+                                    </a>
+                                    <div class="prd_name">
+                                        <a href="" class="goodsList">
+                                            <span class="tx_brand">바이오힐보</span>
+                                            <p class="tx_name">[NEW]바이오힐보 판테셀 리페어시카 크림 50mL + 50mL 기획</p>
+                                        </a>
+                                    </div>
+                                    <p class="prd_price">
+                                        <span class="tx_org">
+                                            <span class="tx_num">67,000</span>
+                                            원
+                                        </span>
+                                        <span class="tx_cur">
+                                            <span class="tx_num">41,280</span>
+                                            원~
+                                        </span>
+                                        <p class="prd_flag">
+                                            <span class="icon_flag sale">세일</span>
+                                            <span class="icon_flag coupon">쿠폰</span>
+                                            <span class="icon_flag delivery">오늘드림</span>
+                                        </p>
+                                    </p>
+                                </div>
+                            </li>
+                        </ul> -->
+                        <ul style="display:flex;">
+                            <li style="width:50%;margin-right:50px;">
+                                <div style="text-align:left;">
+                                    <img style="float:left; margin-right:10px;width:175px; height:175px;" src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0018/A00000018924805ko.jpg?l=ko" alt="">
+                                    <h3 style="text-align:left;font-size:14px;margin-bottom:10px;">
+                                        <strong>바이오힐보</strong>
+                                    </h3>
+                                    <p>
+                                        <span style="font-size:15px;">[NEW] 바이오힐보 판테셀 리페어시카 크림<br/> 50mL + 50mL 기획</span>
+                                    </p>
+                                    <p class="prd_price" style="margin:15px 0 10px 0;">
+                                        <span class="tx_org">
+                                            <span class="tx_num">5,000</span>
+                                            원
+                                        </span>
+                                        <span class="tx_cur">
+                                            <span class="tx_num">3,500</span>
+                                            원~
+                                        </span>
+                                    </p>
+                                    <p class="prd_flag">
+                                        <span class="icon_flag sale">세일</span>
+                                    </p>
+                                </div>
+                            </li>
+                            <li style="width:50%;margin-right:50px;">
+                                <div style="text-align:left;">
+                                    <img style="float:left; margin-right:10px;width:175px; height:175px;" src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0018/A00000018913506ko.jpg?l=ko" alt="">
+                                    <h3 style="text-align:left;font-size:14px;margin-bottom:10px;">
+                                        <strong>메디힐</strong>
+                                    </h3>
+                                    <p>
+                                        <span style="font-size:15px;">[파우치증정]메디힐 레티놀 콜라겐 탄력 패드 100매 (+100매 더블증정 오둥이 기획)</span>
+                                    </p>
+                                    <p class="prd_price" style="margin:15px 0 10px 0;">
+                                        <span class="tx_org">
+                                            <span class="tx_num">39,900</span>
+                                            원
+                                        </span>
+                                        <span class="tx_cur">
+                                            <span class="tx_num">27,900</span>
+                                            원~
+                                        </span>
+                                    </p>
+                                    <p class="prd_flag">
+                                        <span class="icon_flag sale">세일</span>
+                                        <span class="icon_flag coupon">쿠폰</span>
+                                        <span class="icon_flag delivery">오늘드림</span>
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                        <h3 class="main_sub_tit" style="height:40px; margin-top:51px;">
+                            <strong>이 상품 어때요?</strong>
+                        </h3>
+                        <div style="border-top:1px solid #ddd;">
+                            <ul style="display:flex; justify-content:space-between;">
+                                <li style="width:255px;">
+                                    <a href="" style="width:100%; color:#666; min-height:60px; text-decoration:none;">
+                                        <img style="margin-top:25px; max-width:215px; max-height:215px;" src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0014/A00000014780155ko.jpg?l=ko" alt="">
+                                        <h3 style="margin-top:15px; overflow:hidden; height:40px; text-overflow:ellipsis; font-size:14px; font-weight:700; line-height:20px; color:#777!important;">
+                                            <strong>메디힐</strong>
+                                        </h3>
+                                        <p style="padding:10px;">
+                                            <span style="padding:10px; font-size:15px;">[파우치증정]메디힐 레티놀 콜라겐 탄력 패드 100매 (+100매 더블증정 오둥이 기획)</span>
+                                        </p>
+                                    </a>
+                                    <p class="prd_price" style="margin:15px 0 10px 0;">
+                                        <span class="tx_org">
+                                            <span class="tx_num">34,000</span>
+                                            원
+                                        </span>
+                                        <span class="tx_cur">
+                                            <span class="tx_num">26,900</span>
+                                            원~
+                                        </span>
+                                    </p>
+                                    <p class="prd_flag">
+                                        <span class="icon_flag sale">세일</span>
+                                        <span class="icon_flag coupon">쿠폰</span>
+                                        <!-- <span class="icon_flag delivery">오늘드림</span> -->
+                                    </p>
+                                </li>
+                                <li style="width:255px;">
+                                    <a href="" style="width:100%; color:#666; min-height:60px; text-decoration:none;">
+                                        <img style="margin-top:25px; max-width:215px; max-height:215px;" src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0018/A00000018906407ko.jpg?l=ko" alt="">
+                                        <h3 style="margin-top:15px; overflow:hidden; height:40px; text-overflow:ellipsis; font-size:14px; font-weight:700; line-height:20px; color:#777!important;">
+                                            <strong>팁토우</strong>
+                                        </h3>
+                                        <p style="padding:10px;">
+                                            <span style="padding:10px; font-size:15px;">[9/6 하루특가/마테PICK][23FW/NEW] 팁토우 컬러 네일 32종</span>
+                                        </p>
+                                    </a>
+                                    <p class="prd_price" style="margin:15px 0 10px 0;">
+                                        <span class="tx_org">
+                                            <span class="tx_num">14,000</span>
+                                            원
+                                        </span>
+                                        <span class="tx_cur">
+                                            <span class="tx_num">8,8200</span>
+                                            원~
+                                        </span>
+                                    </p>
+                                    <p class="prd_flag">
+                                        <span class="icon_flag sale">세일</span>
+                                        <span class="icon_flag coupon">쿠폰</span>
+                                        <!-- <span class="icon_flag delivery">오늘드림</span> -->
+                                    </p>
+                                </li>
+                                <li style="width:255px;">
+                                    <a href="" style="width:100%; color:#666; min-height:60px; text-decoration:none;">
+                                        <img style="margin-top:25px; max-width:215px; max-height:215px;" src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0018/A00000018914803ko.jpg?l=ko" alt="">
+                                        <h3 style="margin-top:15px; overflow:hidden; height:40px; text-overflow:ellipsis; font-size:14px; font-weight:700; line-height:20px; color:#777!important;">
+                                            <strong>일소</strong>
+                                        </h3>
+                                        <p style="padding:10px;">
+                                            <span style="padding:10px; font-size:15px;">[9월 올영PICK] 일소 네추럴 마일드 클리어 노우즈 팩 10매 (+블랙헤드제거기 증정기획)</span>
+                                        </p>
+                                    </a>
+                                    <p class="prd_price" style="margin:15px 0 10px 0;">
+                                        <span class="tx_org">
+                                            <span class="tx_num">25,000</span>
+                                            원
+                                        </span>
+                                        <span class="tx_cur">
+                                            <span class="tx_num">21,000</span>
+                                            원~
+                                        </span>
+                                    </p>
+                                    <p class="prd_flag">
+                                        <span class="icon_flag sale">세일</span>
+                                        <span class="icon_flag coupon">쿠폰</span>
+                                        <span class="icon_flag delivery">오늘드림</span>
+                                    </p>
+                                </li>
+                                <li style="width:255px;">
+                                    <a href="" style="width:100%; color:#666; min-height:60px; text-decoration:none;">
+                                        <img style="margin-top:25px; max-width:215px; max-height:215px;" src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0018/B00000018945603ko.jpg?l=ko" alt="">
+                                        <h3 style="margin-top:15px; overflow:hidden; height:40px; text-overflow:ellipsis; font-size:14px; font-weight:700; line-height:20px; color:#777!important;">
+                                            <strong>플라이밀</strong>
+                                        </h3>
+                                        <p style="padding:10px;">
+                                            <span style="padding:10px; font-size:15px;">[에이핏PICK] 플라이밀 단백질 쉐이크 45g*7포입 6종 택 1</span>
+                                        </p>
+                                    </a>
+                                    <p class="prd_price" style="margin:36px 0 9px 0;">
+                                        <span class="tx_org">
+                                            <span class="tx_num">39,900</span>
+                                            원
+                                        </span>
+                                        <span class="tx_cur">
+                                            <span class="tx_num">27,900</span>
+                                            원~
+                                        </span>
+                                    </p>
+                                    <p class="prd_flag">
+                                        <span class="icon_flag sale">세일</span>
+                                        <span class="icon_flag coupon">쿠폰</span>
+                                        <!-- <span class="icon_flag delivery">오늘드림</span> -->
+                                    </p>
+                                </li>
+                            </ul>
+                            <!-- 신상업데이트 시작 -->
+                            <div style="margin-top:65px;">
+                                <h3>
+                                    <strong style="font-size:26px; line-height:31px;">신상 업데이트</strong>
+                                </h3>
+                                <div style="">
+                                    <ul style="margin-top:20px; display:flex; gap:20px;">
+                                        <li>
+                                            <img style="width:500px; height:282px; border-radius:4px;" src="https://image.oliveyoung.co.kr/uploads/images/display/90000010001/397/6073230787060096477.jpg" alt="">
+                                            <p style="text-align:left; font-size:20px; color:#131518; font-weight:700; margin-top:10px;">겉부터 속까지 유기농 순면 생리대</p>
+                                            <p style="margin-top:10px; text-align:left; color:#50585f; font-size:14px;">생리 기간에도 가볍고 산뜻한 하루를 보내요</p>
+                                        </li>
+                                        <li>
+                                            <img style="width:500px; height:282px; border-radius:4px;" src="https://image.oliveyoung.co.kr/uploads/images/display/90000010001/397/3195857787535078775.jpg" alt="">
+                                            <p style="text-align:left; font-size:20px; color:#131518; font-weight:700; margin-top:10px;">피부에 수분 부스터를 달아요</p>
+                                            <p style="margin-top:10px; text-align:left; color:#50585f; font-size:14px;">티 없이 맑고 촉촉한 수분 세럼</p>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- 신상업데이트 끝 -->
+
+                            <!-- 주목해야 할 브랜드 시작 -->
+                            <h3 style="font-size:25px; margin-top:40px;">
+                                <strong>주목해야 할 브랜드</strong>
+                            </h3>
+                            <ul class="attention_brand" style="display:flex; justify-content:center;">
+                                <li>
+                                    <a href="">바이오더마</a>
+                                </li>
+                                <li>
+                                    <a href="">혼바디</a>
+                                </li>
+                                <li>
+                                    <a href="">라엘</a>
+                                </li>
+                                <li>
+                                    <a href="">젤리크루</a>
+                                </li>
+                                <li>
+                                    <a href="">에스더포뮬러</a>
+                                </li>
+                                <li>
+                                    <a href="">플라이밀</a>
+                                </li>
+                                <li>
+                                    <a href="">아로마티카</a>
+                                </li>
+                                <li>
+                                    <a href="">라보에이치</a>
+                                </li>
+                                <li>
+                                    <a href="">페라가모</a>
+                                </li>
+                                <li>
+                                    <a href="">리우젤</a>
+                                </li>
+                            </ul>
+
+                            <div>
+                                <!-- <div style="background-image:url('https://image.oliveyoung.co.kr/uploads/images/display/90000010001/380/6131140391181323767.jpg');"> -->
+
+                                <!-- </div> -->
+                            </div>
+                            <!-- 주목해야 할 브랜드 끝 -->
+                        </div>
+                    </div>
+                </div>
+                <!-- MD가 추천해요! 끝 -->
             </div>
         </div>
         <!-- slick 끝 -->
@@ -1663,5 +1935,125 @@ strong {
     position: absolute;
     top:97px;
     left:10px;
+}
+.main_recommendation_wrap {
+    padding: 0 20px 50px;
+    margin-top:100px;
+    text-align:center;
+}
+.main_recommendation_wrap .main_sub_tit {
+    position: relative;
+    display:inline-block;
+    margin-top:0;
+}
+.main_sub_tit {
+    height:40px;
+    margin:51px 0 8px;
+    font-size:26px;
+    color:#000;
+    text-align:center;
+    line-height:40px;
+}
+.ad{
+    color: #757d86;
+    background-color:#f0f1f4;
+}
+.tit-flag {
+    position:absolute;
+    top:8px;
+    margin-left:12px;
+    padding: 3px 7px;
+    border-radius: 2px;
+    font-size:14px;
+    line-height:17px;
+}
+.main_recommendation_wrap > div {
+    margin-top: 70px;
+}
+.cate_prd_list .no_line{
+    border-bottom: 0;
+}
+.horizontal > li {
+    margin-right:40px;
+    width:450px;
+    align-items:center;
+    min-height: 175px;
+    padding:0 0 0 195px;
+}
+.horizontal>li .prd_info {
+    flex: 1;
+    text-align:left;
+    font-size:14px;
+}
+.prd_thumb {
+    position: absolute;
+    left: 0;
+    top:0;
+    width:175px;
+    height:175px;
+    /* display:block; */
+}
+.prd_thumb img {
+    max-width:175px;
+    max-height: 175px;
+    width:auto!important;
+    height:auto!important;
+}
+.prd_info .prd_name {
+    margin-top:0;
+    display:block;
+    min-height:62px;
+    margin:8px 0 0;
+    text-decoration:none;
+}
+.prd_info .prd_name > a {
+    display:block;
+}
+.prd_name .tx_brand {
+    display: block;
+    height: 20px;
+    line-height: 20px;
+    color:#777;
+    font-weight: 700;
+}
+.prd_name .tx_name {
+    text-align: left;
+    margin-top:5px;
+    overflow: hidden;
+    height:40px;
+    padding:2px 0;
+    line-height:18px;
+    text-overflow: ellipsis;
+    color:#000;
+    font-size:14px;
+}
+.prd_info .prd_price {
+    height: auto;
+    margin-top: 4px;
+    line-height: normal;
+}
+.attention_brand>li {
+    margin-right:8px;
+    flex-shrink:0;
+    width:auto;
+    position:relative;
+    height:100%;
+    margin-top:30px;
+}
+.attention_brand>li>a {
+    border:1px solid #dadde0;
+    border-radius: 20px;
+    padding:8px 15px;
+    color: #757d86;
+    background:#fff;
+    font-size:14px;
+}
+.attention_brand>li:nth-child(1)>a {
+    border:1px solid #dadde0;
+    border-radius: 20px;
+    padding:8px 15px;
+    color: #fff;
+    background:#000;
+    font-size:14px;
 }
 </style>
