@@ -15,7 +15,7 @@
         <label for="member_id">아이디</label>
         <span class="float-right">
               <input type="text" id="member_id" class="member_id" placeholder="아이디를 입력해주세요."
-                     maxlength="15" autocomplete="off">
+                     maxlength="15" autocomplete="off" v-model="mid">
             <span>
               <img class="id_check">
             </span>
@@ -26,7 +26,7 @@
         <label for="member_pw">비밀번호</label>
         <span class="float-right">
             <input type="password" id="member_pw" class="member_pw" placeholder="비밀번호를 입력해주세요."
-                   maxlength="15">
+                   maxlength="15" v-model="mpw">
             <span>
               <img class="pw_check">
             </span>
@@ -37,7 +37,7 @@
         <label for="member_pw_check">비밀번호확인</label>
         <span class="float-right">
             <input type="password" id="member_pw_check" class="member_pw_check"
-                   placeholder="비밀번호를 입력해주세요." maxlength="15">
+                   placeholder="비밀번호를 입력해주세요." maxlength="15" v-model="mpwCheck">
             <span>
               <img class="pwchk_check">
             </span>
@@ -46,24 +46,82 @@
       <div class="nickname_form">
         <label for="member_nickname">닉네임</label>
         <span class="float-right">
-            <input type="text" id="member_nickname" class="member_nickname" autocomplete="off">
+            <input type="text" id="member_nickname" class="member_nickname" autocomplete="off" v-model="nickname">
           </span>
       </div>
       <div class="email_form">
         <label for="member_email">이메일</label>
         <span class="float-right">
-            <input type="text" id="member_email" class="member_email" autocomplete="off">
+            <input type="text" id="member_email" class="member_email" autocomplete="off" v-model="email">
           </span>
       </div>
       <input type="hidden" >
       <div class="buttons">
-        <button class="join_btn">가입</button>
+        <button class="join_btn" @click="joinMember()">가입</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+export default {
+  data() {
+    return {
+        mid : "",
+        mpw : "",
+        mpwCheck :  "",
+        nickname : "",
+        email : "",
+    }
+  },
+  methods: {
+      joinMember() {
+        this.$axios({
+          method:'post',
+          url:'/checkExist',
+          data : {
+            mid : this.mid,
+          }
+        }).then((result) => {
+          console.log(result.data)
+          if(result.data == 1){
+            alert('아이디가 중복됩니다.')
+            return false
+          }else{
+            this.$axios({
+              method:'post',
+              url:'/checkExistNick',
+              data : {
+                nickname : this.nickname,
+              }
+            }).then((result) => {
+              console.log(result.data)
+              if(result.data == 1){
+                alert('닉네임이 중복됩니다.')
+                return false
+              }else{
+                 this.$axios({
+                  method:'post',
+                  url:'/joinMember',
+                  data : {
+                    mid : this.mid,
+                    mpw : this.mpw,
+                    nickname : this.nickname,
+                    email : this.email,
+                  }
+                }).then((result) => {
+                  console.log(result.data)
+                })
+              }
+            })
+           
+          }
+        })
+        
+        
+      }
+  }
+}
 </script>
 
 <style scoped>
