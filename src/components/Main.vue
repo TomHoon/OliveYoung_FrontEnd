@@ -12,6 +12,7 @@
                     <li class="order">주문배송</li>
                     <li class="customer">고객센터</li>
                     <li class="store" @click="goDetails">매장안내</li>
+                    <li class="ProductInsert" @click="ProductInsert">상품등록</li>
                 </ul>
             </div>
 
@@ -1099,6 +1100,9 @@ export default {
     },
     backPage() {
       this.$backPage({test: 'hello'})
+    },
+    ProductInsert() {
+      this.$router.push('/ProductInsert');
     },
   }
 }
