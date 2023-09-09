@@ -37,8 +37,16 @@
       <table>
         <tbody>
         <tr>
-          <td class="product_tit">제품종류</td>
-          <td class="product_txt"><input type="text" id="product_type" class="product_type" autocomplete="off"><span class="product_txt_ex">ex) 스킨, 로션, 수분크림 등</span></td>
+          <td class="product_tit">제품대분류</td>
+          <td class="product_txt"><input type="text" id="product_major_category" class="product_major_category" autocomplete="off"></td>
+        </tr>
+        <tr>
+          <td class="product_tit">제품중분류</td>
+          <td class="product_txt"><input type="text" id="product_middle_category" class="product_middle_category" autocomplete="off"></td>
+        </tr>
+        <tr>
+          <td class="product_tit">제품소분류</td>
+          <td class="product_txt"><input type="text" id="product_small_category" class="product_small_category" autocomplete="off"></td>
         </tr>
         <tr>
           <td class="product_tit">제품회사</td>
@@ -102,7 +110,7 @@
     </div>
     <div class="product_button">
       <button class="back btn" @click="backPage">뒤로가기</button>
-      <button class="productinsert btn" @click="productinsert">제품등록</button>
+      <button class="productInsert btn" @click="productInsert">제품등록</button>
     </div>
   </div>
 </template>
@@ -111,9 +119,9 @@ export default {
 
   methods: {
     backPage() {
-      this.$backPage({test: 'hello'})
+      this.$backPage();
     },
-    productinsert() {
+    productInsert() {
       alert("제품등록");
     },
   }
