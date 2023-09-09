@@ -18,6 +18,7 @@
 ### DB 구성
 
 ### API 명세
+###### [자세히 보기](https://docs.google.com/spreadsheets/d/10u4TINUpe2z33iua4klD5DUh89vuUKKeOqobuQvKNsA/edit?usp=sharing)
 
 ### Lighthouse Score
 
