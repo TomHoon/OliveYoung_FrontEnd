@@ -146,7 +146,7 @@
                                             <div class="slick-track" style="opacity:1; width:2550px">
                                                 <li class="slick-slide slick-current slick-active" style="width:510px; position:relative;left:0px;top:0px;z-index:999;opacity:1;">
                                                     <ul class="curation_list">
-                                                        <li class="curation_item">
+                                                        <li class="curation_item" @click="goDetail('p001')">
                                                             <a href="" class="item a_detail">
                                                                 <span class="thumb_flag best">
                                                                     베스트
@@ -1088,6 +1088,9 @@ export default {
     }
   },
   methods: {
+    goDetail(prdSeq) {
+        this.$router.push('/prdDetail');
+    },
     goLogin() {
         this.$router.push('/login');
     },

@@ -4,6 +4,7 @@ import DefaultLayout from "@/components/DefaultLayout";
 import Login from '@/components/Login.vue';
 import Join from '@/components/Join.vue';
 import ProductInsert from '@/components/Product/ProductInsert.vue';
+import ProductDetail from '@/components/Product/ProductDetail.vue';
 
 const routes = [
     {
@@ -21,6 +22,10 @@ const routes = [
     {
         path: '/ProductInsert',
         component: ProductInsert
+    },
+    {
+        path: '/prdDetail',
+        component: ProductDetail
     },
 ];
 
