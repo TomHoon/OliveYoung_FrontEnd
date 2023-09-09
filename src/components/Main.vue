@@ -962,16 +962,16 @@
                                 <div class="notice-onebyone">
                                     <div style="position:relative">
                                         <p>고객센터 운영시간[평일 09:00 - 18:00]</p>
-                                        <p>주말 및 공휴일은 1:1문의하기를 이용해주세요.</p>
+                                        <p>주말 및 공휴일은 1:1문의하기를 이용해주세요.</p>
                                         <p>업무가 시작되면 바로 처리해 드립니다.</p>
 
-                                        <button class="obo-btn" style="position:absolute; left:0; top:85px;">
+                                        <button class="obo-btn" style="position:absolute; left:0; top:102px;">
                                             <p style="float:left;">
                                                 <span></span>
                                             </p>
                                             <p style="float:left; width:70px; margin-left:10px;line-height:1rem;">1:1 문의하기</p>
                                         </button>
-                                        <button class="obo-btn" style="position:absolute; right:45px; top:85px;">
+                                        <button class="obo-btn" style="position:absolute; right:45px; top:102px;">
                                             <p style="float:left;">
                                                 <span class="fre"></span>
                                             </p>
@@ -2342,7 +2342,7 @@ strong {
 }
 .notice-tit p{
     float:left;
-    width:150px;
+    width:156px;
     line-height: 3.5rem;
     color:#a8a8a8
 }
@@ -2360,7 +2360,7 @@ strong {
 }
 .notice-sub strong{
     float:left;
-    width: 70px;
+    width: 82px;
     font-size: 20px;
     line-height: 2rem;
     padding-top:1rem;
