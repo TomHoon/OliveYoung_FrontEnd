@@ -13,7 +13,7 @@
   <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
 </div>
 
-### 아키텍쳐 시각화
+### 아키텍처 시각화
 
 ### DB 구성
 
