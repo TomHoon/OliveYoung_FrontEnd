@@ -97,13 +97,134 @@
 
         <!-- 로그인 시작 -->
         <div class="login-wrapper add-margin-top">
-            <div class="login-area">
-                <div class="login-tit">
-                    <h3>로그인</h3>
+            <div class="login-area-wrapper">
+                <div class="login-area">
+                    <div class="login-tit">
+                        <h2 class="add-text-align">로그인</h2>
+                        <p class="add-text-align">올리브영의 다양한 서비스와 혜택을 누리세요.</p>
+                    </div>
                 </div>
+                
+                <form class="login-input-wrapper">
+                    <div class="login-input-area">
+                        <ul class="login-input-ul">
+                            <li class="login-input-li">
+                                <!-- <label for="">CJ ONE 통합회원 아이디 입력</label> -->
+                                <input type="text" style="width:382px!important" class="input-id-area" placeholder="CJ ONE 통합회원 아이디 입력">
+                            </li>
+                            <li class="login-input-li">
+                                <!-- <label for="">CJ ONE 통합회원 아이디 입력</label> -->
+                                <input style="width:382px!important" type="password" class="input-id-area" placeholder="비밀번호 (8~12자 영문자+숫자+특수문자)">
+                            </li>
+                        </ul>
+
+                        <div class="save-id-btns">
+                            <div class="save">
+                                <input type="checkbox">
+                                <label for="">아이디저장</label>
+                            </div>
+                            <div class="link">
+                                <a class="id-link" href="">아이디 찾기</a>
+                                <a class="pw-link" href="">비밀번호 찾기</a>
+                            </div>
+                        </div>
+
+                        <div class="login-btn-area">
+                            <button class="login-btn">로그인</button>
+                        </div>
+
+                        <div class="kakao-area">
+                            <p>카카오로 올리브영 간편하게 시작하기</p>
+                            <a href="">
+                                <span class="icon">
+                                    카카오로 시작하기
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
         <!-- 로그인 끝 -->
+        <!-- 푸터시작 -->
+        <div class="footer" style="margin-top:70px;">
+            <div class="conts1">
+                <ul class="footer-ul">
+                    <li>회사소개</li>
+                    <li>채용안내</li>
+                    <li>가맹점 개설문의</li>
+                    <li>상품입점 및 제휴문의</li>
+                    <li>사이버 감사실</li>
+                    <li>고객센터</li>
+                </ul>
+            </div>
+            <div class="conts2">
+                <div class="conts2-ul-wrapper">
+                    <ul class="conts2-ul">
+                        <li>
+                            <p class="conts2-ul-p">
+                                <a href="">
+                                    <img style="width:146px; height:24px;" src="https://static.oliveyoung.co.kr/pc-static-root/image/footer/foot_logo.png" alt="">
+                                </a>
+                            </p>
+                        </li>
+                        <li>
+                            <h3 class="conts2-ul-h3">씨제이 올리브영 주식회사</h3>
+                            <p>
+                                대표이사: 이동훈|사업자등록번호:809-81-22241
+                                <br>
+                                주소 : (12442) 서울특별시 강동구 강동대로 412, 33층 
+                                <br>
+                                호스팅사업자:cafe24
+                                <br>
+                                통신판매업신고번호:14-231-2341
+                                <br>
+                                이메일:gnsdl9079@gmail.com
+
+                            </p>
+                            <p>
+                            </p>
+                        </li>
+                        <li style="margin:45px 0 0 25px;">
+                            <a class="conts2-ul-lawlist" href="">
+                                이용약관 법적고지
+                            </a>
+                            <a class="conts2-ul-lawlist active-lawlist" href="">
+                                개인정보처리방침
+                            </a>
+                            <a class="conts2-ul-lawlist" href="">
+                                청소년처리방침
+                            </a>
+                            <a class="conts2-ul-lawlist" href="">
+                                영상정보처리기기 운영/관리방침
+                            </a>
+                            <a class="conts2-ul-lawlist" href="">
+                                이메일 무단수집거부
+                            </a>
+                        </li>
+                        <li style="margin:45px 0 0 25px;">
+                            <a class="conts2-ul-lawlist active-lawlist" style="color:#000" href="">
+                                하나은행 구매안전 서비스
+                            </a>
+                            <a class="conts2-ul-lawlist" href="">
+                                <p>
+                                    올리브영은 현금 결제한 금액에 대해
+                                    <br>
+                                    하나은행과 채무지급보증 계약을체결
+                                    <br>
+                                    하여 안전한 거래를 보장하고 있습니다
+                                    <br>
+                                </p>
+                            </a>
+                            <a style="color:#9a9a9a; font-size:14px; position:absolute; bottom:50px;" href="">
+                                서비스가입사실확인 >
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- 푸터끝 -->
       </div>
 </template>
 <script>
@@ -1480,22 +1601,116 @@ strong {
 .active-lawlist { 
     font-weight: 700;
 }
+/* 로그인 시작 */
 .login-wrapper {
     margin-top:40px;
     width: 1020px;
     height:auto;
     margin:0 auto;
-    background:#f6f6f6
+    background:#f6f6f6;
 }
-.login-area {
+.login-area-wrapper {
+    padding-top: 140px;
+    padding-bottom: 140px;
     width:850px;
     margin:40px auto 0 auto;
     background:#ffffff;
 }
 .login-tit {
-    position:relative;
+    width: 510px;
+    margin:0 auto;
 }
-.add-margin-top {
+.login-tit h2{
+    font-size: 30px;
+}
+.login-tit p{
+    font-size: 18px;
+    color:#888;
+    line-height:30px;
+}
+.add-text-align {
+    text-align: center;
+}
+.login-input-area {
+    width:510px;
+    margin:0 auto;
+}
+.login-input-ul {
+    margin-top:20px;
+}
+.login-input-li:nth-child(1) {
+    border:1px solid #d0d0d0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 10px;
+}
+.login-input-li:nth-child(2) {
+    border:1px solid #d0d0d0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 10px;
+}
+.save-id-btns {
+    margin-top:30px;
+}
+.save {
+    float:left;
+    width:300px;
+    height: 20px;
+}
+.save label {
+    margin-left: 10px;
+    color:#888;
+}
+a {
+    color:#888;
+}
+.id-link {
+    font-size:14px;
+}
+.pw-link {
+    margin-left:10px;
+    font-size:14px;
+    padding:10px;
+    background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/bar_1x14.png") 0 50% no-repeat;
+}
+.login-btn-area {
+    margin-top: 35px;
+    width: 100%;
+}
+.login-btn {
+    width: 100%!important;
+    text-indent: 0!important;
+    height:60px;
+    background:#9bce26;
+    font-size: 24px;
+    border-radius: 0;
+    font-weight: 400;
     
 }
+.kakao-area {
+    margin-top: 40px;
+    color:#888;
+    font-size: 14px;
+}
+.kakao-area p {
+    display:inline-block;
+}
+.kakao-area a {
+    float:right;
+    background-color: #f9e003;
+    border-radius: 5px;
+    width: 173px;
+    height: 40px;
+    padding: 13px;
+}
+.kakao-area a span{
+    padding:0 0 0 26px;
+    background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/logo_kakao_40.png") 0 0/20px auto no-repeat;
+    margin-bottom:50px;
+}
+/* 로그인 끝 */
 </style>
+
+
+
