@@ -878,7 +878,7 @@
                                         <span>실시간 View 랭킹</span>
                                     </strong>
                                 </h3>
-                                <div class="realtime-view-main" style="display:flex; border-top:1px solid #d8d8d8; margin-top:10px; padding:10px;">
+                                <div class="realtime-view-main" style="display:flex; border-top:1px solid #d8d8d8;margin-bottom: 41px; margin-top:10px; padding:10px;">
                                     <ul class="realtime-view-ul" style="flex-grow:1; margin-top:20px;">
                                         <li class="realtime-img">
                                             <div>
@@ -2323,6 +2323,7 @@ strong {
     font-weight:700;
 }
 .notice-area {
+    margin-top:97px;
     position:relative;
     border-top:1px solid black;
     width:100%;
