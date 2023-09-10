@@ -110,11 +110,11 @@
                         <ul class="login-input-ul">
                             <li class="login-input-li">
                                 <!-- <label for="">CJ ONE 통합회원 아이디 입력</label> -->
-                                <input type="text" style="width:382px!important" class="input-id-area" placeholder="CJ ONE 통합회원 아이디 입력">
+                                <input type="text" style="width:382px!important" class="input-id-area" placeholder="CJ ONE 통합회원 아이디 입력" v-model="mid">
                             </li>
                             <li class="login-input-li">
                                 <!-- <label for="">CJ ONE 통합회원 아이디 입력</label> -->
-                                <input style="width:382px!important" type="password" class="input-id-area" placeholder="비밀번호 (8~12자 영문자+숫자+특수문자)">
+                                <input style="width:382px!important" type="password" class="input-id-area" placeholder="비밀번호 (8~12자 영문자+숫자+특수문자)" v-model="mpw">
                             </li>
                         </ul>
 
@@ -130,7 +130,7 @@
                         </div>
 
                         <div class="login-btn-area">
-                            <button class="login-btn">로그인</button>
+                            <div class="login-btn" @click="fnLogin">로그인</div>
                         </div>
 
                         <div class="kakao-area">
@@ -228,7 +228,49 @@
       </div>
 </template>
 <script>
-    
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      mid: '',
+      mpw: '',
+    };
+  },
+  methods: {
+    fnLogin() {
+      let 로그인 = {
+        mid: this.mid,
+        mpw: this.mpw
+      }
+      if(this.mid == ''){
+        alert("아이디를 입력해주세요.")
+        return false;
+      }
+      if(this.mpw =='') {
+        alert("비밀번호를 입력해주세요.")
+        return false;
+      }
+
+      axios.post("/login", 로그인)
+          .then((res) => {
+            console.log(res.data);
+            console.log(res);
+            if (res.data == 1) {
+              alert("아이디 또는 비밀번호가 틀렸습니다.\n다시 입력해주세요.");
+            }else {
+              //this.$pushContents('Main');
+              alert("로그인");
+            }
+          }).catch((err) => {
+        if (err.response) {
+          alert("아이디 또는 비밀번호가 틀렸습니다.\n다시 입력해주세요2.");
+        }
+      })
+    }
+  }
+}
+
 </script>
 <style scoped>
 body {
@@ -246,6 +288,7 @@ a, address, blockquote, body, dd, div, dl, dt, em, fieldset, form, h1, h2, h3, h
     margin: 0;
     padding: 0;
     border: 0;
+
 }
 
 .wrapper {
@@ -322,6 +365,7 @@ a, address, blockquote, body, dd, div, dl, dt, em, fieldset, form, h1, h2, h3, h
     background-color:transparent;
     border:0;
     height: 40px;
+
 }
 button {
     border:0;
@@ -1686,7 +1730,10 @@ a {
     font-size: 24px;
     border-radius: 0;
     font-weight: 400;
-    
+    cursor: pointer;
+    text-align:center;
+    color: #fff;
+    line-height: 60px;
 }
 .kakao-area {
     margin-top: 40px;
