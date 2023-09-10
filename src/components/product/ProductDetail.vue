@@ -91,6 +91,7 @@
                             </a>
                         </li>
                 </ul>
+
             </div>
         </div>
         <!-- GNB끝 -->
@@ -118,7 +119,68 @@
                 </div>
             </div>
         </div>
-  </div>
+
+        <!-- 이미지 영역 시작 -->
+        <div class="product-detail-wrapper">
+            <div class="product-detail">
+                <div class="left-area">
+                    <div class="img-area">
+                        <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0018/B00000018987601ko.jpg?l=ko" alt="">
+                    </div>
+                    <ul class="left-area-mini">
+                        <li>
+                            <a href="">
+                                <img src="https://image.oliveyoung.co.kr/uploads/images/goods/85/10/0000/0018/B00000018987601ko.jpg?l=ko" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="right-area">
+                    <p class="product-info">
+                        <a href="">네스프레소</a>
+                    </p>
+                    <p class="product-info-main-tit">
+                        네스프레소 오리지널 스타터팩 에센자미니<br>
+                        C30 에스프레소 캡슐커피머신 화이트
+                    </p>
+                    <p class="product-price-info">
+                        <span class="bf-price">228,000원</span>
+                        <span class="aft-price">193,800원</span>
+                        <span class="advantage-info">혜택정보</span>
+                    </p>
+                    <p class="icon-area">
+                        <span class="coupon-icon">
+                            쿠폰
+                        </span>
+                    </p>
+                    <div class="watcher-area">
+                        <span class="watcher">
+                            <span>3</span>
+                            명이 보고있어요
+                        </span>
+                    </div>
+                    <div class="prd-more-info">
+                        <div class="row">
+                            <p class="prd-more-tit">
+                                배송정보
+                                <a href=""></a>
+                            </p>
+                            <ul class="delivery-info">
+                                <li>
+                                    <span>일반배송</span>
+                                    <div>
+                                        3,000원 (30,000원 이상 무료배송) <br>
+                                        <b>업체배송</b>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 이미지 영역 끝 -->
+</div>
 </template>
 
 <script>
@@ -1552,5 +1614,104 @@ a {
     border:1px solid #e5e5e5;
     border: 1px solid #e5e5e5;
     background: url(https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_arrow_down7x5.png) 50% 50% no-repeat;
+}
+.product-detail-wrapper {
+    margin:0 auto;
+    width:1020px;
+    height: auto;
+}
+.product-detail {
+    margin-top:40px;
+}
+.img-area img{
+    width:510px;
+    height: 510px;
+}
+.left-area {
+    width:510px;
+    float:left;
+}
+.left-area-mini {
+    margin-top: 30px;
+    display:flex;
+    justify-content:center;
+}
+.right-area {
+    width:510px;
+    float:right;
+    padding-left: 64px;
+}
+
+.product-info a{
+    color: #000;
+    font-size:17px;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_link_arrow_black.png") right 5px/5px auto no-repeat;
+    padding-right: 10px;
+}
+.product-info-main-tit {
+    margin-top:15px;
+    font-size:25px;
+}
+.product-price-info {
+    position:relative;
+    margin-top: 30px;
+}
+.bf-price {
+    text-decoration: line-through;
+    font-size:16px;
+    color:#a8a8a8;
+}
+.aft-price {
+    color:#e02020;
+    font-size:28px;
+    margin-left:10px;
+    font-weight:700;
+}
+.advantage-info {
+    color:#9a9a9a;
+    margin-left:10px;
+}
+.advantage-info:after {
+    content: "";
+    transform: rotate(180deg);
+    position: absolute;
+    left: 276px;
+    top: 12px;
+    width: 12px;
+    height: 12px;
+    background: url(https://static.oliveyoung.co.kr/pc-static-root/image/product/icon_sale_arrow.png) 0 0/12px auto no-repeat;
+}
+.icon-area {
+    margin-top: 10px;
+}
+.coupon-icon {
+    color: #fff !important;
+    font-size:13px;
+    padding:5px;
+    display: block;
+    width: 56px;
+    text-align: center;
+    border-radius: 11px;
+    background: #9bce26;
+}
+.watcher-area {
+    margin-top:10px;
+}
+.watcher {
+    font-size:14px;
+    color:#f27370;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/curation/ico_viewEye.png") center left 4px/18px auto no-repeat;
+    padding-left: 25px;
+}
+.prd-more-info {
+    margin-top:25px;
+}
+.prd-more-tit a {
+    text-indent: -9999px;
+    vertical-align: top;
+    display: inline-block;
+    background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_notice_gray.png") 0 0/17px auto no-repeat;
+    width:17px;
+    height:17px;
 }
 </style>
