@@ -1,20 +1,15 @@
 import { createWebHistory, createRouter } from 'vue-router';
 
 import DefaultLayout from "@/components/DefaultLayout";
-import Login from '@/components/Login.vue';
 import Join from '@/components/Join.vue';
-import ProductInsert from '@/components/Product/ProductInsert.vue';
-import ProductDetail from '@/components/Product/ProductDetail.vue';
-import LoginRenewal from '@/components/Member/LoginRenewal.vue';
+import ProductInsert from '@/components/product/ProductInsert.vue';
+import ProductDetail from '@/components/product/ProductDetail.vue';
+import Login from '@/components/member/Login.vue';
 
 const routes = [
     {
         path: '/',
         component: DefaultLayout
-    },
-    {
-        path: '/login',
-        component: Login
     },
     {
         path: '/join',
@@ -29,8 +24,8 @@ const routes = [
         component: ProductDetail
     },
     {
-        path: '/loginRenewal',
-        component: LoginRenewal
+        path: '/Login',
+        component: Login
     },
 ];
 

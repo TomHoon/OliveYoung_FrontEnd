@@ -6,7 +6,7 @@ import GlobalJs from '@/js/global.js'
 
 // StackLayer 컴포넌트 등록
 import Main from '@/components/Main.vue'
-import ProductDetail from '@/components/Product/ProductDetail.vue'
+import ProductDetail from '@/components/product/ProductDetail.vue'
 import TestStack from '@/components/TestStack.vue'
 
 
