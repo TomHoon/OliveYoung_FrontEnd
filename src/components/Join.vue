@@ -80,14 +80,17 @@ export default {
     }
   },
   methods: {
-      joinMember() {
+      async joinMember() {
         /**
          * TODO
          * Promise All로 바꿔주기
          */
-        let {아이디중복데이터} = axios.post('/checkExist', {mid: this.mid});
-        let {닉네임중복데이터} = axios.post('/checkExistNick', {nickname: this.nickname});
-        
+        let {data:아이디중복데이터} = axios.post('/checkExist', {mid: this.joinObj.mid});
+        let {data:닉네임중복데이터} = axios.post('/checkExistNick', {nickname: this.joinObj.nickname});
+        // Promise.all([
+        //   axios.post('/checkExistNick', {nickname: this.nickname}),
+        //   axios.post('/checkExist', {mid: this.mid})
+        // ]).then(res => console.log(res[0], 'res[1] : ', res[1]));
         if (아이디중복데이터 == 1) {
           alert('아이디가 중복됩니다.');
           return;
@@ -104,6 +107,8 @@ export default {
         
         let {가입결과값} = axios.post('/joinMember', param);
         console.log('가입결과값 : ', 가입결과값);
+
+
 
     /*     this.$axios({
           method:'post',
