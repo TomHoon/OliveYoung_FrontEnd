@@ -18,7 +18,7 @@
 
             <div class="header_inner">
                 <h1>
-                    <a href="#">
+                    <a href="/">
                         <img src="https://static.oliveyoung.co.kr/pc-static-root/image/comm/h1_logo.png" alt="올리브영">
                     </a>
                 </h1>
