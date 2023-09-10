@@ -25,7 +25,7 @@
                     <div class="placeholder_area">
                         <input type="text" placeholder="검색어를 입력해주세요">
                     </div>
-                    <button id="searchSubmit">검색</button>
+                    <button class="search-btn" id="searchSubmit">검색</button>
                 </div>
                 <ul class="mymenu-area">
                     <li class="delivery" id="todayDeliveryContainer">
@@ -106,7 +106,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="page-nav-a" href="">
+                            <a class="page-nav-a" href="">원
                                 트리트먼트/팩
                             </a>
                         </li>
@@ -167,14 +167,54 @@
                             </p>
                             <ul class="delivery-info">
                                 <li>
-                                    <span>일반배송</span>
-                                    <div>
+                                    <span style="display:inline-block;vertical-align:top;">일반배송</span>
+                                    <div class="delivery-div">
                                         3,000원 (30,000원 이상 무료배송) <br>
-                                        <b>업체배송</b>
+                                        <b class="dt1">업체배송</b>
+                                        <b class="dt2">합배송불가</b>
+                                        <p class="dt3">평균 3일 이내 배송</p>
                                     </div>
                                 </li>
                             </ul>
                         </div>
+                        <div class="row">
+                            <p class="prd-sub-tit2">
+                                결제혜택
+                            </p>
+                            <div class="benefit-list">
+                                <p>
+                                    THE CJ 카드 추가 10% 할인
+                                    <a class="info-tab1" href=""></a>
+                                </p>
+                                <p>
+                                    CJ ONE 포인트 최대 1% 적립 예상
+                                    <a class="info-tab1" href=""></a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="prd-select-list">
+                        <a href="" class="prd-select-area">
+                            상품을 선택해주세요
+                        </a>
+                    </div>
+                    <div class="prd-price-total">
+                        <span class="prd-price1">
+                            상품금액합계
+                        </span>
+                        <span class="prd-price2">0원</span>
+                    </div>
+                    <div class="buy-btns">
+                        <button class="cart-btn">
+                            장바구니
+                        </button>
+                        <button class="cart-btn2">
+                            바로구매
+                        </button>
+                        <button class="cart-btn3">
+                        </button>
+                        <button class="cart-btn4">
+                        </button>
                     </div>
                 </div>
             </div>
@@ -282,12 +322,12 @@ a, address, blockquote, body, dd, div, dl, dt, em, fieldset, form, h1, h2, h3, h
     border:0;
     height: 40px;
 }
-button {
+.search-btn {
     border:0;
     text-align:center;
     color: #fff;
     text-indent:100px;
-}
+} 
 .header_inner .mymenu-area{
     float:right;
     margin-top: 10px;
@@ -1714,4 +1754,154 @@ a {
     width:17px;
     height:17px;
 }
+.delivery-info {
+    margin-top: 10px;
+}
+.delivery-info li{
+    display:inline-block;
+}
+.delivery-div {
+    display:inline-block;
+    margin-left:10px;
+}
+.dt1 {
+    position: relative;
+}
+.dt1:after {
+    content: "";
+    top: 3px;
+    width: 1px;
+    left: 59px;
+    height: 12px;
+    background: #b2b2b2;
+    position: absolute;
+}
+.dt2 {
+    position: relative;
+    margin-left: 10px;
+}
+.dt2:after {
+    content: "";
+    top: 3px;
+    width: 1px;
+    left: 73px;
+    height: 12px;
+    background: #b2b2b2;
+    position: absolute;
+}
+.dt3 {
+    display:inline-block;
+    margin-left:10px;
+}
+.prd-more-info .row:nth-child(2) {
+    margin-top: 17px;
+    border-top:1px solid #ddd;
+    border-bottom:1px solid #ddd;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.prd-sub-tit2 {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.benefit-list p:nth-child(1) {
+    margin-bottom: 5px;
+}
+.benefit-list p:nth-child(2) {
+
+}
+.info-tab1 {
+    text-indent: -9999px;
+    width: 17px;
+    height: 17px;
+    display: inline-block;
+    background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_notice_gray.png") 0 0/17px auto no-repeat;
+}
+.info-tab2 {
+    text-indent: -9999px;
+    width: 17px;
+    height: 17px;
+    display: inline-block;
+    background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_notice_gray.png") 0 0/17px auto no-repeat;
+}
+.prd-select-list {
+    margin-top: 20px;
+    width:100%;
+    height:48px;
+}
+.prd-select-area {
+    display: block;
+    position:relative;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    color: #000 !important;
+    border-radius: 5px;
+}
+.prd-select-area:after {
+    content: "";
+    position: absolute;
+    right:10px;
+    top:14px;
+    width:10px;
+    height:6px;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/product/ico_option_select.png");
+    background-size: 10px auto;
+    background-position: 0 0;
+}
+.prd-price-total {
+    width:100%;
+    margin-top: 20px;
+    padding:10px 10px 25px 10px;
+    height: auto;
+    border-bottom: 2px solid #f27370;
+    color:#f27370;
+}
+.prd-price1 {
+    float: left;
+    font-size:18px;
+    font-weight: 700;
+}
+.prd-price2 {
+    font-size: 18px;
+    font-weight: 700;
+    float: right;
+}
+.buy-btns {
+    display:flex;
+    justify-content:space-between;
+    margin-top:10px;
+}
+.cart-btn {
+    width:136px;
+    height: 65px;
+    border:1px solid #ee6e6b;
+    background:#fff;
+    color:#ff5753;
+    font-weight: 700;
+}
+.cart-btn2 {
+    font-weight: 700;
+    width:136px;
+    height: 65px;
+    border:1px solid #ee6e6b;
+    background:#ff5753;
+    color:#fff;
+}
+.cart-btn3 {
+    width:76px;
+    height: 65px;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/icon-gift-32-line-fff.png") 50% 50% no-repeat;
+    background-color: #ee6e6b;
+    border:none;
+}
+.cart-btn4 {
+    width:76px;
+    height: 65px;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/icon-like-32-line.png");
+    background-color: #ee6e6b;
+    background: #fff;
+    border:#e5e5e5;
+}
+
 </style>
