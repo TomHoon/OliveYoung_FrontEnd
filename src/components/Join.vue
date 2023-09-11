@@ -15,7 +15,7 @@
         <label for="member_id">아이디</label>
         <span class="float-right">
               <input type="text" id="member_id" class="member_id" placeholder="아이디를 입력해주세요."
-                     maxlength="15" autocomplete="off" v-model="joinObj.mid">
+                     maxlength="15" autocomplete="off" v-model="joinObj.mid" ref="mid">
             <span>
               <img class="id_check">
             </span>
@@ -26,9 +26,9 @@
         <label for="member_pw">비밀번호</label>
         <span class="float-right">
             <input type="password" id="member_pw" class="member_pw" placeholder="비밀번호를 입력해주세요."
-                   maxlength="15" v-model="joinObj.mpw">
+                   maxlength="15" v-model="joinObj.mpw" ref="mpw">
             <span>
-              <img class="pw_check">
+              <img src="../assets/pngwing.com.png" class="pw_check" @click="changeSee('mpw')">
             </span>
             <div class="pw_check_memo">비밀번호는 영문+숫자+특수기호 포함 8자 이상</div>
           </span>
@@ -37,22 +37,22 @@
         <label for="member_pw_check">비밀번호확인</label>
         <span class="float-right">
             <input type="password" id="member_pw_check" class="member_pw_check"
-                   placeholder="비밀번호를 입력해주세요." maxlength="15" v-model="joinObj.mpwCheck">
+                   placeholder="비밀번호를 입력해주세요." maxlength="15" v-model="joinObj.mpwCheck" ref="mpwCheck">
             <span>
-              <img class="pwchk_check">
+              <img src="../assets/pngwing.com.png" class="pwchk_check" @click="changeSee('mpwCheck')">
             </span>
           </span>
       </div>
       <div class="nickname_form">
         <label for="member_nickname">닉네임</label>
         <span class="float-right">
-            <input type="text" id="member_nickname" class="member_nickname" autocomplete="off" v-model="joinObj.nickname">
+            <input type="text" id="member_nickname" class="member_nickname" autocomplete="off" v-model="joinObj.nickname" ref="nickname">
           </span>
       </div>
       <div class="email_form">
         <label for="member_email">이메일</label>
         <span class="float-right">
-            <input type="text" id="member_email" class="member_email" autocomplete="off" v-model="joinObj.email">
+            <input type="text" id="member_email" class="member_email" autocomplete="off" v-model="joinObj.email" ref="email">
           </span>
       </div>
       <input type="hidden" >
@@ -80,23 +80,112 @@ export default {
     }
   },
   methods: {
-      joinMember() {
+      changeSee(type) {
+          // password 숨김, 보임 처리
+          if(type == 'mpw'){
+            if(document.querySelector('#member_pw').type == 'password'){
+                document.querySelector('#member_pw').type = 'text'
+            }else{
+                document.querySelector('#member_pw').type = 'password'
+            }
+          }else{
+            if(document.querySelector('#member_pw_check').type == 'password'){
+                document.querySelector('#member_pw_check').type = 'text'
+            }else{
+                document.querySelector('#member_pw_check').type = 'password'
+            }
+          }
+      },
+
+      async joinMember() {
         /**
          * TODO
          * Promise All로 바꿔주기
+         * 
          */
-        let {아이디중복데이터} = axios.post('/checkExist', {mid: this.mid});
-        let {닉네임중복데이터} = axios.post('/checkExistNick', {nickname: this.nickname});
         
-        if (아이디중복데이터 == 1) {
-          alert('아이디가 중복됩니다.');
+        //아이디 정규표현식
+        let regExId = /^(?=.*[a-zA-Z])(?=.*[0-9]).{6,12}$/;
+        
+        //비밀번호 정규표현식
+        let regExPwd = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{6,12}$/;
+        if(this.joinObj.mid == ''){
+          alert('아이디를 입력해주세요.');
+          this.$refs.mid.focus()
+          return;
+        }
+        if(this.joinObj.mpw == ''){
+          alert('비밀번호를 입력해주세요.');
+          this.$refs.mpw.focus()
+          return;
+        }
+        if(this.joinObj.mpwCheck == ''){
+          alert('비밀번호를 확인해주세요.');
+          this.$refs.mpwCheck.focus()
+          return;
+        }
+        if(this.joinObj.nickname == ''){
+          alert('닉네임을 입력해주세요.');
+          this.$refs.nickname.focus()
+          return;
+        }
+        if(this.joinObj.email == ''){
+          alert('이메일을 입력해주세요.');
+          this.$refs.email.focus()
           return;
         }
 
-        if (아이디중복데이터 != 1 && 닉네임중복데이터 == 1) {
-          alert('닉네임이 중복됩니다.');
-          return;
+        if(!regExId.test(this.joinObj.mid)){
+            alert('아이디는 영문+숫자 포함 6~12자 이하로 입력해주세요.')
+            this.$refs.mid.focus()
+            return;
         }
+
+        if(!regExPwd.test(this.joinObj.mpw)){
+            alert('비밀번호는 영문+숫자+특수기호 포함 8자 이상으로 입력해주세요.')
+            this.$refs.mid.focus()
+            return;
+        }
+        //axios 동작
+        async function data(_url, _params){
+            var returnV = await axios.post(_url, _params);
+            return returnV;
+        }
+
+        Promise.all([
+          data('/checkExist', {mid: this.joinObj.mid}),
+          data('/checkExistNick', {nickname: this.joinObj.nickname})
+        ]).then(function ([아이디중복데이터,닉네임중복데이터]){
+            
+            if(아이디중복데이터.data == 1){
+                alert('아이디가 중복됩니다.');
+                return;
+            }
+            if (닉네임중복데이터.data == 1) {
+                alert('닉네임이 중복됩니다.');
+                return;
+            }
+  
+        });
+        
+        // let checkEmpty = Object.values(this.joinObj).every((item, index, array) => console.log(item, index, array))
+        // if(checkEmpty == false){
+        //   console.log("sadsad")
+        // }
+        
+        
+        // let {data:아이디중복데이터} = await axios.post('/checkExist', {mid: this.joinObj.mid});
+        //  let {data:닉네임중복데이터} = await axios.post('/checkExistNick', {nickname: this.joinObj.nickname});
+        
+        // if (아이디중복데이터 == 1) {
+        //   alert('아이디가 중복됩니다.');
+        //   return;
+        // }
+        
+        // if (아이디중복데이터 != 1 && 닉네임중복데이터 == 1) {
+        //   alert('닉네임이 중복됩니다.');
+        //   return;
+        // }
 
         let param = {
           ...this.joinObj
@@ -105,47 +194,42 @@ export default {
         let {가입결과값} = axios.post('/joinMember', param);
         console.log('가입결과값 : ', 가입결과값);
 
-    /*     this.$axios({
-          method:'post',
-          url:'/checkExist',
-          data : {
-            mid : this.mid,
-          } */
-  /*       }).then((result) => {
-          console.log(result.data)
-          if(result.data == 1){
-            alert('아이디가 중복됩니다.')
-            return false
-          }else{
-            this.$axios({
-              method:'post',
-              url:'/checkExistNick',
-              data : {
-                nickname : this.nickname,
-              }
-            }).then((result) => {
-              console.log(result.data)
-              if(result.data == 1){
-                alert('닉네임이 중복됩니다.')
-                return false
-              }else{
-                 this.$axios({
-                  method:'post',
-                  url:'/joinMember',
-                  data : {
-                    mid : this.mid,
-                    mpw : this.mpw,
-                    nickname : this.nickname,
-                    email : this.email,
-                  }
-                }).then((result) => {
-                  console.log(result.data)
-                })
-              }
-            })
+        // axios({
+        //   method:'post',
+        //   url:'/checkExist',
+        //   data : {
+        //     mid : this.joinObj.mid,
+        //   } 
+        // }).then((result) => {
+        //   console.log(result.data)
+        //   if(result.data == 1){
+        //     alert('아이디가 중복됩니다.')
+        //     return false
+        //   }else{
+        //     axios({
+        //       method:'post',
+        //       url:'/checkExistNick',
+        //       data : {
+        //         nickname : this.joinObj.nickname,
+        //       }
+        //     }).then((result) => {
+        //       console.log(result.data)
+        //       if(result.data == 1){
+        //         alert('닉네임이 중복됩니다.')
+        //         return false
+        //       }else{
+        //          axios({
+        //           method:'post',
+        //           url:'/joinMember',
+        //           data : this.joinObj,
+        //         }).then((result) => {
+        //           console.log(result.data)
+        //         })
+        //       }
+        //     })
            
-          }
-        }) */
+        //   }
+        // })
         
         
       }
