@@ -18,7 +18,7 @@
 
             <div class="header_inner">
                 <h1>
-                    <a href="#">
+                    <a href="/">
                         <img src="https://static.oliveyoung.co.kr/pc-static-root/image/comm/h1_logo.png" alt="올리브영">
                     </a>
                 </h1>
@@ -878,7 +878,7 @@
                                         <span>실시간 View 랭킹</span>
                                     </strong>
                                 </h3>
-                                <div class="realtime-view-main" style="display:flex; border-top:1px solid #d8d8d8; margin-top:10px; padding:10px;">
+                                <div class="realtime-view-main" style="display:flex; border-top:1px solid #d8d8d8;margin-bottom: 41px; margin-top:10px; padding:10px;">
                                     <ul class="realtime-view-ul" style="flex-grow:1; margin-top:20px;">
                                         <li class="realtime-img">
                                             <div>
@@ -969,13 +969,13 @@
                                             <p style="float:left;">
                                                 <span></span>
                                             </p>
-                                            <p style="float:left; width:70px; margin-left:10px;line-height:1rem;">1:1 문의하기</p>
+                                            <p style="float:left; width:70px; font-size:12px; margin-left:10px;line-height:1rem;">1:1 문의하기</p>
                                         </button>
                                         <button class="obo-btn" style="position:absolute; right:45px; top:102px;">
                                             <p style="float:left;">
                                                 <span class="fre"></span>
                                             </p>
-                                            <p style="float:left; width:76px; margin-left:10px;line-height:1rem;">자주하는 질문</p>
+                                            <p style="float:left; width:76px; font-size:12px;margin-left:10px;line-height:1rem;">자주하는 질문</p>
                                         </button>
                                     </div>
                                 </div>
@@ -2269,6 +2269,7 @@ strong {
     display:relative;
     border-bottom: 1px solid #d8d8d8;
     margin-bottom:100px;
+    margin-bottom: 31px;
 }
 
 .realtime-view-rank>h3{
@@ -2322,6 +2323,7 @@ strong {
     font-weight:700;
 }
 .notice-area {
+    margin-top:97px;
     position:relative;
     border-top:1px solid black;
     width:100%;
@@ -2378,6 +2380,7 @@ strong {
 .notice-onebyone {
     float:left;
     width:300px;
+    font-size: 12px;
 }
 .notice-onebyone div{
     margin-top:20px;
@@ -2482,4 +2485,5 @@ strong {
 .active-lawlist { 
     font-weight: 700;
 }
+
 </style>

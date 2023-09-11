@@ -108,7 +108,7 @@ export default {
         let regExId = /^(?=.*[a-zA-Z])(?=.*[0-9]).{6,12}$/;
         
         //비밀번호 정규표현식
-        let regExPwd = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{6,12}$/;
+        let regExPwd = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{6,20}$/;
         if(this.joinObj.mid == ''){
           alert('아이디를 입력해주세요.');
           this.$refs.mid.focus()
