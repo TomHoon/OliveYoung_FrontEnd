@@ -173,7 +173,7 @@
                             <p>
                                 대표이사: 이동훈|사업자등록번호:809-81-22241
                                 <br>
-                                주소 : (12442) 서울특별시 강동구 강동대로 412, 33층 
+                                주소 : (12442) 서울특별시 강동구 강동대로 412, 33층
                                 <br>
                                 호스팅사업자:cafe24
                                 <br>
@@ -256,7 +256,7 @@ export default {
           .then((res) => {
             console.log(res.data);
             console.log(res);
-            if (res.data == 1) {
+            if (res.data.mseq == -1) {
               alert("아이디 또는 비밀번호가 틀렸습니다.\n다시 입력해주세요.");
             }else {
               //this.$pushContents('Main');
@@ -264,6 +264,9 @@ export default {
             }
           }).catch((err) => {
         if (err.response) {
+          console.log(err);
+          console.log(err.response);
+
           alert("아이디 또는 비밀번호가 틀렸습니다.\n다시 입력해주세요2.");
         }
       })
@@ -325,9 +328,9 @@ a, address, blockquote, body, dd, div, dl, dt, em, fieldset, form, h1, h2, h3, h
     width: 1020px;
 }
 
-/* 
+/*
 * div 영역 안에서 float를 시전하면
-* 영역 만큼 행 하나로 배치 
+* 영역 만큼 행 하나로 배치
 */
 .header_inner h1{
     margin-top: 21px;
@@ -596,7 +599,7 @@ li {
     font-weight: 400;
 }
 
-strong { 
+strong {
     margin: 0;
     padding: 0;
     border: 0;
@@ -768,7 +771,7 @@ img {
     line-height:22px;
     text-align:left;
 }
-.curation_area .slide_list .item .prd_price .tx_org{ 
+.curation_area .slide_list .item .prd_price .tx_org{
     color:#a9a9a9;
     font-size:12px;
     text-decoration:line-through;
@@ -776,19 +779,19 @@ img {
     font-weight: 400;
 }
 
-.curation_area .slide_list .item .prd_price .tx_org+.tx_cur{ 
+.curation_area .slide_list .item .prd_price .tx_org+.tx_cur{
     margin:0 0 0 7px;
     vertical-align: bottom;
 }
 
-.curation_area .slide_list .item .prd_price .tx_cur{ 
+.curation_area .slide_list .item .prd_price .tx_cur{
     display:inline-block;
     color:#e02020;
     font-size: 14px;
     font-weight:700;
 }
 
-.curation_area .slide_list .item .prd_price .tx_cur>span{ 
+.curation_area .slide_list .item .prd_price .tx_cur>span{
     display:inline-block;
     font-size:20px;
     vertical-align: -1px;
@@ -911,7 +914,7 @@ strong {
     top:50%;
     transform: translateY(-50%);
     width:100%;
-} 
+}
 
 .recomm_plan_list li a .text_wrap {
     display:flex;
@@ -1459,7 +1462,7 @@ strong {
     line-height:46px;
 }
 .realtime-img span{
-    
+
 }
 .ranking {
     color: #777
@@ -1555,7 +1558,7 @@ strong {
 }
 .obo-btn:nth-child(2){
     width: 145px;
-}   
+}
 .obo-btn{
     background: #ccc;
     width:120px;
@@ -1591,7 +1594,7 @@ strong {
     height:40px;
     width:1020px;
     min-width:1060px;
-    margin:0 auto; 
+    margin:0 auto;
 }
 .footer-ul{
     position:relative;
@@ -1642,7 +1645,7 @@ strong {
     color:#9a9a9a;
     font-size:14px;
 }
-.active-lawlist { 
+.active-lawlist {
     font-weight: 700;
 }
 /* 로그인 시작 */
