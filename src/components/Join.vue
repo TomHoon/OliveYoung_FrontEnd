@@ -114,13 +114,13 @@ export default {
           if(type == 'mpw'){
             if(document.querySelector('#member_pw').type == 'password'){
                 document.querySelector('#member_pw').type = 'text'
-            }else if(document.querySelector('#member_pw').type == 'text'){
+            }else{
                 document.querySelector('#member_pw').type = 'password'
             }
           }else{
             if(document.querySelector('#member_pw_check').type == 'password'){
                 document.querySelector('#member_pw_check').type = 'text'
-            }else if(document.querySelector('#member_pw_check').type == 'text'){
+            }else{
                 document.querySelector('#member_pw_check').type = 'password'
             }
           }
@@ -227,9 +227,6 @@ export default {
           ...this.joinObj
         };
 
-        console.log(param)
-        
-        
         //param 넘겨주고 회원가입
         let {가입결과값} = axios.post('/joinMember', param);
         console.log('가입결과값 : ', 가입결과값);
