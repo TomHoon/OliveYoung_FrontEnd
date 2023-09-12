@@ -49,7 +49,7 @@ export default {
   /* 스타일링 내용 추가 */
   background-color: #fff;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
 }
 </style>
