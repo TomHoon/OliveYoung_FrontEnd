@@ -37,9 +37,9 @@
         <label for="member_pw_check">비밀번호확인</label>
         <span class="float-right">
             <input type="password" id="member_pw_check" class="member_pw_check"
-                   placeholder="비밀번호를 입력해주세요." maxlength="15" v-model="joinObj.mpwCheck" ref="mpwCheck">
+                   placeholder="비밀번호를 입력해주세요." maxlength="15" v-model="mpwCheck" ref="mpwCheck">
             <span>
-              <img src="../assets/pngwing.com.png" class="pwchk_check" @click="changeSee('mpwCheck')">
+              <img src="../assets/pngwing.com.png" class="pw_check" @click="changeSee('mpwCheck')">
             </span>
           </span>
       </div>
@@ -52,7 +52,18 @@
       <div class="email_form">
         <label for="member_email">이메일</label>
         <span class="float-right">
-            <input type="text" id="member_email" class="member_email" autocomplete="off" v-model="joinObj.email" ref="email">
+          <div class="email_select_form">
+            <div>
+              <input type="text" id="member_email_id" class="member_email" autocomplete="off" v-model="emailId" ref="email_id">
+              @
+              <input type="text" id="member_email_name" class="member_email" autocomplete="off" v-model="emailName" ref="email_name" v-bind:disabled="emailDefault != ''">
+            </div>
+            <div class="select_form">
+              <select class="select_email" v-model="emailDefault" @change="selectEmail(this)">
+                  <option v-for="emailDefault in emailList" :key="emailDefault.em" :value="emailDefault.value">{{emailDefault.em}}</option>
+              </select>
+            </div>
+          </div>
           </span>
       </div>
       <input type="hidden" >
@@ -70,13 +81,31 @@ export default {
   },
   data() {
     return {
+      //회원가입 데이터
         joinObj: {
           mid : "",
           mpw : "",
-          mpwCheck :  "",
           nickname : "",
           email : "",
-        }
+        },
+        
+        
+        mpwCheck :  "",
+        emailId : "",
+        emailName : "",
+
+        //이메일 select 기본 빈값
+        emailDefault : "",
+        //선택가능한 이메일 list
+        emailList : [
+          {em : '직접입력', value : ''},
+          {em : 'naver.com', value : 'naver.com'},
+          {em : 'google.com', value : 'google.com'},
+          {em : 'hanmail.com', value : 'hanmail.com'},
+          {em : 'nate.com', value : 'nate.com'},
+          {em : 'kakao.com', value : 'kakao.com'},
+          {em : 'msn.com', value : 'msn.com'},
+        ],
     }
   },
   methods: {
@@ -85,16 +114,21 @@ export default {
           if(type == 'mpw'){
             if(document.querySelector('#member_pw').type == 'password'){
                 document.querySelector('#member_pw').type = 'text'
-            }else{
+            }else if(document.querySelector('#member_pw').type == 'text'){
                 document.querySelector('#member_pw').type = 'password'
             }
           }else{
             if(document.querySelector('#member_pw_check').type == 'password'){
                 document.querySelector('#member_pw_check').type = 'text'
-            }else{
+            }else if(document.querySelector('#member_pw_check').type == 'text'){
                 document.querySelector('#member_pw_check').type = 'password'
             }
           }
+      },
+
+      //이메일 select 선택 시마다 값 변환
+      selectEmail() {
+        this.emailName = this.emailDefault 
       },
 
       async joinMember() {
@@ -109,6 +143,8 @@ export default {
         
         //비밀번호 정규표현식
         let regExPwd = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{6,20}$/;
+        
+        //input빈값 체크
         if(this.joinObj.mid == ''){
           alert('아이디를 입력해주세요.');
           this.$refs.mid.focus()
@@ -119,7 +155,7 @@ export default {
           this.$refs.mpw.focus()
           return;
         }
-        if(this.joinObj.mpwCheck == ''){
+        if(this.mpwCheck == ''){
           alert('비밀번호를 확인해주세요.');
           this.$refs.mpwCheck.focus()
           return;
@@ -129,29 +165,46 @@ export default {
           this.$refs.nickname.focus()
           return;
         }
-        if(this.joinObj.email == ''){
-          alert('이메일을 입력해주세요.');
-          this.$refs.email.focus()
+        if(this.email_id == ''){
+          alert('이메일을 입력해주세요.2');
+          this.$refs.email_id.focus()
           return;
         }
+        if(this.email_name == ''){
+          alert('이메일을 입력해주세요.1');
+          this.$refs.email_name.focus()
+          return;
+        }
+        //input빈값 체크 end
 
+        //아이디 정규표현식 테스트
         if(!regExId.test(this.joinObj.mid)){
             alert('아이디는 영문+숫자 포함 6~12자 이하로 입력해주세요.')
             this.$refs.mid.focus()
             return;
         }
 
+        //비밀번호 정규표현식 테스트
         if(!regExPwd.test(this.joinObj.mpw)){
             alert('비밀번호는 영문+숫자+특수기호 포함 8자 이상으로 입력해주세요.')
-            this.$refs.mid.focus()
+            this.$refs.mpw.focus()
             return;
         }
+
+        //비밀번호 일치 확인
+        if(this.joinObj.mpw != this.mpwCheck){
+            alert('비밀번호가 일치하지 않습니다.')
+            this.$refs.mpwCheck.focus()
+            return;
+        }
+
         //axios 동작
         async function data(_url, _params){
             var returnV = await axios.post(_url, _params);
             return returnV;
         }
 
+        //Promise.all
         Promise.all([
           data('/checkExist', {mid: this.joinObj.mid}),
           data('/checkExistNick', {nickname: this.joinObj.nickname})
@@ -167,8 +220,21 @@ export default {
             }
   
         });
+
+        this.joinObj.email = this.emailId + '@' + this.emailName
+        //param에 데이터 담기
+        let param = {
+          ...this.joinObj
+        };
+
+        console.log(param)
         
-        // let checkEmpty = Object.values(this.joinObj).every((item, index, array) => console.log(item, index, array))
+        
+        //param 넘겨주고 회원가입
+        let {가입결과값} = axios.post('/joinMember', param);
+        console.log('가입결과값 : ', 가입결과값);
+
+       // let checkEmpty = Object.values(this.joinObj).every((item, index, array) => console.log(item, index, array))
         // if(checkEmpty == false){
         //   console.log("sadsad")
         // }
@@ -187,12 +253,7 @@ export default {
         //   return;
         // }
 
-        let param = {
-          ...this.joinObj
-        };
-        
-        let {가입결과값} = axios.post('/joinMember', param);
-        console.log('가입결과값 : ', 가입결과값);
+
 
         // axios({
         //   method:'post',
@@ -397,6 +458,7 @@ export default {
   height: 20px;
   position: absolute;
   transform: translate(-2rem, 1.5rem);
+  cursor: pointer;
 }
 
 .pw_check_memo {
@@ -533,6 +595,7 @@ export default {
   width: 700px;
   height: 70px;
   margin: 10px auto;
+  padding-right: 40px;
 }
 
 .email_form label {
@@ -543,17 +606,36 @@ export default {
   color: #736d6d;
 }
 
+.email_select_form {
+  display: flex;
+}
+
+.select_form {
+  margin-left: 10px;
+}
+
 .member_email {
   background-color: white;
   padding-left: 20px;
-  width: 400px;
+  width: 120px;
   height: 40px;
-  margin-right: 40px;
   border: 1px solid rgba(136, 135, 135, 0.34);
   border-radius: 3px;
   color: rgba(66, 64, 64, 0.75);
   font-size: 15px;
   margin-top: 12px;
+}
+
+.select_email {
+    width: 100px;
+    background-color: white;
+    height: 43px;
+    border: 1px solid rgba(136, 135, 135, 0.34);
+    border-radius: 3px;
+    color: rgba(66, 64, 64, 0.75);
+    margin-top: 12px;
+    outline: none;
+   
 }
 
 .address_form {
