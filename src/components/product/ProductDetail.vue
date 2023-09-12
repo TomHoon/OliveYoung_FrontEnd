@@ -220,6 +220,26 @@
             </div>
         </div>
         <!-- 이미지 영역 끝 -->
+
+        <!-- 구매 가능 매장 확인시작 -->
+        <div class="buy-able-wrapper">
+            <div class="buy-able-area">
+                <p class="buy-able-left">
+                    <em class="buy-able-img"></em>
+                    <span class="buy-able-span"><em class="buyable">구매가능한 매장을</em> 확인해보세요</span>
+                    <em class="buy-able-arrow"></em>
+                    <em class="vertical-line">
+
+                    </em>
+                </p>
+                <p class="buy-able-right">
+                    <span class="buy-able-right-img">
+
+                    </span>
+                </p>
+            </div>
+        </div>
+        <!-- 구매 가능 매장 확인끝 -->
 </div>
 </template>
 
@@ -1875,17 +1895,17 @@ a {
 .cart-btn {
     width:136px;
     height: 65px;
+    font-size:22px;
     border:1px solid #ee6e6b;
     background:#fff;
     color:#ff5753;
-    font-weight: 700;
 }
 .cart-btn2 {
-    font-weight: 700;
+    font-size:22px;
     width:136px;
     height: 65px;
     border:1px solid #ee6e6b;
-    background:#ff5753;
+    background:#ee6e6b;
     color:#fff;
 }
 .cart-btn3 {
@@ -1898,10 +1918,66 @@ a {
 .cart-btn4 {
     width:76px;
     height: 65px;
-    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/icon-like-32-line.png");
-    background-color: #ee6e6b;
-    background: #fff;
-    border:#e5e5e5;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/icon-like-32-line.png") 50% 50% no-repeat;
+    border:1px solid #e5e5e5;
+    background-size:34px auto;
 }
-
+.buy-able-wrapper {
+    float:left;
+    width:100%;
+    margin:0 auto;
+    margin-top:40px;
+}
+.buy-able-area {
+    padding:30px;
+    width:1020px;
+    margin:0 auto;
+    border:1px solid #ddd;
+    border-radius: 5px;
+}
+.buy-able-left {
+    position: relative;
+}
+.buy-able-img {
+    position:absolute;
+    width:40px;
+    top:-4px;
+    height:40px;
+    display:inline-block;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/product/icon_store_search.png") 0 0/28px 24px no-repeat;
+}
+.buy-able-span {
+    margin-left:33px;
+}
+.buy-able-span {
+    /* background: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_link_arrow_black.png") right 11px/6px auto no-repeat; */
+    width:40px;
+    height:40px;
+}
+.buyable {
+    font-weight:700;
+}
+.buy-able-arrow {
+    background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_link_arrow_black.png") right 11px/6px auto no-repeat;
+    width:40px;
+    height: 40px;
+    display:inline-block;
+    position: absolute;
+    top:-6px;
+    left:220px;
+}
+.vertical-line {
+    width:0.2px;
+    height:50px;
+    border: 1px solid #ddd;
+    position: absolute;
+    left: 510px;
+    top: -10px;
+}
+.buy-able-right{
+    float:right;
+}
+.buy-able-right-img {
+    background: url('https://image.oliveyoung.co.kr/uploads/images/onlBrandMgmt/2021/6/5587431630231725724.jpg');
+}
 </style>
