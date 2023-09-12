@@ -110,11 +110,11 @@
                         <ul class="login-input-ul">
                             <li class="login-input-li">
                                 <!-- <label for="">CJ ONE 통합회원 아이디 입력</label> -->
-                                <input type="text" style="width:382px!important" class="input-id-area" placeholder="CJ ONE 통합회원 아이디 입력" v-model="mid">
+                                <input type="text" style="width:495px!important" class="input-id-area" placeholder="CJ ONE 통합회원 아이디 입력" v-model="mid">
                             </li>
                             <li class="login-input-li">
                                 <!-- <label for="">CJ ONE 통합회원 아이디 입력</label> -->
-                                <input style="width:382px!important" type="password" class="input-id-area" placeholder="비밀번호 (8~12자 영문자+숫자+특수문자)" v-model="mpw">
+                                <input style="width:495px!important" type="password" class="input-id-area" placeholder="비밀번호 (8~12자 영문자+숫자+특수문자)" v-model="mpw">
                             </li>
                         </ul>
 
@@ -239,10 +239,14 @@ export default {
   },
   methods: {
     fnLogin() {
-      let 로그인 = {
+      let idcheck = {
+        mid: this.mid
+      }
+      let login = {
         mid: this.mid,
         mpw: this.mpw
       }
+
       if(this.mid == ''){
         alert("아이디를 입력해주세요.")
         return false;
@@ -252,24 +256,31 @@ export default {
         return false;
       }
 
-      axios.post("/login", 로그인)
+      axios.post("/checkExist", idcheck)
           .then((res) => {
-            console.log(res.data);
-            console.log(res);
-            if (res.data.mseq == -1) {
-              alert("아이디 또는 비밀번호가 틀렸습니다.\n다시 입력해주세요.");
+            console.log("res",res);
+            if (res.data == 0) {
+              alert("아이디가 없습니다 회원가입 하시겠습니까?")
             }else {
-              //this.$pushContents('Main');
-              alert("로그인");
+              axios.post("/login", login)
+                  .then((res) => {
+                    console.log("res",res);
+                    if (res.data.mseq == -1) {
+                      alert("비밀번호가 맞지 않습니다");
+                    }else {
+                      this.$router.push('/');
+                    }
+                  }).catch((err) => {
+                if (err.response) {
+                  alert("아이디 또는 비밀번호가 틀렸습니다.\n다시 입력해주세요.");
+                }
+              })
             }
           }).catch((err) => {
         if (err.response) {
-          console.log(err);
-          console.log(err.response);
-
-          alert("아이디 또는 비밀번호가 틀렸습니다.\n다시 입력해주세요2.");
         }
       })
+
     }
   }
 }
@@ -291,7 +302,7 @@ a, address, blockquote, body, dd, div, dl, dt, em, fieldset, form, h1, h2, h3, h
     margin: 0;
     padding: 0;
     border: 0;
-
+    outline: none;
 }
 
 .wrapper {
