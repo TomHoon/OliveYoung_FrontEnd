@@ -1,6 +1,6 @@
 <template>
-  <div class="modal" v-if="isOpen" :style="{ width: width, height: height }">
-    <div class="modal-content">
+  <div class="modal" v-if="isOpen">
+    <div class="modal-content" :style="{ width: width+'px', height: height+'px' }">
       <slot></slot> <!-- 모달 내용을 slot으로 삽입합니다. -->
       <button @click="closeModal">모달 닫기</button>
     </div>
@@ -10,8 +10,8 @@
 <script>
 export default {
   props: {
-    width: String, // 너비를 문자열로 전달 받음
-    height: String, // 높이를 문자열로 전달 받음
+    width: Number, // 너비를 문자열로 전달 받음
+    height: Number, // 높이를 문자열로 전달 받음
   },
   data() {
     return {
