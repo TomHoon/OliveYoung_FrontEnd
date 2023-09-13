@@ -1,8 +1,9 @@
 <template>
-  <div class="modal" v-if="isOpen">
+  <div class="modal" v-if="isOpen" @click="closeModalOutside">
+    
     <div class="modal-content" :style="{ width: width+'px', height: height+'px' }">
+      <i class="fa-solid fa-x modal-close" @click="closeModal"></i>
       <slot></slot> <!-- 모달 내용을 slot으로 삽입합니다. -->
-      <button @click="closeModal">모달 닫기</button>
     </div>
   </div>
 </template>
@@ -25,6 +26,12 @@ export default {
     closeModal() {
       this.isOpen = false;
     },
+    closeModalOutside(event) {
+      // 모달 바깥을 클릭하면 모달을 닫습니다.
+      if (event.target.classList.contains('modal')) {
+        this.closeModal();
+      }
+    },
   },
 };
 </script>
@@ -43,6 +50,7 @@ export default {
   justify-content: center;
   align-items: center;
   z-index: 999; /* 다른 요소 위에 표시 */
+  cursor: pointer; /* 모달 바깥을 클릭할 때 커서 모양을 변경합니다. */
 }
 
 .modal-content {
@@ -51,5 +59,14 @@ export default {
   padding: 20px;
   border-radius: 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+  cursor: default;
+}
+
+.modal-close{
+  float: right;
+  box-shadow: 5px;
+  background-color:transparent;
+  border: none;
+  cursor:pointer;
 }
 </style>
