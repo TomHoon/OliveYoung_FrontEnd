@@ -11,23 +11,24 @@
         <tbody>
         <tr>
           <td class="product_tit">제품본이름</td>
-          <td class="product_txt"><input type="text" id="product_orgin_name" class="product_orgin_name" autocomplete="off"></td>
+          <td class="product_txt"><input type="text" id="product_orgin_name" class="product_orgin_name" v-model="product_orgin_name" autocomplete="off"></td>
         </tr>
         <tr>
           <td class="product_tit">제품판매명</td>
-          <td class="product_txt"><input type="text" id="product_sell_name" class="product_sell_name" autocomplete="off"></td>
+          <td class="product_txt"><input type="text" id="product_sell_name" class="product_sell_name" v-model="product_sell_name" autocomplete="off"></td>
         </tr>
         <tr>
           <td class="product_tit">제품원가</td>
-          <td class="product_txt"><input type="text" id="product_orgin_price" class="product_orgin_price" autocomplete="off"><span class="product_txt_span">원</span></td>
+          <td class="product_txt"><input type="text" id="product_orgin_price" class="product_orgin_price" v-model="product_orgin_price" autocomplete="off"><span class="product_txt_span">원</span></td>
         </tr>
         <tr>
           <td class="product_tit">제품판매가격</td>
-          <td class="product_txt"><input type="text" id="product_sell_price" class="product_sell_price" autocomplete="off"><span class="product_txt_span">원</span></td>
+          <td class="product_txt"><input type="text" id="product_sell_price" class="product_sell_price" v-model="product_sell_price" autocomplete="off"><span class="product_txt_span">원</span></td>
         </tr>
         <tr>
           <td class="product_tit_img">제품이미지</td>
-          <td class="product_txt_img"><p class="img_box"></p><input type="file" id="product_img" class="product_img"></td>
+
+          <td class="product_txt_img"><p class="img_box"><!--<img :src="getImgPath" class="img_box" alt='프로필' />--></p><input type="file" id="product_img" class="product_img"></td>
         </tr>
         </tbody>
       </table>
@@ -38,71 +39,71 @@
         <tbody>
         <tr>
           <td class="product_tit">제품대분류</td>
-          <td class="product_txt"><input type="text" id="product_major_category" class="product_major_category" autocomplete="off"></td>
+          <td class="product_txt"><input type="text" id="product_major_category" class="product_major_category" v-model="product_major_category" autocomplete="off"></td>
         </tr>
         <tr>
           <td class="product_tit">제품중분류</td>
-          <td class="product_txt"><input type="text" id="product_middle_category" class="product_middle_category" autocomplete="off"></td>
+          <td class="product_txt"><input type="text" id="product_middle_category" class="product_middle_category" v-model="product_middle_category" autocomplete="off"></td>
         </tr>
         <tr>
           <td class="product_tit">제품소분류</td>
-          <td class="product_txt"><input type="text" id="product_small_category" class="product_small_category" autocomplete="off"></td>
+          <td class="product_txt"><input type="text" id="product_small_category" class="product_small_category" v-model="product_small_category" autocomplete="off"></td>
         </tr>
         <tr>
           <td class="product_tit">제품회사</td>
-          <td class="product_txt"><input type="text" id="product_corp" class="product_corp" autocomplete="off"><span class="product_txt_ex">ex) 씨제이올리브영 주식회사</span></td>
+          <td class="product_txt"><input type="text" id="product_corp" class="product_corp" v-model="product_corp" autocomplete="off"><span class="product_txt_ex">ex) 씨제이올리브영 주식회사</span></td>
         </tr>
         <tr>
           <td class="product_tit">제품개수</td>
-          <td class="product_txt"><input type="text" id="product_cnt" class="product_cnt" autocomplete="off"><span class="product_txt_span">개</span></td>
+          <td class="product_txt"><input type="text" id="product_cnt" class="product_cnt" v-model="product_cnt" autocomplete="off"><span class="product_txt_span">개</span></td>
         </tr>
         <tr>
           <td class="product_tit">제품용량</td>
-          <td class="product_txt"><input type="text" id="product_amount" class="product_amount" autocomplete="off"><span class="product_txt_ex">단위 입력바랍니다. ex) ml, 매, g 등</span></td>
+          <td class="product_txt"><input type="text" id="product_amount" class="product_amount" v-model="product_amount" autocomplete="off"><span class="product_txt_ex">단위 입력바랍니다. ex) ml, 매, g 등</span></td>
         </tr>
         <tr>
           <td class="product_tit">제품주요사양</td>
-          <td class="product_txt"><input type="text" id="product_func" class="product_func" autocomplete="off"><span class="product_txt_ex">ex) 모든피부용, 건성, 지성 등</span></td>
+          <td class="product_txt"><input type="text" id="product_func" class="product_func" v-model="product_func" autocomplete="off"><span class="product_txt_ex">ex) 모든피부용, 건성, 지성 등</span></td>
         </tr>
         <tr>
           <td class="product_tit">제품사용기한(또는 개봉 후 사용기간)</td>
-          <td class="product_txt"><input type="text" id="product_limit" class="product_limit" autocomplete="off"></td>
+          <td class="product_txt"><input type="text" id="product_limit" class="product_limit" v-model="product_limit" autocomplete="off"></td>
         </tr>
         <tr>
           <td class="product_tit">제품사용방법</td>
-          <td class="product_txt"><input type="text" id="product_way" class="product_way" autocomplete="off"></td>
+          <td class="product_txt"><input type="text" id="product_way" class="product_way" v-model="product_way" autocomplete="off"></td>
         </tr>
         <tr>
           <td class="product_tit">제품제조업자</td>
-          <td class="product_txt"><input type="text" id="product_manufacturer" class="product_manufacturer" autocomplete="off"></td>
+          <td class="product_txt"><input type="text" id="product_manufacturer" class="product_manufacturer" v-model="product_manufacturer" autocomplete="off"></td>
         </tr>
         <tr>
           <td class="product_tit">제품판매업자</td>
-          <td class="product_txt"><input type="text" id="product_seller" class="product_seller" autocomplete="off"></td>
+          <td class="product_txt"><input type="text" id="product_seller" class="product_seller" v-model="product_seller" autocomplete="off"></td>
         </tr>
         <tr>
           <td class="product_tit">제품제조국</td>
-          <td class="product_txt"><input type="text" id="product_produce_country" class="product_produce_country" autocomplete="off"></td>
+          <td class="product_txt"><input type="text" id="product_produce_country" class="product_produce_country" v-model="product_produce_country" autocomplete="off"></td>
         </tr>
         <tr>
           <td class="product_tit">화장품법에 따라 기재해야 하는 모든 성분</td>
-          <td class="product_txt"><textarea id="product_ingredient" class="product_ingredient"></textarea></td>
+          <td class="product_txt"><textarea id="product_ingredient" class="product_ingredient" v-model="product_ingredient"></textarea></td>
         </tr>
         <tr>
           <td class="product_tit">기능성 화장품 식품의약품안전처 심사필 여부</td>
-          <td class="product_txt"><input type="text" id="product_evaluate" class="product_evaluate" autocomplete="off"></td>
+          <td class="product_txt"><input type="text" id="product_evaluate" class="product_evaluate" v-model="product_evaluate" autocomplete="off"></td>
         </tr>
         <tr>
           <td class="product_tit">사용할 때의 주의사항</td>
-          <td class="product_txt"><textarea id="product_attention" class="product_attention" autocomplete="off"></textarea></td>
+          <td class="product_txt"><textarea id="product_attention" class="product_attention" v-model="product_attention" autocomplete="off"></textarea></td>
         </tr>
         <tr>
           <td class="product_tit">품질보증기준</td>
-          <td class="product_txt"><input type="text" id="quality_standard" class="quality_standard" autocomplete="off"></td>
+          <td class="product_txt"><input type="text" id="quality_standard" class="quality_standard" v-model="quality_standard" autocomplete="off"></td>
         </tr>
         <tr>
           <td class="product_tit">소비자상담 전화번호</td>
-          <td class="product_txt"><input type="text" id="consultaion" class="consultaion" autocomplete="off"></td>
+          <td class="product_txt"><input type="text" id="consultaion_number" class="consultaion_number" v-model="consultaion_number" autocomplete="off"></td>
         </tr>
 
         </tbody>
@@ -115,14 +116,88 @@
   </div>
 </template>
 <script>
-export default {
+import axios from "axios";
 
+export default {
+  data() {
+    return {
+      //imgPath: './profile_Img.jpg',
+      product_orgin_name: '',
+      product_sell_name: '',
+      product_orgin_price: '',
+      product_sell_price: '',
+      product_corp: '',
+      product_major_category: '',
+      product_middle_category: '',
+      product_small_category: '',
+      product_cnt: '',
+      product_like: '',
+      product_score: '',
+      product_amount: '',
+      product_func: '',
+      product_limit: '',
+      product_way: '',
+      product_manufacturer: '',
+      product_seller: '',
+      product_produce_country: '',
+      product_ingredient: '',
+      product_evaluate: '',
+      product_attention: '',
+      quality_standard: '',
+      consultation_number: '',
+    };
+  },
+  computed: {
+    /*
+    getImgPath() {
+      return this.imgPath;
+    }
+    */
+  },
   methods: {
     backPage() {
       this.$backPage();
     },
     productInsert() {
-      alert("제품등록");
+      let 제품등록파라미터 = {
+        product_orgin_name: this.product_orgin_name,
+        product_sell_name: this.product_sell_name,
+        product_orgin_price: this.product_orgin_price,
+        product_sell_price: this.product_sell_price,
+        product_corp: this.product_corp,
+        product_major_category: this.product_major_category,
+        product_middle_category: this.product_middle_category,
+        product_small_category: this.product_small_category,
+        product_cnt: this.product_cnt,
+        product_like: this.product_like,
+        product_score: this.product_score,
+        product_amount: this.product_amount,
+        product_func: this.product_func,
+        product_limit: this.product_limit,
+        product_way: this.product_way,
+        product_manufacturer: this.product_manufacturer ,
+        product_seller: this.product_seller,
+        product_produce_country: this.product_produce_country,
+        product_ingredient: this.product_ingredient,
+        product_evaluate: this.product_evaluate,
+        product_attention: this.product_attention,
+        quality_standard: this.quality_standard,
+        consultation_number: this.consultation_number
+      }
+
+      axios.post("/productInsert", 제품등록파라미터)
+          .then((res) => {
+            console.log("res",res);
+            if (res.data == 1) {
+              alert("등록완료");
+            }else {
+              alert("등록실패");
+            }
+          }).catch((err) => {
+        if (err.response) {
+          alert("오류 ㅅㄱ.");
+        }
+      })
     },
   }
 }
