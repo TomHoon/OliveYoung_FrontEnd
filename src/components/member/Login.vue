@@ -137,10 +137,22 @@
                             <p>카카오로 올리브영 간편하게 시작하기</p>
                             <a href="">
                                 <span class="icon">
-                                    카카오로 시작하기
+                                    <div class="kakao_txt">카카오로 시작하기</div>
                                 </span>
                             </a>
                         </div>
+                      <hr class="login_hr">
+                      <div class="join-area">
+                        <div class="join_icon">
+
+                        </div>
+                        <div class="join_txt">
+                          <span>CJ ONE 통합회원으로 가입하시면 올리브영의 다양한 서비스를 이용하실 수 있습니다.</span>
+                        </div>
+                        <a @click="fnJoin">
+                          <span>CJ ONE 통합가입</span>
+                        </a>
+                      </div>
                     </div>
                 </form>
             </div>
@@ -239,7 +251,7 @@ export default {
   },
   methods: {
     fnLogin() {
-      let idcheck = {
+      let idCheck = {
         mid: this.mid
       }
       let login = {
@@ -256,7 +268,7 @@ export default {
         return false;
       }
 
-      axios.post("/checkExist", idcheck)
+      axios.post("/checkExist", idCheck)
           .then((res) => {
             console.log("res",res);
             if (res.data == 0) {
@@ -280,6 +292,11 @@ export default {
         if (err.response) {
         }
       })
+
+    },
+
+    fnJoin() {
+      this.$router.push('/join');
 
     }
   }
@@ -439,6 +456,7 @@ button {
 }
 a {
     text-decoration: none;
+    cursor: pointer;
 }
 li {
     list-style: none;
@@ -1709,7 +1727,7 @@ strong {
     padding: 10px;
 }
 .save-id-btns {
-    margin-top:30px;
+    margin-top:20px;
 }
 .save {
     float:left;
@@ -1723,17 +1741,24 @@ strong {
 a {
     color:#888;
 }
+.link {
+  text-align: right;
+
+}
 .id-link {
     font-size:14px;
+  font-family: Montserrat,-apple-system,NotoSansCJKkr,sans-serif;
+
 }
 .pw-link {
     margin-left:10px;
     font-size:14px;
-    padding:10px;
+    padding-left:10px;
     background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/bar_1x14.png") 0 50% no-repeat;
+  font-family: Montserrat,-apple-system,NotoSansCJKkr,sans-serif;
 }
 .login-btn-area {
-    margin-top: 35px;
+    margin-top: 20px;
     width: 100%;
 }
 .login-btn {
@@ -1750,12 +1775,15 @@ a {
     line-height: 60px;
 }
 .kakao-area {
-    margin-top: 40px;
+    margin-top: 20px;
     color:#888;
     font-size: 14px;
 }
 .kakao-area p {
     display:inline-block;
+    font-size: 12px;
+    font-family: Montserrat,-apple-system,NotoSansCJKkr,AppleSDGothicNeo;
+
 }
 .kakao-area a {
     float:right;
@@ -1768,7 +1796,51 @@ a {
 .kakao-area a span{
     padding:0 0 0 26px;
     background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/logo_kakao_40.png") 0 0/20px auto no-repeat;
-    margin-bottom:50px;
+
+}
+.kakao-area a span .kakao_txt{
+    color: black;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 14px;
+    transform: translatey(-3px);
+    font-family: Montserrat,-apple-system,NotoSansCJKkr,AppleSDGothicNeo;
+}
+.login_hr {
+  margin-top: 40px;
+}
+.join-area {
+  padding: 15px 0 0 0;
+
+}
+.join_icon {
+  width: 123px;
+  height: 33px;
+  background:url("https://static.oliveyoung.co.kr/pc-static-root/image/login/ico_cjone_190822.png") no-repeat;
+  margin-bottom: 5px;
+
+}
+.join_txt {
+  width: 260px;
+}
+.join_txt span {
+  font-family: Montserrat,-apple-system,NotoSansCJKkr,sans-serif;
+  font-size: 13px;
+}
+.join-area a {
+  float:right;
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: 1px solid #6b674d;
+  width: 173px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  transform: translatey(-40px);
+}
+.join-area a>span {
+  font-family: Montserrat,-apple-system,NotoSansCJKkr,sans-serif;
+  color: black;
 }
 /* 로그인 끝 */
 </style>
