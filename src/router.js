@@ -16,7 +16,7 @@ const routes = [
         component: Join
     },
     {
-        path: '/ProductInsert',
+        path: '/productInsert',
         component: ProductInsert
     },
     {
@@ -24,7 +24,7 @@ const routes = [
         component: ProductDetail
     },
     {
-        path: '/Login',
+        path: '/login',
         component: Login
     },
 ];
