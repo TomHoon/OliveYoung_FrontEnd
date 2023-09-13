@@ -226,20 +226,104 @@
             <div class="buy-able-area">
                 <p class="buy-able-left">
                     <em class="buy-able-img"></em>
-                    <span class="buy-able-span"><em class="buyable">구매가능한 매장을</em> 확인해보세요</span>
+                    <span class="buy-able-span">구매가능한 매장을 확인해보세요</span>
                     <em class="buy-able-arrow"></em>
                     <em class="vertical-line">
 
                     </em>
                 </p>
                 <p class="buy-able-right">
-                    <span class="buy-able-right-img">
-
-                    </span>
+                    <span class="buy-able-right-img"></span>
+                    <span class="brand-name">수플린 브랜드관</span>
+                    <em class="buy-able-arrow2"></em>
                 </p>
             </div>
         </div>
         <!-- 구매 가능 매장 확인끝 -->
+
+        <!-- 추천상품 '어때요' 시작 -->
+        <div class="recommend-wrapper">
+            <div class="recommend-tit">
+                <h4 class="recommend-tit-left">
+                    이런 <strong class="recommend-word">디저트/간식 상품은</strong> 어때요?
+                </h4>
+                <button class="recommend-tit-right">
+                    <span class="recommend-more-btn">더보기</span> 
+                </button>
+            </div>
+
+            <div class="recommend-img-area">
+                <ul class="recommend-img-ul">
+                    <li>
+                        <div style="margin-left:10px;">
+                            <img style="margin-right:10px; float:left; width:100px; height:100px;" src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0018/B00000018990601ko.jpg?l=ko" alt="">
+                            <span class="recommend-img-tit1">23년 첫수확 프리미엄 고당도 샤인머스캣 1송이 과일선물 (650g)</span>
+                            <p class="prd_price" style="margin-top:8px;">
+                                <span class="tx_org">
+                                    <span class="tx_num">35,000</span>
+                                    원
+                                </span>
+                                <span class="tx_cur">
+                                    <span class="tx_num">23,900</span>
+                                    원
+                                </span>
+                            </p>
+                            <p class="prd_flag">
+                                <span class="icon_flag sale">세일</span>
+                                <span class="icon_flag coupon">쿠폰</span>
+                                <span class="icon_flag delivery">오늘드림</span>
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div style="margin-left:10px;">
+                            <img style="margin-right:10px; float:left; width:100px; height:100px;" src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0018/B00000018383002ko.jpg?l=ko" alt="">
+                            <span class="recommend-img-tit1">23년 첫수확 프리미엄 고당도 샤인머스캣 1송이 과일선물 (650g)</span>
+                            <p class="prd_price" style="margin-top:8px;">
+                                <span class="tx_org">
+                                    <span class="tx_num">62,900</span>
+                                    원
+                                </span>
+                                <span class="tx_cur">
+                                    <span class="tx_num">59,700</span>
+                                    원
+                                </span>
+                            </p>
+                            <p class="prd_flag">
+                                <!-- <span class="icon_flag sale">세일</span> -->
+                                <span class="icon_flag coupon">쿠폰</span>
+                                <span class="icon_flag free">무배</span>
+                                <!-- <span class="icon_flag delivery">오늘드림</span> -->
+
+                            </p>
+                        </div>
+                    </li>
+                    <li>
+                        <div style="margin-left:10px;">
+                            <img style="margin-right:10px; float:left; width:100px; height:100px;" src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0018/B00000018247004ko.jpg?l=ko" alt="">
+                            <span class="recommend-img-tit1">[수플린] 풍성한과일선물 프리미엄 혼합과일 11입 선물세트 (11입, 총 4.3kg 이상)</span>
+                            <p class="prd_price" style="margin-top:8px;">
+                                <span class="tx_org">
+                                    <span class="tx_num">72,900</span>
+                                    원
+                                </span>
+                                <span class="tx_cur">
+                                    <span class="tx_num">69,900</span>
+                                    원
+                                </span>
+                            </p>
+                            <p class="prd_flag">
+                                <!-- <span class="icon_flag sale">세일</span> -->
+                                <span class="icon_flag coupon">쿠폰</span>
+                                <span class="icon_flag free">무배</span>
+                                <!-- <span class="icon_flag delivery">오늘드림</span> -->
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 추천상품 '어때요' 끝 -->
 </div>
 </template>
 
@@ -799,6 +883,10 @@ img {
 .icon_flag.delivery {
     width:60px;
     background-color: #f374b7;
+}
+.icon_flag.free {
+    width:50px;
+    background-color: #ad85ed;
 }
 
 .icon_flag {
@@ -1789,9 +1877,9 @@ a {
 }
 .dt1:after {
     content: "";
-    top: 3px;
+    top: 5px;
     width: 1px;
-    left: 59px;
+    left: 67px;
     height: 12px;
     background: #b2b2b2;
     position: absolute;
@@ -1802,9 +1890,9 @@ a {
 }
 .dt2:after {
     content: "";
-    top: 3px;
+    top: 6px;
     width: 1px;
-    left: 73px;
+    left: 83px;
     height: 12px;
     background: #b2b2b2;
     position: absolute;
@@ -1963,8 +2051,8 @@ a {
     height: 40px;
     display:inline-block;
     position: absolute;
-    top:-6px;
-    left:220px;
+    top:-3px;
+    left:243px;
 }
 .vertical-line {
     width:0.2px;
@@ -1976,8 +2064,81 @@ a {
 }
 .buy-able-right{
     float:right;
+    position:relative;
 }
 .buy-able-right-img {
-    background: url('https://image.oliveyoung.co.kr/uploads/images/onlBrandMgmt/2021/6/5587431630231725724.jpg');
+    width: 88px;
+    background: url(https://image.oliveyoung.co.kr/uploads/images/onlBrandMgmt/2023/4/4835200102281465411.jpg);
+    height: 40px;
+    background-size: cover;
+    display: inline-block;
+    left: -407px;
+    position: absolute;
+    top: -38px;
+    height: 50px;
+}
+.brand-name {
+    position: absolute;
+    top: -16px;
+    width: 120px;
+    left: -263px;
+    font-weight: 700;
+}
+.buy-able-arrow2 {
+    background: url(https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_link_arrow_black.png) right 11px/6px auto no-repeat;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    position: absolute;
+    top: -19px;
+    right: 123px;
+}
+.recommend-wrapper{
+    width:100%;
+    float:left;
+    margin-top:40px;
+}
+.recommend-tit {
+    margin: 0 auto;
+    height: 80px;
+    position: relative;
+    width: 1020px;
+}
+.recommend-tit-left {
+    float:left;
+    width:277px;
+}
+.recommend-word {
+    font-size:20px;
+}
+.recommend-tit-right {
+background: url(https://static.oliveyoung.co.kr/pc-static-root/image/curation/ico_more_5x10.png) top 3.5px right 0/5px auto no-repeat;
+    padding-right: 5px;
+    position: absolute;
+    width: 72px;
+    right: 5px;
+    line-height: 16px;
+    border: none;
+}
+.recommend-more-btn {
+    font-size:15px;
+    font-weight: 500;
+    color:#aaa;
+}
+
+.recommend-img-area{
+    width:1020px;
+    margin:0 auto;
+}
+.recommend-img-ul {
+    display:flex;
+    justify-content: space-between;
+}
+.recommend-img-tit1 {
+    font-size:12px;
+    overflow:hidden;
+    word-wrap: break-word;
+    max-height: 36px;
+    margin-bottom:3px;
 }
 </style>
