@@ -74,12 +74,8 @@
           <td class="product_txt"><input type="text" id="product_way" class="product_way" v-model="product_way" autocomplete="off"></td>
         </tr>
         <tr>
-          <td class="product_tit">제품제조업자</td>
+          <td class="product_tit">제품제조업자/판매업자</td>
           <td class="product_txt"><input type="text" id="product_manufacturer" class="product_manufacturer" v-model="product_manufacturer" autocomplete="off"></td>
-        </tr>
-        <tr>
-          <td class="product_tit">제품판매업자</td>
-          <td class="product_txt"><input type="text" id="product_seller" class="product_seller" v-model="product_seller" autocomplete="off"></td>
         </tr>
         <tr>
           <td class="product_tit">제품제조국</td>
@@ -110,7 +106,7 @@
       </table>
     </div>
     <div class="product_button">
-      <button class="back btn" @click="backPage">뒤로가기</button>
+      <button class="back btn" @click="productList">상품리스트</button>
       <button class="productInsert btn" @click="productInsert">제품등록</button>
     </div>
   </div>
@@ -138,7 +134,6 @@ export default {
       product_limit: '',
       product_way: '',
       product_manufacturer: '',
-      product_seller: '',
       product_produce_country: '',
       product_ingredient: '',
       product_evaluate: '',
@@ -155,8 +150,8 @@ export default {
     */
   },
   methods: {
-    backPage() {
-      this.$backPage();
+    productList() {
+      this.$router.push('/productList');
     },
     productInsert() {
       let 제품등록파라미터 = {
@@ -176,7 +171,6 @@ export default {
         product_limit: this.product_limit,
         product_way: this.product_way,
         product_manufacturer: this.product_manufacturer ,
-        product_seller: this.product_seller,
         product_produce_country: this.product_produce_country,
         product_ingredient: this.product_ingredient,
         product_evaluate: this.product_evaluate,
@@ -226,6 +220,9 @@ input {
   width: 180px;
   height: 20px;
   padding: 2px 10px;
+}
+a, button {
+  cursor: pointer;
 }
 .wrap {
   width: 1280px;
