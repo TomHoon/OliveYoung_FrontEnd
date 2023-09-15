@@ -324,6 +324,121 @@
             </div>
         </div>
         <!-- 추천상품 '어때요' 끝 -->
+        
+        <!-- 상품설명, 구매정보, 리뷰, Q&A 시작 -->
+        <div class="product-btns-wrapper">
+            <ul class="product-btns-ul">
+                <li class="product-desc-li active-product-btn">
+                    <p>상품설명</p>
+                </li>
+                <li class="product-buyinfo-li">
+                    <p>구매정보</p>
+                </li>
+                <li class="product-rvw-li">
+                    <p>리뷰</p>
+                </li>
+                <li class="product-qna-li">
+                    <p>Q&A</p>
+                </li>
+            </ul>
+        </div>
+        <!-- 상품설명, 구매정보, 리뷰, Q&A 끝-->
+        <div class="contents-wrapper">
+            <div class="contents-area">
+                <a href="" class="advertise-area">
+                    <img src="https://image.oliveyoung.co.kr/uploads/images/display/9000003/396/2189236808962212784.jpg" alt="" class="advertise-img">
+                </a>
+                <div class="contents-area-main">
+                    <img src="https://kingson7.speedgabia.com/NESPRESSO/OverallMall/SSG/nespresso_official_900.jpg" alt="" class="contents-main-img">
+                    <img src="https://kingson7.speedgabia.com/NESPRESSO/OverallMall/SSG/C30-KR-WH-CF_900.jpg" alt="" class="contents-sub-img">
+                </div>
+                <div class="notice-text">
+                    <p>
+                        본 상품 정보(상품 상세, 상품 설명 등)의 내용은 협력사가 직접 등록한 것 입니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 푸터시작 -->
+        <div class="footer">
+            <div class="conts1">
+                <ul class="footer-ul">
+                    <li>회사소개</li>
+                    <li>채용안내</li>
+                    <li>가맹점 개설문의</li>
+                    <li>상품입점 및 제휴문의</li>
+                    <li>사이버 감사실</li>
+                    <li>고객센터</li>
+                </ul>
+            </div>
+            <div class="conts2">
+                <div class="conts2-ul-wrapper">
+                    <ul class="conts2-ul">
+                        <li>
+                            <p class="conts2-ul-p">
+                                <a href="">
+                                    <img style="width:146px; height:24px;" src="https://static.oliveyoung.co.kr/pc-static-root/image/footer/foot_logo.png" alt="">
+                                </a>
+                            </p>
+                        </li>
+                        <li>
+                            <h3 class="conts2-ul-h3">씨제이 올리브영 주식회사</h3>
+                            <p>
+                                대표이사: 이동훈|사업자등록번호:809-81-22241
+                                <br>
+                                주소 : (12442) 서울특별시 강동구 강동대로 412, 33층 
+                                <br>
+                                호스팅사업자:cafe24
+                                <br>
+                                통신판매업신고번호:14-231-2341
+                                <br>
+                                이메일:gnsdl9079@gmail.com
+
+                            </p>
+                            <p>
+                            </p>
+                        </li>
+                        <li style="margin:45px 0 0 25px;">
+                            <a class="conts2-ul-lawlist" href="">
+                                이용약관 법적고지
+                            </a>
+                            <a class="conts2-ul-lawlist active-lawlist" href="">
+                                개인정보처리방침
+                            </a>
+                            <a class="conts2-ul-lawlist" href="">
+                                청소년처리방침
+                            </a>
+                            <a class="conts2-ul-lawlist" href="">
+                                영상정보처리기기 운영/관리방침
+                            </a>
+                            <a class="conts2-ul-lawlist" href="">
+                                이메일 무단수집거부
+                            </a>
+                        </li>
+                        <li style="margin:45px 0 0 25px;">
+                            <a class="conts2-ul-lawlist active-lawlist" style="color:#000" href="">
+                                하나은행 구매안전 서비스
+                            </a>
+                            <a class="conts2-ul-lawlist" href="">
+                                <p>
+                                    올리브영은 현금 결제한 금액에 대해
+                                    <br>
+                                    하나은행과 채무지급보증 계약을체결
+                                    <br>
+                                    하여 안전한 거래를 보장하고 있습니다
+                                    <br>
+                                </p>
+                            </a>
+                            <a style="color:#9a9a9a; font-size:14px; position:absolute; bottom:50px;" href="">
+                                서비스가입사실확인 
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- 푸터끝 -->
 </div>
 </template>
 
@@ -1642,6 +1757,7 @@ strong {
     right: 0;
 }
 .footer {
+    float:left;
     width:100%;
     height:50px;
     border-top: 1px solid #aaa;
@@ -2140,5 +2256,56 @@ background: url(https://static.oliveyoung.co.kr/pc-static-root/image/curation/ic
     word-wrap: break-word;
     max-height: 36px;
     margin-bottom:3px;
+}
+.product-btns-wrapper {
+    float: left;
+    width: 100%;
+    height: 69px;
+    margin: 90px 0 100px 0;
+    border-bottom: 2px solid #9bce26;
+}
+.product-btns-ul {
+    margin: 19px auto 78px auto;
+    width: 1020px;
+}
+.product-btns-ul>li{
+    font-size:16px;
+    color:#777;
+    font-weight: 600;
+    text-align: center;
+    height:50px;
+    width:25%;
+    float:left;
+    line-height:50px;
+    background:#f5f5f5;
+    border-bottom: 2px solid #9bce26;
+}
+
+.active-product-btn {
+    background:#fff !important;
+    border: 2px solid #9bce26;
+    color:#333 !important;
+    font-weight: 800 !important;
+}
+.contents-wrapper {
+    float:left;
+    width:100%;
+}
+.contents-area {
+    width:1020px;
+    margin:0 auto;
+}
+.contents-area-main {
+    width: 900px;
+    margin: 50px auto 0 auto;
+}
+.notice-text {
+    width: 600px;
+    font-size:14px;
+    padding: 20px 30px 20px 30px;
+    font-weight:500;
+    color:#666;
+    margin:40px auto 40px auto;
+    border: 1px solid #ddd;
 }
 </style>
