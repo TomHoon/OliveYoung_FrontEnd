@@ -1,6 +1,5 @@
 <template>
     <div class="Header">
-
         <div class="top_util">
             <ul class="menu_list">
                 <li class="join" @click="goJoin">회원가입</li>
@@ -38,8 +37,6 @@
 
 <script>
 export default {
-    name: 'OliveYoungFrontendHeader',
-
     data() {
         return {
             
@@ -56,7 +53,29 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: #666;
+    font-family:Montserrat,-apple-system,NotoSansCJKkr,AppleSDGothicNeo,Roboto,dotum,"돋움",sans-serif;
+    font-size:14px;
+}
+* {
+    box-sizing: border-box;
+}
+a, address, blockquote, body, dd, div, dl, dt, em, fieldset, form, h1, h2, h3, h4, h5, h6, img, input, label, li, ol, p, pre, select, span, strong, textarea, ul {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.wrapper {
+    width: 100%;
+    min-width: 1068px;
+    /* background-color: mediumaquamarine; */
+}
 .Header {
     width: 1020px;
     margin: 0 auto;
@@ -155,5 +174,4 @@ button {
     color: black;
     background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_delivery_flag.png") right 2px/22px 20px no-repeat;
 }
-
 </style>

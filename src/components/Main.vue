@@ -2,6 +2,7 @@
   <div class="wrapper">
         <!-- 헤더시작 -->
         <Header />
+
         <!-- 헤더끝 -->
 
         <!-- GNB시작 -->
@@ -1048,7 +1049,7 @@ export default {
   components: { // 가져온 component 들을 등록합니다.
     Header
   },
-  
+
   mounted() {
     this.$propsWatch();
   },
@@ -1105,103 +1106,12 @@ a, address, blockquote, body, dd, div, dl, dt, em, fieldset, form, h1, h2, h3, h
     min-width: 1068px;
     /* background-color: mediumaquamarine; */
 }
-.Header {
-    width: 1020px;
-    margin: 0 auto;
-}
-.top_util {
-    width: 100%;
-    height: 40px;
-    position:relative;
-}
-.menu_list {
-    position:absolute;
-    right: 0px;
-    bottom: 0px;
-}
-.menu_list li {
-    list-style: none;
-    float: left;
-    padding: 0 9px 0 10px;
-}
-.menu_list li+li {
-    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/bar_1x11.gif") 0 50% no-repeat;
-}
 
-
-.header_inner {
-    height: 90px;
-    width: 1020px;
-}
-
-/* 
-* div 영역 안에서 float를 시전하면
-* 영역 만큼 행 하나로 배치 
-*/
-.header_inner h1{
-    margin-top: 21px;
-    float: left;
-}
-
-.header_inner h1 a img{
-    width: 248px;
-    height: 42px;
-}
-
-.header_inner .search_box {
-    float:left;
-    position:relative;
-    width:340px;
-    height: 40px;
-    padding: 0 45px 0 20px;
-    margin: 22px 0 0 90px;
-    border: 2px solid #9bce26;
-    border-radius: 20px;
-    background:#fff;
-}
-
-.header_inner .search_box #searchSubmit{
-    position:absolute;
-    top:7px;
-    right:18px;
-    width:21px;
-    height: 21px;
-    background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_search21x212.png") 50% 50% no-repeat;
-    text-indent: -9999px;
-}
-
-.header_inner .search_box input[type=text] {
-    background-color:transparent;
-    border:0;
-    height: 40px;
-}
 button {
     border:0;
     text-align:center;
     color: #fff;
     text-indent:100px;
-}
-.header_inner .mymenu-area{
-    float:right;
-    margin-top: 10px;
-}
-
-.header_inner .mymenu-area ul{
-    padding: 0px;
-    width: 120px;
-    height:65px;
-}
-
-.header_inner .mymenu-area > li{
-    list-style: none;
-    /* padding-top: px; */
-    float:left;
-}
-.header_inner .mymenu-area .delivery a{
-    text-decoration: none;
-    padding: 4px 27px 3px 0;
-    color: black;
-    background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_delivery_flag.png") right 2px/22px 20px no-repeat;
 }
 #Gnb {
     position:relative;
