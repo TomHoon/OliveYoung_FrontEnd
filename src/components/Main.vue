@@ -1,42 +1,7 @@
 <template>
   <div class="wrapper">
         <!-- 헤더시작 -->
-        <div class="Header">
-            
-            <div class="top_util">
-                <ul class="menu_list">
-                    <li class="test">테스트</li>
-                    <li class="join" @click="goJoin">회원가입</li>
-                    <li class="login" @click="goLogin">로그인</li>
-                    <li class="cart">장바구니</li>
-                    <li class="order">주문배송</li>
-                    <li class="customer">고객센터</li>
-                    <li class="store" @click="goDetails">매장안내</li>
-                    <li class="ProductList" @click="ProductList">상품리스트</li>
-                </ul>
-            </div>
-
-            <div class="header_inner">
-                <h1>
-                    <a href="/">
-                        <img src="https://static.oliveyoung.co.kr/pc-static-root/image/comm/h1_logo.png" alt="올리브영">
-                    </a>
-                </h1>
-                <div class="search_box" id="w_search_box">
-                    <div class="placeholder_area">
-                        <input type="text" placeholder="검색어를 입력해주세요">
-                    </div>
-                    <button id="searchSubmit">검색</button>
-                </div>
-                <ul class="mymenu-area">
-                    <li class="delivery" id="todayDeliveryContainer">
-                        <a href="javascript:;" id="tddlvr_header_today_icon" class="mymenu-layer">
-                            오늘드림
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        <Header />
         <!-- 헤더끝 -->
 
         <!-- GNB시작 -->
@@ -1075,9 +1040,15 @@
 </template>
 
 <script>
+import Header from "@/components/Header";
+
 export default {
   props: ['pageParams', 'transferObj'],
 
+  components: { // 가져온 component 들을 등록합니다.
+    Header
+  },
+  
   mounted() {
     this.$propsWatch();
   },
