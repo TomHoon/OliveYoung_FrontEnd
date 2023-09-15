@@ -3,6 +3,7 @@ module.exports = defineConfig({
   transpileDependencies: true,
   lintOnSave:false,
   devServer: {
+    // historyApiFallback: true,
     // 💕운영
     proxy: 'http://oliveyoungproject.shop'
 
