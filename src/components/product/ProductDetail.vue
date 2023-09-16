@@ -328,16 +328,16 @@
         <!-- 상품설명, 구매정보, 리뷰, Q&A 시작 -->
         <div class="product-btns-wrapper">
             <ul class="product-btns-ul">
-                <li class="product-desc-li" :class="tab == 0 ? 'active-product-btn' : ''">
+                <li class="product-desc-li" @click="chgTab(0)" :class="tab == 0 ? 'active-product-btn' : ''">
                     <p>상품설명</p>
                 </li>
-                <li class="product-buyinfo-li" :class="tab == 1 ? 'active-product-btn' : ''">
+                <li class="product-buyinfo-li" @click="chgTab(1)" :class="tab == 1 ? 'active-product-btn' : ''">
                     <p>구매정보</p>
                 </li>
-                <li class="product-rvw-li" :class="tab == 2 ? 'active-product-btn' : ''">
+                <li class="product-rvw-li" @click="chgTab(2)" :class="tab == 2 ? 'active-product-btn' : ''">
                     <p>리뷰</p>
                 </li>
-                <li class="product-qna-li" :class="tab == 3 ? 'active-product-btn' : ''">
+                <li class="product-qna-li" @click="chgTab(3)" :class="tab == 3 ? 'active-product-btn' : ''">
                     <p>Q&A</p>
                 </li>
             </ul>
@@ -346,9 +346,11 @@
         <div class="contents-wrapper">
           <!--상품설명시작-->
           <div v-if="tab == 0" class="contents-area">
-              <a href="" class="advertise-area">
-                  <img src="https://image.oliveyoung.co.kr/uploads/images/display/9000003/396/2189236808962212784.jpg" alt="" class="advertise-img">
-              </a>
+              <div class="advertise-area-wrapper">
+                <a href="" class="advertise-area">
+                    <img src="https://image.oliveyoung.co.kr/uploads/images/display/9000003/396/2189236808962212784.jpg" alt="" class="advertise-img">
+                </a>
+              </div>
               <div class="contents-area-main">
                   <img src="https://kingson7.speedgabia.com/NESPRESSO/OverallMall/SSG/nespresso_official_900.jpg" alt="" class="contents-main-img">
                   <img src="https://kingson7.speedgabia.com/NESPRESSO/OverallMall/SSG/C30-KR-WH-CF_900.jpg" alt="" class="contents-sub-img">
@@ -556,6 +558,11 @@ export default {
         redArea4: {height: '3px'},
         redArea5: {height: '3px'}
       }
+    }
+  },
+  methods: {
+    chgTab(tab) {
+      this.tab = tab;
     }
   }
 }
@@ -2043,6 +2050,10 @@ a {
     font-size:28px;
     margin-left:10px;
     font-weight:700;
+}
+.advertise-area-wrapper {
+  width:1020px;
+  margin:0 auto;
 }
 .advantage-info {
     color:#9a9a9a;
