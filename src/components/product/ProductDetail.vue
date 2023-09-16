@@ -328,38 +328,140 @@
         <!-- 상품설명, 구매정보, 리뷰, Q&A 시작 -->
         <div class="product-btns-wrapper">
             <ul class="product-btns-ul">
-                <li class="product-desc-li active-product-btn">
+                <li class="product-desc-li" :class="tab == 0 ? 'active-product-btn' : ''">
                     <p>상품설명</p>
                 </li>
-                <li class="product-buyinfo-li">
+                <li class="product-buyinfo-li" :class="tab == 1 ? 'active-product-btn' : ''">
                     <p>구매정보</p>
                 </li>
-                <li class="product-rvw-li">
+                <li class="product-rvw-li" :class="tab == 2 ? 'active-product-btn' : ''">
                     <p>리뷰</p>
                 </li>
-                <li class="product-qna-li">
+                <li class="product-qna-li" :class="tab == 3 ? 'active-product-btn' : ''">
                     <p>Q&A</p>
                 </li>
             </ul>
         </div>
-        <!-- 상품설명, 구매정보, 리뷰, Q&A 끝-->
+
         <div class="contents-wrapper">
-            <div class="contents-area">
-                <a href="" class="advertise-area">
-                    <img src="https://image.oliveyoung.co.kr/uploads/images/display/9000003/396/2189236808962212784.jpg" alt="" class="advertise-img">
-                </a>
-                <div class="contents-area-main">
-                    <img src="https://kingson7.speedgabia.com/NESPRESSO/OverallMall/SSG/nespresso_official_900.jpg" alt="" class="contents-main-img">
-                    <img src="https://kingson7.speedgabia.com/NESPRESSO/OverallMall/SSG/C30-KR-WH-CF_900.jpg" alt="" class="contents-sub-img">
+          <!--상품설명시작-->
+          <div v-if="tab == 0" class="contents-area">
+              <a href="" class="advertise-area">
+                  <img src="https://image.oliveyoung.co.kr/uploads/images/display/9000003/396/2189236808962212784.jpg" alt="" class="advertise-img">
+              </a>
+              <div class="contents-area-main">
+                  <img src="https://kingson7.speedgabia.com/NESPRESSO/OverallMall/SSG/nespresso_official_900.jpg" alt="" class="contents-main-img">
+                  <img src="https://kingson7.speedgabia.com/NESPRESSO/OverallMall/SSG/C30-KR-WH-CF_900.jpg" alt="" class="contents-sub-img">
+              </div>
+              <div class="notice-text">
+                  <p>
+                      본 상품 정보(상품 상세, 상품 설명 등)의 내용은 협력사가 직접 등록한 것 입니다.
+                  </p>
+              </div>
+          </div>
+          <!--상품설명끝-->
+
+          <!--리뷰시작-->
+          <div v-if="tab == 2" class="contents-area">
+            <div class="rvw-supervise-wrapper">
+              <div class="rvw-supervise-area">
+
+                <!--얼굴부분시작-->
+                <div class="grade-img">
+                  <p class="img-face">
+                    <span class="grade5">
+                      <em class="grade5-em">최고</em>
+                    </span>
+                  </p>
                 </div>
-                <div class="notice-text">
-                    <p>
-                        본 상품 정보(상품 상세, 상품 설명 등)의 내용은 협력사가 직접 등록한 것 입니다.
-                    </p>
+                <!--얼굴부분끝-->
+
+                <!--점수부분시작-->
+                <div class="score-area">
+                  <p class="score-total">
+                    <span>총 1,676건</span>
+                  </p>
+
+                  <p class="score-avg">
+                    <strong>4.4</strong>
+                    <span>점</span>
+                  </p>
+
+                  <ul class="star-num-area">
+                    <li>
+                      <span class="star-fill"></span>
+                      <img class="star-empty" src="https://static.oliveyoung.co.kr/pc-static-root/image//product/bg_rating_star.png" alt="">
+                    </li>
+                    <li>
+                      <span class="star-fill"></span>
+                      <img class="star-empty" src="https://static.oliveyoung.co.kr/pc-static-root/image//product/bg_rating_star.png" alt="">
+                    </li>
+                    <li>
+                      <span class="star-fill"></span>
+                      <img class="star-empty" src="https://static.oliveyoung.co.kr/pc-static-root/image//product/bg_rating_star.png" alt="">
+                    </li>
+                    <li>
+                      <span class="star-fill"></span>
+                      <img class="star-empty" src="https://static.oliveyoung.co.kr/pc-static-root/image//product/bg_rating_star.png" alt="">
+                    </li>
+                    <li>
+                      <span class="star-fill"></span>
+                      <img class="star-empty" src="https://static.oliveyoung.co.kr/pc-static-root/image//product/bg_rating_star.png" alt="">
+                    </li>
+                  </ul>
+
                 </div>
+                <div class="graph-area-wrapper">
+                  <ul class="graph-area">
+                    <li class="graph-li">
+                      <span class="graph-percent">66%</span>
+                      <div class="graph-gray-area">
+                        <span class="graph-red-area" :style="styleSet.redArea1"></span>
+                      </div>
+                      <span class="score-type1">5점</span>
+                    </li>
+                    <li class="graph-li">
+                      <span class="graph-percent">21%</span>
+                      <div class="graph-gray-area">
+                        <span class="graph-red-area" :style="styleSet.redArea2"></span>
+                      </div>
+                      <span class="score-type1">4점</span>
+                    </li>
+                    <li class="graph-li">
+                      <span class="graph-percent">8%</span>
+                      <div class="graph-gray-area">
+                        <span class="graph-red-area" :style="styleSet.redArea3"></span>
+                      </div>
+                      <span class="score-type1">3점</span>
+                    </li>
+                    <li class="graph-li">
+                      <span class="graph-percent">3%</span>
+                      <div class="graph-gray-area">
+                        <span class="graph-red-area" :style="styleSet.redArea4"></span>
+                      </div>
+                      <span class="score-type1">2점</span>
+                    </li>
+                    <li class="graph-li">
+                      <span class="graph-percent">3%</span>
+                      <div class="graph-gray-area">
+                        <span class="graph-red-area" :style="styleSet.redArea5"></span>
+                      </div>
+                      <span class="score-type1">1점</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <!--점수부분끝-->
+
+              </div>
             </div>
+          </div>
+          <!--리뷰끝-->
         </div>
 
+
+
+    <!-- 상품설명, 구매정보, 리뷰, Q&A 끝-->
         <!-- 푸터시작 -->
         <div class="footer">
             <div class="conts1">
@@ -444,7 +546,18 @@
 
 <script>
 export default {
-
+  data() {
+    return {
+      tab: 2,
+      styleSet: {
+        redArea1: {height: '66px'},
+        redArea2: {height: '21px'},
+        redArea3: {height: '8px'},
+        redArea4: {height: '3px'},
+        redArea5: {height: '3px'}
+      }
+    }
+  }
 }
 </script>
 
@@ -2307,5 +2420,130 @@ background: url(https://static.oliveyoung.co.kr/pc-static-root/image/curation/ic
     color:#666;
     margin:40px auto 40px auto;
     border: 1px solid #ddd;
+}
+.contents-area {
+  width: 100%;
+  float:left;
+}
+.rvw-supervise-wrapper {
+  width:1020px;
+  margin:0 auto;
+  border-top:1px solid black;
+  margin-bottom:60px;
+}
+.rvw-supervise-area {
+  height:231px;
+  border-bottom:1px solid #ddd;
+}
+.grade-img {
+  width:280px;
+  float:left;
+  height:231px;
+  border-right: 1px solid #ddd;
+}
+.img-face {
+  margin-top: 64px;
+}
+.grade5 {
+  background-position: 0 0;
+  display:block;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 8px;
+  background: url("https://static.oliveyoung.co.kr/pc-static-root/image/product/face_grade_1.png") no-repeat;
+  position:relative;
+}
+.grade5-em {
+  display:block;
+  text-align: center;
+  font-style:normal;
+  position:absolute;
+  bottom:-34px;
+  right:35px;
+}
+.score-area {
+  width:361px;
+  float:left;
+  padding-top:43px;
+}
+.score-total {
+  text-align: center;
+  font-size:16px;
+  font-weight: 700;
+  margin-bottom:20px;
+}
+.score-avg {
+  text-align: center;
+}
+.score-avg>strong {
+  font-size:30px;
+  font-weight: 700;
+}
+.score-avg>span {
+  font-weight: 700;
+}
+.star-num-area {
+  margin-top:34px;
+  text-align: center;
+}
+.star-num-area>li{
+  width:26px;
+  height:25px;
+  position:relative;
+  display: inline-block;
+}
+.star-fill {
+  top:0;
+  left:0;
+  position:absolute;
+  display: block;
+  width:100%;
+  height:26px;
+  background:#f27370;
+  z-index:4;
+}
+.star-empty{
+  top:0;
+  left:0;
+  position: absolute;
+  z-index:5;
+}
+.graph-area-wrapper {
+  float:left;
+}
+.graph-area {
+  width:378px;
+  display: block;
+  height: 231px;
+  padding: 20px 0 0 15px;
+}
+.graph-li {
+  display:inline-block;
+  width:56px;
+  position:relative;
+  text-align: center;
+}
+.graph-gray-area {
+  position: relative;
+  background: #e5e5e5;
+  width: 8px;
+  margin: 10px auto 0 auto;
+  height: 100px;
+}
+.graph-red-area {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background: #f27370;
+  border-radius: 10px;
+}
+.score-type1 {
+  position: absolute;
+  bottom: -28px;
+  left:15px;
+}
+.graph-percent {
+  color: #aaa;
 }
 </style>
