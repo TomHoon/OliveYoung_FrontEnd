@@ -460,8 +460,117 @@
           </div>
           <!--리뷰끝-->
         </div>
+        <!-- 상품 특징 3가지 시작 -->
+        <div class="poll-wrapper">
+          <div class="poll-area">
+            <dl class="poll-dl">
+              <dt class="poll-dt">
+                <span class="poll-dd-span">
+                  피부타입
+                </span>
+              </dt>
+              <dd class="poll-dd">
+                <ul class="dd-ul">
+                  <li class="dd-ul-li">
+                    <span>건성에 좋아요</span>
+                    <div class="dd-ul-li-div">
+                      <span style="width:30px"></span>
+                    </div>
+                    <em class="poll-em">30%</em>
+                  </li>
+                  <li class="dd-ul-li">
+                    <span>복합성 좋아요</span>
+                    <div class="dd-ul-li-div">
+                      <span style="width:62px"></span>
+                    </div>
+                    <em class="poll-em">62%</em>
+                  </li>
+                  <li class="dd-ul-li">
+                    <span>지성에 좋아요</span>
+                    <div class="dd-ul-li-div">
+                      <span style="width:8px"></span>
+                    </div>
+                    <em class="poll-em">8%</em>
+                  </li>
+                </ul>
+              </dd>
+            </dl>
+            <dl class="poll-dl">
+              <dt class="poll-dt">
+                <span class="poll-dd-span">
+                  피부고민
+                </span>
+              </dt>
+              <dd class="poll-dd">
+                <ul class="dd-ul">
+                  <li class="dd-ul-li">
+                    <span>보습에 좋아요</span>
+                    <div class="dd-ul-li-div">
+                      <span style="width:74px"></span>
+                    </div>
+                    <em class="poll-em">74%</em>
+                  </li>
+                  <li class="dd-ul-li">
+                    <span>진정에 좋아요</span>
+                    <div class="dd-ul-li-div">
+                      <span style="width:20px"></span>
+                    </div>
+                    <em class="poll-em">20%</em>
+                  </li>
+                  <li class="dd-ul-li">
+                    <span>주름/미백에 좋아요</span>
+                    <div class="dd-ul-li-div">
+                      <span style="width:6px"></span>
+                    </div>
+                    <em class="poll-em">6%</em>
+                  </li>
+                </ul>
+              </dd>
+            </dl>
+            <dl class="poll-dl">
+              <dt class="poll-dt">
+                <span class="poll-dd-span">
+                  자극도
+                </span>
+              </dt>
+              <dd class="poll-dd">
+                <ul class="dd-ul">
+                  <li class="dd-ul-li">
+                    <span>자극없이 순해요</span>
+                    <div class="dd-ul-li-div">
+                      <span style="width:90px"></span>
+                    </div>
+                    <em class="poll-em">90%</em>
+                  </li>
+                  <li class="dd-ul-li">
+                    <span>보통이에요</span>
+                    <div class="dd-ul-li-div">
+                      <span style="width:10px"></span>
+                    </div>
+                    <em class="poll-em">10%</em>
+                  </li>
+                  <li class="dd-ul-li">
+                    <span>자극이 느껴져요</span>
+                    <div class="dd-ul-li-div">
+                      <span style="width:0px"></span>
+                    </div>
+                    <em class="poll-em">0%</em>
+                  </li>
+                </ul>
+              </dd>
+            </dl>
+          </div>
+        </div>
+        <!-- 상품 특징 3가지 끝 -->
 
 
+        <!-- 상품 리뷰 시작 -->
+        <div class="prd-rvw-list-wrapper">
+          <div class="prd-rvw-list-area">
+
+          </div>
+        </div>
+        <!-- 상품 리뷰 끝 -->
 
     <!-- 상품설명, 구매정보, 리뷰, Q&A 끝-->
         <!-- 푸터시작 -->
@@ -1877,6 +1986,7 @@ strong {
     right: 0;
 }
 .footer {
+    margin-top:40px;
     float:left;
     width:100%;
     height:50px;
@@ -2556,5 +2666,61 @@ background: url(https://static.oliveyoung.co.kr/pc-static-root/image/curation/ic
 }
 .graph-percent {
   color: #aaa;
+}
+.poll-wrapper {
+  float:left;
+  width:100%;
+  border-bottom:1px solid #e5e5e5;
+  padding-bottom:50px;
+}
+.poll-area {
+  width:1020px;
+  margin:0 auto;
+}
+.poll-dl {
+  width:340px;
+  float:left;
+}
+.poll-dt {
+  border: 1px solid #00c8b5;
+  border-radius: 19px;
+  width: 100px;
+  padding: 9px;
+  text-align: center;
+  color: #00c8b5;
+}
+.poll-dd {
+  margin-top: 20px;
+  padding-left:12px;
+}
+.dd-ul-li {
+  color:#888;
+  font-size:14px;
+}
+.dd-ul-li {
+  position:relative;
+  margin-top:15px;
+}
+.dd-ul-li>span {
+  display:inline-block;
+  width:115px;
+}
+.dd-ul-li-div {
+  background: #e5e5e5;
+  width: 100px;
+  height: 10px;
+  display: inline-block;
+  margin-left: 44px;
+  border-radius: 20px;
+}
+.dd-ul-li-div>span {
+  background-color: #00c8b5;
+  height: 10px;
+  position: absolute;
+}
+.poll-em {
+  font-style:normal;
+  color:#888;
+  margin-left:20px;
 }
 </style>
