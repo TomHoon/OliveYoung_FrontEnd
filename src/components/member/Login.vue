@@ -110,11 +110,11 @@
                         <ul class="login-input-ul">
                             <li class="login-input-li">
                                 <!-- <label for="">CJ ONE 통합회원 아이디 입력</label> -->
-                                <input type="text" style="width:495px!important" class="input-id-area" placeholder="CJ ONE 통합회원 아이디 입력" v-model="mid">
+                                <input type="text" style="width:495px!important" class="input-id-area" placeholder="CJ ONE 통합회원 아이디 입력" v-model="mid" ref="mid">
                             </li>
                             <li class="login-input-li">
                                 <!-- <label for="">CJ ONE 통합회원 아이디 입력</label> -->
-                                <input style="width:495px!important" type="password" class="input-id-area" placeholder="비밀번호 (8~12자 영문자+숫자+특수문자)" v-model="mpw">
+                                <input style="width:495px!important" type="password" class="input-id-area" placeholder="비밀번호 (8~12자 영문자+숫자+특수문자)" v-model="mpw" ref="mpw">
                             </li>
                         </ul>
 
@@ -241,6 +241,8 @@
 </template>
 <script>
 import axios from 'axios';
+import DefaultLayout from "@/components/DefaultLayout";
+
 
 export default {
   data() {
@@ -261,14 +263,42 @@ export default {
 
       if(this.mid == ''){
         alert("아이디를 입력해주세요.")
+        this.$refs.mid.focus()
         return false;
       }
       if(this.mpw =='') {
         alert("비밀번호를 입력해주세요.")
+        this.$refs.mpw.focus()
         return false;
       }
 
-      axios.post("/checkExist", idCheck)
+      async function data(_url, _params){
+      let returnV = await axios.post(_url, _params);
+      return returnV;
+    }
+
+      Promise.all([
+        data('/checkExist', idCheck),
+        data('/login', login)
+      ]).then(function ([아이디중복데이터,로그인데이터]){
+
+        if(아이디중복데이터.data == 0){
+          alert("아이디가 없습니다 회원가입 하시겠습니까?");
+          return false;
+        }
+
+        if (로그인데이터.data.mseq == -1) {
+          alert("비밀번호가 맞지 않습니다.");
+          return false;
+        }else {
+         this.$router.push('/login');
+        }
+      }).catch((err) => {
+        if (err.response) {
+          alert("아이디 또는 비밀번호가 틀렸습니다.\n다시 입력해주세요.");
+        }
+      });
+/*      axios.post("/checkExist", idCheck)
           .then((res) => {
             console.log("res",res);
             if (res.data == 0) {
@@ -292,6 +322,7 @@ export default {
         if (err.response) {
         }
       })
+      */
 
     },
 
