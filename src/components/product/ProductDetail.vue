@@ -328,16 +328,16 @@
         <!-- 상품설명, 구매정보, 리뷰, Q&A 시작 -->
         <div class="product-btns-wrapper">
             <ul class="product-btns-ul">
-                <li class="product-desc-li" @click="chgTab(0)" :class="tab == 1? 'active-product-btn' : ''">
+                <li class="product-desc-li" @click="chgTab(1)" :class="tab == 1? 'active-product-btn' : ''">
                     <p>상품설명</p>
                 </li>
-                <li class="product-buyinfo-li" @click="chgTab(1)" :class="tab == 2 ? 'active-product-btn' : ''">
+                <li class="product-buyinfo-li" @click="chgTab(2)" :class="tab == 2 ? 'active-product-btn' : ''">
                     <p>구매정보</p>
                 </li>
-                <li class="product-rvw-li" @click="chgTab(2)" :class="tab == 3 ? 'active-product-btn' : ''">
+                <li class="product-rvw-li" @click="chgTab(3)" :class="tab == 3 ? 'active-product-btn' : ''">
                     <p>리뷰</p>
                 </li>
-                <li class="product-qna-li" @click="chgTab(3)" :class="tab == 4 ? 'active-product-btn' : ''">
+                <li class="product-qna-li" @click="chgTab(4)" :class="tab == 4 ? 'active-product-btn' : ''">
                     <p>Q&A</p>
                 </li>
             </ul>
@@ -365,9 +365,13 @@
 
           <!--리뷰시작-->
           <div v-if="tab == 3" class="contents-area">
+            <div class="rvw-write-wrapper">
+              <button @click="goRvwWrite" class="rvw-write">
+                리뷰쓰기
+              </button>
+            </div>
             <div class="rvw-supervise-wrapper">
               <div class="rvw-supervise-area">
-
                 <!--얼굴부분시작-->
                 <div class="grade-img">
                   <p class="img-face">
@@ -1066,11 +1070,69 @@
             </div>
         </div>
         <!-- 푸터끝 -->
+    <ModalWrapper ref="modal" :width="500" :height="1000">
+      <div class="rvw-popup-wrapper">
+        <div class="rvw-popup-tit">
+          <span>리뷰쓰기</span>
+        </div>
+        <div class="rvw-main-area">
+          <div class="rvw-main-left">
+            <img src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0014/B00000014658854ko.jpg?l=ko" alt="">
+          </div>
+          <div class="rvw-main-right">
+            <span>네스프레소 오리지널 스타터팩 에센자미니 C30 커피머신 화이트</span>
+          </div>
+          <div class="rvw-select-star">
+            <div class="rvw-select-subtit-wrapper">
+              <span>상품을 사용해 보셨나요?</span>
+              <br>
+              <div class="rvw-star-area">
+                <ul>
+                  <li>
+                    <span class="rvw-star-fill"></span>
+                    <img class="rvw-star-empty" src="https://static.oliveyoung.co.kr/pc-static-root/image//product/bg_rating_star.png" alt="">
+                  </li>
+                  <li>
+                    <span class="rvw-star-fill"></span>
+                    <img class="rvw-star-empty" src="https://static.oliveyoung.co.kr/pc-static-root/image//product/bg_rating_star.png" alt="">
+                  </li>
+                  <li>
+                    <span class="rvw-star-fill"></span>
+                    <img class="rvw-star-empty" src="https://static.oliveyoung.co.kr/pc-static-root/image//product/bg_rating_star.png" alt="">
+                  </li>
+                  <li>
+                    <span class="rvw-star-fill"></span>
+                    <img class="rvw-star-empty" src="https://static.oliveyoung.co.kr/pc-static-root/image//product/bg_rating_star.png" alt="">
+                  </li>
+                  <li>
+                    <span class="rvw-star-fill"></span>
+                    <img class="rvw-star-empty" src="https://static.oliveyoung.co.kr/pc-static-root/image//product/bg_rating_star.png" alt="">
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="rvw-text-area">
+            <div class="rvw-text-subtit">
+              <span>어떤 점이 좋았나요?</span>
+            </div>
+            <div class="rvw-text-textarea">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </ModalWrapper>
 </div>
 </template>
 
 <script>
+import ModalWrapper from '@/components/ModalWrapper.vue';
+
 export default {
+  components:{
+    ModalWrapper,
+  },
   data() {
     return {
       tab: 3,
@@ -1084,6 +1146,9 @@ export default {
     }
   },
   methods: {
+    goRvwWrite() {
+      this.$refs.modal.modalOpen();
+    },
     chgTab(tab) {
       this.tab = tab;
     }
@@ -3255,7 +3320,7 @@ background: url(https://static.oliveyoung.co.kr/pc-static-root/image/curation/ic
   transform: translateY(-50%);
   height: 20px;
   left: -3px;
-  top: 9px;
+  top: 13px;
 }
 .poll-type1 {
   display: inline-block;
@@ -3278,8 +3343,8 @@ background: url(https://static.oliveyoung.co.kr/pc-static-root/image/curation/ic
 }
 .poll-type1:not(:last-child):after {
   position: absolute;
-  top: 1px;
-  left: 131px;
+  top: 3px;
+  left: 145px;
   content: "";
   width: 1px;
   height: 11px;
@@ -3314,5 +3379,116 @@ background: url(https://static.oliveyoung.co.kr/pc-static-root/image/curation/ic
   overflow:hidden;
   display:flex;
   gap:10px;
+}
+.rvw-write-wrapper {
+  margin:0 auto;
+  width:1020px;
+  margin-bottom:25px;
+}
+.rvw-write {
+  background: none;
+  border:1px solid #00c8b5;
+  padding: 9px;
+  color:#00c8b5;
+  border-radius: 20px;
+}
+
+.rvw-popup-wrapper {
+  padding:10px;
+}
+.rvw-popup-tit {
+  width: 100%;
+  margin: 0 auto;
+  border-bottom: 1px solid #e5e5e5;
+  text-align: center;
+  padding-bottom: 20px;
+}
+.rvw-main-left {
+  float: left;
+}
+.rvw-main-left>img {
+  width:100px;
+  height:100px;
+}
+.rvw-main-right {
+  float: left;
+  height: 100px;
+  width: 380px;
+  overflow: hidden;
+  text-align: center;
+  padding-top: 24px;
+  vertical-align: center;
+  padding-left: 11px;
+  color:#666;
+}
+.rvw-main-area {
+  position:relative;
+}
+.rvw-hr {
+  width: 535px;
+  height: 25px;
+  background: #e5e5e5;
+  position: absolute;
+  top: 110px;
+  left: -28px;
+}
+.rvw-select-star {
+  margin-top: 20px;
+  float: left;
+  padding-top:15px;
+  border-top: 10px solid #e5e5e5;
+}
+.rvw-select-subtit-wrapper {
+  width: 500px;
+  text-align: center;
+}
+.rvw-select-subtit-wrapper>span {
+  margin: 0 auto;
+  width: 100%;
+  color: #666;
+  font-size: 28px;
+  font-weight: 700;
+}
+.rvw-star-area {
+  margin-top: 10px;
+  position: relative;
+  border-bottom: 1px solid #e5e5e5;
+  height: 63px;
+}
+.rvw-star-area>ul {
+  position: absolute;
+  left: 153px;
+  top: 4px;
+}
+.rvw-star-area>ul>li>img {
+  position: absolute;
+  z-index:5;
+}
+.rvw-star-area>ul>li {
+  float:left;
+  margin-left:5px;
+  position: relative;
+  width: 26px;
+  height: 25px;
+  display: inline-block;
+}
+.rvw-star-fill {
+  top:0;
+  left:13px;
+  position:absolute;
+  display: block;
+  width:100%;
+  height:26px;
+  background:#f27370;
+  z-index:4;
+}
+.rvw-text-textarea {
+  width:480px;
+  height:180px;
+  background: #f4f4f4;
+  margin-top: 70px;
+}
+.rvw-text-area{
+  float:left;
 }
 </style>
