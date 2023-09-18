@@ -3,28 +3,29 @@
     <div class="container">
       <div class="list_wrap">
         <span class="list_main_title">상품리스트</span>
+
         <div class="list_title">
           <input type="checkbox">
           <span>No</span>
-          <span>제목</span>
-          <span>내용</span>
+          <span>제품명</span>
+          <span>가격</span>
           <span>등록일</span>
         </div>
         <div>
-          <div class="list_content">
+          <div class="list_content" v-for="(item,idx) in productAll" :key="idx">
             <input type="checkbox">
-            <span>1</span>
-            <span>제목1</span>
-            <span>내용1</span>
-            <span>등록일1</span>
+            <span>{{item.product_idx}}</span>
+            <span>{{item.product_sell_name}}</span>
+            <span>{{item.product_sell_price}}</span>
+            <span>{{item.product_reg_date}}</span>
           </div>
-          <div class="list_content">
-            <input type="checkbox">
-            <span>2</span>
-            <span>제목2</span>
-            <span>내용2</span>
-            <span>등록일2</span>
-          </div>
+          <!--          <div class="list_content">
+                      <input type="checkbox">
+                      <span>2</span>
+                      <span>제목2</span>
+                      <span>내용2</span>
+                      <span>등록일2</span>
+                    </div>-->
         </div>
 
         <div>
@@ -37,14 +38,28 @@
 </template>
 
 <script>
-//import axios from "axios";
+import axios from "axios";
 
 export default {
   data() {
     return {
+      productAll: '',
 
     }
+       /* fetch('/productAll')
+            .then((response) => response.json())
+            .then((data) => {
+              this.productAll = data;
+            })*/
   },
+    mounted() {
+      axios.post('/productAll')
+          .then((res) => {
+            this.productAll = res;
+            console.log("res", res);
+    });
+    },
+
   methods: {
     ProductInsert() {
       this.$router.push('/ProductInsert');
@@ -60,18 +75,22 @@ export default {
 a, button {
   cursor: pointer;
 }
+
 .wrap {
   margin-top: 50px;
 }
+
 .list_wrap {
   margin: 0 auto;
   width: 1000px;
 }
+
 .list_main_title {
   font-size: 25px;
-  margin-left:10px;
+  margin-left: 10px;
   font-weight: 500;
 }
+
 .list_title {
   border-top: 2px solid rgba(45, 43, 43, 0.74);
   border-bottom: 1px solid rgba(185, 179, 179, 0.74);
@@ -80,31 +99,37 @@ a, button {
   line-height: 50px;
   margin-top: 10px;
 }
+
 .list_title span:nth-child(2) {
   display: inline-block;
   width: 120px;
   text-align: center;
 }
+
 .list_title span:nth-child(3) {
   display: inline-block;
   width: 330px;
   text-align: center;
 }
+
 .list_title span:nth-child(4) {
   display: inline-block;
   width: 275px;
   text-align: center;
 }
+
 .list_title span:nth-child(5) {
   display: inline-block;
   width: 220px;
   text-align: center;
 }
+
 .list_content {
   border-bottom: 1px solid rgba(185, 179, 179, 0.74);
   height: 50px;
   line-height: 50px;
 }
+
 .list_content span:nth-child(2) {
   display: inline-block;
   width: 120px;
@@ -128,6 +153,7 @@ a, button {
   width: 220px;
   text-align: center;
 }
+
 .mainPage {
   width: 100px;
   height: 30px;
@@ -138,6 +164,7 @@ a, button {
   margin: 30px 15px 0 0;
 
 }
+
 .ProductInsert {
   width: 100px;
   height: 30px;
