@@ -328,16 +328,16 @@
         <!-- 상품설명, 구매정보, 리뷰, Q&A 시작 -->
         <div class="product-btns-wrapper">
             <ul class="product-btns-ul">
-                <li class="product-desc-li" @click="chgTab(0)" :class="tab == 0 ? 'active-product-btn' : ''">
+                <li class="product-desc-li" @click="chgTab(0)" :class="tab == 1? 'active-product-btn' : ''">
                     <p>상품설명</p>
                 </li>
-                <li class="product-buyinfo-li" @click="chgTab(1)" :class="tab == 1 ? 'active-product-btn' : ''">
+                <li class="product-buyinfo-li" @click="chgTab(1)" :class="tab == 2 ? 'active-product-btn' : ''">
                     <p>구매정보</p>
                 </li>
-                <li class="product-rvw-li" @click="chgTab(2)" :class="tab == 2 ? 'active-product-btn' : ''">
+                <li class="product-rvw-li" @click="chgTab(2)" :class="tab == 3 ? 'active-product-btn' : ''">
                     <p>리뷰</p>
                 </li>
-                <li class="product-qna-li" @click="chgTab(3)" :class="tab == 3 ? 'active-product-btn' : ''">
+                <li class="product-qna-li" @click="chgTab(3)" :class="tab == 4 ? 'active-product-btn' : ''">
                     <p>Q&A</p>
                 </li>
             </ul>
@@ -345,7 +345,7 @@
 
         <div class="contents-wrapper">
           <!--상품설명시작-->
-          <div v-if="tab == 0" class="contents-area">
+          <div v-if="tab == 1" class="contents-area">
               <div class="advertise-area-wrapper">
                 <a href="" class="advertise-area">
                     <img src="https://image.oliveyoung.co.kr/uploads/images/display/9000003/396/2189236808962212784.jpg" alt="" class="advertise-img">
@@ -364,7 +364,7 @@
           <!--상품설명끝-->
 
           <!--리뷰시작-->
-          <div v-if="tab == 2" class="contents-area">
+          <div v-if="tab == 3" class="contents-area">
             <div class="rvw-supervise-wrapper">
               <div class="rvw-supervise-area">
 
@@ -457,11 +457,10 @@
 
               </div>
             </div>
-          </div>
-          <!--리뷰끝-->
-        </div>
+
+        <!--들어갈자리-->
         <!-- 상품 특징 3가지 시작 -->
-        <div class="poll-wrapper">
+        <div class="poll-wrapper" v-if="tab==3">
           <div class="poll-area">
             <dl class="poll-dl">
               <dt class="poll-dt">
@@ -567,10 +566,425 @@
         <!-- 상품 리뷰 시작 -->
         <div class="prd-rvw-list-wrapper">
           <div class="prd-rvw-list-area">
+              <ul class="prd-rvw-ul">
+                <!--하나의 리뷰 시작-->
+                <li class="prd-rvw-li">
+                  <div class="prd-rvw-left">
+                    <div class="prd-rvw-left-wrapper">
+                      <a href="" class="prd-rvw-left-img-wrapper">
+                        <img src="https://image.oliveyoung.co.kr/uploads/images/mbrProfile/2023/01/02/1672646269565.png?RS=79x60&CS=60x60" alt="">
+                      </a>
+                      <p class="user-nickname">
+                        <span>whiteBeauty</span>
+                      </p>
+                      <p class="user-rank-area">
+                        <span class="user-rank">TOP481</span>
+                      </p>
+                      <p class="tag">
+                        <span class="tag1">건성</span>
+                        <span class="tag2">여름쿨톤</span>
+                        <span class="tag3">모공</span>
+                        <span class="tag4">미백</span>
+                      </p>
+                    </div>
+                  </div>
+                  <!--리뷰사진영역시작-->
+                  <div class="prd-rvw-right">
+                    <div class="prd-rvw-right-wrapper">
+                      <div class="rvw-score-area">
+                        <span class="star-area">
+                          <span class="star-point"></span>
+                        </span>
+                        <span class="score-date">2023.09.18</span>
+                        <span class="icon-offline-store">
+                          매장
+                        </span>
+                      </div>
+                      <div class="rvw-poll-area">
+                        <dl class="poll-type1">
+                          <dt class="poll-type1-dt">
+                            <span>피부타입</span>
+                          </dt>
+                          <dd class="poll-type1-dd">
+                            <span>복합성에 좋아요</span>
+                          </dd>
+                        </dl>
+                        <dl class="poll-type1">
+                          <dt class="poll-type1-dt">
+                            <span>피부타입</span>
+                          </dt>
+                          <dd class="poll-type1-dd">
+                            <span>복합성에 좋아요</span>
+                          </dd>
+                        </dl>
+                        <dl class="poll-type1">
+                          <dt class="poll-type1-dt">
+                            <span>피부타입</span>
+                          </dt>
+                          <dd class="poll-type1-dd">
+                            <span>복합성에 좋아요</span>
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="rvw-txt-inner">
+                        전 이 제품 굉장히 칭찬해 추천하던 사람이었는데 당시 광고방에 혹했던건 아닐까 싶네요. 모공을 조여줘 모공크기가 줄어 든다는데 장기간 써본 사람으로서 이 모공앰플이 진짜 효과가 있는지는 잘 모르겠어요. 전 모공이 거의 없어서 그런지 아무런 효과도 없는 것 같고🙄 대신 남친한테 항상 열심히 발라주는데 남친의 모공 또한 작아지는 걸 아직 못봤어요.
+                        <br>
+                        다 쓰고 샘플들만 남아 사진찍어 보는데 여기에 쓰여진 효과 중 릴랙싱은 그나마 있다고 보지만 모공이 준다거나 피부가 리프팅되는 느낌은 전혀 없는 듯. 이 제품 진짜 효과가 있긴 할까요?
+                      </div>
+                      <div class="rvw-tag">
+                        <span>완전히달라진리뷰</span>
+                        <span>뒤집어놓으셨다</span>
+                        <span>SNS에서난리난그제품</span>
+                      </div>
+                      <div class="rvw-img-div">
+                        <ul class="rvw-img-ul">
+                          <li>
+                            <img src="https://image.oliveyoung.co.kr/uploads/images/gdasEditor/2023/08/16/1692170934661.png?RS=165x0&CS=165x165" alt="">
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <!--리뷰사진영역끝-->
+                </li>
+                <!--하나의 리뷰 끝-->
 
+                <!--하나의 리뷰 시작-->
+                <li class="prd-rvw-li">
+                  <div class="prd-rvw-left">
+                    <div class="prd-rvw-left-wrapper">
+                      <a href="" class="prd-rvw-left-img-wrapper">
+                        <img src="https://image.oliveyoung.co.kr/uploads/images/mbrProfile/2023/01/02/1672646269565.png?RS=79x60&CS=60x60" alt="">
+                      </a>
+                      <p class="user-nickname">
+                        <span>whiteBeauty</span>
+                      </p>
+                      <p class="user-rank-area">
+                        <span class="user-rank">TOP481</span>
+                      </p>
+                      <p class="tag">
+                        <span class="tag1">건성</span>
+                        <span class="tag2">여름쿨톤</span>
+                        <span class="tag3">모공</span>
+                        <span class="tag4">미백</span>
+                      </p>
+                    </div>
+                  </div>
+                  <!--리뷰사진영역시작-->
+                  <div class="prd-rvw-right">
+                    <div class="prd-rvw-right-wrapper">
+                      <div class="rvw-score-area">
+                        <span class="star-area">
+                          <span class="star-point"></span>
+                        </span>
+                        <span class="score-date">2023.09.18</span>
+                        <span class="icon-offline-store">
+                          매장
+                        </span>
+                      </div>
+                      <div class="rvw-poll-area">
+                        <dl class="poll-type1">
+                          <dt class="poll-type1-dt">
+                            <span>피부타입</span>
+                          </dt>
+                          <dd class="poll-type1-dd">
+                            <span>복합성에 좋아요</span>
+                          </dd>
+                        </dl>
+                        <dl class="poll-type1">
+                          <dt class="poll-type1-dt">
+                            <span>피부타입</span>
+                          </dt>
+                          <dd class="poll-type1-dd">
+                            <span>복합성에 좋아요</span>
+                          </dd>
+                        </dl>
+                        <dl class="poll-type1">
+                          <dt class="poll-type1-dt">
+                            <span>피부타입</span>
+                          </dt>
+                          <dd class="poll-type1-dd">
+                            <span>복합성에 좋아요</span>
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="rvw-txt-inner">
+                        전 이 제품 굉장히 칭찬해 추천하던 사람이었는데 당시 광고방에 혹했던건 아닐까 싶네요. 모공을 조여줘 모공크기가 줄어 든다는데 장기간 써본 사람으로서 이 모공앰플이 진짜 효과가 있는지는 잘 모르겠어요. 전 모공이 거의 없어서 그런지 아무런 효과도 없는 것 같고🙄 대신 남친한테 항상 열심히 발라주는데 남친의 모공 또한 작아지는 걸 아직 못봤어요.
+                        <br>
+                        다 쓰고 샘플들만 남아 사진찍어 보는데 여기에 쓰여진 효과 중 릴랙싱은 그나마 있다고 보지만 모공이 준다거나 피부가 리프팅되는 느낌은 전혀 없는 듯. 이 제품 진짜 효과가 있긴 할까요?
+                      </div>
+                      <div class="rvw-tag">
+                        <span>완전히달라진리뷰</span>
+                        <span>뒤집어놓으셨다</span>
+                        <span>SNS에서난리난그제품</span>
+                      </div>
+                      <div class="rvw-img-div">
+                        <ul class="rvw-img-ul">
+                          <li>
+                            <img src="https://image.oliveyoung.co.kr/uploads/images/gdasEditor/2023/08/16/1692170934661.png?RS=165x0&CS=165x165" alt="">
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <!--리뷰사진영역끝-->
+                </li>
+                <!--하나의 리뷰 끝-->
+
+                <!--하나의 리뷰 시작-->
+                <li class="prd-rvw-li">
+                  <div class="prd-rvw-left">
+                    <div class="prd-rvw-left-wrapper">
+                      <a href="" class="prd-rvw-left-img-wrapper">
+                        <img src="https://image.oliveyoung.co.kr/uploads/images/mbrProfile/2023/01/02/1672646269565.png?RS=79x60&CS=60x60" alt="">
+                      </a>
+                      <p class="user-nickname">
+                        <span>whiteBeauty</span>
+                      </p>
+                      <p class="user-rank-area">
+                        <span class="user-rank">TOP481</span>
+                      </p>
+                      <p class="tag">
+                        <span class="tag1">건성</span>
+                        <span class="tag2">여름쿨톤</span>
+                        <span class="tag3">모공</span>
+                        <span class="tag4">미백</span>
+                      </p>
+                    </div>
+                  </div>
+                  <!--리뷰사진영역시작-->
+                  <div class="prd-rvw-right">
+                    <div class="prd-rvw-right-wrapper">
+                      <div class="rvw-score-area">
+                        <span class="star-area">
+                          <span class="star-point"></span>
+                        </span>
+                        <span class="score-date">2023.09.18</span>
+                        <span class="icon-offline-store">
+                          매장
+                        </span>
+                      </div>
+                      <div class="rvw-poll-area">
+                        <dl class="poll-type1">
+                          <dt class="poll-type1-dt">
+                            <span>피부타입</span>
+                          </dt>
+                          <dd class="poll-type1-dd">
+                            <span>복합성에 좋아요</span>
+                          </dd>
+                        </dl>
+                        <dl class="poll-type1">
+                          <dt class="poll-type1-dt">
+                            <span>피부타입</span>
+                          </dt>
+                          <dd class="poll-type1-dd">
+                            <span>복합성에 좋아요</span>
+                          </dd>
+                        </dl>
+                        <dl class="poll-type1">
+                          <dt class="poll-type1-dt">
+                            <span>피부타입</span>
+                          </dt>
+                          <dd class="poll-type1-dd">
+                            <span>복합성에 좋아요</span>
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="rvw-txt-inner">
+                        전 이 제품 굉장히 칭찬해 추천하던 사람이었는데 당시 광고방에 혹했던건 아닐까 싶네요. 모공을 조여줘 모공크기가 줄어 든다는데 장기간 써본 사람으로서 이 모공앰플이 진짜 효과가 있는지는 잘 모르겠어요. 전 모공이 거의 없어서 그런지 아무런 효과도 없는 것 같고🙄 대신 남친한테 항상 열심히 발라주는데 남친의 모공 또한 작아지는 걸 아직 못봤어요.
+                        <br>
+                        다 쓰고 샘플들만 남아 사진찍어 보는데 여기에 쓰여진 효과 중 릴랙싱은 그나마 있다고 보지만 모공이 준다거나 피부가 리프팅되는 느낌은 전혀 없는 듯. 이 제품 진짜 효과가 있긴 할까요?
+                      </div>
+                      <div class="rvw-tag">
+                        <span>완전히달라진리뷰</span>
+                        <span>뒤집어놓으셨다</span>
+                        <span>SNS에서난리난그제품</span>
+                      </div>
+                      <div class="rvw-img-div">
+                        <ul class="rvw-img-ul">
+                          <li>
+                            <img src="https://image.oliveyoung.co.kr/uploads/images/gdasEditor/2023/08/16/1692170934661.png?RS=165x0&CS=165x165" alt="">
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <!--리뷰사진영역끝-->
+                </li>
+                <!--하나의 리뷰 끝-->
+
+                <!--하나의 리뷰 시작-->
+                <li class="prd-rvw-li">
+                  <div class="prd-rvw-left">
+                    <div class="prd-rvw-left-wrapper">
+                      <a href="" class="prd-rvw-left-img-wrapper">
+                        <img src="https://image.oliveyoung.co.kr/uploads/images/mbrProfile/2023/01/02/1672646269565.png?RS=79x60&CS=60x60" alt="">
+                      </a>
+                      <p class="user-nickname">
+                        <span>whiteBeauty</span>
+                      </p>
+                      <p class="user-rank-area">
+                        <span class="user-rank">TOP481</span>
+                      </p>
+                      <p class="tag">
+                        <span class="tag1">건성</span>
+                        <span class="tag2">여름쿨톤</span>
+                        <span class="tag3">모공</span>
+                        <span class="tag4">미백</span>
+                      </p>
+                    </div>
+                  </div>
+                  <!--리뷰사진영역시작-->
+                  <div class="prd-rvw-right">
+                    <div class="prd-rvw-right-wrapper">
+                      <div class="rvw-score-area">
+                        <span class="star-area">
+                          <span class="star-point"></span>
+                        </span>
+                        <span class="score-date">2023.09.18</span>
+                        <span class="icon-offline-store">
+                          매장
+                        </span>
+                      </div>
+                      <div class="rvw-poll-area">
+                        <dl class="poll-type1">
+                          <dt class="poll-type1-dt">
+                            <span>피부타입</span>
+                          </dt>
+                          <dd class="poll-type1-dd">
+                            <span>복합성에 좋아요</span>
+                          </dd>
+                        </dl>
+                        <dl class="poll-type1">
+                          <dt class="poll-type1-dt">
+                            <span>피부타입</span>
+                          </dt>
+                          <dd class="poll-type1-dd">
+                            <span>복합성에 좋아요</span>
+                          </dd>
+                        </dl>
+                        <dl class="poll-type1">
+                          <dt class="poll-type1-dt">
+                            <span>피부타입</span>
+                          </dt>
+                          <dd class="poll-type1-dd">
+                            <span>복합성에 좋아요</span>
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="rvw-txt-inner">
+                        전 이 제품 굉장히 칭찬해 추천하던 사람이었는데 당시 광고방에 혹했던건 아닐까 싶네요. 모공을 조여줘 모공크기가 줄어 든다는데 장기간 써본 사람으로서 이 모공앰플이 진짜 효과가 있는지는 잘 모르겠어요. 전 모공이 거의 없어서 그런지 아무런 효과도 없는 것 같고🙄 대신 남친한테 항상 열심히 발라주는데 남친의 모공 또한 작아지는 걸 아직 못봤어요.
+                        <br>
+                        다 쓰고 샘플들만 남아 사진찍어 보는데 여기에 쓰여진 효과 중 릴랙싱은 그나마 있다고 보지만 모공이 준다거나 피부가 리프팅되는 느낌은 전혀 없는 듯. 이 제품 진짜 효과가 있긴 할까요?
+                      </div>
+                      <div class="rvw-tag">
+                        <span>완전히달라진리뷰</span>
+                        <span>뒤집어놓으셨다</span>
+                        <span>SNS에서난리난그제품</span>
+                      </div>
+                      <div class="rvw-img-div">
+                        <ul class="rvw-img-ul">
+                          <li>
+                            <img src="https://image.oliveyoung.co.kr/uploads/images/gdasEditor/2023/08/16/1692170934661.png?RS=165x0&CS=165x165" alt="">
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <!--리뷰사진영역끝-->
+                </li>
+                <!--하나의 리뷰 끝-->
+
+                <!--하나의 리뷰 시작-->
+                <li class="prd-rvw-li">
+                  <div class="prd-rvw-left">
+                    <div class="prd-rvw-left-wrapper">
+                      <a href="" class="prd-rvw-left-img-wrapper">
+                        <img src="https://image.oliveyoung.co.kr/uploads/images/mbrProfile/2023/01/02/1672646269565.png?RS=79x60&CS=60x60" alt="">
+                      </a>
+                      <p class="user-nickname">
+                        <span>whiteBeauty</span>
+                      </p>
+                      <p class="user-rank-area">
+                        <span class="user-rank">TOP481</span>
+                      </p>
+                      <p class="tag">
+                        <span class="tag1">건성</span>
+                        <span class="tag2">여름쿨톤</span>
+                        <span class="tag3">모공</span>
+                        <span class="tag4">미백</span>
+                      </p>
+                    </div>
+                  </div>
+                  <!--리뷰사진영역시작-->
+                  <div class="prd-rvw-right">
+                    <div class="prd-rvw-right-wrapper">
+                      <div class="rvw-score-area">
+                        <span class="star-area">
+                          <span class="star-point"></span>
+                        </span>
+                        <span class="score-date">2023.09.18</span>
+                        <span class="icon-offline-store">
+                          매장
+                        </span>
+                      </div>
+                      <div class="rvw-poll-area">
+                        <dl class="poll-type1">
+                          <dt class="poll-type1-dt">
+                            <span>피부타입</span>
+                          </dt>
+                          <dd class="poll-type1-dd">
+                            <span>복합성에 좋아요</span>
+                          </dd>
+                        </dl>
+                        <dl class="poll-type1">
+                          <dt class="poll-type1-dt">
+                            <span>피부타입</span>
+                          </dt>
+                          <dd class="poll-type1-dd">
+                            <span>복합성에 좋아요</span>
+                          </dd>
+                        </dl>
+                        <dl class="poll-type1">
+                          <dt class="poll-type1-dt">
+                            <span>피부타입</span>
+                          </dt>
+                          <dd class="poll-type1-dd">
+                            <span>복합성에 좋아요</span>
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="rvw-txt-inner">
+                        전 이 제품 굉장히 칭찬해 추천하던 사람이었는데 당시 광고방에 혹했던건 아닐까 싶네요. 모공을 조여줘 모공크기가 줄어 든다는데 장기간 써본 사람으로서 이 모공앰플이 진짜 효과가 있는지는 잘 모르겠어요. 전 모공이 거의 없어서 그런지 아무런 효과도 없는 것 같고🙄 대신 남친한테 항상 열심히 발라주는데 남친의 모공 또한 작아지는 걸 아직 못봤어요.
+                        <br>
+                        다 쓰고 샘플들만 남아 사진찍어 보는데 여기에 쓰여진 효과 중 릴랙싱은 그나마 있다고 보지만 모공이 준다거나 피부가 리프팅되는 느낌은 전혀 없는 듯. 이 제품 진짜 효과가 있긴 할까요?
+                      </div>
+                      <div class="rvw-tag">
+                        <span>완전히달라진리뷰</span>
+                        <span>뒤집어놓으셨다</span>
+                        <span>SNS에서난리난그제품</span>
+                      </div>
+                      <div class="rvw-img-div">
+                        <ul class="rvw-img-ul">
+                          <li>
+                            <img src="https://image.oliveyoung.co.kr/uploads/images/gdasEditor/2023/08/16/1692170934661.png?RS=165x0&CS=165x165" alt="">
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <!--리뷰사진영역끝-->
+                </li>
+                <!--하나의 리뷰 끝-->
+
+              </ul>
           </div>
         </div>
         <!-- 상품 리뷰 끝 -->
+        <!--들어갈자리-->
+          </div>
+          <!--리뷰끝-->
+        </div>
 
     <!-- 상품설명, 구매정보, 리뷰, Q&A 끝-->
         <!-- 푸터시작 -->
@@ -659,7 +1073,7 @@
 export default {
   data() {
     return {
-      tab: 2,
+      tab: 3,
       styleSet: {
         redArea1: {height: '66px'},
         redArea2: {height: '21px'},
@@ -2582,6 +2996,10 @@ background: url(https://static.oliveyoung.co.kr/pc-static-root/image/curation/ic
   bottom:-34px;
   right:35px;
 }
+.rvw-score-area {
+  width:825px;
+  float:left;
+}
 .score-area {
   width:361px;
   float:left;
@@ -2722,5 +3140,179 @@ background: url(https://static.oliveyoung.co.kr/pc-static-root/image/curation/ic
   font-style:normal;
   color:#888;
   margin-left:20px;
+}
+.prd-rvw-list-wrapper {
+  float:left;
+  width:100%;
+  padding-top:20px;
+}
+.prd-rvw-list-area {
+  width:1020px;
+  margin:0 auto;
+}
+.prd-rvw-li {
+  margin-top: 20px;
+  border-top :1px solid #e5e5e5;
+  padding-top:15px;
+}
+.prd-rvw-left {
+  float:left;
+  width:255px;
+}
+.prd-rvw-left-wrapper {
+  position: relative;
+}
+.prd-rvw-left-img-wrapper {
+  display:inline-block;
+}
+.user-nickname {
+  display:inline-block;
+  position: absolute;
+  top:10px;
+  left:77px;
+}
+.user-nickname>span {
+  font-weight: 700;
+}
+.user-rank-area {
+  position: relative;
+}
+.user-rank {
+  background: #f0f1f4;
+  display: inline-block;
+  position: absolute;
+  top: -27px;
+  right: 133px;
+  padding: 5px;
+  border-radius: 11px;
+  font-size: 10px;
+  color: #757d86;
+}
+.tag {
+  margin-top:12px;
+}
+.tag>span {
+  position:relative;
+  color:#757d86;
+  font-size:12px;
+}
+.tag>span:nth-child(n+2):nth-child(-n+4) {
+  margin-left:10px;
+}
+.tag>span:nth-child(n+2):nth-child(-n+4):before{
+  width: 2px;
+  height: 2px;
+  background: #b2b8be;
+  position: absolute;
+  top: 7px;
+  left: -5px;
+  content: "";
+}
+.prd-rvw-right-wrapper {
+  padding-left: 260px;
+}
+.prd-rvw-right {
+}
+.star-area {
+  background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_review_point_new_off.png") 0 0/112px auto no-repeat;
+  width:112px;
+  height: 20px;
+  float:left;
+}
+.star-point {
+  background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_review_point_new_on.png") 0 0/112px auto no-repeat;
+  width:50%;
+  height:20px;
+  display:inline-block;
+}
+.score-date {
+  color:#888;
+  font-size:16px;
+  margin-left:10px;
+}
+.icon-offline-store {
+  position:relative;
+  margin-left:25px;
+  padding-left: 10px;
+}
+.icon-offline-store:before{
+  width: 2px;
+  height: 2px;
+  background: #b2b8be;
+  display: inline-block;
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: -10px;
+}
+.icon-offline-store:after{
+  position: absolute;
+  background: url(https://static.oliveyoung.co.kr/pc-static-root/image/mypage/ico_offline_store.png) no-repeat;
+  content: "";
+  display: inline-block;
+  width: 34px;
+  background-size: 16px auto!important;
+  transform: translateY(-50%);
+  height: 20px;
+  left: -3px;
+  top: 9px;
+}
+.poll-type1 {
+  display: inline-block;
+  position: relative;
+  width:157px;
+  font-size:12px;
+  margin-top:15px;
+}
+.poll-type1-dt>span{
+  color:#0cc7b8;
+}
+.poll-type1-dt {
+  float:left;
+}
+.poll-type1-dd > span {
+  margin-left:10px;
+  position:relative;
+  color:#666;
+  font-weight: 600;
+}
+.poll-type1:not(:last-child):after {
+  position: absolute;
+  top: 1px;
+  left: 131px;
+  content: "";
+  width: 1px;
+  height: 11px;
+  background: #b2b8be;
+  display: inline-block;
+  margin-left: 5px;
+}
+.rvw-txt-inner {
+  color:#555;
+  line-height:34px;
+  font-size:16px;
+  padding-top: 20px;
+  margin-top:20px;
+}
+.rvw-tag>span:before {
+  content:"#"
+}
+.rvw-tag{
+  margin-top: 20px;
+  color:#757d86;
+  font-size:16px;
+}
+.rvw-tag>span:not(:first-child) {
+  margin-left:10px;
+}
+.rvw-img-div {
+  margin-top:20px;
+}
+.rvw-img-ul {
+  width:calc(100% + 5px);
+  height:165px;
+  overflow:hidden;
+  display:flex;
+  gap:10px;
 }
 </style>
