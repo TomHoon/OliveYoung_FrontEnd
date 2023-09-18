@@ -48,7 +48,9 @@ export default {
     },
 
     methods: {
-        
+        goJoin() {
+          this.$router.push('/join');
+        }
     },
 };
 </script>
