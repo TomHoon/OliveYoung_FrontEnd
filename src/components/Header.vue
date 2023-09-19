@@ -2,12 +2,13 @@
     <div class="Header">
         <div class="top_util">
             <ul class="menu_list">
+                <li @click="goTestStack">TestStack</li>
                 <li class="join" @click="goJoin">회원가입</li>
                 <li class="login" @click="goLogin">로그인</li>
                 <li class="cart">장바구니</li>
                 <li class="order">주문배송</li>
                 <li class="customer">고객센터</li>
-                <li class="store" @click="goDetails">매장안내</li>
+                <li class="store">매장안내</li>
                 <li class="ProductInsert" @click="ProductInsert">상품등록</li>
             </ul>
         </div>
@@ -50,7 +51,11 @@ export default {
     methods: {
         goJoin() {
           this.$router.push('/join');
-        }
+        },
+        goTestStack(payload) { // Stack Test Code
+          this.$pushContents('TestStack', {boardData: payload});
+          console.log('yes')
+        },
     },
 };
 </script>

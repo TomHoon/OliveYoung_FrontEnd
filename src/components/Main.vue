@@ -996,10 +996,6 @@ export default {
     goJoin() {
         this.$router.push('/join');
     },
-    goDetails(payload) {
-        this.$pushContents('TestStack', {boardData: payload});
-        console.log('yes')
-    },
     backPage() {
       this.$backPage({test: 'hello'})
     },

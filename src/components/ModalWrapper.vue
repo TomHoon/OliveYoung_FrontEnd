@@ -13,6 +13,7 @@ export default {
   props: {
     width: Number, // 너비를 문자열로 전달 받음
     height: Number, // 높이를 문자열로 전달 받음
+    clickToClose: Boolean, // 딤처리 여부
   },
   data() {
     return {
@@ -29,7 +30,8 @@ export default {
     closeModalOutside(event) {
       // 모달 바깥을 클릭하면 모달을 닫습니다.
       if (event.target.classList.contains('modal')) {
-        this.closeModal();
+        if(this.clickToClose == true)
+          this.closeModal();
       }
     },
   },
