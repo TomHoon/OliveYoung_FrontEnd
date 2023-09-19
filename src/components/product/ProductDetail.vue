@@ -2694,8 +2694,8 @@ a {
     content: "";
     transform: rotate(180deg);
     position: absolute;
-    left: 276px;
-    top: 12px;
+    left: 296px;
+    top: 16px;
     width: 12px;
     height: 12px;
     background: url(https://static.oliveyoung.co.kr/pc-static-root/image/product/icon_sale_arrow.png) 0 0/12px auto no-repeat;
