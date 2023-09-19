@@ -184,14 +184,14 @@ export default {
             return;
         }
 
-        //비밀번호 정규표현식 테스트
+        // //비밀번호 정규표현식 테스트
         if(!regExPwd.test(this.joinObj.mpw)){
             alert('비밀번호는 영문+숫자+특수기호 포함 8자 이상으로 입력해주세요.')
             this.$refs.mpw.focus()
             return;
         }
 
-        //비밀번호 일치 확인
+        // //비밀번호 일치 확인
         if(this.joinObj.mpw != this.mpwCheck){
             alert('비밀번호가 일치하지 않습니다.')
             this.$refs.mpwCheck.focus()
@@ -204,7 +204,17 @@ export default {
             return returnV;
         }
 
-        //Promise.all
+        this.joinObj.email = this.emailId + '@' + this.emailName 
+         //param에 데이터 담기
+        let param = {
+          ...this.joinObj
+        };
+       
+       //회원가입 성공시 라우터 이동을 위해 만듬(promise안에서 this가 안먹히는 것같은데 이유는 모름)
+       let t = this
+       
+       
+       //Promise.all
         Promise.all([
           data('/checkExist', {mid: this.joinObj.mid}),
           data('/checkExistNick', {nickname: this.joinObj.nickname})
@@ -218,18 +228,21 @@ export default {
                 alert('닉네임이 중복됩니다.');
                 return;
             }
-  
+
+            //param 넘겨주고 회원가입
+            axios.post('/joinMember', param).then(function(result){
+               if(result.data === 1){
+                  if(confirm('회원가입완료.\n로그인페이지로 이동하시겠습니까?')){
+                     t.$router.push('/login')
+                  }else{
+                     return;
+                  }
+               }
+            });
+            
         });
 
-        this.joinObj.email = this.emailId + '@' + this.emailName
-        //param에 데이터 담기
-        let param = {
-          ...this.joinObj
-        };
-
-        //param 넘겨주고 회원가입
-        let {가입결과값} = axios.post('/joinMember', param);
-        console.log('가입결과값 : ', 가입결과값);
+        
 
        // let checkEmpty = Object.values(this.joinObj).every((item, index, array) => console.log(item, index, array))
         // if(checkEmpty == false){
