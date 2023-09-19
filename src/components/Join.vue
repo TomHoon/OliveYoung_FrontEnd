@@ -112,13 +112,26 @@
         <button class="join_btn" @click="joinMember()">가입</button>
       </div>
     </div>
+    
   </div>
+  <modalWrapper ref="modal" :width="380" :height="150" :clickToClose=false>
+      <!-- 모달에 들어갈 내용을 이 부분에 추가 -->
+      <h2>&#128079; 회원가입을 축하합니다. &#128079;</h2>
+      <p>로그인화면으로 이동하시겠습니까?</p>
+      <button @click="loginPage('Y')">확인</button>
+      <button @click="loginPage('N')">취소</button>
+  </modalWrapper>
 </template>
 
 <script>
 import axios from 'axios';
 import basicMixin from '@/mixin/basicMixin.js';
+import ModalWrapper from '@/components/ModalWrapper.vue';
+
 export default {
+  components : {
+    ModalWrapper,
+  },
   mixins : [basicMixin],
   created() {
     
@@ -275,6 +288,7 @@ export default {
       },
 
       async joinMember() {
+        
         /**
          * TODO
          * Promise All로 바꿔주기
@@ -412,11 +426,9 @@ export default {
             //param 넘겨주고 회원가입
             axios.post('/joinMember', param).then(function(result){
                if(result.data === 1){
-                  if(confirm('회원가입완료.\n로그인페이지로 이동하시겠습니까?')){
-                     t.$router.push('/login')
-                  }else{
-                     return;
-                  }
+                  t.$refs.modal.modalOpen();  
+               }else{
+                  alert('회원가입실패 - 문의바랍니다.')
                }
             });
         });
@@ -482,6 +494,16 @@ export default {
         // })
         
         
+      },
+
+      loginPage(yn) {
+          if(yn == 'Y'){
+            this.$router.push('/login');
+          }
+
+          if(yn == 'N'){
+            return;
+          }
       }
   }
 }
@@ -513,12 +535,6 @@ export default {
 .join_form {
   margin-top: 40px;
   display: inline-block;
-}
-
-.modal {
-  display: none;
-  position: absolute;
-  transform: translate(18.5rem, -6.5rem);
 }
 
 .modal-content {
