@@ -242,17 +242,21 @@
 <script>
 import axios from 'axios';
 import DefaultLayout from "@/components/DefaultLayout";
-
+import basicMixin from "@/mixin/basicMixin.js";
 
 export default {
+  mixins: [basicMixin],
   data() {
     return {
       mid: '',
       mpw: '',
     };
   },
+  mounted() {
+
+  },
   methods: {
-    fnLogin() {
+    async fnLogin() {
       let idCheck = {
         mid: this.mid
       }
@@ -262,17 +266,35 @@ export default {
       }
 
       if(this.mid == ''){
-        alert("아이디를 입력해주세요.")
+        this.toastMsg("아이디를 입력해주세요.")
         this.$refs.mid.focus()
         return false;
       }
+
       if(this.mpw =='') {
-        alert("비밀번호를 입력해주세요.")
+        this.toastMsg("비밀번호를 입력해주세요.")
         this.$refs.mpw.focus()
         return false;
       }
 
-      async function data(_url, _params){
+      let 아이디체크 = await this.customApi('post', '/checkExist', idCheck);
+      let 로그인체크 = await this.customApi('post', '/login', login);
+
+      if (아이디체크 == 0) {
+        this.toastMsg('아이디가 없습니다. 회원가입 하세요');
+        return;
+      }
+
+      if (로그인체크.mseq == -1) {
+        this.toastMsg('비밀번호가 맞지 않습니다.');
+        return;
+      }
+
+      localStorage.setItem('loginObj', JSON.stringify(login)); // 로컬 스토리지에 저장
+
+      this.$router.push('/');
+
+      /*async function data(_url, _params){
       let returnV = await axios.post(_url, _params);
       return returnV;
     }
@@ -297,7 +319,7 @@ export default {
         if (err.response) {
           alert("아이디 또는 비밀번호가 틀렸습니다.\n다시 입력해주세요.");
         }
-      });
+      });*/
 /*      axios.post("/checkExist", idCheck)
           .then((res) => {
             console.log("res",res);
@@ -328,7 +350,17 @@ export default {
 
     fnJoin() {
       this.$router.push('/join');
+    },
+    async customApi(type, url, params) {
+      let result = '';
 
+      if (type == 'post') {
+        result = await axios.post(url, params)
+        return result.data;
+      }
+
+      result = await axios.get(params);
+      return result.data;
     }
   }
 }

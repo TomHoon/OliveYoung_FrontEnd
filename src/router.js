@@ -25,7 +25,7 @@ const routes = [
         component: ProductDetail
     },
     {
-        path: '/ProductList',
+        path: '/productList',
         component: ProductList
     },
     {

@@ -999,8 +999,8 @@ export default {
     backPage() {
       this.$backPage({test: 'hello'})
     },
-    ProductList() {
-      this.$router.push('/ProductList');
+    productList() {
+      this.$router.push('/productList');
     },
   }
 }
