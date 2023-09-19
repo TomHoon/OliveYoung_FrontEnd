@@ -356,21 +356,21 @@ export default {
             return;
         }
 
-        // //비밀번호 정규표현식 테스트
+        //비밀번호 정규표현식 테스트
         if(!regExPwd.test(this.joinObj.mpw)){
             this.toastMsg('비밀번호는 영문+숫자+특수기호 포함 \n8자 이상으로 입력해주세요.')
             this.$refs.mpw.focus()
             return;
         }
 
-        // //비밀번호 일치 확인
+        //비밀번호 일치 확인
         if(this.joinObj.mpw != this.mpwCheck){
             this.toastMsg('비밀번호가 일치하지 않습니다.')
             this.$refs.mpwCheck.focus()
             return;
         }
 
-        // //비밀번호 일치 확인
+        //휴대전화 형식 확인
         if(!regExPhoneTel.test(this.joinObj.member_tel)){
             this.toastMsg('휴대전화번호 형식이 잘못되었습니다.')
             this.$refs.member_tel.focus()
