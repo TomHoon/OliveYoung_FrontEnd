@@ -39,15 +39,27 @@
         <tbody>
         <tr>
           <td class="product_tit">제품대분류</td>
-          <td class="product_txt"><input type="text" id="product_major_category" class="product_major_category" v-model="product_major_category" autocomplete="off"></td>
+          <td class="product_txt">
+            <select id="product_major_category" class="product_major_category" v-model="product_major_category" @change="selectMajorCategory(this)" >
+              <option v-for="product_major_category in majorCategoryList" :key="product_major_category.major" :value="product_major_category.value">{{product_major_category.major}}</option>
+            </select>
+          </td>
         </tr>
         <tr>
           <td class="product_tit">제품중분류</td>
-          <td class="product_txt"><input type="text" id="product_middle_category" class="product_middle_category" v-model="product_middle_category" autocomplete="off"></td>
+          <td class="product_txt">
+            <select id="product_middle_category" class="product_middle_category" v-model="product_middle_category" @change="selectMiddleCategory(this)">
+              <option v-for="product_middle_category in middleCategoryList" :key="product_middle_category.middle" :value="product_middle_category.value">{{product_middle_category.middle}}</option>
+            </select>
+          </td>
         </tr>
         <tr>
           <td class="product_tit">제품소분류</td>
-          <td class="product_txt"><input type="text" id="product_small_category" class="product_small_category" v-model="product_small_category" autocomplete="off"></td>
+          <td class="product_txt">
+            <select id="product_small_category" class="product_small_category" v-model="product_small_category" @change="selectSmallCategory(this)">
+              <option v-for="product_small_category in smallCategoryList" :key="product_small_category.small" :value="product_small_category.value">{{product_small_category.small}}</option>
+            </select>
+          </td>
         </tr>
         <tr>
           <td class="product_tit">제품회사</td>
@@ -113,8 +125,10 @@
 </template>
 <script>
 import axios from "axios";
+import basicMixin from "@/mixin/basicMixin.js";
 
 export default {
+  mixins: [basicMixin],
   data() {
     return {
       //imgPath: './profile_Img.jpg',
@@ -124,8 +138,122 @@ export default {
       product_sell_price: '',
       product_corp: '',
       product_major_category: '',
+      majorCategoryList : [
+        {major : '선택', value : ''},
+        {major : '스킨케어', value : '스킨케어'},
+        {major : '마스크팩', value : '마스크팩'},
+        {major : '클렌징', value : '클렌징'},
+        {major : '선케어', value : '선케어'},
+        {major : '더모 코스메틱', value : '더모 코스메틱'},
+        {major : '메이크업', value : '메이크업'},
+        {major : '네일', value : '네일'},
+      ],
       product_middle_category: '',
+      middleCategoryList : [
+        {middle : '선택', value : ''},
+        {middle : '토너/로션/올인원', value : '토너/로션/올인원'},
+        {middle : '에센스/크림', value : '에센스/크림'},
+        {middle : '미스트/오일', value : '미스트/오일'},
+        {middle : '시트팩', value : '시트팩'},
+        {middle : '패드', value : '패드'},
+        {middle : '페이셜팩', value : '페이셜팩'},
+        {middle : '코팩/패치', value : '코팩/패치'},
+        {middle : '클렌징폼/젤', value : '클렌징폼/젤'},
+        {middle : '오일/워터/리무버', value : '오일/워터/리무버'},
+        {middle : '필링/패드', value : '필링/패드'},
+        {middle : '선블록', value : '선블록'},
+        {middle : '태닝/애프터선', value : '태닝/애프터선'},
+        {middle : '스킨케어', value : '스킨케어'},
+        {middle : '클렌징', value : '클렌징'},
+        {middle : '선케어', value : '선케어'},
+        {middle : '마스크팩', value : '마스크팩'},
+        {middle : '바디케어', value : '바디케어'},
+        {middle : '립메이크업', value : '립메이크업'},
+        {middle : '베이스메이크업', value : '베이스메이크업'},
+        {middle : '아이메이크업', value : '아이메이크업'},
+        {middle : '폴리쉬', value : '폴리쉬'},
+        {middle : '팁/스티커', value : '팁/스티커'},
+        {middle : '반경화', value : '반경화'},
+        {middle : '케어', value : '케어'},
+      ],
       product_small_category: '',
+      smallCategoryList : [
+        {small : '선택', value : ''},
+        {small : '스킨/토너', value : '스킨/토너'},
+        {small : '로션/에멀젼', value : '로션/에멀젼'},
+        {small : '올인원', value : '올인원'},
+        {small : '스킨케어 세트', value : '스킨케어 세트'},
+        {small : '에센스/세럼', value : '에센스/세럼'},
+        {small : '크림', value : '크림'},
+        {small : '아이크림', value : '아이크림'},
+        {small : '미스트/픽서', value : '미스트/픽서'},
+        {small : '페이스오일', value : '페이스오일'},
+        {small : '시트팩', value : '시트팩'},
+        {small : '패드', value : '패드'},
+        {small : '워시오프팩', value : '워시오프팩'},
+        {small : '슬리핑팩', value : '슬리핑팩'},
+        {small : '모델링팩/필오프팩', value : '모델링팩/필오프팩'},
+        {small : '코팩', value : '코팩'},
+        {small : '패치', value : '패치'},
+        {small : '클렌징폼/젤', value : '클렌징폼/젤'},
+        {small : '클렌징 비누', value : '클렌징 비누'},
+        {small : '클렌징오일/밤', value : '클렌징오일/밤'},
+        {small : '클렌징워터', value : '클렌징워터'},
+        {small : '립&아이리무버', value : '립&아이리무버'},
+        {small : '클렌징밀크/크림', value : '클렌징밀크/크림'},
+        {small : '필링/스크럽', value : '필링/스크럽'},
+        {small : '클렌징티슈/패드', value : '클렌징티슈/패드'},
+        {small : '선크림', value : '선크림'},
+        {small : '선스틱/선스프레이', value : '선스틱/선스프레이'},
+        {small : '선쿠션/파우더', value : '선쿠션/파우더'},
+        {small : '태닝', value : '태닝'},
+        {small : '애프터선', value : '애프터선'},
+        {small : '로션/크림/올인원', value : '로션/크림/올인원'},
+        {small : '에센스/세럼', value : '에센스/세럼'},
+        {small : '스킨/토너', value : '스킨/토너'},
+        {small : '아이크림', value : '아이크림'},
+        {small : '미스트/오일', value : '미스트/오일'},
+        {small : '스킨케어세트', value : '스킨케어세트'},
+        {small : '클렌징워터/티슈', value : '클렌징워터/티슈'},
+        {small : '클렌징폼/젤', value : '클렌징폼/젤'},
+        {small : '클렌징 오일/밀크', value : '클렌징 오일/밀크'},
+        {small : '필링/스크럽', value : '필링/스크럽'},
+        {small : '선크림/선로션', value : '선크림/선로션'},
+        {small : '선스틱', value : '선스틱'},
+        {small : '마스크/패드', value : '마스크/패드'},
+        {small : '로션/크림/오일(밤)', value : '로션/크림/오일(밤)'},
+        {small : '워시', value : '워시'},
+        {small : '청결제', value : '청결제'},
+        {small : '립케어', value : '립케어'},
+        {small : '핸드크림', value : '핸드크림'},
+        {small : '데오/미스트', value : '데오/미스트'},
+        {small : '립틴트', value : '립틴트'},
+        {small : '립스틱', value : '립스틱'},
+        {small : '틴티드립밤', value : '틴티드립밤'},
+        {small : '립글로스', value : '립글로스'},
+        {small : 'BB/CC', value : 'BB/CC'},
+        {small : '블러셔/치크', value : '블러셔/치크'},
+        {small : '쉐이딩/컨투어링', value : '쉐이딩/컨투어링'},
+        {small : '컨실러', value : '컨실러'},
+        {small : '쿠션', value : '쿠션'},
+        {small : '파우더/팩트', value : '파우더/팩트'},
+        {small : '파운데이션', value : '파운데이션'},
+        {small : '프라이머/베이스', value : '프라이머/베이스'},
+        {small : '픽서', value : '픽서'},
+        {small : '하이라이터', value : '하이라이터'},
+        {small : '마스카라', value : '마스카라'},
+        {small : '아이라이너', value : '아이라이너'},
+        {small : '아이브로우', value : '아이브로우'},
+        {small : '아이섀도우/팔레트', value : '아이섀도우/팔레트'},
+        {small : '일반 폴리쉬', value : '일반 폴리쉬'},
+        {small : '젤 폴리쉬', value : '젤 폴리쉬'},
+        {small : '팁', value : '팁'},
+        {small : '스티커', value : '스티커'},
+        {small : '반경화', value : '반경화'},
+        {small : '베이스/탑코트', value : '베이스/탑코트'},
+        {small : '영양/강화제', value : '영양/강화제'},
+        {small : '큐티클관리/리무버', value : '큐티클관리/리무버'},
+      ],
       product_cnt: '',
       product_like: '',
       product_score: '',
@@ -152,6 +280,15 @@ export default {
   methods: {
     productList() {
       this.$router.push('/productList');
+    },
+    selectMajorCategory() {
+      this.product_major_category = this.product_major_category
+    },
+    selectMiddleCategory() {
+      this.product_middle_category = this.product_middle_category
+    },
+    selectSmallCategory() {
+      this.product_small_category = this.product_small_category
     },
     productInsert() {
       let 제품등록파라미터 = {
@@ -183,13 +320,15 @@ export default {
           .then((res) => {
             console.log("res",res);
             if (res.data == 1) {
-              alert("등록완료");
+              this.toastMsg("등록완료");
+              this.$router.push('/productList');
+
             }else {
-              alert("등록실패");
+              this.toastMsg("등록실패");
             }
           }).catch((err) => {
         if (err.response) {
-          alert("오류 ㅅㄱ.");
+          this.toastMsg("오류 ㅅㄱ.");
         }
       })
     },
