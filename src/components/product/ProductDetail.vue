@@ -1070,7 +1070,7 @@
             </div>
         </div>
         <!-- 푸터끝 -->
-    <ModalWrapper ref="modal" :width="500" :height="1000">
+    <ModalWrapper ref="modal" :width="500" :height="871">
       <div class="rvw-popup-wrapper">
         <div class="rvw-popup-tit">
           <span>리뷰쓰기</span>
@@ -1117,8 +1117,23 @@
               <span>어떤 점이 좋았나요?</span>
             </div>
             <div class="rvw-text-textarea">
+              <textarea name="" id="" cols="68" rows="11" class="rvw-input-textarea">
 
+              </textarea>
             </div>
+          </div>
+
+          <div class="rvw-photo-upload">
+            <p>사진/동영상 첨부하기</p>
+          </div>
+
+          <div class="rvw-btns-bundle">
+            <button class="btn-cancel">
+              취소
+            </button>
+            <button class="btn-enroll">
+              등록
+            </button>
           </div>
         </div>
       </div>
@@ -3477,18 +3492,70 @@ background: url(https://static.oliveyoung.co.kr/pc-static-root/image/curation/ic
   left:13px;
   position:absolute;
   display: block;
-  width:100%;
   height:26px;
   background:#f27370;
   z-index:4;
+}
+.rvw-star-fill:hover {
+  width:100%;
 }
 .rvw-text-textarea {
   width:480px;
   height:180px;
   background: #f4f4f4;
-  margin-top: 70px;
+  margin-top: 20px;
 }
 .rvw-text-area{
   float:left;
+}
+.rvw-text-subtit {
+  text-align: center;
+  margin-top: 33px;
+  color:#666;
+  font-size: 21px;
+  font-weight: 600;
+}
+.rvw-input-textarea {
+  background-color: transparent;
+}
+.rvw-photo-upload {
+  width: 100%;
+  margin-top:40px;
+  height: 80px;
+  float: left;
+  position: relative;
+  border:1px solid #e5e5e5;
+}
+.rvw-photo-upload>p {
+  text-align: center;
+  position: absolute;
+  top: 24px;
+  left: 169px;
+}
+.rvw-btns-bundle {
+  width: 100%;
+  height: 60px;
+  float: left;
+  margin-top:40px;
+}
+.btn-cancel {
+  width: 50%;
+  height: 68px;
+  border: 1px solid #c5cbd0;
+  color: #555;
+  font-size: 16px;
+  font-weight: 500;
+}
+.btn-enroll {
+  width: 50%;
+  height: 68px;
+  background-color: #dadde3;
+  border: 1px solid #d3d6da;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+}
+.rvw-star-area>ul>:nth-child(1):hover>.rvw-star-fill {
+  background:red;
 }
 </style>
