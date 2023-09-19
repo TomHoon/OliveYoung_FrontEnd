@@ -12,7 +12,7 @@
           <span>등록일</span>
         </div>
         <div>
-          <div class="list_content" v-for="(item,idx) in productAll" :key="idx">
+          <div class="list_content" v-for="(item,product_idx) in productList" :key="product_idx">
             <input type="checkbox">
             <span>{{item.product_idx}}</span>
             <span>{{item.product_sell_name}}</span>
@@ -39,12 +39,13 @@
 
 <script>
 import axios from "axios";
+import basicMixin from "@/mixin/basicMixin.js";
 
 export default {
+  mixins: [basicMixin],
   data() {
     return {
-      productAll: '',
-
+      productList: [],
     }
        /* fetch('/productAll')
             .then((response) => response.json())
@@ -53,16 +54,16 @@ export default {
             })*/
   },
     mounted() {
-      axios.post('/productAll')
+      axios.post('/productList')
           .then((res) => {
-            this.productAll = res;
+            this.productList = res.data;
             console.log("res", res);
     });
     },
 
   methods: {
     ProductInsert() {
-      this.$router.push('/ProductInsert');
+      this.$router.push('/productInsert');
     },
     mainPage() {
       this.$router.push('/');
@@ -108,13 +109,13 @@ a, button {
 
 .list_title span:nth-child(3) {
   display: inline-block;
-  width: 330px;
+  width: 400px;
   text-align: center;
 }
 
 .list_title span:nth-child(4) {
   display: inline-block;
-  width: 275px;
+  width: 220px;
   text-align: center;
 }
 
@@ -138,13 +139,13 @@ a, button {
 
 .list_content span:nth-child(3) {
   display: inline-block;
-  width: 330px;
+  width: 400px;
   text-align: center;
 }
 
 .list_content span:nth-child(4) {
   display: inline-block;
-  width: 275px;
+  width: 220px;
   text-align: center;
 }
 
