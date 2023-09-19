@@ -208,7 +208,7 @@
                         <button class="cart-btn">
                             장바구니
                         </button>
-                        <button class="cart-btn2">
+                        <button class="cart-btn2" @click="buyNow">
                             바로구매
                         </button>
                         <button class="cart-btn3">
@@ -1161,11 +1161,38 @@ export default {
     }
   },
   methods: {
+    buyNow() {
+      this.requestPay();
+    },
     goRvwWrite() {
       this.$refs.modal.modalOpen();
     },
     chgTab(tab) {
       this.tab = tab;
+    },
+    requestPay() {
+      let IMP = window.IMP;
+      IMP.init('imp15187333'); //iamport 대신 자신의 "가맹점 식별코드"를 사용
+      IMP.request_pay({
+        pg: "kicc",
+        pay_method: "card",
+        merchant_uid : 'merchant_'+new Date().getTime(),
+        name : '결제테스트',
+        amount : 1,
+        buyer_email : 'iamport@siot.do',
+        buyer_name : '구매자',
+        buyer_tel : '010-1234-5678',
+        buyer_addr : '서울특별시 강남구 삼성동',
+        buyer_postcode : '123-456'
+      }, function (rsp) { // callback
+        if (rsp.success) {
+          // 결제 성공 시 로직,
+          console.log('성공 ', rsp);
+        } else {
+          // 결제 실패 시 로직,
+          console.log('실패 ', rsp);
+        }
+      });
     }
   }
 }
