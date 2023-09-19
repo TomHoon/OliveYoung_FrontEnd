@@ -16,9 +16,9 @@
         <span class="float-right">
               <input type="text" id="member_id" class="member_id" placeholder="아이디를 입력해주세요."
                      maxlength="15" autocomplete="off" v-model="joinObj.mid" ref="mid">
-            <span>
+            <!-- <span>
               <img class="id_check">
-            </span>
+            </span> -->
               <div class="id_check_memo">아이디는 영문+숫자 포함 6~12자 이하</div>
           </span>
       </div>
@@ -46,7 +46,7 @@
       <div class="nickname_form">
         <label for="member_nickname">닉네임</label>
         <span class="float-right">
-            <input type="text" id="member_nickname" class="member_nickname" autocomplete="off" v-model="joinObj.nickname" ref="nickname">
+            <input type="text" id="member_nickname" class="member_nickname" autocomplete="off" v-model="joinObj.nickname" ref="nickname" placeholder="닉네임을 입력해주세요.">
           </span>
       </div>
       <div class="email_form">
@@ -66,6 +66,47 @@
           </div>
           </span>
       </div>
+      <div class="phone_form">
+        <label for="member_phone">휴대전화</label>
+        <span class="float-right">
+            <input type="text" id="member_phone" class="member_phone" autocomplete="off" ref="member_tel" placeholder="휴대전화번호를 입력해주세요." 
+            @input="checkPhoneTel($event)" v-model="joinObj.member_tel"
+            maxlength="11">
+          </span>
+      </div>
+      <div class="nickname_form">
+        <label for="member_nickname">주소</label>
+        <span class="float-right">
+            <input type="text" id="member_nicknam" class="member_nickname" autocomplete="off" v-model="joinObj.member_address" ref="nickname">
+          </span>
+      </div>
+      <div class="birth_form">
+        <label for="member_birth">생년월일</label>
+          <div class="birth_select_form">
+            <div class="select_birth_area">
+              <select class="select_birth" id="select_year" v-model="selectYear" @change="createMonth()">
+                  <option value="">년</option>
+              </select>
+            </div>
+            <div class="select_birth_area">
+              <select class="select_birth" id="select_month" v-model="selectMonth" @change="createDay()">
+                  <option value="">년도선택</option>
+              </select>
+            </div>
+            <div class="select_birth_area">
+              <select class="select_birth" id="select_day" v-model="selectDay">
+                  <option value="">월선택</option>
+              </select>
+            </div>
+          </div>
+      </div>
+      <div class="gender_form">
+        <label for="member_gender">성별</label>
+            <div class="gender_radio_form">
+              <label for="chece_genderM"><input type="radio" id="chece_genderM" name="member_gender" class="chece_gender" autocomplete="off" value="M" v-model="joinObj.member_gender" >남자</label>
+              <label for="chece_genderW"><input type="radio" id="chece_genderW" name="member_gender" class="chece_gender" autocomplete="off" value="W" v-model="joinObj.member_gender" >여자</label>
+            </div>
+      </div>
       <input type="hidden" >
       <div class="buttons">
         <button class="join_btn" @click="joinMember()">가입</button>
@@ -76,8 +117,23 @@
 
 <script>
 import axios from 'axios';
+import basicMixin from '@/mixin/basicMixin.js';
 export default {
+  mixins : [basicMixin],
+  created() {
+    
+  },
   mounted() {
+      let date = new Date();
+
+      //현재년도 -100까지 표기
+      for(let i = date.getFullYear() - 100; i <= date.getFullYear(); i++){
+        let createOption = document.createElement("option")
+        createOption.innerHTML = i
+        createOption.value = i
+        document.getElementById('select_year').appendChild(createOption)
+      }
+      
   },
   data() {
     return {
@@ -87,12 +143,18 @@ export default {
           mpw : "",
           nickname : "",
           email : "",
+          member_tel : "",
+          member_birth : "",
+          member_gender : "",
         },
-        
         
         mpwCheck :  "",
         emailId : "",
         emailName : "",
+        //날짜선택값
+        selectYear : "",
+        selectMonth : "",
+        selectDay : "",
 
         //이메일 select 기본 빈값
         emailDefault : "",
@@ -131,6 +193,87 @@ export default {
         this.emailName = this.emailDefault 
       },
 
+      //휴대전화번호 숫자만 입력
+      checkPhoneTel(e) {
+        const regNum = /[^0-9]/g;
+        if (regNum.test(e.target.value)) {
+          e.target.value = e.target.value.replace(regNum, '');
+          this.joinObj.member_tel = e.target.value;
+        }
+      },
+
+      //년도 선택시 월 select 생성
+      createMonth() {
+        
+        //select option 초기화
+        document.getElementById('select_month').replaceChildren()
+
+        //년도선택시
+        if(this.selectYear != ''){
+          let createOption = document.createElement("option")
+          createOption.innerHTML = '선택'
+          createOption.value = ''
+          document.getElementById('select_month').appendChild(createOption)
+          //1~12월
+          for(let i = 1; i < 13; i++){
+            let createOption = document.createElement("option")
+            if(i < 10){
+                i = '0' + i
+            }
+            createOption.innerHTML = i
+            createOption.value = i
+            document.getElementById('select_month').appendChild(createOption)
+          }
+        }
+        
+        //년도 미선택시
+        if(this.selectYear == ''){
+          document.getElementById('select_month').replaceChildren()
+          document.getElementById('select_day').replaceChildren()
+
+          let createOptionMonth = document.createElement("option")
+          createOptionMonth.innerHTML = '년도선택'
+          document.getElementById('select_month').appendChild(createOptionMonth)
+          
+          let createOptionDay = document.createElement("option")
+          createOptionDay.innerHTML = '월선택'
+          document.getElementById('select_day').appendChild(createOptionDay)
+        }
+      },
+
+      //월 선택시 날짜 select 생성
+      createDay() {
+
+        let lastDay = 32 - new Date(this.selectYear, this.selectMonth - 1, 32).getDate()
+       
+          //select option 초기화
+        document.getElementById('select_day').replaceChildren()
+
+        if(this.selectMonth != ''){
+            let createOption = document.createElement("option")
+            createOption.innerHTML = '선택'
+            createOption.value = ''
+            document.getElementById('select_day').appendChild(createOption)
+          //해당년도 해당월 날짜
+          for(let i = 1; i <= lastDay; i++){
+            let createOption = document.createElement("option")
+            if(i < 10){
+                i = '0' + i
+            }
+            createOption.innerHTML = i
+            createOption.value = i
+            document.getElementById('select_day').appendChild(createOption)
+          }
+        }
+        
+        //월 미선택시
+        if(this.selectMonth == ''){
+          let createOption = document.createElement("option")
+          createOption.innerHTML = '월선택'
+          document.getElementById('select_day').appendChild(createOption)
+        }
+      },
+
       async joinMember() {
         /**
          * TODO
@@ -143,58 +286,94 @@ export default {
         
         //비밀번호 정규표현식
         let regExPwd = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{6,20}$/;
+
+        //휴대전화 정규표현식
+        let regExPhoneTel = /^01([0|1|6|7|8|9])([0-9]{3,4})([0-9]{4})$/;
         
         //input빈값 체크
         if(this.joinObj.mid == ''){
-          alert('아이디를 입력해주세요.');
+          this.toastMsg('아이디를 입력해주세요.');
           this.$refs.mid.focus()
           return;
         }
         if(this.joinObj.mpw == ''){
-          alert('비밀번호를 입력해주세요.');
+          this.toastMsg('비밀번호를 입력해주세요.');
           this.$refs.mpw.focus()
           return;
         }
         if(this.mpwCheck == ''){
-          alert('비밀번호를 확인해주세요.');
+          this.toastMsg('비밀번호를 확인해주세요.');
           this.$refs.mpwCheck.focus()
           return;
         }
         if(this.joinObj.nickname == ''){
-          alert('닉네임을 입력해주세요.');
+          this.toastMsg('닉네임을 입력해주세요.');
           this.$refs.nickname.focus()
           return;
         }
         if(this.email_id == ''){
-          alert('이메일을 입력해주세요.2');
+          this.toastMsg('이메일을 입력해주세요.');
           this.$refs.email_id.focus()
           return;
         }
         if(this.email_name == ''){
-          alert('이메일을 입력해주세요.1');
+          this.toastMsg('이메일을 입력해주세요.');
           this.$refs.email_name.focus()
           return;
         }
+        if(this.joinObj.member_tel == ''){
+          this.toastMsg('휴대전화번호를 입력해주세요.');
+          this.$refs.member_gender.focus()
+          return;
+        }
+        if(this.joinObj.selectYear == ''){
+          this.toastMsg('생년월일을 선택해주세요.');
+          this.$refs.member_gender.focus()
+          return;
+        }
+        if(this.joinObj.selectMonth == ''){
+          this.toastMsg('생년월일을 선택해주세요.');
+          this.$refs.member_gender.focus()
+          return;
+        }
+        if(this.joinObj.selectDay == ''){
+          this.toastMsg('생년월일을 선택해주세요.');
+          this.$refs.member_gender.focus()
+          return;
+        }
+        if(this.joinObj.member_gender == ''){
+          this.toastMsg('성별을 선택해주세요.');
+          this.$refs.member_gender.focus()
+          return;
+        }
+        
         //input빈값 체크 end
 
         //아이디 정규표현식 테스트
         if(!regExId.test(this.joinObj.mid)){
-            alert('아이디는 영문+숫자 포함 6~12자 이하로 입력해주세요.')
+            this.toastMsg('아이디는 영문+숫자 포함 \n6~12자 이하로 입력해주세요.')
             this.$refs.mid.focus()
             return;
         }
 
         // //비밀번호 정규표현식 테스트
         if(!regExPwd.test(this.joinObj.mpw)){
-            alert('비밀번호는 영문+숫자+특수기호 포함 8자 이상으로 입력해주세요.')
+            this.toastMsg('비밀번호는 영문+숫자+특수기호 포함 \n8자 이상으로 입력해주세요.')
             this.$refs.mpw.focus()
             return;
         }
 
         // //비밀번호 일치 확인
         if(this.joinObj.mpw != this.mpwCheck){
-            alert('비밀번호가 일치하지 않습니다.')
+            this.toastMsg('비밀번호가 일치하지 않습니다.')
             this.$refs.mpwCheck.focus()
+            return;
+        }
+
+        // //비밀번호 일치 확인
+        if(!regExPhoneTel.test(this.joinObj.member_tel)){
+            this.toastMsg('휴대전화번호 형식이 잘못되었습니다.')
+            this.$refs.member_tel.focus()
             return;
         }
 
@@ -204,7 +383,8 @@ export default {
             return returnV;
         }
 
-        this.joinObj.email = this.emailId + '@' + this.emailName 
+        this.joinObj.email = this.emailId + '@' + this.emailName //email
+        this.joinObj.member_birth = this.selectYear + '-' + this.selectMonth + '-' + this.selectDay //birth 
          //param에 데이터 담기
         let param = {
           ...this.joinObj
@@ -221,11 +401,11 @@ export default {
         ]).then(function ([아이디중복데이터,닉네임중복데이터]){
             
             if(아이디중복데이터.data == 1){
-                alert('아이디가 중복됩니다.');
+                t.toastMsg('아이디가 중복됩니다.');
                 return;
             }
             if (닉네임중복데이터.data == 1) {
-                alert('닉네임이 중복됩니다.');
+                t.toastMsg('닉네임이 중복됩니다.');
                 return;
             }
 
@@ -239,7 +419,6 @@ export default {
                   }
                }
             });
-            
         });
 
         
@@ -648,20 +827,80 @@ export default {
    
 }
 
-.address_form {
+.birth_form {
   box-sizing: border-box;
   border: 0.4px solid rgba(173, 116, 227, 0.63);
   width: 700px;
-  height: 220px;
+  height: 70px;
   margin: 10px auto;
+  
 }
 
-.address_form label {
+.birth_form label {
   float: left;
   padding: 22px 0 0 20px;
   font-weight: bold;
   font-size: 15px;
   color: #736d6d;
+}
+
+.birth_select_form {
+  width: 435px;
+  display: flex;
+  justify-content: space-between;
+  float: right;
+  padding-right: 40px;
+}
+
+.select_birth_area {
+  margin-left: 10px;
+}
+
+.select_birth {
+    width: 100px;
+    background-color: white;
+    height: 43px;
+    border: 1px solid rgba(136, 135, 135, 0.34);
+    border-radius: 3px;
+    color: rgba(66, 64, 64, 0.75);
+    margin-top: 12px;
+    outline: none;
+   
+}
+
+.gender_form {
+  box-sizing: border-box;
+  border: 0.4px solid rgba(173, 116, 227, 0.63);
+  width: 700px;
+  height: 70px;
+  margin: 10px auto;
+  
+}
+
+.gender_form label {
+  float: left;
+  padding: 22px 0 0 20px;
+  font-weight: bold;
+  font-size: 15px;
+  color: #736d6d;
+}
+
+.member_gender {
+  background-color: white;
+  padding-left: 20px;
+  width: 120px;
+  height: 40px;
+  border: 1px solid rgba(136, 135, 135, 0.34);
+  border-radius: 3px;
+  color: rgba(66, 64, 64, 0.75);
+  font-size: 15px;
+  margin-top: 12px;
+}
+
+.gender_radio_form {
+  margin-right: 40px;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .postcode {
