@@ -137,7 +137,7 @@
                 </div>
                 <div class="right-area">
                     <p class="product-info">
-                        <a href="">네스프레소</a>
+                        <a href="">{{ detailInfo.product_brand_name }}</a>
                     </p>
                     <p class="product-info-main-tit">
                       {{ detailInfo.product_sell_name }}
@@ -346,9 +346,11 @@
           <!--상품설명시작-->
           <div v-if="tab == 1" class="contents-area">
               <div class="advertise-area-wrapper">
-                <a href="" class="advertise-area">
-                    <img :src="detailInfo.product_desc1_img" class="advertise-img">
-                </a>
+                <div class="advertise-area-wrapper-inner">
+                  <a href="" class="advertise-area">
+                      <img :src="detailInfo.product_desc1_img" class="advertise-img">
+                  </a>
+                </div>
               </div>
               <div class="contents-area-main">
                   <img :src="detailInfo.product_desc2_img"  alt="" class="contents-main-img">
@@ -2696,8 +2698,11 @@ a {
     font-weight:700;
 }
 .advertise-area-wrapper {
-  width:605px;
+  width:1020px;
   margin:0 auto;
+}
+.advertise-area-wrapper-inner {
+  text-align: center;
 }
 .advantage-info {
     color:#9a9a9a;
@@ -3065,6 +3070,7 @@ background: url(https://static.oliveyoung.co.kr/pc-static-root/image/curation/ic
 }
 .contents-area-main {
     width: 900px;
+    text-align: center;
     margin: 50px auto 0 auto;
 }
 .notice-text {

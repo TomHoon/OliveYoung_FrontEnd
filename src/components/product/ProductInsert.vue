@@ -15,6 +15,10 @@
           <td class="product_txt"><input type="text" id="product_orgin_name" class="product_orgin_name" v-model="test.product_orgin_name" autocomplete="off"></td>
         </tr>
         <tr>
+          <td class="product_tit">제품브랜드이름</td>
+          <td class="product_txt"><input type="text" id="product_brand_name" class="product_brand_name" v-model="test.product_brand_name" autocomplete="off"></td>
+        </tr>
+        <tr>
           <td class="product_tit">제품판매명</td>
           <td class="product_txt"><input type="text" id="product_sell_name" class="product_sell_name" v-model="test.product_sell_name" autocomplete="off"></td>
         </tr>
@@ -178,7 +182,8 @@ export default {
         product_sub_img: '',
         product_desc1_img: '',
         product_desc2_img: '',
-        product_desc3_img: ''
+        product_desc3_img: '',
+        product_brand_name: '',
       },
       //imgPath: './profile_Img.jpg',
       product_orgin_name: '',
