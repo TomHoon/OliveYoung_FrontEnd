@@ -203,7 +203,7 @@
                         <li class="slick-slide slick-current slick-active"
                             style="width:510px; position:relative;left:0px;top:0px;z-index:999;opacity:1;">
                           <ul class="curation_list">
-                            <li class="curation_item" @click="goDetail('3')">
+                            <li class="curation_item" @click="goDetail('14')">
                               <a href="" class="item a_detail">
                                                                 <span class="thumb_flag best">
                                                                     베스트
@@ -233,7 +233,7 @@
                                 </p>
                               </a>
                             </li>
-                            <li class="curation_item" @click="goDetail('4')">
+                            <li class="curation_item" @click="goDetail('15')">
                               <a href="" class="item a_detail">
                                                                 <span class="thumb_flag best">
                                                                     베스트
@@ -363,7 +363,7 @@
                       </div>
                     </div>
                     <ul class="cate_prd_list">
-                      <li>
+                      <li @click="goDetail('16')">
                         <div class="prd_info">
                           <a href="" class="prd_thumb goodList">
                             <span class="thumb_flag best">베스트</span>
@@ -398,7 +398,7 @@
                           </p>
                         </div>
                       </li>
-                      <li>
+                      <li @click="goDetail('17')">
                         <div class="prd_info">
                           <a href="" class="prd_thumb goodList">
                             <span class="thumb_flag best">베스트</span>
@@ -409,7 +409,7 @@
                           <div class="prd_name">
                             <a href="" class="goodsList">
                               <span class="tx_brand">베리시</span>
-                              <p class="tx_name">스너글 섬유탈취제 150ml 6종 택1</p>
+                              <p class="tx_name">베리시 쿨핏 브라 시그니처 (7 color)</p>
 
                             </a>
                           </div>
@@ -451,7 +451,7 @@
                       </div>
                     </div>
                     <ul class="cate_prd_list">
-                      <li>
+                      <li @click="goDetail('18')">
                         <div class="prd_info">
                           <a href="" class="prd_thumb goodList">
                             <span class="thumb_flag best">베스트</span>
@@ -486,7 +486,7 @@
                           </p>
                         </div>
                       </li>
-                      <li>
+                      <li @click="goDetail('19')">
                         <div class="prd_info">
                           <a href="" class="prd_thumb goodList">
                             <span class="thumb_flag best">베스트</span>
@@ -642,7 +642,7 @@
                 </li>
             </ul> -->
             <ul style="display:flex;">
-              <li style="width:50%;margin-right:50px;">
+              <li style="width:50%;margin-right:50px;" @click="goDetail('20')">
                 <div style="text-align:left;">
                   <img style="float:left; margin-right:10px;width:175px; height:175px;"
                        src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0018/A00000018924805ko.jpg?l=ko"
@@ -668,7 +668,7 @@
                   </p>
                 </div>
               </li>
-              <li style="width:50%;margin-right:50px;">
+              <li style="width:50%;margin-right:50px;" @click="goDetail('21')">
                 <div style="text-align:left;">
                   <img style="float:left; margin-right:10px;width:175px; height:175px;"
                        src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0018/A00000018913506ko.jpg?l=ko"
@@ -702,7 +702,7 @@
             </h3>
             <div style="border-top:1px solid #ddd;">
               <ul style="display:flex; justify-content:space-between;">
-                <li style="width:255px;">
+                <li style="width:255px;" @click="goDetail('22')">
                   <a href="" style="width:100%; color:#666; min-height:60px; text-decoration:none;">
                     <img style="margin-top:25px; max-width:215px; max-height:215px;"
                          src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0014/A00000014780155ko.jpg?l=ko"
@@ -731,7 +731,7 @@
                     <!-- <span class="icon_flag delivery">오늘드림</span> -->
                   </p>
                 </li>
-                <li style="width:255px;">
+                <li style="width:255px;" @click="goDetail('23')">
                   <a href="" style="width:100%; color:#666; min-height:60px; text-decoration:none;">
                     <img style="margin-top:25px; max-width:215px; max-height:215px;"
                          src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0018/A00000018906407ko.jpg?l=ko"
@@ -759,7 +759,7 @@
                     <!-- <span class="icon_flag delivery">오늘드림</span> -->
                   </p>
                 </li>
-                <li style="width:255px;">
+                <li style="width:255px;" @click="goDetail('24')">
                   <a href="" style="width:100%; color:#666; min-height:60px; text-decoration:none;">
                     <img style="margin-top:25px; max-width:215px; max-height:215px;"
                          src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0018/A00000018914803ko.jpg?l=ko"
@@ -788,7 +788,7 @@
                     <span class="icon_flag delivery">오늘드림</span>
                   </p>
                 </li>
-                <li style="width:255px;">
+                <li style="width:255px;" @click="goDetail('25')">
                   <a href="" style="width:100%; color:#666; min-height:60px; text-decoration:none;">
                     <img style="margin-top:25px; max-width:215px; max-height:215px;"
                          src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0018/B00000018945603ko.jpg?l=ko"
@@ -903,7 +903,7 @@
                 <div class="realtime-view-main"
                      style="display:flex; border-top:1px solid #d8d8d8;margin-bottom: 41px; margin-top:10px; padding:10px;">
                   <ul class="realtime-view-ul" style="flex-grow:1; margin-top:20px;">
-                    <li class="realtime-img">
+                    <li class="realtime-img" @click="goDetail('26')">
                       <div>
                         <img
                             src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0018/A00000018791813ko.jpg?l=ko"
@@ -1517,7 +1517,7 @@ img {
 }
 
 .prd_flag {
-  margin-top:10px;
+  margin-top: 10px;
   overflow: hidden;
 }
 
@@ -2116,8 +2116,7 @@ strong {
 }
 
 .prd_thumb {
-//position: absolute; left: 0;
-  top: 0;
+//position: absolute; left: 0; top: 0;
   width: 175px;
   height: 175px;
   /* display:block; */

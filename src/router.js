@@ -10,26 +10,33 @@ import Login from '@/components/member/Login.vue';
 const routes = [
     {
         path: '/',
+        name: 'DefaultLayout',
         component: DefaultLayout
     },
     {
         path: '/join',
+        name: 'Join',
         component: Join
     },
     {
         path: '/productInsert',
+        name: 'ProductInsert',
         component: ProductInsert
     },
     {
         path: '/prdDetail',
-        component: ProductDetail
+        name: 'ProductDetail',
+        component: ProductDetail,
+        props: true
     },
     {
         path: '/productList',
+        name: 'ProductList',
         component: ProductList
     },
     {
         path: '/login',
+        name: 'Login',
         component: Login
     },
 ];
