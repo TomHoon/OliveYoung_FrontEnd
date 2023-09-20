@@ -30,6 +30,38 @@
 
           <td class="product_txt_img"><p class="img_box"><!--<img :src="getImgPath" class="img_box" alt='프로필' />--></p><input type="file" id="product_img" class="product_img"></td>
         </tr>
+        <tr>
+          <td class="product_tit">미리보기이미지</td>
+          <td class="product_txt"><input type="text" id="product_prev_img"></td>
+        </tr>
+        <tr>
+          <td class="product_tit">상세메인사진</td>
+          <td class="product_txt"><input type="text" id="product_main_img"></td>
+        </tr>
+        <tr>
+          <td class="product_tit">상품설명사진1</td>
+          <td class="product_txt"><input type="text" id="product_desc1_img"></td>
+        </tr>
+        <tr>
+          <td class="product_tit">상품설명사진2</td>
+          <td class="product_txt"><input type="text" id="product_desc2_img"></td>
+        </tr>
+        <tr>
+          <td class="product_tit">상품설명사진3</td>
+          <td class="product_txt"><input type="text" id="product_desc3_img"></td>
+        </tr>
+        <tr>
+          <td class="product_tit">추천상품1 - PK</td>
+          <td class="product_txt"><input type="text" id="product_rcm1_pk"></td>
+        </tr>
+        <tr>
+          <td class="product_tit">추천상품2 - PK</td>
+          <td class="product_txt"><input type="text" id="product_rcm2_pk"></td>
+        </tr>
+        <tr>
+          <td class="product_tit">추천상품3 - PK</td>
+          <td class="product_txt"><input type="text" id="product_rcm3_pk"></td>
+        </tr>
         </tbody>
       </table>
       <div class="product_header02">
