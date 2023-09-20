@@ -60,9 +60,9 @@ export default {
     productInsert() {
       this.$router.push('/productInsert');
     },
-    goTestStack(payload) { // Stack Test Code
-      this.$pushContents('TestStack', {boardData: payload});
-      console.log('yes')
+    goTestStack() { // Stack Test Code
+      this.$pushContents('TestStack');
+      // this.$pushContents('TestStack', {data: payload});
     },
     loginAndOut(flag) {
       if (flag == 1) {
