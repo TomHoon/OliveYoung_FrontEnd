@@ -15,7 +15,7 @@
           <div class="list_content" v-for="(item,product_idx) in productList" :key="product_idx">
             <input type="checkbox">
             <span>{{item.product_idx}}</span>
-            <span>{{item.product_sell_name}}</span>
+            <span>{{item.product_sell_name.slice(0,25)+"..."}}</span>
             <span>{{item.product_sell_price}}</span>
             <span>{{item.product_reg_date}}</span>
           </div>
@@ -46,13 +46,13 @@ export default {
   data() {
     return {
       productList: [],
-    }
+    };
+    },
        /* fetch('/productAll')
             .then((response) => response.json())
             .then((data) => {
               this.productAll = data;
             })*/
-  },
     mounted() {
       axios.post('/productList')
           .then((res) => {
@@ -60,7 +60,6 @@ export default {
             console.log("res", res);
     });
     },
-
   methods: {
     ProductInsert() {
       this.$router.push('/productInsert');
