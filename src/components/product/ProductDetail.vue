@@ -125,12 +125,12 @@
             <div class="product-detail">
                 <div class="left-area">
                     <div class="img-area">
-                        <img src="https://image.oliveyoung.co.kr/uploads/images/goods/550/10/0000/0018/B00000018987601ko.jpg?l=ko" alt="">
+                        <img :src="detailInfo.product_main_img" alt="">
                     </div>
                     <ul class="left-area-mini">
                         <li>
                             <a href="">
-                                <img src="https://image.oliveyoung.co.kr/uploads/images/goods/85/10/0000/0018/B00000018987601ko.jpg?l=ko" alt="">
+                                <img :src="detailInfo.product_sub_img" alt="">
                             </a>
                         </li>
                     </ul>
@@ -140,12 +140,11 @@
                         <a href="">네스프레소</a>
                     </p>
                     <p class="product-info-main-tit">
-                        네스프레소 오리지널 스타터팩 에센자미니<br>
-                        C30 에스프레소 캡슐커피머신 화이트
+                      {{ detailInfo.product_sell_name }}
                     </p>
                     <p class="product-price-info">
-                        <span class="bf-price">228,000원</span>
-                        <span class="aft-price">193,800원</span>
+                        <span class="bf-price">{{ detailInfo.product_orgin_price }}원</span>
+                        <span class="aft-price">{{ detailInfo.product_sell_price }}원</span>
                         <span class="advantage-info">혜택정보</span>
                     </p>
                     <p class="icon-area">
@@ -348,12 +347,12 @@
           <div v-if="tab == 1" class="contents-area">
               <div class="advertise-area-wrapper">
                 <a href="" class="advertise-area">
-                    <img src="https://image.oliveyoung.co.kr/uploads/images/display/9000003/396/2189236808962212784.jpg" alt="" class="advertise-img">
+                    <img :src="detailInfo.product_desc1_img" class="advertise-img">
                 </a>
               </div>
               <div class="contents-area-main">
-                  <img src="https://kingson7.speedgabia.com/NESPRESSO/OverallMall/SSG/nespresso_official_900.jpg" alt="" class="contents-main-img">
-                  <img src="https://kingson7.speedgabia.com/NESPRESSO/OverallMall/SSG/C30-KR-WH-CF_900.jpg" alt="" class="contents-sub-img">
+                  <img :src="detailInfo.product_desc2_img"  alt="" class="contents-main-img">
+                  <img :src="detailInfo.product_desc3_img"  alt="" class="contents-sub-img">
               </div>
               <div class="notice-text">
                   <p>
@@ -1143,14 +1142,28 @@
 
 <script>
 import ModalWrapper from '@/components/ModalWrapper.vue';
+import axios from "axios";
+import basicMixin from "@/mixin/basicMixin.js";
 
 export default {
+  mixins: [basicMixin],
   components:{
     ModalWrapper,
   },
+  async mounted() {
+    let { data } = await axios.post('/getProduct', {product_idx: this.$route.query.prdId});
+
+    if (!data) {
+      this.toastMsg('데이터가 없습니다.');
+      return;
+    }
+
+    this.detailInfo = data;
+  },
   data() {
     return {
-      tab: 3,
+      tab: 1,
+      detailInfo: {},
       styleSet: {
         redArea1: {height: '66px'},
         redArea2: {height: '21px'},
@@ -2683,7 +2696,7 @@ a {
     font-weight:700;
 }
 .advertise-area-wrapper {
-  width:1020px;
+  width:605px;
   margin:0 auto;
 }
 .advantage-info {

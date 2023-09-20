@@ -7,23 +7,24 @@
       <div class="product_header01">
         <span class="product_header_tit01">상품정보</span>
       </div>
+        <button @click="reset">Reset</button>
       <table>
         <tbody>
         <tr>
           <td class="product_tit">제품본이름</td>
-          <td class="product_txt"><input type="text" id="product_orgin_name" class="product_orgin_name" v-model="product_orgin_name" autocomplete="off"></td>
+          <td class="product_txt"><input type="text" id="product_orgin_name" class="product_orgin_name" v-model="test.product_orgin_name" autocomplete="off"></td>
         </tr>
         <tr>
           <td class="product_tit">제품판매명</td>
-          <td class="product_txt"><input type="text" id="product_sell_name" class="product_sell_name" v-model="product_sell_name" autocomplete="off"></td>
+          <td class="product_txt"><input type="text" id="product_sell_name" class="product_sell_name" v-model="test.product_sell_name" autocomplete="off"></td>
         </tr>
         <tr>
           <td class="product_tit">제품원가</td>
-          <td class="product_txt"><input type="text" id="product_orgin_price" class="product_orgin_price" v-model="product_orgin_price" autocomplete="off"><span class="product_txt_span">원</span></td>
+          <td class="product_txt"><input type="text" id="product_orgin_price" class="product_orgin_price" v-model="test.product_orgin_price" autocomplete="off"><span class="product_txt_span">원</span></td>
         </tr>
         <tr>
           <td class="product_tit">제품판매가격</td>
-          <td class="product_txt"><input type="text" id="product_sell_price" class="product_sell_price" v-model="product_sell_price" autocomplete="off"><span class="product_txt_span">원</span></td>
+          <td class="product_txt"><input type="text" id="product_sell_price" class="product_sell_price" v-model="test.product_sell_price" autocomplete="off"><span class="product_txt_span">원</span></td>
         </tr>
         <tr>
           <td class="product_tit_img">제품이미지</td>
@@ -32,35 +33,39 @@
         </tr>
         <tr>
           <td class="product_tit">미리보기이미지</td>
-          <td class="product_txt"><input type="text" id="product_prev_img"></td>
+          <td class="product_txt"><input type="text" v-model="test.product_prev_img" id="product_prev_img"></td>
         </tr>
         <tr>
           <td class="product_tit">상세메인사진</td>
-          <td class="product_txt"><input type="text" id="product_main_img"></td>
+          <td class="product_txt"><input type="text" v-model="test.product_main_img" id="product_main_img"></td>
+        </tr>
+        <tr>
+          <td class="product_tit">상세메인서브사진</td>
+          <td class="product_txt"><input type="text" v-model="test.product_sub_img" id="product_sub_img"></td>
         </tr>
         <tr>
           <td class="product_tit">상품설명사진1</td>
-          <td class="product_txt"><input type="text" id="product_desc1_img"></td>
+          <td class="product_txt"><input type="text" v-model="test.product_desc1_img" id="product_desc1_img"></td>
         </tr>
         <tr>
           <td class="product_tit">상품설명사진2</td>
-          <td class="product_txt"><input type="text" id="product_desc2_img"></td>
+          <td class="product_txt"><input type="text" v-model="test.product_desc2_img" id="product_desc2_img"></td>
         </tr>
         <tr>
           <td class="product_tit">상품설명사진3</td>
-          <td class="product_txt"><input type="text" id="product_desc3_img"></td>
+          <td class="product_txt"><input type="text"  v-model="test.product_desc3_img" id="product_desc3_img"></td>
         </tr>
         <tr>
           <td class="product_tit">추천상품1 - PK</td>
-          <td class="product_txt"><input type="text" id="product_rcm1_pk"></td>
+          <td class="product_txt"><input type="text" id="product_recommend1_pk"></td>
         </tr>
         <tr>
           <td class="product_tit">추천상품2 - PK</td>
-          <td class="product_txt"><input type="text" id="product_rcm2_pk"></td>
+          <td class="product_txt"><input type="text" id="product_recommend2_pk"></td>
         </tr>
         <tr>
           <td class="product_tit">추천상품3 - PK</td>
-          <td class="product_txt"><input type="text" id="product_rcm3_pk"></td>
+          <td class="product_txt"><input type="text" id="product_recommend3_pk"></td>
         </tr>
         </tbody>
       </table>
@@ -163,6 +168,18 @@ export default {
   mixins: [basicMixin],
   data() {
     return {
+      test: {
+        product_orgin_name: '',
+        product_sell_name: '',
+        product_orgin_price: '',
+        product_sell_price: '',
+        product_prev_img: '',
+        product_main_img: '',
+        product_sub_img: '',
+        product_desc1_img: '',
+        product_desc2_img: '',
+        product_desc3_img: ''
+      },
       //imgPath: './profile_Img.jpg',
       product_orgin_name: '',
       product_sell_name: '',
@@ -310,6 +327,9 @@ export default {
     */
   },
   methods: {
+    reset() {
+      this.test = {};
+    },
     productList() {
       this.$router.push('/productList');
     },
@@ -322,47 +342,34 @@ export default {
     selectSmallCategory() {
       this.product_small_category = this.product_small_category
     },
-    productInsert() {
-      let 제품등록파라미터 = {
-        product_orgin_name: this.product_orgin_name,
-        product_sell_name: this.product_sell_name,
-        product_orgin_price: this.product_orgin_price,
-        product_sell_price: this.product_sell_price,
-        product_corp: this.product_corp,
-        product_major_category: this.product_major_category,
-        product_middle_category: this.product_middle_category,
-        product_small_category: this.product_small_category,
-        product_cnt: this.product_cnt,
-        product_like: this.product_like,
-        product_score: this.product_score,
-        product_amount: this.product_amount,
-        product_func: this.product_func,
-        product_limit: this.product_limit,
-        product_way: this.product_way,
-        product_manufacturer: this.product_manufacturer ,
-        product_produce_country: this.product_produce_country,
-        product_ingredient: this.product_ingredient,
-        product_evaluate: this.product_evaluate,
-        product_attention: this.product_attention,
-        quality_standard: this.quality_standard,
-        consultation_number: this.consultation_number
-      }
+    async productInsert() {
+      // let 제품등록파라미터 = {
+      //   product_orgin_name: this.product_orgin_name,
+      //   product_sell_name: this.product_sell_name,
+      //   product_orgin_price: this.product_orgin_price,
+      //   product_sell_price: this.product_sell_price,
+      //   product_corp: this.product_corp,
+      //   product_major_category: this.product_major_category,
+      //   product_middle_category: this.product_middle_category,
+      //   product_small_category: this.product_small_category,
+      //   product_cnt: this.product_cnt,
+      //   product_like: this.product_like,
+      //   product_score: this.product_score,
+      //   product_amount: this.product_amount,
+      //   product_func: this.product_func,
+      //   product_limit: this.product_limit,
+      //   product_way: this.product_way,
+      //   product_manufacturer: this.product_manufacturer ,
+      //   product_produce_country: this.product_produce_country,
+      //   product_ingredient: this.product_ingredient,
+      //   product_evaluate: this.product_evaluate,
+      //   product_attention: this.product_attention,
+      //   quality_standard: this.quality_standard,
+      //   consultation_number: this.consultation_number
+      // }
 
-      axios.post("/productInsert", 제품등록파라미터)
-          .then((res) => {
-            console.log("res",res);
-            if (res.data == 1) {
-              this.toastMsg("등록완료");
-              this.$router.push('/productList');
-
-            }else {
-              this.toastMsg("등록실패");
-            }
-          }).catch((err) => {
-        if (err.response) {
-          this.toastMsg("오류 ㅅㄱ.");
-        }
-      })
+      let result = await axios.post("/productInsert", {...this.test});
+      console.log('result >> ', result.data);
     },
   }
 }
