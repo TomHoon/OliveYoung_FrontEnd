@@ -6,6 +6,8 @@ import ProductInsert from '@/components/product/ProductInsert.vue';
 import ProductDetail from '@/components/product/ProductDetail.vue';
 import ProductList from '@/components/product/ProductList.vue';
 import Login from '@/components/member/Login.vue';
+import Cart from '@/components/member/Cart.vue';
+
 
 const routes = [
     {
@@ -38,6 +40,11 @@ const routes = [
         path: '/login',
         name: 'Login',
         component: Login
+    },
+    {
+        path: '/cart',
+        name: 'Cart',
+        component: Cart
     },
 ];
 

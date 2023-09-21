@@ -9,7 +9,7 @@
         <li class="cart">장바구니</li>
         <li class="order">주문배송</li>
         <li class="customer">고객센터</li>
-        <li class="store">매장안내</li>
+        <li class="store" @click="goCart()">매장안내</li>
         <li class="ProductInsert" @click="productInsert">상품등록</li>
       </ul>
     </div>
@@ -54,6 +54,9 @@ export default {
   },
 
   methods: {
+    goCart() {
+      this.$router.push('/cart');
+    },
     goJoin() {
       this.$router.push('/join');
     },
@@ -207,4 +210,5 @@ button {
   color: black;
   background: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_delivery_flag.png") right 2px/22px 20px no-repeat;
 }
+
 </style>
