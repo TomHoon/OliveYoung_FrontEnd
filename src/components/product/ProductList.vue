@@ -17,7 +17,7 @@
             <span>{{item.product_idx}}</span>
             <span>{{item.product_sell_name.slice(0,25)+"..."}}</span>
             <span>{{item.product_sell_price}}</span>
-            <span>{{item.product_reg_date}}</span>
+            <span>{{item.product_amnd_date.substring(0,10)}}</span>
           </div>
           <!--          <div class="list_content">
                       <input type="checkbox">
@@ -48,13 +48,8 @@ export default {
       productList: [],
     };
     },
-       /* fetch('/productAll')
-            .then((response) => response.json())
-            .then((data) => {
-              this.productAll = data;
-            })*/
     mounted() {
-      axios.post('/productList')
+      axios.get('/productList')
           .then((res) => {
             this.productList = res.data;
             console.log("res", res);
