@@ -1078,10 +1078,11 @@
         </div>
         <div class="rvw-main-area">
           <div class="rvw-main-left">
-            <img src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0014/B00000014658854ko.jpg?l=ko" alt="">
+<!--            <img src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0014/B00000014658854ko.jpg?l=ko" alt="">-->
+            <img :src="detailInfo.product_main_img" alt="">
           </div>
           <div class="rvw-main-right">
-            <span>네스프레소 오리지널 스타터팩 에센자미니 C30 커피머신 화이트</span>
+            <span>{{detailInfo.product_sell_name}}</span>
           </div>
           <div class="rvw-select-star">
             <div class="rvw-select-subtit-wrapper">
@@ -1118,9 +1119,7 @@
               <span>어떤 점이 좋았나요?</span>
             </div>
             <div class="rvw-text-textarea">
-              <textarea name="" id="" cols="68" rows="11" class="rvw-input-textarea">
-
-              </textarea>
+              <textarea class="rvw-input-textarea" v-model="rv.review_content"></textarea>
             </div>
           </div>
 
@@ -1129,10 +1128,10 @@
           </div>
 
           <div class="rvw-btns-bundle">
-            <button class="btn-cancel">
+            <button class="btn-cancel" @click="closeModal">
               취소
             </button>
-            <button class="btn-enroll">
+            <button class="btn-enroll" @click="reviewInsert">
               등록
             </button>
           </div>
@@ -1172,8 +1171,13 @@ export default {
         redArea3: {height: '8px'},
         redArea4: {height: '3px'},
         redArea5: {height: '3px'}
-      }
-    }
+      },
+      rv: {
+        mid: localStorage.getItem('mid'),
+        product_sell_name: '',
+        review_content: this.review_content,
+      },
+    };
   },
   methods: {
     buyNow() {
@@ -1208,7 +1212,18 @@ export default {
           console.log('실패 ', rsp);
         }
       });
-    }
+    },
+    closeModal() {
+      this.$refs.modal.closeModal();
+
+    },
+    async reviewInsert() {
+      this.toastMsg('등록.');
+      let result = await axios.post("/reviewInsert",{...this.rv} );
+      console.log('result >> ', result.data);
+      this.$refs.modal.closeModal();
+
+    },
   }
 }
 </script>
@@ -3563,6 +3578,11 @@ background: url(https://static.oliveyoung.co.kr/pc-static-root/image/curation/ic
 }
 .rvw-input-textarea {
   background-color: transparent;
+  resize: none;
+  outline: none;
+  width: 480px;
+  height: 180px;
+  padding: 20px;
 }
 .rvw-photo-upload {
   width: 100%;
