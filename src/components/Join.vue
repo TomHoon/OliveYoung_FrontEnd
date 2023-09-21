@@ -74,11 +74,17 @@
             maxlength="11">
           </span>
       </div>
-      <div class="nickname_form">
-        <label for="member_nickname">주소</label>
+      <div class="address_form">
+        <label for="member_address">주소</label>
         <span class="float-right">
-            <input type="text" id="member_nicknam" class="member_nickname" autocomplete="off" v-model="joinObj.member_address" ref="nickname">
-          </span>
+          <input type="text" v-model="joinObj.postcode" class="postcode" placeholder="우편번호">
+          <input type="button" @click="execDaumPostcode()" class="execDaumPostcode" value="우편번호 찾기"><br>
+          <input type="text" id="detailAddress" v-model="joinObj.detailAddress" class="detailAddress" placeholder="상세주소"
+                 autocomplete="off"><br>
+          <input type="text" id="member_address" v-model="joinObj.member_address" class="member_address" placeholder="주소"
+                 autocomplete="off"><br>
+          <input type="text" id="extraAddress" v-model="joinObj.extraAddress" class="extraAddress" readonly>
+        </span>
       </div>
       <div class="birth_form">
         <label for="member_birth">생년월일</label>
@@ -107,7 +113,6 @@
               <label for="chece_genderW"><input type="radio" id="chece_genderW" name="member_gender" class="chece_gender" autocomplete="off" value="W" v-model="joinObj.member_gender" >여자</label>
             </div>
       </div>
-      <input type="hidden" >
       <div class="buttons">
         <button class="join_btn" @click="joinMember()">가입</button>
       </div>
@@ -159,6 +164,10 @@ export default {
           member_tel : "",
           member_birth : "",
           member_gender : "",
+          postcode : "",
+          detailAddress : "",
+          member_address : "",
+          extraAddress : "",
         },
         
         mpwCheck :  "",
@@ -286,6 +295,47 @@ export default {
           document.getElementById('select_day').appendChild(createOption)
         }
       },
+    // 주소입력
+    execDaumPostcode() {
+      new window.daum.Postcode({
+        oncomplete: (data) => {
+          if (this.joinObj.extraAddress !== "") {
+            this.joinObj.extraAddress = "";
+          }
+          if (data.userSelectedType === "R") {
+            // 사용자가 도로명 주소를 선택했을 경우
+            this.joinObj.member_address = data.roadAddress;
+          } else {
+            // 사용자가 지번 주소를 선택했을 경우(J)
+            this.joinObj.member_address = data.jibunAddress;
+          }
+
+          // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+          if (data.userSelectedType === "R") {
+            // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+            // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+            if (data.bname !== "" && /[동|로|가]$/g.test(data.bname)) {
+              this.joinObj.extraAddress += data.bname;
+            }
+            // 건물명이 있고, 공동주택일 경우 추가한다.
+            if (data.buildingName !== "" && data.apartment === "Y") {
+              this.joinObj.extraAddress +=
+                  this.joinObj.extraAddress !== ""
+                      ? `, ${data.buildingName}`
+                      : data.buildingName;
+            }
+            // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+            if (this.joinObj.extraAddress !== "") {
+              this.joinObj.extraAddress = `(${this.joinObj.extraAddress})`;
+            }
+          } else {
+            this.joinObj.extraAddress = "";
+          }
+          // 우편번호를 입력한다.
+          this.joinObj.postcode = data.zonecode;
+        },
+      }).open();
+    },
 
       async joinMember() {
         
@@ -338,6 +388,11 @@ export default {
         if(this.joinObj.member_tel == ''){
           this.toastMsg('휴대전화번호를 입력해주세요.');
           this.$refs.member_gender.focus()
+          return;
+        }
+        if (this.member_address == '') {
+          this.toastMsg("주소를 입력해주세요.");
+          this.$refs.member_address.focus()
           return;
         }
         if(this.joinObj.selectYear == ''){
@@ -918,6 +973,21 @@ export default {
   display: flex;
   justify-content: space-evenly;
 }
+.address_form {
+  box-sizing: border-box;
+  border: 0.4px solid rgba(173, 116, 227, 0.63);
+  width: 700px;
+  height: 220px;
+  margin: 10px auto;
+}
+
+.address_form label {
+  float: left;
+  padding: 22px 0 0 20px;
+  font-weight: bold;
+  font-size: 15px;
+  color: #736d6d;
+}
 
 .postcode {
   width: 80px;
@@ -1291,11 +1361,10 @@ export default {
     width: 80%;
     margin: 12px 0 0 0;
   }
-
   .address_form {
     box-sizing: border-box;
     border: 0.4px solid rgba(173, 116, 227, 0.63);
-    width: 80%;
+    width: 700px;
     height: 220px;
     margin: 10px auto;
   }
@@ -1304,71 +1373,76 @@ export default {
     float: left;
     padding: 22px 0 0 20px;
     font-weight: bold;
-    font-size: 12px;
+    font-size: 15px;
     color: #736d6d;
   }
 
   .postcode {
-    width: 34%;
+    width: 80px;
+    margin-right: 12px;
+    margin-bottom: 5px;
     border: 1px solid rgba(136, 135, 135, 0.34);
     border-radius: 3px;
     color: rgba(66, 64, 64, 0.75);
-    font-size: 12px;
+    font-size: 15px;
     background-color: white;
     height: 40px;
+    margin-top: 12px;
     float: left;
     text-align: center;
-    margin-left: 10%;
-    margin-right: 5px;
 
   }
 
   .execDaumPostcode {
-    border: 1px solid rgba(136, 135, 135, 0.34);
     border-radius: 3px;
+    border: 1px solid rgba(136, 135, 135, 0.34);
     color: rgba(66, 64, 64, 0.75);
-    font-size: 12px;
+    font-size: 15px;
     background-color: white;
-    width: 43.5%;
-    height: 40px;
-    cursor: pointer;
+    width: 150px;
     float: left;
+    height: 40px;
+    margin-top: 12px;
+    cursor: pointer;
   }
 
   .member_address {
+    margin-bottom: 5px;
     padding-left: 20px;
+    margin-right: 40px;
     border: 1px solid rgba(136, 135, 135, 0.34);
     border-radius: 3px;
     color: rgba(66, 64, 64, 0.75);
-    font-size: 12px;
+    font-size: 15px;
     background-color: white;
-    width: 80%;
+    width: 400px;
     height: 40px;
-    margin: 0;
   }
 
   .detailAddress {
+    margin-bottom: 5px;
+    margin-right: 40px;
     padding-left: 20px;
     border: 1px solid rgba(136, 135, 135, 0.34);
     border-radius: 3px;
     color: rgba(66, 64, 64, 0.75);
-    font-size: 12px;
+    font-size: 15px;
     background-color: white;
-    width: 80%;
+    width: 400px;
     height: 40px;
-    margin: 5px 0 0 0;
   }
 
   .extraAddress {
+    margin-bottom: 5px;
+    margin-right: 40px;
     padding-left: 20px;
     border: 1px solid rgba(136, 135, 135, 0.34);
     border-radius: 3px;
     color: rgba(66, 64, 64, 0.75);
-    font-size: 12px;
+    font-size: 15px;
     background-color: white;
-    width: 80%;
+    width: 400px;
     height: 40px;
-    margin: 5px 0 0 0;
   }
 
   .join_btn {
