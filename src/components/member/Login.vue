@@ -291,6 +291,7 @@ export default {
       }
 
       localStorage.setItem('loginObj', JSON.stringify(login)); // 로컬 스토리지에 저장
+      localStorage.setItem("mid", this.mid);
 
       this.$router.push('/');
 
