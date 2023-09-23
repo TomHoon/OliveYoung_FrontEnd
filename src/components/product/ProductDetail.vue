@@ -1,10 +1,11 @@
 <template>
   <div class="wrapper">
         <!-- 헤더시작 -->
+        <!-- <Header></Header> -->
         <div class="Header">
             <div class="top_util">
                 <ul class="menu_list">
-                    <li class="test">테스트</li>
+                    <li class="test" @click="goStackLayer()">TestStack</li>
                     <li class="join" @click="goJoin">회원가입</li>
                     <li class="login" @click="goLogin">로그인</li>
                     <li class="cart">장바구니</li>
@@ -1091,24 +1092,24 @@
               <div class="rvw-star-area">
                 <ul>
                   <li>
-                    <span class="rvw-star-fill"></span>
-                    <img class="rvw-star-empty" src="https://static.oliveyoung.co.kr/pc-static-root/image//product/bg_rating_star.png" alt="">
+                    <span class="rvw-star-fill" :style="{ width: starWidth[0] }" ></span>
+                    <img class="rvw-star-empty" src="https://static.oliveyoung.co.kr/pc-static-root/image//product/bg_rating_star.png" alt="" @click="fillStar(0)">
                   </li>
                   <li>
-                    <span class="rvw-star-fill"></span>
-                    <img class="rvw-star-empty" src="https://static.oliveyoung.co.kr/pc-static-root/image//product/bg_rating_star.png" alt="">
+                    <span class="rvw-star-fill" :style="{ width: starWidth[1] }" ></span>
+                    <img class="rvw-star-empty" src="https://static.oliveyoung.co.kr/pc-static-root/image//product/bg_rating_star.png" alt="" @click="fillStar(1)">
                   </li>
                   <li>
-                    <span class="rvw-star-fill"></span>
-                    <img class="rvw-star-empty" src="https://static.oliveyoung.co.kr/pc-static-root/image//product/bg_rating_star.png" alt="">
+                    <span class="rvw-star-fill" :style="{ width: starWidth[2] }" ></span>
+                    <img class="rvw-star-empty" src="https://static.oliveyoung.co.kr/pc-static-root/image//product/bg_rating_star.png" alt="" @click="fillStar(2)">
                   </li>
                   <li>
-                    <span class="rvw-star-fill"></span>
-                    <img class="rvw-star-empty" src="https://static.oliveyoung.co.kr/pc-static-root/image//product/bg_rating_star.png" alt="">
+                    <span class="rvw-star-fill" :style="{ width: starWidth[3] }" ></span>
+                    <img class="rvw-star-empty" src="https://static.oliveyoung.co.kr/pc-static-root/image//product/bg_rating_star.png" alt=""  @click="fillStar(3)">
                   </li>
                   <li>
-                    <span class="rvw-star-fill"></span>
-                    <img class="rvw-star-empty" src="https://static.oliveyoung.co.kr/pc-static-root/image//product/bg_rating_star.png" alt="">
+                    <span class="rvw-star-fill" :style="{ width: starWidth[4] }" ></span>
+                    <img class="rvw-star-empty" src="https://static.oliveyoung.co.kr/pc-static-root/image//product/bg_rating_star.png" alt="" @click="fillStar(4)">
                   </li>
                 </ul>
               </div>
@@ -1170,16 +1171,20 @@ export default {
         redArea2: {height: '21px'},
         redArea3: {height: '8px'},
         redArea4: {height: '3px'},
-        redArea5: {height: '3px'}
+        redArea5: {height: '3px'},
       },
       rv: {
         mid: localStorage.getItem('mid'),
         product_sell_name: '',
         review_content: this.review_content,
       },
+      starWidth: ["0%", "0%", "0%", "0%", "0%"],
     };
   },
   methods: {
+    goStackLayer() {
+      this.$pushContents('TestStack');
+    },
     buyNow() {
       this.requestPay();
     },
@@ -1222,7 +1227,28 @@ export default {
       let result = await axios.post("/reviewInsert",{...this.rv} );
       console.log('result >> ', result.data);
       this.$refs.modal.closeModal();
-
+    },
+    fillStar(index) {
+      // 클릭한 별 이전 별까지만 채움
+      if(index == 0){
+        this.starWidth[0] = '100%'
+        this.starWidth[1] = this.starWidth[2] = this.starWidth[3] = this.starWidth[4] = '0%'
+      }
+      if(index == 1){
+        this.starWidth[0] = this.starWidth[1] = '100%'
+        this.starWidth[2] = this.starWidth[3] = this.starWidth[4] = '0%'
+      }
+      if(index == 2){
+        this.starWidth[0] = this.starWidth[1] = this.starWidth[2] = '100%'
+        this.starWidth[3] = this.starWidth[4] = '0%'
+      }
+      if(index == 3){
+        this.starWidth[0] = this.starWidth[1] = this.starWidth[2] = this.starWidth[3] = '100%'
+        this.starWidth[4] = '0%'
+      }
+      if(index == 4){
+        this.starWidth[0] = this.starWidth[1] = this.starWidth[2] = this.starWidth[3] = this.starWidth[4] = '100%'
+      }
     },
   }
 }
@@ -3541,7 +3567,7 @@ background: url(https://static.oliveyoung.co.kr/pc-static-root/image/curation/ic
   z-index:5;
 }
 .rvw-star-area>ul>li {
-  float:left;
+  /* float:left; */
   margin-left:5px;
   position: relative;
   width: 26px;
@@ -3556,6 +3582,7 @@ background: url(https://static.oliveyoung.co.kr/pc-static-root/image/curation/ic
   height:26px;
   background:#f27370;
   z-index:4;
+  /* width: 50%; */
 }
 .rvw-star-fill:hover {
   width:100%;
