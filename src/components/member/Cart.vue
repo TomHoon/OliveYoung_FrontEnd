@@ -156,13 +156,15 @@
             <th class="order-table-th w150" scoped="col">선택</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="order-table-tbody">
           <tr>
             <td colspan="7" class="order-table-tbody-td">
               <div class="order-table-tbody-td-tablerow">
+
                 <div class="tbl_cell w40">
                   <input type="checkbox" class="tbl_cell_input1">
                 </div>
+
                 <div class="tbl_cell w390">
                   <div class="tbl-cell-prd-info">
                     <a href="">
@@ -195,12 +197,14 @@
                     </a>
                   </div>
                 </div>
+
                 <div class="tbl_cell w110">
                   <span class="tbl-cell-curprice">
                     <span>14,000</span>
                     원
                   </span>
                 </div>
+
                 <div class="tbl_cell w100">
                   <div class="prd-count">
                     <select name="" id="">
@@ -208,11 +212,50 @@
                     </select>
                   </div>
                 </div>
+
+                <div class="tbl_cell w100">
+                  <span class="org-price">
+                    14,000원
+                  </span>
+                  <span class="pur-price">
+                    12,600원
+                  </span>
+                </div>
+
+                <div class="tbl_cell w120">
+                  <p class="prd-delivery">
+                    <strong class="prd-delivery-strong">
+                      2,500
+                      <span class="prd-delivery-strong-span">
+                        도서·산간 제외
+                      </span>
+                    </strong>
+                  </p>
+                </div>
+
+                <div class="tbl_cell w150">
+                  <div class="btn-group">
+                    <button class="buynow-btn">
+                      <span>바로구매</span>
+                    </button>
+                    <button class="shopping-zzim-btn">
+                      <span>쇼핑찜</span>
+                    </button>
+                    <button class="delete-btn">
+                      <span>삭제</span>
+                    </button>
+                  </div>
+                </div>
+
               </div>
             </td>
           </tr>
         </tbody>
       </table>
+
+
+
+
     </div>
 
 
@@ -1748,7 +1791,6 @@ a {
   height: 40px;
   border-top: 2px solid #d6d6d6;
   border-bottom:1px solid #ccc;
-  border-left: 1px solid #d6d6d6;
   background:#fafafa;
 }
 .order-table-tbody-td-tablerow {
@@ -1768,7 +1810,6 @@ a {
 }
 .w110 {
   width: 110px;
-  border-left: 1px solid #e6e6e6;
 }
 .w100 {
   width: 100px;
@@ -1889,5 +1930,55 @@ a {
 .prd-count {
   width:60px;
   margin:0 auto;
+}
+.org-price {
+  display: block;
+  font-size: 12px;
+  color: #b5b5b5;
+  text-decoration: line-through;
+}
+.pur-price {
+  display: block;
+  color: #e02020;
+  font-weight: 500;
+}
+.order-table-tbody-td {
+  border-bottom: 1px solid #e6e6e6;
+  border-right:1px solid #e6e6e6;
+}
+.prd-delivery {
+  color: #666;
+  font-size: 12px;
+}
+.prd-delivery-strong {
+  font-size: 14px;
+  display: block;
+}
+.prd-delivery-strong-span{
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+}
+.btn-group>button{
+  display: block;
+  margin:6px auto 0 auto;
+  width: 109px;
+  background:#fff;
+  border:1px solid #9bce26;
+  border-radius: 5px;
+  font-size: 12px;
+  height: 28px;
+}
+.btn-group>button:nth-child(1) {
+  color:#9bce26;
+}
+
+.btn-group>button:nth-child(2) {
+  background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_btn_zzim.png") 30px 8px no-repeat;
+  padding-left:24px;
+}
+.btn-group>button:nth-child(3) {
+  background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_btn_del.png") 35px 8px no-repeat;
+  padding-left:20px;
 }
 </style>
