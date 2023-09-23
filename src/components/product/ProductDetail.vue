@@ -1175,10 +1175,10 @@ export default {
       },
       rv: {
         mid: localStorage.getItem('mid'),
-        product_sell_name: '',
         review_content: this.review_content,
+        review_score: this.review_score,
       },
-      starWidth: ["0%", "0%", "0%", "0%", "0%"],
+      starWidth: ["100%", "0%", "0%", "0%", "0%"],
     };
   },
   methods: {
