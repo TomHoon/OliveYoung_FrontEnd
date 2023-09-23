@@ -201,7 +201,13 @@
                     원
                   </span>
                 </div>
-
+                <div class="tbl_cell w100">
+                  <div class="prd-count">
+                    <select name="" id="">
+                      <option value="1">1</option>
+                    </select>
+                  </div>
+                </div>
               </div>
             </td>
           </tr>
@@ -1742,6 +1748,7 @@ a {
   height: 40px;
   border-top: 2px solid #d6d6d6;
   border-bottom:1px solid #ccc;
+  border-left: 1px solid #d6d6d6;
   background:#fafafa;
 }
 .order-table-tbody-td-tablerow {
@@ -1772,6 +1779,10 @@ a {
 .w150 {
   width: 150px;
 }
+.tbl_cell {
+  border-left:1px solid #e6e6e6;
+}
+
 .tbl_cell_input1 {
   background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/icon_chk_radio.png") 0 -20px no-repeat;
   width: 12px;
@@ -1874,5 +1885,9 @@ a {
   float:left;
   width: 60px;
   background-color: #f374b7;
+}
+.prd-count {
+  width:60px;
+  margin:0 auto;
 }
 </style>
