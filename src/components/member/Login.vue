@@ -278,7 +278,6 @@
 </template>
 <script>
 import axios from 'axios';
-import DefaultLayout from "@/components/DefaultLayout";
 import basicMixin from "@/mixin/basicMixin.js";
 import ModalWrapper from '@/components/ModalWrapper.vue';
 
