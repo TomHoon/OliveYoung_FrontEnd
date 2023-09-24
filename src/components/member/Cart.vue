@@ -364,9 +364,9 @@
                     </dd>
                     <dd class="cart-imgs-list-li-right-icon">
                       <span class="cart-imgs-icon _sale">세일</span>
-                      <span class="cart-imgs-icon _coupon">세일</span>
-                      <span class="cart-imgs-icon _gift">세일</span>
-                      <span class="cart-imgs-icon _today">세일</span>
+                      <span class="cart-imgs-icon _coupon">쿠폰</span>
+                      <span class="cart-imgs-icon _gift">증정</span>
+                      <span class="cart-imgs-icon _today">오늘드림</span>
                     </dd>
                   </dl>
                 </a>
@@ -374,23 +374,23 @@
             </li>
             <li>
               <div class="cart-imgs-list-li-left">
-                <img class="cart-imgs-list-li-img" src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0013/A00000013750317ko.jpg?l=ko" alt="">
+                <img class="cart-imgs-list-li-img" src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0013/A00000013634313ko.jpg?l=ko" alt="">
               </div>
               <div class="cart-imgs-list-li-right">
                 <a href="">
                   <dl class="imgs-list-li-dl">
                     <dt class="cart-imgs-list-li-right-tit">
-                      [9월 올영픽] 어반디케이 올나이터 세팅 픽서 118ml
+                      롬앤 글래스팅 워터 틴트
                     </dt>
                     <dd class="cart-imgs-list-li-right-price">
-                      <del>45,000원</del>
-                      <strong>36,000원</strong>
+                      <del>10,900원</del>
+                      <strong>8,900원</strong>
                     </dd>
                     <dd class="cart-imgs-list-li-right-icon">
-                      <span class="cart-imgs-icon _sale">세일</span>
-                      <span class="cart-imgs-icon _coupon">세일</span>
-                      <span class="cart-imgs-icon _gift">세일</span>
-                      <span class="cart-imgs-icon _today">세일</span>
+<!--                      <span class="cart-imgs-icon _sale">세일</span>-->
+<!--                      <span class="cart-imgs-icon _coupon">쿠폰</span>-->
+<!--                      <span class="cart-imgs-icon _gift">증정</span>-->
+                      <span class="cart-imgs-icon _today">오늘드림</span>
                     </dd>
                   </dl>
                 </a>
@@ -398,23 +398,23 @@
             </li>
             <li>
               <div class="cart-imgs-list-li-left">
-                <img class="cart-imgs-list-li-img" src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0013/A00000013750317ko.jpg?l=ko" alt="">
+                <img class="cart-imgs-list-li-img" src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0015/A00000015036113ko.jpg?l=ko" alt="">
               </div>
               <div class="cart-imgs-list-li-right">
                 <a href="">
                   <dl class="imgs-list-li-dl">
                     <dt class="cart-imgs-list-li-right-tit">
-                      [9월 올영픽] 어반디케이 올나이터 세팅 픽서 118ml
+                      [NEW S/S컬렉션]홀리카홀리카 마이페이브 무드 아이팔레트
                     </dt>
                     <dd class="cart-imgs-list-li-right-price">
-                      <del>45,000원</del>
-                      <strong>36,000원</strong>
+<!--                      <del>45,000원</del>-->
+                      <strong>20,800원</strong>
                     </dd>
                     <dd class="cart-imgs-list-li-right-icon">
                       <span class="cart-imgs-icon _sale">세일</span>
-                      <span class="cart-imgs-icon _coupon">세일</span>
-                      <span class="cart-imgs-icon _gift">세일</span>
-                      <span class="cart-imgs-icon _today">세일</span>
+<!--                      <span class="cart-imgs-icon _coupon">쿠폰</span>-->
+<!--                      <span class="cart-imgs-icon _gift">증정</span>-->
+<!--                      <span class="cart-imgs-icon _today">오늘드림</span>-->
                     </dd>
                   </dl>
                 </a>
@@ -422,6 +422,10 @@
             </li>
 
           </ul>
+        </div>
+
+        <div class="cart-comment-tit">
+          <p>장바구니 상품은 90일동안, 판매종료 된 상품은 10일동안 보관됩니다.</p>
         </div>
       </div>
     </div>
@@ -1785,7 +1789,7 @@ strong {
   border-radius: 18px;
   font-weight: 400;
   text-align: center;
-  font-size: 20px;
+  font-size: 22px;
   vertical-align: 8px;
 }
 .tit-box-h1 {
@@ -2386,6 +2390,7 @@ a {
 }
 .imgs-list-li-dl{
   margin-left:12px;
+  position: relative;
 }
 .cart-imgs-list-li-right {
   width: 240px;
@@ -2394,13 +2399,49 @@ a {
 .cart-imgs-list-li-right-tit {
   font-size: 12px;
   margin-top:4px;
+  color:#000;
 }
 .cart-imgs-list-li-right-price {
   margin-top:10px;
   font-size: 12px;
 }
+.cart-imgs-list-li-right-price>del {
+  color:#b5b5b5;
+  font-size: 12px;
+}
+.cart-imgs-list-li-right-price>strong{
+  color:#e02020;
+  margin-left:5px;
+}
 .cart-imgs-list-li-right-icon {
   margin-top:10px;
+  margin-top: 10px;
+  position: absolute;
+  top: 61px;
+  left: 0;
+  width: 180px;
+}
+.cart-imgs-icon {
+  width: 40px;
+  height: 18px;
+  color:#fff;
+  font-size: 12px;
+  border-radius: 9px;
+  display: inline-block;
+  text-align: center;
+}
+._sale {
+  background-color:#f65c60;
+}
+._coupon {
+  background-color:#9bce26;
+}
+._gift {
+  background-color: #6fcff7;
+}
+._today {
+  width: 60px!important;
+  background-color: #f374b7;
 }
 .cart-imgs-list-li-right {
   display: block;
@@ -2410,7 +2451,17 @@ a {
   float:left;
 }
 .basket-group-cart-imgs-list {
-  border-bottom:1px solid black;
   height: 190px;
+}
+.cart-comment-tit {
+  font-size: 12px;
+  margin-top: 10px;
+  color: #888;
+  font-weight: 700;
+  border-top:1px solid #ccc;
+  padding-top:40px;
+}
+.cart-comment-tit>p {
+  text-align: center;
 }
 </style>
