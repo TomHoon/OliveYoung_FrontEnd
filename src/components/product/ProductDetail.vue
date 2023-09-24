@@ -1088,15 +1088,16 @@
           <div class="rvw-select-star">
             <div class="rvw-select-subtit-wrapper">
               <span>상품을 사용해 보셨나요?</span>
+              <input type="hidden" v-model="review_score">
               <br>
               <div class="rvw-star-area">
                 <ul>
                   <li>
-                    <span class="rvw-star-fill" :style="{ width: starWidth[0] }" ></span>
+                    <span class="rvw-star-fill" :style="{ width: starWidth[0] }"></span>
                     <img class="rvw-star-empty" src="https://static.oliveyoung.co.kr/pc-static-root/image//product/bg_rating_star.png" alt="" @click="fillStar(0)">
                   </li>
                   <li>
-                    <span class="rvw-star-fill" :style="{ width: starWidth[1] }" ></span>
+                    <span class="rvw-star-fill" :style="{ width: starWidth[1] }"></span>
                     <img class="rvw-star-empty" src="https://static.oliveyoung.co.kr/pc-static-root/image//product/bg_rating_star.png" alt="" @click="fillStar(1)">
                   </li>
                   <li>
@@ -1120,7 +1121,7 @@
               <span>어떤 점이 좋았나요?</span>
             </div>
             <div class="rvw-text-textarea">
-              <textarea class="rvw-input-textarea" v-model="rv.review_content"></textarea>
+              <textarea class="rvw-input-textarea" v-model="review_content"></textarea>
             </div>
           </div>
 
@@ -1173,11 +1174,10 @@ export default {
         redArea4: {height: '3px'},
         redArea5: {height: '3px'},
       },
-      rv: {
-        mid: localStorage.getItem('mid'),
-        review_content: this.review_content,
-        review_score: this.review_score,
-      },
+      mid: localStorage.getItem('mid'),
+      product_sell_name: '',
+      review_content: '',
+      review_score: '1',
       starWidth: ["100%", "0%", "0%", "0%", "0%"],
     };
   },
@@ -1222,33 +1222,44 @@ export default {
       this.$refs.modal.closeModal();
 
     },
-    async reviewInsert() {
-      this.toastMsg('등록.');
-      let result = await axios.post("/reviewInsert",{...this.rv} );
-      console.log('result >> ', result.data);
-      this.$refs.modal.closeModal();
-    },
     fillStar(index) {
       // 클릭한 별 이전 별까지만 채움
       if(index == 0){
         this.starWidth[0] = '100%'
         this.starWidth[1] = this.starWidth[2] = this.starWidth[3] = this.starWidth[4] = '0%'
+        this.review_score= '1'
       }
       if(index == 1){
         this.starWidth[0] = this.starWidth[1] = '100%'
         this.starWidth[2] = this.starWidth[3] = this.starWidth[4] = '0%'
+        this.review_score= '2'
       }
       if(index == 2){
         this.starWidth[0] = this.starWidth[1] = this.starWidth[2] = '100%'
         this.starWidth[3] = this.starWidth[4] = '0%'
+        this.review_score= '3'
       }
       if(index == 3){
         this.starWidth[0] = this.starWidth[1] = this.starWidth[2] = this.starWidth[3] = '100%'
         this.starWidth[4] = '0%'
+        this.review_score= '4'
       }
       if(index == 4){
         this.starWidth[0] = this.starWidth[1] = this.starWidth[2] = this.starWidth[3] = this.starWidth[4] = '100%'
+        this.review_score= '5'
       }
+    },
+    async reviewInsert() {
+      this.toastMsg('등록.');
+      let review등록 = {
+        mid: localStorage.getItem('mid'),
+        product_sell_name: this.detailInfo.product_sell_name,
+        review_content: this.review_content,
+        review_score: this.review_score,
+      }
+      let result = await axios.post("/reviewInsert",review등록 );
+      console.log('result >> ', result.data);
+      this.$refs.modal.closeModal();
     },
   }
 }
