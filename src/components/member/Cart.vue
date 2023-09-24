@@ -144,123 +144,291 @@
 
       <table class="order-table">
         <thead>
-          <tr>
-            <th class="order-table-th w40" scoped="col">
-              <input type="checkbox">
-            </th>
-            <th class="order-table-th w390" scoped="col">상품정보</th>
-            <th class="order-table-th w110" scoped="col">판매가</th>
-            <th class="order-table-th w100" scoped="col">수량</th>
-            <th class="order-table-th w110" scoped="col">구매가</th>
-            <th class="order-table-th w120" scoped="col">배송정보</th>
-            <th class="order-table-th w150" scoped="col">선택</th>
-          </tr>
+        <tr>
+          <th class="order-table-th w40" scoped="col">
+            <input type="checkbox">
+          </th>
+          <th class="order-table-th w390" scoped="col">상품정보</th>
+          <th class="order-table-th w110" scoped="col">판매가</th>
+          <th class="order-table-th w100" scoped="col">수량</th>
+          <th class="order-table-th w110" scoped="col">구매가</th>
+          <th class="order-table-th w120" scoped="col">배송정보</th>
+          <th class="order-table-th w150" scoped="col">선택</th>
+        </tr>
         </thead>
         <tbody class="order-table-tbody">
-          <tr>
-            <td colspan="7" class="order-table-tbody-td">
-              <div class="order-table-tbody-td-tablerow">
+        <tr>
+          <td colspan="7" class="order-table-tbody-td">
+            <div class="order-table-tbody-td-tablerow">
 
-                <div class="tbl_cell w40">
-                  <input type="checkbox" class="tbl_cell_input1">
-                </div>
+              <div class="tbl_cell w40">
+                <input type="checkbox" class="tbl_cell_input1">
+              </div>
 
-                <div class="tbl_cell w390">
-                  <div class="tbl-cell-prd-info">
-                    <a href="">
-                      <img src="https://image.oliveyoung.co.kr/uploads/images/goods/220/10/0000/0017/A00000017406610ko.jpg?l=ko" alt="">
-                    </a>
-                    <a href="" class="tbl-cell-prd-name">
+              <div class="tbl_cell w390">
+                <div class="tbl-cell-prd-info">
+                  <a href="">
+                    <img src="https://image.oliveyoung.co.kr/uploads/images/goods/220/10/0000/0017/A00000017406610ko.jpg?l=ko" alt="">
+                  </a>
+                  <a href="" class="tbl-cell-prd-name">
                       <span class="brand-name">
                         하트퍼센트
                       </span>
-                      <p class="goods-nm">
-                        [NEW 컬러 추가] 하트퍼센트 도트 온 무드 립펜슬(17colors)
-                      </p>
-                      <p class="prd-option">
-                        <i class="prd-option-tit">
-                          옵션
-                        </i>
-                        <span>02 크리미핑크</span>
-                        <button class="prd-option-change">
-                          옵션변경
-                        </button>
-                      </p>
-                      <p class="prd-flags">
+                    <p class="goods-nm">
+                      [NEW 컬러 추가] 하트퍼센트 도트 온 무드 립펜슬(17colors)
+                    </p>
+                    <p class="prd-option">
+                      <i class="prd-option-tit">
+                        옵션
+                      </i>
+                      <span>02 크리미핑크</span>
+                      <button class="prd-option-change">
+                        옵션변경
+                      </button>
+                    </p>
+                    <p class="prd-flags">
                         <span class="icon-flag flag-sale">
                           세일
                         </span>
-                        <span class="icon-flag flag-delivery">
+                      <span class="icon-flag flag-delivery">
                           오늘드림
                         </span>
-                      </p>
-                    </a>
-                  </div>
+                    </p>
+                  </a>
                 </div>
+              </div>
 
-                <div class="tbl_cell w110">
+              <div class="tbl_cell w110">
                   <span class="tbl-cell-curprice">
                     <span>14,000</span>
                     원
                   </span>
-                </div>
+              </div>
 
-                <div class="tbl_cell w100">
-                  <div class="prd-count">
-                    <select name="" id="">
-                      <option value="1">1</option>
-                    </select>
-                  </div>
+              <div class="tbl_cell w100">
+                <div class="prd-count">
+                  <select name="" id="">
+                    <option value="1">1</option>
+                  </select>
                 </div>
+              </div>
 
-                <div class="tbl_cell w100">
+              <div class="tbl_cell w100">
                   <span class="org-price">
                     14,000원
                   </span>
-                  <span class="pur-price">
+                <span class="pur-price">
                     12,600원
                   </span>
-                </div>
+              </div>
 
-                <div class="tbl_cell w120">
-                  <p class="prd-delivery">
-                    <strong class="prd-delivery-strong">
-                      2,500
-                      <span class="prd-delivery-strong-span">
+              <div class="tbl_cell w120">
+                <p class="prd-delivery">
+                  <strong class="prd-delivery-strong">
+                    2,500
+                    <span class="prd-delivery-strong-span">
                         도서·산간 제외
                       </span>
-                    </strong>
-                  </p>
-                </div>
-
-                <div class="tbl_cell w150">
-                  <div class="btn-group">
-                    <button class="buynow-btn">
-                      <span>바로구매</span>
-                    </button>
-                    <button class="shopping-zzim-btn">
-                      <span>쇼핑찜</span>
-                    </button>
-                    <button class="delete-btn">
-                      <span>삭제</span>
-                    </button>
-                  </div>
-                </div>
-
+                  </strong>
+                </p>
               </div>
-            </td>
-          </tr>
+
+              <div class="tbl_cell w150">
+                <div class="btn-group">
+                  <button class="buynow-btn">
+                    <span>바로구매</span>
+                  </button>
+                  <button class="shopping-zzim-btn">
+                    <span>쇼핑찜</span>
+                  </button>
+                  <button class="delete-btn">
+                    <span>삭제</span>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </td>
+        </tr>
         </tbody>
       </table>
 
+      <div class="delete-btns-group">
+        <div class="delete-btns-left">
+          <button class="select-prd-delete">
+            선택상품 삭제
+          </button>
+          <button class="select-soldout-delete">
+            품절상품 삭제
+          </button>
+        </div>
+        <div class="pay-price-right">
+          총 판매가
+          <span class="sum-pay-money">32,000</span>원
+          <span class="minus-sign">-</span>
+          총 할인금액
+          <span class="sum-discount-money">
+            7,430
+          </span>
+          원
+          <span class="plus-sign">+</span>
+          배송비
+          <span class="delivery-pay-money">
+            0
+          </span>
+          원
+          <span class="equal-sign">=</span>
+          <span class="total-money-price">
+            총 결제금액
+            <span class="total-money-price-result">
+              24,570
+            </span>
+            원
+          </span>
+        </div>
+      </div>
+
+      <div class="total-price-info-cart">
+        <div class="total-price-detail-cart">
+          <p>
+            총 판매가
+            <span>
+              <span class="total-price-detail-money">32,000</span>
+              원
+            </span>
+          </p>
+          <p class="minus-sign-cart">-</p>
+
+          <p class="total-discount-area-cart">
+            <span>
+              총 할인금액
+              <span class="total-discount-detail-money">
+                <span class="emphasize-money">7,430</span>
+                원
+              </span>
+            </span>
+          </p>
+          <p class="plus-sign-cart">+</p>
+
+          <p class="total-delivery-money">
+            배송비
+            <span class="delivery-money-price">
+              <span class="emphasize-delivery-money">
+                0
+              </span>
+              원
+            </span>
+          </p>
+        </div>
+      </div>
+      <div class="sum-price-summary-area">
+        <span class="summary-left-text">
+          배송비는 쿠폰할인금액에 따라 변경될 수 있습니다.
+        </span>
+        <span class="summary-right-price">
+          총 결제예상금액
+          <span>
+            24,570원
+          </span>
+
+        </span>
+      </div>
+      <div class="order-group-btns-cart">
+        <button>선택주문(2)</button>
+        <button>전체주문</button>
+      </div>
+      <div class="basket-group-cart">
+        <h4 class="basket-tit">
+          함께 구매하면 좋은 추천 상품이에요
+          <button class="see-more-cart">
+            더보기
+          </button>
+        </h4>
 
 
+        <div class="basket-group-cart-imgs-list">
+          <ul class="cart-imgs-list-ul">
+            <li>
+              <div class="cart-imgs-list-li-left">
+                <img class="cart-imgs-list-li-img" src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0013/A00000013750317ko.jpg?l=ko" alt="">
+              </div>
+              <div class="cart-imgs-list-li-right">
+                <a href="">
+                  <dl class="imgs-list-li-dl">
+                    <dt class="cart-imgs-list-li-right-tit">
+                      [9월 올영픽] 어반디케이 올나이터 세팅 픽서 118ml
+                    </dt>
+                    <dd class="cart-imgs-list-li-right-price">
+                      <del>45,000원</del>
+                      <strong>36,000원</strong>
+                    </dd>
+                    <dd class="cart-imgs-list-li-right-icon">
+                      <span class="cart-imgs-icon _sale">세일</span>
+                      <span class="cart-imgs-icon _coupon">세일</span>
+                      <span class="cart-imgs-icon _gift">세일</span>
+                      <span class="cart-imgs-icon _today">세일</span>
+                    </dd>
+                  </dl>
+                </a>
+              </div>
+            </li>
+            <li>
+              <div class="cart-imgs-list-li-left">
+                <img class="cart-imgs-list-li-img" src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0013/A00000013750317ko.jpg?l=ko" alt="">
+              </div>
+              <div class="cart-imgs-list-li-right">
+                <a href="">
+                  <dl class="imgs-list-li-dl">
+                    <dt class="cart-imgs-list-li-right-tit">
+                      [9월 올영픽] 어반디케이 올나이터 세팅 픽서 118ml
+                    </dt>
+                    <dd class="cart-imgs-list-li-right-price">
+                      <del>45,000원</del>
+                      <strong>36,000원</strong>
+                    </dd>
+                    <dd class="cart-imgs-list-li-right-icon">
+                      <span class="cart-imgs-icon _sale">세일</span>
+                      <span class="cart-imgs-icon _coupon">세일</span>
+                      <span class="cart-imgs-icon _gift">세일</span>
+                      <span class="cart-imgs-icon _today">세일</span>
+                    </dd>
+                  </dl>
+                </a>
+              </div>
+            </li>
+            <li>
+              <div class="cart-imgs-list-li-left">
+                <img class="cart-imgs-list-li-img" src="https://image.oliveyoung.co.kr/uploads/images/goods/400/10/0000/0013/A00000013750317ko.jpg?l=ko" alt="">
+              </div>
+              <div class="cart-imgs-list-li-right">
+                <a href="">
+                  <dl class="imgs-list-li-dl">
+                    <dt class="cart-imgs-list-li-right-tit">
+                      [9월 올영픽] 어반디케이 올나이터 세팅 픽서 118ml
+                    </dt>
+                    <dd class="cart-imgs-list-li-right-price">
+                      <del>45,000원</del>
+                      <strong>36,000원</strong>
+                    </dd>
+                    <dd class="cart-imgs-list-li-right-icon">
+                      <span class="cart-imgs-icon _sale">세일</span>
+                      <span class="cart-imgs-icon _coupon">세일</span>
+                      <span class="cart-imgs-icon _gift">세일</span>
+                      <span class="cart-imgs-icon _today">세일</span>
+                    </dd>
+                  </dl>
+                </a>
+              </div>
+            </li>
 
+          </ul>
+        </div>
+      </div>
     </div>
 
 
     <!-- 푸터시작 -->
-    <Footer style="margin-top:400px"/>
+    <Footer style="margin-top:900px"/>
     <!-- 푸터끝 -->
   </div>
 </template>
@@ -1823,7 +1991,12 @@ a {
 .tbl_cell {
   border-left:1px solid #e6e6e6;
 }
-
+.tbl_cell:nth-child(1) {
+  border-left:none!important;
+}
+.tbl_cell:nth-child(2) {
+  border-left:none!important;
+}
 .tbl_cell_input1 {
   background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/icon_chk_radio.png") 0 -20px no-repeat;
   width: 12px;
@@ -1873,9 +2046,10 @@ a {
   line-height: 18px;
   font-size: 14px;
   overflow:hidden;
+  margin-bottom:6px;
 }
 .prd-option {
-  margin-bottom:5px;
+  margin-bottom:8px;
   color:#888;
   font-size:12px;
   font-weight: 700;
@@ -1944,7 +2118,6 @@ a {
 }
 .order-table-tbody-td {
   border-bottom: 1px solid #e6e6e6;
-  border-right:1px solid #e6e6e6;
 }
 .prd-delivery {
   color: #666;
@@ -1980,5 +2153,264 @@ a {
 .btn-group>button:nth-child(3) {
   background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_btn_del.png") 35px 8px no-repeat;
   padding-left:20px;
+}
+.delete-btns-left {
+  float:left;
+  margin-top:20px;
+}
+.select-prd-delete {
+  border:1px solid #aaa;
+  color:#666;
+  background:#fff;
+  font-size:12px!important;
+  height: 28px;
+  border-radius:5px;
+  font-weight: 700;
+}
+.select-soldout-delete {
+  border:1px solid #aaa;
+  margin-left: 5px;
+  color:#666;
+  background:#fff;
+  font-size:12px!important;
+  height: 28px;
+  border-radius:5px;
+  font-weight: 700;
+}
+.pay-price-right {
+  float:right;
+  margin-top:20px;
+  width: 700px;
+  text-align: right;
+  color: #666;
+  font-weight: 700;
+}
+
+.total-money-price {
+  color:#f27370;
+  font-size:14px;
+}
+.prd-count>select {
+  width: 60px;
+  height: 28px;
+  padding: 0 0 0 10px;
+  border: 1px solid #ccc;
+  font-size: 12px;
+  border-radius:5px;
+}
+.total-price-info-cart {
+  float:left;
+  width: 100%;
+  margin-top:60px;
+  border-top: 2px solid #9bce26;
+  border-bottom: 1px solid #e6e6e6;
+}
+.total-price-detail-cart {
+  height: 110px;
+  position:relative;
+  width: 100%;
+  font-weight: 700;
+  overflow:hidden;
+}
+.total-price-detail-cart>p:nth-child(1) {
+  float:left;
+  width: 340px;
+  height: 110px;
+  padding-top:30px;
+  text-align: center;
+  font-size: 16px;
+  color:#666;
+  border-right: 1px solid #efefef;
+  border-left: 1px solid #efefef;
+}
+.total-price-detail-cart>p>span {
+  display: block;
+}
+.total-price-detail-money {
+  font-size: 24px;
+  margin-right: 2px;
+  font-weight: 500;
+}
+.minus-sign-cart {
+  position: absolute;
+  left: 324px;
+  top: 40px;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url(https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_sign_cal2.png) no-repeat;;
+  text-indent: -9999px;
+}
+.plus-sign-cart {
+  position: absolute;
+  background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_sign_cal2.png") no-repeat;
+  top: 40px;
+  right: 325px;
+  width: 30px;
+  height: 30px;
+  display:inline-block;
+  text-indent: -9999px;
+  background-position: -30px 0;
+}
+.total-discount-area-cart {
+  width: 340px;
+  height: 110px;
+  float:left;
+  text-align: center;
+  padding-top: 30px;
+  color: #666;
+  border-right: 1px solid #efefef;
+}
+.total-discount-detail-money {
+  display: block;
+  color:#f27370;
+  font-weight: 500;
+}
+.emphasize-money {
+  font-size: 24px;
+  margin-right: 2px;
+  font-weight: 500;
+}
+.total-delivery-money {
+  width: 340px;
+  height: 110px;
+  float:left;
+  text-align: center;
+  padding-top:30px;
+  color:#666;
+}
+.delivery-money-price {
+
+}
+.emphasize-delivery-money {
+  font-size:24px;
+}
+.sum-price-summary-area {
+  color:#333;
+  width: 100%;
+  height: 80px;
+  text-align: right;
+  background:#f6f6f6;
+  border-top:2px solid #d6d6d6;
+  font-size:22px;
+  float:left;
+  font-weight: 700;
+  position: relative;
+}
+.summary-left-text:before {
+  background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_arrow_01.gif") no-repeat;
+  content:"";
+  width: 22px;
+  height: 22px;
+  vertical-align: -4px;
+  display: inline-block;
+}
+.summary-left-text {
+  position:absolute;
+  left:41px;
+  top:26px;
+  font-size:14px!important;
+  color:#888;
+}
+.summary-right-price {
+  position: absolute;
+  top: 23px;
+  right: 30px;
+}
+.summary-right-price>span{
+  color:#ff2828;
+}
+.order-group-btns-cart {
+  float:left;
+  width:100%;
+  height:50px;
+  text-align: center;
+  padding-top:40px;
+  margin-bottom: 90px;
+}
+.order-group-btns-cart>button:nth-child(1) {
+  margin-left: 10px;
+  width: 180px;
+  height: 50px;
+  background-color: #fff;
+  padding: 11px 0 9px;
+  font-size: 18px;
+  line-height: 30px;
+  border-radius: 5px;
+  color:#f27370;
+  border: 1px solid #f27370;
+  font-weight: 700;
+}
+.order-group-btns-cart>button:nth-child(2) {
+  margin-left: 10px;
+  width: 180px;
+  height: 50px;
+  background-color: #f27370;
+  padding: 11px 0 9px;
+  font-size: 18px;
+  line-height: 30px;
+  border-radius: 5px;
+  color:#fff;
+  border:none;
+}
+.cart-imgs-list-li-img {
+  width: 100px;
+  height: 100px;
+}
+.basket-group-cart {
+  float:left;
+  width: 100%;
+}
+.see-more-cart {
+  float:right;
+  padding-right: 10px;
+  background: url(https://static.oliveyoung.co.kr/pc-static-root/image/curation/ico_more_5x10.png) top 3.5px right 0/5px auto no-repeat;
+//position: absolute;
+//bottom: 1px;
+//right: 17px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #aaa;
+  border:none;
+  line-height: 17px;
+}
+.basket-tit {
+  height: 20px;
+  margin-bottom: 40px;
+}
+.cart-imgs-list-ul>li {
+  width: 324px;
+}
+.cart-imgs-list-li-left {
+  float:left;
+}
+.imgs-list-li-dl{
+  margin-left:12px;
+}
+.cart-imgs-list-li-right {
+  width: 240px;
+  margin-left: 100px;
+}
+.cart-imgs-list-li-right-tit {
+  font-size: 12px;
+  margin-top:4px;
+}
+.cart-imgs-list-li-right-price {
+  margin-top:10px;
+  font-size: 12px;
+}
+.cart-imgs-list-li-right-icon {
+  margin-top:10px;
+}
+.cart-imgs-list-li-right {
+  display: block;
+  width: 190px;
+}
+.cart-imgs-list-ul>li {
+  float:left;
+}
+.basket-group-cart-imgs-list {
+  border-bottom:1px solid black;
+  height: 190px;
 }
 </style>
