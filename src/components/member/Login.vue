@@ -1,42 +1,7 @@
 <template>
       <div class="wrapper" style="background:#f6f6f6;">
         <!-- 헤더시작 -->
-        <div class="Header">
-            
-            <div class="top_util">
-                <ul class="menu_list">
-                    <li class="test">테스트</li>
-                    <li class="join" @click="goJoin">회원가입</li>
-                    <li class="login" @click="goLogin">로그인</li>
-                    <li class="cart">장바구니</li>
-                    <li class="order">주문배송</li>
-                    <li class="customer">고객센터</li>
-                    <li class="store" @click="goDetails">매장안내</li>
-                    <li class="ProductInsert" @click="ProductInsert">상품등록</li>
-                </ul>
-            </div>
-
-            <div class="header_inner">
-                <h1>
-                    <a href="/">
-                        <img src="https://static.oliveyoung.co.kr/pc-static-root/image/comm/h1_logo.png" alt="올리브영">
-                    </a>
-                </h1>
-                <div class="search_box" id="w_search_box">
-                    <div class="placeholder_area">
-                        <input type="text" placeholder="검색어를 입력해주세요">
-                    </div>
-                    <button id="searchSubmit">검색</button>
-                </div>
-                <ul class="mymenu-area">
-                    <li class="delivery" id="todayDeliveryContainer">
-                        <a href="javascript:;" id="tddlvr_header_today_icon" class="mymenu-layer">
-                            오늘드림
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        <Header></Header>
         <!-- 헤더끝 -->
         <!-- GNB시작 -->
         <div id="Gnb" class="main gen1">
@@ -114,7 +79,7 @@
                             </li>
                             <li class="login-input-li">
                                 <!-- <label for="">CJ ONE 통합회원 아이디 입력</label> -->
-                                <input style="width:495px!important" type="password" class="input-id-area" placeholder="비밀번호 (8~12자 영문자+숫자+특수문자)" v-model="mpw" ref="mpw">
+                                <input style="width:495px!important" type="password" class="input-id-area" placeholder="비밀번호 (8~12자 영문자+숫자+특수문자)" v-model="mpw" ref="mpw" @keyup.enter="fnLogin">
                             </li>
                         </ul>
 
@@ -159,83 +124,7 @@
         </div>
         <!-- 로그인 끝 -->
         <!-- 푸터시작 -->
-        <div class="footer" style="margin-top:70px;">
-            <div class="conts1">
-                <ul class="footer-ul">
-                    <li>회사소개</li>
-                    <li>채용안내</li>
-                    <li>가맹점 개설문의</li>
-                    <li>상품입점 및 제휴문의</li>
-                    <li>사이버 감사실</li>
-                    <li>고객센터</li>
-                </ul>
-            </div>
-            <div class="conts2">
-                <div class="conts2-ul-wrapper">
-                    <ul class="conts2-ul">
-                        <li>
-                            <p class="conts2-ul-p">
-                                <a href="">
-                                    <img style="width:146px; height:24px;" src="https://static.oliveyoung.co.kr/pc-static-root/image/footer/foot_logo.png" alt="">
-                                </a>
-                            </p>
-                        </li>
-                        <li>
-                            <h3 class="conts2-ul-h3">씨제이 올리브영 주식회사</h3>
-                            <p>
-                                대표이사: 이동훈|사업자등록번호:809-81-22241
-                                <br>
-                                주소 : (12442) 서울특별시 강동구 강동대로 412, 33층
-                                <br>
-                                호스팅사업자:cafe24
-                                <br>
-                                통신판매업신고번호:14-231-2341
-                                <br>
-                                이메일:gnsdl9079@gmail.com
-
-                            </p>
-                            <p>
-                            </p>
-                        </li>
-                        <li style="margin:45px 0 0 25px;">
-                            <a class="conts2-ul-lawlist" href="">
-                                이용약관 법적고지
-                            </a>
-                            <a class="conts2-ul-lawlist active-lawlist" href="">
-                                개인정보처리방침
-                            </a>
-                            <a class="conts2-ul-lawlist" href="">
-                                청소년처리방침
-                            </a>
-                            <a class="conts2-ul-lawlist" href="">
-                                영상정보처리기기 운영/관리방침
-                            </a>
-                            <a class="conts2-ul-lawlist" href="">
-                                이메일 무단수집거부
-                            </a>
-                        </li>
-                        <li style="margin:45px 0 0 25px;">
-                            <a class="conts2-ul-lawlist active-lawlist" style="color:#000" href="">
-                                하나은행 구매안전 서비스
-                            </a>
-                            <a class="conts2-ul-lawlist" href="">
-                                <p>
-                                    올리브영은 현금 결제한 금액에 대해
-                                    <br>
-                                    하나은행과 채무지급보증 계약을체결
-                                    <br>
-                                    하여 안전한 거래를 보장하고 있습니다
-                                    <br>
-                                </p>
-                            </a>
-                            <a style="color:#9a9a9a; font-size:14px; position:absolute; bottom:50px;" href="">
-                                서비스가입사실확인 >
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <Footer></Footer>
         <!-- 푸터끝 -->
       </div>
   <ModalWrapper ref="idmodal" :width="500" :height="400">
@@ -280,6 +169,8 @@
 import axios from 'axios';
 import basicMixin from "@/mixin/basicMixin.js";
 import ModalWrapper from '@/components/ModalWrapper.vue';
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 export default {
   mixins: [basicMixin],
@@ -291,6 +182,8 @@ export default {
   },
   components:{
     ModalWrapper,
+    Footer,
+    Header
   },
   mounted() {
 
