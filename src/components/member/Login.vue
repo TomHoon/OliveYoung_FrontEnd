@@ -124,8 +124,8 @@
                                 <label for="">아이디저장</label>
                             </div>
                             <div class="link">
-                                <a class="id-link" href="">아이디 찾기</a>
-                                <a class="pw-link" href="">비밀번호 찾기</a>
+                                <a class="id-link" @click="goIdFind">아이디 찾기</a>
+                                <a class="pw-link" @click="goPwFind">비밀번호 찾기</a>
                             </div>
                         </div>
 
@@ -238,11 +238,49 @@
         </div>
         <!-- 푸터끝 -->
       </div>
+  <ModalWrapper ref="idmodal" :width="500" :height="400">
+      <div class="id_find_area">
+        <div class="id_find_txt_area">
+          <div class="id_find_tit01">아이디 찾기</div>
+          <div class="id_find_tit02">아이디가 기억나지 않으세요? <br>인증번호를 통해 아이디를 확인하실 수 있습니다.</div>
+          <div class="id_find_txt">
+            <input type="text" class="id_find_email" placeholder="이메일을 입력해주세요.">
+            <button class="id_find_confirm">인증번호 전송</button>
+            <input type="text" class="id_find_input" placeholder="인증번호입력">
+          </div>
+        </div>
+
+
+        <div class="idFind_btn_bundle">
+          <button class="idFind_btn_enroll"><span>아이디 찾기</span></button>
+        </div>
+      </div>
+  </ModalWrapper>
+  <ModalWrapper ref="pwmodal" :width="500" :height="400">
+    <div class="pw_find_area">
+      <div class="pw_find_txt_area">
+        <div class="pw_find_tit01">비밀번호 찾기</div>
+        <div class="pw_find_tit02">비밀번호가 기억나지 않으세요? <br>인증번호를 통해 비밀번호를 확인하실 수 있습니다.</div>
+        <div class="pw_find_txt">
+          <input type="text" class="pw_find_id" placeholder="아이디를 입력해주세요.">
+          <input type="text" class="pw_find_email" placeholder="이메일을 입력해주세요.">
+          <button class="pw_find_confirm">인증번호 전송</button>
+          <input type="text" class="pw_find_input" placeholder="인증번호입력">
+        </div>
+      </div>
+
+
+      <div class="pwFind_btn_bundle">
+        <button class="pwFind_btn_enroll"><span>비밀번호 찾기</span></button>
+      </div>
+    </div>
+  </ModalWrapper>
 </template>
 <script>
 import axios from 'axios';
 import DefaultLayout from "@/components/DefaultLayout";
 import basicMixin from "@/mixin/basicMixin.js";
+import ModalWrapper from '@/components/ModalWrapper.vue';
 
 export default {
   mixins: [basicMixin],
@@ -251,6 +289,9 @@ export default {
       mid: '',
       mpw: '',
     };
+  },
+  components:{
+    ModalWrapper,
   },
   mounted() {
 
@@ -352,6 +393,12 @@ export default {
     fnJoin() {
       this.$router.push('/join');
     },
+    goIdFind() {
+      this.$refs.idmodal.modalOpen();
+    },
+    goPwFind() {
+      this.$refs.pwmodal.modalOpen();
+    },
     async customApi(type, url, params) {
       let result = '';
 
@@ -379,7 +426,7 @@ body {
 * {
     box-sizing: border-box;
 }
-a, address, blockquote, body, dd, div, dl, dt, em, fieldset, form, h1, h2, h3, h4, h5, h6, img, input, label, li, ol, p, pre, select, span, strong, textarea, ul {
+a, address, blockquote, body, dd, div, dl, dt, em, fieldset, form, h1, h2, h3, h4, h5, h6, img, label, li, ol, p, pre, select, span, strong, textarea, ul {
     margin: 0;
     padding: 0;
     border: 0;
@@ -1790,6 +1837,10 @@ strong {
     border-bottom-right-radius: 5px;
     padding: 10px;
 }
+.input-id-area {
+  outline: none;
+  border: 0;
+}
 .save-id-btns {
     margin-top:20px;
 }
@@ -1905,6 +1956,135 @@ a {
 .join-area a>span {
   font-family: Montserrat,-apple-system,NotoSansCJKkr,sans-serif;
   color: black;
+}
+.id_find_area {
+  margin: 30px 10px;
+}
+.id_find_tit01 {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+.id_find_tit02 {
+  text-align: center;
+  font-size: 11px;
+}
+.id_find_txt {
+  text-align: center;
+}
+.id_find_email {
+  width: 300px;
+  height: 40px;
+  margin-top: 25px;
+  margin-bottom: 5px;
+  border: 1px solid rgba(178, 178, 178, 0.76);
+  padding-left: 10px;
+}
+.id_find_confirm {
+  display: block;
+  margin: 5px auto;
+  width: 300px;
+  height: 40px;
+  border: 1px solid rgba(178, 178, 178, 0.76);
+  background-color: #333333;
+  color: white;
+  cursor: pointer;
+  padding-right: 108px;
+}
+.id_find_input {
+  border: 1px solid black;
+  width: 300px;
+  height: 40px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: 1px solid rgba(178, 178, 178, 0.76);
+  padding-left: 10px;
+
+}
+.idFind_btn_bundle {
+  height: 50px;
+  position: fixed;
+  bottom: 100px;
+  background-color: #00c8b5;
+  width: 480px;
+
+}
+.idFind_btn_enroll{
+  color: white;
+  background-color: #9bce26;
+  line-height: 50px;
+  width: 100%;
+  padding-right: 94px;
+  cursor: pointer;
+  padding-left: 0;
+}
+.pw_find_area {
+  margin: 30px 10px;
+}
+.pw_find_tit01 {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+.pw_find_tit02 {
+  text-align: center;
+  font-size: 11px;
+}
+.pw_find_txt {
+  text-align: center;
+}
+.pw_find_id {
+  width: 300px;
+  height: 40px;
+  margin-top: 25px;
+  margin-bottom: 5px;
+  border: 1px solid rgba(178, 178, 178, 0.76);
+  padding-left: 10px;
+}
+.pw_find_email {
+  width: 300px;
+  height: 40px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: 1px solid rgba(178, 178, 178, 0.76);
+  padding-left: 10px;
+}
+.pw_find_confirm {
+  display: block;
+  margin: 5px auto;
+  width: 300px;
+  height: 40px;
+  border: 1px solid rgba(178, 178, 178, 0.76);
+  background-color: #333333;
+  color: white;
+  cursor: pointer;
+  padding-right: 108px;
+}
+.pw_find_input {
+  border: 1px solid black;
+  width: 300px;
+  height: 40px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: 1px solid rgba(178, 178, 178, 0.76);
+  padding-left: 10px;
+
+}
+.pwFind_btn_bundle {
+  height: 50px;
+  position: fixed;
+  bottom: 100px;
+  background-color: #00c8b5;
+  width: 480px;
+}
+.pwFind_btn_enroll{
+  color: white;
+  background-color: #9bce26;
+  line-height: 50px;
+  width: 100%;
+  padding-right: 94px;
+  cursor: pointer;
+  padding-left: 0;
 }
 /* 로그인 끝 */
 </style>
