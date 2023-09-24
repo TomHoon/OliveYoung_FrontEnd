@@ -78,31 +78,105 @@
               </div>
               <div class="intro_point">
                 <div class="point-box">
-                  <span class="point-box_point">CJ ONE 포인트 <span> 1000 </span> P</span>
-                  <span class="point-box_coupon">쿠폰 <span> 0 </span> 개</span>
-                  <span class="point-box_deposit">예치금 <span> 0 </span> 원</span>
+                  <span class="point-box_point">CJ ONE 포인트 <span>&nbsp; 1000 </span> P</span>
+                  <span class="point-box_coupon">쿠폰 <span> &nbsp;0 </span> 개</span>
+                  <span class="point-box_deposit">예치금 <span> &nbsp;0 </span> 원</span>
                 </div>
               </div>
             </div>
             <!--인사 끝-->
             <!--주문/배송조회 시작-->
-            <div>
-
+            <div class="order_wrap">
+              <div class="oder_container">
+                <div class="order_tit">
+                  <span>주문/배송 조회<span>(최근 1개월)</span></span>
+                  <span>더보기
+                    <img class="order_more" src="https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_arrow11x21.png" alt="더보기">
+                  </span>
+                </div>
+                <div class="order-box">
+                  <ul class="order-step">
+                    <li>
+                      <em>0</em>
+                      <span>주문접수</span>
+                      <img class="order-ster_right" src="https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_arrow11x21.png" alt="step">
+                    </li>
+                    <li>
+                      <em>0</em>
+                      <span>결제완료</span>
+                      <img class="order-ster_right" src="https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_arrow11x21.png" alt="step">
+                    </li>
+                    <li>
+                      <em>0</em>
+                      <span>배송준비중</span>
+                      <img class="order-ster_right" src="https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_arrow11x21.png" alt="step">
+                    </li>
+                    <li>
+                      <em>0</em>
+                      <span>배송중</span>
+                      <img class="order-ster_right" src="https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_arrow11x21.png" alt="step">
+                    </li>
+                    <li>
+                      <em>0</em>
+                      <span>배송완료</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
             <!--주문/배송조회 끝-->
             <!--좋아요 시작-->
-            <div>
-
+            <div class="like_wrap">
+              <div class="like_container">
+                <div class="like_tit">
+                  <span>좋아요</span>
+                  <span>더보기
+                    <img class="like_more" src="https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_arrow11x21.png" alt="더보기">
+                  </span>
+                </div>
+                <div class="like_tit_border"></div>
+                <div class="like_list">
+                  <div>좋아요 상품이 없습니다.</div>
+                </div>
+                <div class="like_tit_border_bottom"></div>
+              </div>
             </div>
             <!--좋아요 끝-->
             <!--1:1문의내역 시작-->
-            <div>
+            <div class="inquiry_wrap">
+              <div class="inquiry_container">
+                <div class="inquiry_tit">
+                  <span>1:1문의내역</span>
+                  <span>더보기
+                    <img class="inquiry_more" src="https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_arrow11x21.png" alt="더보기">
+                  </span>
+                </div>
+                <div class="inquiry_tit_border"></div>
+                <ul class="inquiry_list">
+                  <li>최근 1개월간 문의하신 내용이 없습니다.</li>
+                </ul>
+                <div class="inquiry_tit_border_bottom"></div>
 
+              </div>
             </div>
             <!--1:1문의내역 끝-->
             <!--상품Q&A내역 시작-->
             <div>
-
+              <div class="qna_wrap">
+                <div class="qna_container">
+                  <div class="qna_tit">
+                    <span>상품Q&A내역</span>
+                    <span>더보기
+                    <img class="qna_more" src="https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_arrow11x21.png" alt="더보기">
+                  </span>
+                  </div>
+                  <div class="qna_tit_border"></div>
+                  <ul class="qna_list">
+                    <li>최근 1개월간 문의하신 내용이 없습니다.</li>
+                  </ul>
+                  <div class="qna_tit_border_bottom"></div>
+                </div>
+              </div>
             </div>
             <!--상품Q&A내역 끝-->
           </div>
@@ -320,9 +394,14 @@ li {
     letter-spacing:-.04em;
 }
 .mypage_wrap {
-  margin: 40px auto;
+  margin: 0px auto;
+  background-color: white;
+  padding-top: 40px;
+
 }
 .mypage_container {
+  background-color: white;
+  height: 1000px;
 
 }
 .intro_wrap {
@@ -392,18 +471,237 @@ li {
   color: #f27370;
 }
 .point-box_coupon {
-  margin-left: 200px;
+  margin-left: 180px;
 }
 .point-box_coupon span{
   font-size: 18px;
   color: #f27370;
 }
 .point-box_deposit {
-  margin-left: 180px;
+  margin-left: 160px;
 }
 .point-box_deposit span{
   font-size: 18px;
   color: #f27370;
+}
+.order_wrap {
+  width: 820px;
+  margin: 40px auto;
+  height: 160px;
+}
+.order_tit {
+  transform: translateY(-5px);
+}
+.order_tit span:first-child{
+  float: left;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333333;
+
+}
+.order_tit span:first-child span{
+  font-size: 12px;
+  transform: translateY(7px);
+  margin-left: 3px;
+  color: #333333;
+  font-weight: 600;
+}
+.order_tit span:last-child{
+  float: right;
+  font-size: 14px;
+  color: #888888;
+  font-weight: 500;
+  transform: translateY(7px);
+}
+.order_more {
+  width: 8px;
+  height: 13px;
+  margin-right: 4px;
+  margin-left: 3px;
+}
+.order-box {
+  width: 820px;
+  height: 117px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  transform: translateY(40px);
+}
+.order-step {
+  float: left;
+  width: 820px;
+  transform: translateY(-15px);
+  color: #888888;
+}
+.order-step li {
+  display: block;
+  float: left;
+  text-align: center;
+  font-size: 40px;
+  width: 160px;
+}
+.order-step li span {
+  display: block;
+  font-size: 16px;
+
+}
+.order-ster_right {
+  width: 15px;
+  height: 25px;
+  transform: translate(80px,-60px);
+}
+.like_wrap {
+  width: 820px;
+  margin: 40px auto;
+  height: 300px;
+}
+.like_tit {
+
+}
+.like_tit span:first-child{
+  float: left;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333333;
+
+}
+.like_tit span:first-child span{
+  font-size: 12px;
+  transform: translateY(7px);
+  margin-left: 3px;
+  color: #333333;
+  font-weight: 600;
+}
+.like_tit span:last-child{
+  float: right;
+  font-size: 14px;
+  color: #888888;
+  font-weight: 500;
+  transform: translateY(7px);
+}
+.like_more {
+  width: 8px;
+  height: 13px;
+  margin-right: 4px;
+  margin-left: 3px;
+}
+.like_tit_border {
+  border-bottom: 1px solid #888888;
+  transform: translateY(37px);
+}
+.like_list {
+  width: 100%;
+  height: 300px;
+  transform: translateY(37px);
+  background: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_nodata104x104.png") center 80px no-repeat!important;
+}
+.like_list div {
+  text-align: center;
+  line-height: 420px;
+  font-size: 16px;
+  color: #888888;
+}
+.like_tit_border_bottom {
+  transform: translateY(20px);
+  border-bottom: 1px solid #e6e6e6;
+}
+.inquiry_wrap {
+  width: 380px;
+  margin: 40px auto;
+  transform: translate(-215px,20px);
+}
+.inquiry_tit span:first-child{
+  float: left;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333333;
+
+}
+.inquiry_tit span:first-child span{
+  font-size: 12px;
+  transform: translateY(7px);
+  margin-left: 3px;
+  color: #333333;
+  font-weight: 600;
+}
+.inquiry_tit span:last-child{
+  float: right;
+  font-size: 14px;
+  color: #888888;
+  font-weight: 500;
+  transform: translateY(7px);
+}
+.inquiry_more {
+  width: 8px;
+  height: 13px;
+  margin-right: 4px;
+  margin-left: 3px;
+}
+.inquiry_tit_border {
+  border-bottom: 1px solid #888888;
+  transform: translateY(37px);
+}
+.inquiry_list {
+  margin-top: 30px;
+}
+.inquiry_list li {
+  font-size: 16px;
+  color: #888888;
+  transform: translateY(90px);
+  text-align: center;
+}
+.inquiry_tit_border_bottom {
+  transform: translateY(180px);
+  border-bottom: 1px solid #e6e6e6;
+}
+.qna_wrap {
+  width: 380px;
+  margin: 40px auto;
+  transform: translate(220px,-72px);
+
+}
+.qna_tit span:first-child{
+  float: left;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333333;
+
+}
+.qna_tit span:first-child span{
+  font-size: 12px;
+  transform: translateY(7px);
+  margin-left: 3px;
+  color: #333333;
+  font-weight: 600;
+}
+.qna_tit span:last-child{
+  float: right;
+  font-size: 14px;
+  color: #888888;
+  font-weight: 500;
+  transform: translateY(7px);
+}
+.qna_more {
+  width: 8px;
+  height: 13px;
+  margin-right: 4px;
+  margin-left: 3px;
+}
+.qna_tit_border {
+  border-bottom: 1px solid #888888;
+  transform: translateY(37px);
+}
+.qna_list {
+  margin-top: 30px;
+}
+.qna_list li {
+  font-size: 16px;
+  color: #888888;
+  transform: translateY(90px);
+  text-align: center;
+}
+.qna_tit_border_bottom {
+  transform: translateY(180px);
+  border-bottom: 1px solid #e6e6e6;
 }
 </style>
 
