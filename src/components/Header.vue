@@ -3,9 +3,10 @@
     <div class="top_util">
       <ul class="menu_list">
         <li @click="goTestStack">TestStack</li>
-        <li class="join" @click="goJoin">회원가입</li>
+        <li v-if="!isLogin"  class="join" @click="goJoin">회원가입</li>
         <li v-if="!isLogin" class="login" @click="loginAndOut(1)">로그인</li>
         <li v-if="isLogin" class="login" @click="loginAndOut(0)">로그아웃</li>
+        <li v-if="isLogin" class="mypage" @click="myPage">마이페이지</li>
         <li class="cart">장바구니</li>
         <li class="order">주문배송</li>
         <li class="customer">고객센터</li>
@@ -54,6 +55,9 @@ export default {
   },
 
   methods: {
+    myPage() {
+      this.$router.push('/mypage');
+    },
     goCart() {
       this.$router.push('/cart');
     },

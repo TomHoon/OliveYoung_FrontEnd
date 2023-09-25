@@ -1,5 +1,5 @@
 <template>
-  <div style="padding:60px;">
+  <div style="padding:60px; text-align: center" >
     <div class="join_tit">
       <h1 class="join_tit_h1">회원가입</h1>
     </div>
@@ -79,9 +79,9 @@
         <span class="float-right">
           <input type="text" v-model="joinObj.postcode" class="postcode" placeholder="우편번호">
           <input type="button" @click="execDaumPostcode()" class="execDaumPostcode" value="우편번호 찾기"><br>
-          <input type="text" id="detailAddress" v-model="joinObj.detailAddress" class="detailAddress" placeholder="상세주소"
-                 autocomplete="off"><br>
           <input type="text" id="member_address" v-model="joinObj.member_address" class="member_address" placeholder="주소"
+                 autocomplete="off"><br>
+          <input type="text" id="detailAddress" v-model="joinObj.detailAddress" class="detailAddress" placeholder="상세주소"
                  autocomplete="off"><br>
           <input type="text" id="extraAddress" v-model="joinObj.extraAddress" class="extraAddress" readonly>
         </span>
@@ -1052,9 +1052,9 @@ export default {
   border-radius: 3px;
   color: rgba(66, 64, 64, 0.75);
   font-size: 15px;
-  background-color: white;
   width: 400px;
   height: 40px;
+  background-color: rgba(243, 236, 236, 0.4);
 }
 
 .join_btn {

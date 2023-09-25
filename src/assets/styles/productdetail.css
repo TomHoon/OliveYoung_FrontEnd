@@ -1,312 +1,3 @@
-<template>
-      <div class="wrapper" style="background:#f6f6f6;">
-        <!-- 헤더시작 -->
-        <Header></Header>
-        <!-- 헤더끝 -->
-        <!-- GNB시작 -->
-        <div id="Gnb" class="main gen1">
-            <div id="gnbWrap">
-                <!-- 전체 카테고리 anchor 태그 > 추후 개발예정 -->
-                <a href="" id="btnGnbOpen">
-                    카테고리
-                </a>
-                <!-- anchor태그 클릭시 layer_all_menu > display block 처리하기 -->
-                <div class="layer_all_menu" id="gnbAllMenu"></div>
-                
-                <!-- 그 외 카테고리들 -->
-                <ul class="gnb_menu_list">
-                    <li>
-                        <a href="">
-                            <span>오특</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span>랭킹</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span>LUXE EIDT</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span>기획전</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span>세일</span>
-                        </a>
-                    </li>
-                        <li>
-                            <a href="">
-                                <span>기프트카드</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <span>멤버십/쿠폰</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <span>이벤트</span>
-                            </a>
-                        </li>
-                </ul>
-            </div>
-        </div>
-        <!-- GNB끝 -->
-
-        <!-- 로그인 시작 -->
-        <div class="login-wrapper add-margin-top">
-            <div class="login-area-wrapper">
-                <div class="login-area">
-                    <div class="login-tit">
-                        <h2 class="add-text-align">로그인</h2>
-                        <p class="add-text-align">올리브영의 다양한 서비스와 혜택을 누리세요.</p>
-                    </div>
-                </div>
-                
-                <form class="login-input-wrapper">
-                    <div class="login-input-area">
-                        <ul class="login-input-ul">
-                            <li class="login-input-li">
-                                <!-- <label for="">CJ ONE 통합회원 아이디 입력</label> -->
-                                <input type="text" style="width:495px!important" class="input-id-area" placeholder="CJ ONE 통합회원 아이디 입력" v-model="mid" ref="mid">
-                            </li>
-                            <li class="login-input-li">
-                                <!-- <label for="">CJ ONE 통합회원 아이디 입력</label> -->
-                                <input style="width:495px!important" type="password" class="input-id-area" placeholder="비밀번호 (8~12자 영문자+숫자+특수문자)" v-model="mpw" ref="mpw" @keyup.enter="fnLogin">
-                            </li>
-                        </ul>
-
-                        <div class="save-id-btns">
-                            <div class="save">
-                                <input type="checkbox">
-                                <label for="">아이디저장</label>
-                            </div>
-                            <div class="link">
-                                <a class="id-link" @click="goIdFind">아이디 찾기</a>
-                                <a class="pw-link" @click="goPwFind">비밀번호 찾기</a>
-                            </div>
-                        </div>
-
-                        <div class="login-btn-area">
-                            <div class="login-btn" @click="fnLogin">로그인</div>
-                        </div>
-
-                        <div class="kakao-area">
-                            <p>카카오로 올리브영 간편하게 시작하기</p>
-                            <a href="">
-                                <span class="icon">
-                                    <div class="kakao_txt">카카오로 시작하기</div>
-                                </span>
-                            </a>
-                        </div>
-                      <hr class="login_hr">
-                      <div class="join-area">
-                        <div class="join_icon">
-
-                        </div>
-                        <div class="join_txt">
-                          <span>CJ ONE 통합회원으로 가입하시면 올리브영의 다양한 서비스를 이용하실 수 있습니다.</span>
-                        </div>
-                        <a @click="fnJoin">
-                          <span>CJ ONE 통합가입</span>
-                        </a>
-                      </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <!-- 로그인 끝 -->
-        <!-- 푸터시작 -->
-        <Footer></Footer>
-        <!-- 푸터끝 -->
-      </div>
-  <ModalWrapper ref="idmodal" :width="500" :height="400">
-      <div class="id_find_area">
-        <div class="id_find_txt_area">
-          <div class="id_find_tit01">아이디 찾기</div>
-          <div class="id_find_tit02">아이디가 기억나지 않으세요? <br>인증번호를 통해 아이디를 확인하실 수 있습니다.</div>
-          <div class="id_find_txt">
-            <input type="text" class="id_find_email" placeholder="이메일을 입력해주세요.">
-            <button class="id_find_confirm">인증번호 전송</button>
-            <input type="text" class="id_find_input" placeholder="인증번호입력">
-          </div>
-        </div>
-
-
-        <div class="idFind_btn_bundle">
-          <button class="idFind_btn_enroll"><span>아이디 찾기</span></button>
-        </div>
-      </div>
-  </ModalWrapper>
-  <ModalWrapper ref="pwmodal" :width="500" :height="400">
-    <div class="pw_find_area">
-      <div class="pw_find_txt_area">
-        <div class="pw_find_tit01">비밀번호 찾기</div>
-        <div class="pw_find_tit02">비밀번호가 기억나지 않으세요? <br>인증번호를 통해 비밀번호를 확인하실 수 있습니다.</div>
-        <div class="pw_find_txt">
-          <input type="text" class="pw_find_id" placeholder="아이디를 입력해주세요.">
-          <input type="text" class="pw_find_email" placeholder="이메일을 입력해주세요.">
-          <button class="pw_find_confirm">인증번호 전송</button>
-          <input type="text" class="pw_find_input" placeholder="인증번호입력">
-        </div>
-      </div>
-
-
-      <div class="pwFind_btn_bundle">
-        <button class="pwFind_btn_enroll"><span>비밀번호 찾기</span></button>
-      </div>
-    </div>
-  </ModalWrapper>
-</template>
-<script>
-import axios from 'axios';
-import basicMixin from "@/mixin/basicMixin.js";
-import ModalWrapper from '@/components/ModalWrapper.vue';
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-
-export default {
-  mixins: [basicMixin],
-  data() {
-    return {
-      mid: '',
-      mpw: '',
-    };
-  },
-  components:{
-    ModalWrapper,
-    Footer,
-    Header
-  },
-  mounted() {
-
-  },
-  methods: {
-    async fnLogin() {
-      let idCheck = {
-        mid: this.mid
-      }
-      let login = {
-        mid: this.mid,
-        mpw: this.mpw
-      }
-
-      if(this.mid == ''){
-        this.toastMsg("아이디를 입력해주세요.")
-        this.$refs.mid.focus()
-        return false;
-      }
-
-      if(this.mpw =='') {
-        this.toastMsg("비밀번호를 입력해주세요.")
-        this.$refs.mpw.focus()
-        return false;
-      }
-
-      let 아이디체크 = await this.customApi('post', '/checkExist', idCheck);
-      let 로그인체크 = await this.customApi('post', '/login', login);
-
-      if (아이디체크 == 0) {
-        this.toastMsg('아이디가 없습니다. 회원가입 하세요');
-        return;
-      }
-
-      if (로그인체크.mseq == -1) {
-        this.toastMsg('비밀번호가 맞지 않습니다.');
-        return;
-      }
-
-      localStorage.setItem('loginObj', JSON.stringify(login)); // 로컬 스토리지에 저장
-      localStorage.setItem("mid", this.mid);
-
-      this.$router.push('/');
-
-      /*async function data(_url, _params){
-      let returnV = await axios.post(_url, _params);
-      return returnV;
-    }
-
-      Promise.all([
-        data('/checkExist', idCheck),
-        data('/login', login)
-      ]).then(function ([아이디중복데이터,로그인데이터]){
-
-        if(아이디중복데이터.data == 0){
-          alert("아이디가 없습니다 회원가입 하시겠습니까?");
-          return false;
-        }
-
-        if (로그인데이터.data.mseq == -1) {
-          alert("비밀번호가 맞지 않습니다.");
-          return false;
-        }else {
-         this.$router.push('/login');
-        }
-      }).catch((err) => {
-        if (err.response) {
-          alert("아이디 또는 비밀번호가 틀렸습니다.\n다시 입력해주세요.");
-        }
-      });*/
-/*      axios.post("/checkExist", idCheck)
-          .then((res) => {
-            console.log("res",res);
-            if (res.data == 0) {
-              alert("아이디가 없습니다 회원가입 하시겠습니까?")
-            }else {
-              axios.post("/login", login)
-                  .then((res) => {
-                    console.log("res",res);
-                    if (res.data.mseq == -1) {
-                      alert("비밀번호가 맞지 않습니다");
-                    }else {
-                      this.$router.push('/');
-                    }
-                  }).catch((err) => {
-                if (err.response) {
-                  alert("아이디 또는 비밀번호가 틀렸습니다.\n다시 입력해주세요.");
-                }
-              })
-            }
-          }).catch((err) => {
-        if (err.response) {
-        }
-      })
-      */
-
-    },
-
-    fnJoin() {
-      this.$router.push('/join');
-    },
-    goIdFind() {
-      this.$refs.idmodal.modalOpen();
-    },
-    goPwFind() {
-      this.$refs.pwmodal.modalOpen();
-    },
-    async customApi(type, url, params) {
-      let result = '';
-
-      if (type == 'post') {
-        result = await axios.post(url, params)
-        return result.data;
-      }
-
-      result = await axios.get(params);
-      return result.data;
-    }
-  }
-}
-
-</script>
-<style scoped>
 body {
     margin: 0;
     padding: 0;
@@ -318,11 +9,10 @@ body {
 * {
     box-sizing: border-box;
 }
-a, address, blockquote, body, dd, div, dl, dt, em, fieldset, form, h1, h2, h3, h4, h5, h6, img, label, li, ol, p, pre, select, span, strong, textarea, ul {
+a, address, blockquote, body, dd, div, dl, dt, em, fieldset, form, h1, h2, h3, h4, h5, h6, img, input, label, li, ol, p, pre, select, span, strong, textarea, ul {
     margin: 0;
     padding: 0;
     border: 0;
-    outline: none;
 }
 
 .wrapper {
@@ -399,9 +89,8 @@ a, address, blockquote, body, dd, div, dl, dt, em, fieldset, form, h1, h2, h3, h
     background-color:transparent;
     border:0;
     height: 40px;
-
 }
-button {
+.search-btn {
     border:0;
     text-align:center;
     color: #fff;
@@ -459,7 +148,6 @@ button {
 }
 a {
     text-decoration: none;
-    cursor: pointer;
 }
 li {
     list-style: none;
@@ -859,6 +547,10 @@ img {
 .icon_flag.delivery {
     width:60px;
     background-color: #f374b7;
+}
+.icon_flag.free {
+    width:50px;
+    background-color: #ad85ed;
 }
 
 .icon_flag {
@@ -1540,7 +1232,7 @@ strong {
 }
 .notice-tit p{
     float:left;
-    width:156px;
+    width:150px;
     line-height: 3.5rem;
     color:#a8a8a8
 }
@@ -1558,7 +1250,7 @@ strong {
 }
 .notice-sub strong{
     float:left;
-    width: 82px;
+    width: 70px;
     font-size: 20px;
     line-height: 2rem;
     padding-top:1rem;
@@ -1614,6 +1306,8 @@ strong {
     right: 0;
 }
 .footer {
+    margin-top:40px;
+    float:left;
     width:100%;
     height:50px;
     border-top: 1px solid #aaa;
@@ -1680,306 +1374,1030 @@ strong {
 .active-lawlist {
     font-weight: 700;
 }
-/* 로그인 시작 */
-.login-wrapper {
-    margin-top:40px;
-    width: 1020px;
-    height:auto;
-    margin:0 auto;
-    background:#f6f6f6;
+/* 메인에서 가져온 css 끝 */
+.detail-container {
+    width:100%;
+    min-width:1020px;
+    overflow: hidden;
 }
-.login-area-wrapper {
-    padding-top: 140px;
-    padding-bottom: 140px;
-    width:850px;
-    margin:40px auto 0 auto;
-    background:#ffffff;
-}
-.login-tit {
-    width: 510px;
+.detail-contents {
+    width:1020px;
+    height:100%;
     margin:0 auto;
 }
-.login-tit h2{
-    font-size: 30px;
+.page-location {
+    width: 100%;
+    height: 46px;
+    border-bottom: 1px solid #888;
 }
-.login-tit p{
-    font-size: 18px;
-    color:#888;
-    line-height:30px;
-}
-.add-text-align {
-    text-align: center;
-}
-.login-input-area {
-    width:510px;
-    margin:0 auto;
-}
-.login-input-ul {
-    margin-top:20px;
-}
-.login-input-li:nth-child(1) {
-    border:1px solid #d0d0d0;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    padding: 10px;
-}
-.login-input-li:nth-child(2) {
-    border:1px solid #d0d0d0;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    padding: 10px;
-}
-.input-id-area {
-  outline: none;
-  border: 0;
-}
-.save-id-btns {
-    margin-top:20px;
-}
-.save {
+.page-location-home {
     float:left;
-    width:300px;
-    height: 20px;
+    background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_location.png") 0 1px no-repeat;
+    width:16px;
+    height:16px;
+    margin-top: 10px;
 }
-.save label {
-    margin-left: 10px;
-    color:#888;
+.page-nav {
+    float:left;
+}
+.page-nav li:nth-child(1){
+    margin-left:12px;
+}
+.page-nav li{
+    background: url(https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_location.png) 0 -30px no-repeat;
+    float: left;
+    position: relative;
+    padding-left: 10px;
+    margin-left: 31px;
+    margin-top: 4px;
+    color: #888;
+    line-height: 30px;
 }
 a {
+    text-decoration: none;
     color:#888;
 }
-.link {
-  text-align: right;
-
-}
-.id-link {
+.page-nav-a{
     font-size:14px;
-  font-family: Montserrat,-apple-system,NotoSansCJKkr,sans-serif;
-
 }
-.pw-link {
-    margin-left:10px;
-    font-size:14px;
-    padding-left:10px;
-    background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/bar_1x14.png") 0 50% no-repeat;
-  font-family: Montserrat,-apple-system,NotoSansCJKkr,sans-serif;
-}
-.login-btn-area {
-    margin-top: 20px;
-    width: 100%;
-}
-.login-btn {
-    width: 100%!important;
-    text-indent: 0!important;
-    height:60px;
-    background:#9bce26;
-    font-size: 24px;
-    border-radius: 0;
-    font-weight: 400;
-    cursor: pointer;
-    text-align:center;
-    color: #fff;
-    line-height: 60px;
-}
-.kakao-area {
-    margin-top: 20px;
-    color:#888;
-    font-size: 14px;
-}
-.kakao-area p {
-    display:inline-block;
-    font-size: 12px;
-    font-family: Montserrat,-apple-system,NotoSansCJKkr,AppleSDGothicNeo;
-
-}
-.kakao-area a {
-    float:right;
-    background-color: #f9e003;
-    border-radius: 5px;
-    width: 173px;
-    height: 40px;
-    padding: 13px;
-}
-.kakao-area a span{
-    padding:0 0 0 26px;
-    background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/logo_kakao_40.png") 0 0/20px auto no-repeat;
-
-}
-.kakao-area a span .kakao_txt{
-    color: black;
+.page-nav-a:after {
+    content: "";
     display: inline-block;
-    font-weight: bold;
-    font-size: 14px;
-    transform: translatey(-3px);
-    font-family: Montserrat,-apple-system,NotoSansCJKkr,AppleSDGothicNeo;
+    width: 13px;
+    height: 13px;
+    border:1px solid #e5e5e5;
+    border: 1px solid #e5e5e5;
+    background: url(https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_arrow_down7x5.png) 50% 50% no-repeat;
 }
-.login_hr {
-  margin-top: 40px;
+.product-detail-wrapper {
+    margin:0 auto;
+    width:1020px;
+    height: auto;
 }
-.join-area {
-  padding: 15px 0 0 0;
+.product-detail {
+    margin-top:40px;
+}
+.img-area img{
+    width:510px;
+    height: 510px;
+}
+.left-area {
+    width:510px;
+    float:left;
+}
+.left-area-mini {
+    margin-top: 30px;
+    display:flex;
+    justify-content:center;
+}
+.right-area {
+    width:510px;
+    float:right;
+    padding-left: 64px;
+}
+
+.product-info a{
+    color: #000;
+    font-size:17px;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_link_arrow_black.png") right 5px/5px auto no-repeat;
+    padding-right: 10px;
+}
+.product-info-main-tit {
+    margin-top:15px;
+    font-size:25px;
+}
+.product-price-info {
+    position:relative;
+    margin-top: 30px;
+}
+.bf-price {
+    text-decoration: line-through;
+    font-size:16px;
+    color:#a8a8a8;
+}
+.aft-price {
+    color:#e02020;
+    font-size:28px;
+    margin-left:10px;
+    font-weight:700;
+}
+.advertise-area-wrapper {
+    width:1020px;
+    margin:0 auto;
+}
+.advertise-area-wrapper-inner {
+    text-align: center;
+}
+.advantage-info {
+    color:#9a9a9a;
+    margin-left:10px;
+}
+.advantage-info:after {
+    content: "";
+    transform: rotate(180deg);
+    position: absolute;
+    left: 296px;
+    top: 16px;
+    width: 12px;
+    height: 12px;
+    background: url(https://static.oliveyoung.co.kr/pc-static-root/image/product/icon_sale_arrow.png) 0 0/12px auto no-repeat;
+}
+.icon-area {
+    margin-top: 10px;
+}
+.coupon-icon {
+    color: #fff !important;
+    font-size:13px;
+    padding:5px;
+    display: block;
+    width: 56px;
+    text-align: center;
+    border-radius: 11px;
+    background: #9bce26;
+}
+.watcher-area {
+    margin-top:10px;
+}
+.watcher {
+    font-size:14px;
+    color:#f27370;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/curation/ico_viewEye.png") center left 4px/18px auto no-repeat;
+    padding-left: 25px;
+}
+.prd-more-info {
+    margin-top:25px;
+}
+.prd-more-tit a {
+    text-indent: -9999px;
+    vertical-align: top;
+    display: inline-block;
+    background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_notice_gray.png") 0 0/17px auto no-repeat;
+    width:17px;
+    height:17px;
+}
+.delivery-info {
+    margin-top: 10px;
+}
+.delivery-info li{
+    display:inline-block;
+}
+.delivery-div {
+    display:inline-block;
+    margin-left:10px;
+}
+.dt1 {
+    position: relative;
+}
+.dt1:after {
+    content: "";
+    top: 5px;
+    width: 1px;
+    left: 67px;
+    height: 12px;
+    background: #b2b2b2;
+    position: absolute;
+}
+.dt2 {
+    position: relative;
+    margin-left: 10px;
+}
+.dt2:after {
+    content: "";
+    top: 6px;
+    width: 1px;
+    left: 83px;
+    height: 12px;
+    background: #b2b2b2;
+    position: absolute;
+}
+.dt3 {
+    display:inline-block;
+    margin-left:10px;
+}
+.prd-more-info .row:nth-child(2) {
+    margin-top: 17px;
+    border-top:1px solid #ddd;
+    border-bottom:1px solid #ddd;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.prd-sub-tit2 {
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.benefit-list p:nth-child(1) {
+    margin-bottom: 5px;
+}
+.benefit-list p:nth-child(2) {
 
 }
-.join_icon {
-  width: 123px;
-  height: 33px;
-  background:url("https://static.oliveyoung.co.kr/pc-static-root/image/login/ico_cjone_190822.png") no-repeat;
-  margin-bottom: 5px;
+.info-tab1 {
+    text-indent: -9999px;
+    width: 17px;
+    height: 17px;
+    display: inline-block;
+    background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_notice_gray.png") 0 0/17px auto no-repeat;
+}
+.info-tab2 {
+    text-indent: -9999px;
+    width: 17px;
+    height: 17px;
+    display: inline-block;
+    background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_notice_gray.png") 0 0/17px auto no-repeat;
+}
+.prd-select-list {
+    margin-top: 20px;
+    width:100%;
+    height:48px;
+}
+.prd-select-area {
+    display: block;
+    position:relative;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    color: #000 !important;
+    border-radius: 5px;
+}
+.prd-select-area:after {
+    content: "";
+    position: absolute;
+    right:10px;
+    top:14px;
+    width:10px;
+    height:6px;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/product/ico_option_select.png");
+    background-size: 10px auto;
+    background-position: 0 0;
+}
+.prd-price-total {
+    width:100%;
+    margin-top: 20px;
+    padding:10px 10px 25px 10px;
+    height: auto;
+    border-bottom: 2px solid #f27370;
+    color:#f27370;
+}
+.prd-price1 {
+    float: left;
+    font-size:18px;
+    font-weight: 700;
+}
+.prd-price2 {
+    font-size: 18px;
+    font-weight: 700;
+    float: right;
+}
+.buy-btns {
+    display:flex;
+    justify-content:space-between;
+    margin-top:10px;
+}
+.cart-btn {
+    width:136px;
+    height: 65px;
+    font-size:22px;
+    border:1px solid #ee6e6b;
+    background:#fff;
+    color:#ff5753;
+}
+.cart-btn2 {
+    font-size:22px;
+    width:136px;
+    height: 65px;
+    border:1px solid #ee6e6b;
+    background:#ee6e6b;
+    color:#fff;
+}
+.cart-btn3 {
+    width:76px;
+    height: 65px;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/icon-gift-32-line-fff.png") 50% 50% no-repeat;
+    background-color: #ee6e6b;
+    border:none;
+}
+.cart-btn4 {
+    width:76px;
+    height: 65px;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/icon-like-32-line.png") 50% 50% no-repeat;
+    border:1px solid #e5e5e5;
+    background-size:34px auto;
+}
+.buy-able-wrapper {
+    float:left;
+    width:100%;
+    margin:0 auto;
+    margin-top:40px;
+}
+.buy-able-area {
+    padding:30px;
+    width:1020px;
+    margin:0 auto;
+    border:1px solid #ddd;
+    border-radius: 5px;
+}
+.buy-able-left {
+    position: relative;
+}
+.buy-able-img {
+    position:absolute;
+    width:40px;
+    top:-4px;
+    height:40px;
+    display:inline-block;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/product/icon_store_search.png") 0 0/28px 24px no-repeat;
+}
+.buy-able-span {
+    margin-left:33px;
+}
+.buy-able-span {
+    /* background: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_link_arrow_black.png") right 11px/6px auto no-repeat; */
+    width:40px;
+    height:40px;
+}
+.buyable {
+    font-weight:700;
+}
+.buy-able-arrow {
+    background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_link_arrow_black.png") right 11px/6px auto no-repeat;
+    width:40px;
+    height: 40px;
+    display:inline-block;
+    position: absolute;
+    top:-3px;
+    left:243px;
+}
+.vertical-line {
+    width:0.2px;
+    height:50px;
+    border: 1px solid #ddd;
+    position: absolute;
+    left: 510px;
+    top: -10px;
+}
+.buy-able-right{
+    float:right;
+    position:relative;
+}
+.buy-able-right-img {
+    width: 88px;
+    background: url(https://image.oliveyoung.co.kr/uploads/images/onlBrandMgmt/2023/4/4835200102281465411.jpg);
+    height: 40px;
+    background-size: cover;
+    display: inline-block;
+    left: -407px;
+    position: absolute;
+    top: -38px;
+    height: 50px;
+}
+.brand-name {
+    position: absolute;
+    top: -16px;
+    width: 120px;
+    left: -263px;
+    font-weight: 700;
+}
+.buy-able-arrow2 {
+    background: url(https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_link_arrow_black.png) right 11px/6px auto no-repeat;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    position: absolute;
+    top: -19px;
+    right: 123px;
+}
+.recommend-wrapper{
+    width:100%;
+    float:left;
+    margin-top:40px;
+}
+.recommend-tit {
+    margin: 0 auto;
+    height: 80px;
+    position: relative;
+    width: 1020px;
+}
+.recommend-tit-left {
+    float:left;
+    width:277px;
+}
+.recommend-word {
+    font-size:20px;
+}
+.recommend-tit-right {
+    background: url(https://static.oliveyoung.co.kr/pc-static-root/image/curation/ico_more_5x10.png) top 3.5px right 0/5px auto no-repeat;
+    padding-right: 5px;
+    position: absolute;
+    width: 72px;
+    right: 5px;
+    line-height: 16px;
+    border: none;
+}
+.recommend-more-btn {
+    font-size:15px;
+    font-weight: 500;
+    color:#aaa;
+}
 
+.recommend-img-area{
+    width:1020px;
+    margin:0 auto;
 }
-.join_txt {
-  width: 260px;
+.recommend-img-ul {
+    display:flex;
+    justify-content: space-between;
 }
-.join_txt span {
-  font-family: Montserrat,-apple-system,NotoSansCJKkr,sans-serif;
-  font-size: 13px;
+.recommend-img-tit1 {
+    font-size:12px;
+    overflow:hidden;
+    word-wrap: break-word;
+    max-height: 36px;
+    margin-bottom:3px;
 }
-.join-area a {
-  float:right;
-  background-color: #ffffff;
-  border-radius: 5px;
-  border: 1px solid #6b674d;
-  width: 173px;
-  height: 40px;
-  line-height: 40px;
-  text-align: center;
-  transform: translatey(-40px);
+.product-btns-wrapper {
+    float: left;
+    width: 100%;
+    height: 69px;
+    margin: 90px 0 100px 0;
+    border-bottom: 2px solid #9bce26;
 }
-.join-area a>span {
-  font-family: Montserrat,-apple-system,NotoSansCJKkr,sans-serif;
-  color: black;
+.product-btns-ul {
+    margin: 19px auto 78px auto;
+    width: 1020px;
 }
-.id_find_area {
-  margin: 30px 10px;
+.product-btns-ul>li{
+    font-size:16px;
+    color:#777;
+    font-weight: 600;
+    text-align: center;
+    height:50px;
+    width:25%;
+    float:left;
+    line-height:50px;
+    background:#f5f5f5;
+    border-bottom: 2px solid #9bce26;
 }
-.id_find_tit01 {
-  text-align: center;
-  font-size: 30px;
-  margin-bottom: 10px;
-}
-.id_find_tit02 {
-  text-align: center;
-  font-size: 11px;
-}
-.id_find_txt {
-  text-align: center;
-}
-.id_find_email {
-  width: 300px;
-  height: 40px;
-  margin-top: 25px;
-  margin-bottom: 5px;
-  border: 1px solid rgba(178, 178, 178, 0.76);
-  padding-left: 10px;
-}
-.id_find_confirm {
-  display: block;
-  margin: 5px auto;
-  width: 300px;
-  height: 40px;
-  border: 1px solid rgba(178, 178, 178, 0.76);
-  background-color: #333333;
-  color: white;
-  cursor: pointer;
-  padding-right: 108px;
-}
-.id_find_input {
-  border: 1px solid black;
-  width: 300px;
-  height: 40px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  border: 1px solid rgba(178, 178, 178, 0.76);
-  padding-left: 10px;
 
+.active-product-btn {
+    background:#fff !important;
+    border: 2px solid #9bce26;
+    color:#333 !important;
+    font-weight: 800 !important;
 }
-.idFind_btn_bundle {
-  height: 50px;
-  position: fixed;
-  bottom: 100px;
-  background-color: #00c8b5;
-  width: 480px;
+.contents-wrapper {
+    float:left;
+    width:100%;
+}
+.contents-area {
+    width:1020px;
+    margin:0 auto;
+}
+.contents-area-main {
+    width: 900px;
+    text-align: center;
+    margin: 50px auto 0 auto;
+}
+.notice-text {
+    width: 600px;
+    font-size:14px;
+    padding: 20px 30px 20px 30px;
+    font-weight:500;
+    color:#666;
+    margin:40px auto 40px auto;
+    border: 1px solid #ddd;
+}
+.contents-area {
+    width: 100%;
+    float:left;
+}
+.rvw-supervise-wrapper {
+    width:1020px;
+    margin:0 auto;
+    border-top:1px solid black;
+    margin-bottom:60px;
+}
+.rvw-supervise-area {
+    height:231px;
+    border-bottom:1px solid #ddd;
+}
+.grade-img {
+    width:280px;
+    float:left;
+    height:231px;
+    border-right: 1px solid #ddd;
+}
+.img-face {
+    margin-top: 64px;
+}
+.grade5 {
+    background-position: 0 0;
+    display:block;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 8px;
+    background: url("https://static.oliveyoung.co.kr/pc-static-root/image/product/face_grade_1.png") no-repeat;
+    position:relative;
+}
+.grade5-em {
+    display:block;
+    text-align: center;
+    font-style:normal;
+    position:absolute;
+    bottom:-34px;
+    right:35px;
+}
+.rvw-score-area {
+    width:825px;
+    float:left;
+}
+.score-area {
+    width:361px;
+    float:left;
+    padding-top:43px;
+}
+.score-total {
+    text-align: center;
+    font-size:16px;
+    font-weight: 700;
+    margin-bottom:20px;
+}
+.score-avg {
+    text-align: center;
+}
+.score-avg>strong {
+    font-size:30px;
+    font-weight: 700;
+}
+.score-avg>span {
+    font-weight: 700;
+}
+.star-num-area {
+    margin-top:34px;
+    text-align: center;
+}
+.star-num-area>li{
+    width:26px;
+    height:25px;
+    position:relative;
+    display: inline-block;
+}
+.star-fill {
+    top:0;
+    left:0;
+    position:absolute;
+    display: block;
+    width:100%;
+    height:26px;
+    background:#f27370;
+    z-index:4;
+}
+.star-empty{
+    top:0;
+    left:0;
+    position: absolute;
+    z-index:5;
+}
+.graph-area-wrapper {
+    float:left;
+}
+.graph-area {
+    width:378px;
+    display: block;
+    height: 231px;
+    padding: 20px 0 0 15px;
+}
+.graph-li {
+    display:inline-block;
+    width:56px;
+    position:relative;
+    text-align: center;
+}
+.graph-gray-area {
+    position: relative;
+    background: #e5e5e5;
+    width: 8px;
+    margin: 10px auto 0 auto;
+    height: 100px;
+}
+.graph-red-area {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background: #f27370;
+    border-radius: 10px;
+}
+.score-type1 {
+    position: absolute;
+    bottom: -28px;
+    left:15px;
+}
+.graph-percent {
+    color: #aaa;
+}
+.poll-wrapper {
+    float:left;
+    width:100%;
+    border-bottom:1px solid #e5e5e5;
+    padding-bottom:50px;
+}
+.poll-area {
+    width:1020px;
+    margin:0 auto;
+}
+.poll-dl {
+    width:340px;
+    float:left;
+}
+.poll-dt {
+    border: 1px solid #00c8b5;
+    border-radius: 19px;
+    width: 100px;
+    padding: 9px;
+    text-align: center;
+    color: #00c8b5;
+}
+.poll-dd {
+    margin-top: 20px;
+    padding-left:12px;
+}
+.dd-ul-li {
+    color:#888;
+    font-size:14px;
+}
+.dd-ul-li {
+    position:relative;
+    margin-top:15px;
+}
+.dd-ul-li>span {
+    display:inline-block;
+    width:115px;
+}
+.dd-ul-li-div {
+    background: #e5e5e5;
+    width: 100px;
+    height: 10px;
+    display: inline-block;
+    margin-left: 44px;
+    border-radius: 20px;
+}
+.dd-ul-li-div>span {
+    background-color: #00c8b5;
+    height: 10px;
+    position: absolute;
+}
+.poll-em {
+    font-style:normal;
+    color:#888;
+    margin-left:20px;
+}
+.prd-rvw-list-wrapper {
+    float:left;
+    width:100%;
+    padding-top:20px;
+}
+.prd-rvw-list-area {
+    width:1020px;
+    margin:0 auto;
+}
+.prd-rvw-li {
+    margin-top: 20px;
+    border-top :1px solid #e5e5e5;
+    padding-top:15px;
+}
+.prd-rvw-left {
+    float:left;
+    width:255px;
+}
+.prd-rvw-left-wrapper {
+    position: relative;
+}
+.prd-rvw-left-img-wrapper {
+    display:inline-block;
+}
+.user-nickname {
+    display:inline-block;
+    position: absolute;
+    top:10px;
+    left:77px;
+}
+.user-nickname>span {
+    font-weight: 700;
+}
+.user-rank-area {
+    position: relative;
+}
+.user-rank {
+    background: #f0f1f4;
+    display: inline-block;
+    position: absolute;
+    top: -27px;
+    right: 133px;
+    padding: 5px;
+    border-radius: 11px;
+    font-size: 10px;
+    color: #757d86;
+}
+.tag {
+    margin-top:12px;
+}
+.tag>span {
+    position:relative;
+    color:#757d86;
+    font-size:12px;
+}
+.tag>span:nth-child(n+2):nth-child(-n+4) {
+    margin-left:10px;
+}
+.tag>span:nth-child(n+2):nth-child(-n+4):before{
+    width: 2px;
+    height: 2px;
+    background: #b2b8be;
+    position: absolute;
+    top: 7px;
+    left: -5px;
+    content: "";
+}
+.prd-rvw-right-wrapper {
+    padding-left: 260px;
+}
+.prd-rvw-right {
+}
+.star-area {
+    background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_review_point_new_off.png") 0 0/112px auto no-repeat;
+    width:112px;
+    height: 20px;
+    float:left;
+}
+.star-point {
+    background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_review_point_new_on.png") 0 0/112px auto no-repeat;
+    width:50%;
+    height:20px;
+    display:inline-block;
+}
+.score-date {
+    color:#888;
+    font-size:16px;
+    margin-left:10px;
+}
+.icon-offline-store {
+    position:relative;
+    margin-left:25px;
+    padding-left: 10px;
+}
+.icon-offline-store:before{
+    width: 2px;
+    height: 2px;
+    background: #b2b8be;
+    display: inline-block;
+    content: "";
+    position: absolute;
+    top: 7px;
+    left: -10px;
+}
+.icon-offline-store:after{
+    position: absolute;
+    background: url(https://static.oliveyoung.co.kr/pc-static-root/image/mypage/ico_offline_store.png) no-repeat;
+    content: "";
+    display: inline-block;
+    width: 34px;
+    background-size: 16px auto!important;
+    transform: translateY(-50%);
+    height: 20px;
+    left: -3px;
+    top: 13px;
+}
+.poll-type1 {
+    display: inline-block;
+    position: relative;
+    width:157px;
+    font-size:12px;
+    margin-top:15px;
+}
+.poll-type1-dt>span{
+    color:#0cc7b8;
+}
+.poll-type1-dt {
+    float:left;
+}
+.poll-type1-dd > span {
+    margin-left:10px;
+    position:relative;
+    color:#666;
+    font-weight: 600;
+}
+.poll-type1:not(:last-child):after {
+    position: absolute;
+    top: 3px;
+    left: 145px;
+    content: "";
+    width: 1px;
+    height: 11px;
+    background: #b2b8be;
+    display: inline-block;
+    margin-left: 5px;
+}
+.rvw-txt-inner {
+    color:#555;
+    line-height:34px;
+    font-size:16px;
+    padding-top: 20px;
+    margin-top:20px;
+}
+.rvw-tag>span:before {
+    content:"#"
+}
+.rvw-tag{
+    margin-top: 20px;
+    color:#757d86;
+    font-size:16px;
+}
+.rvw-tag>span:not(:first-child) {
+    margin-left:10px;
+}
+.rvw-img-div {
+    margin-top:20px;
+}
+.rvw-img-ul {
+    width:calc(100% + 5px);
+    height:165px;
+    overflow:hidden;
+    display:flex;
+    gap:10px;
+}
+.rvw-write-wrapper {
+    margin:0 auto;
+    width:1020px;
+    margin-bottom:25px;
+}
+.rvw-write {
+    background: none;
+    border:1px solid #00c8b5;
+    padding: 9px;
+    color:#00c8b5;
+    border-radius: 20px;
+}
 
+.rvw-popup-wrapper {
+    padding:10px;
 }
-.idFind_btn_enroll{
-  color: white;
-  background-color: #9bce26;
-  line-height: 50px;
-  width: 100%;
-  padding-right: 94px;
-  cursor: pointer;
-  padding-left: 0;
+.rvw-popup-tit {
+    width: 100%;
+    margin: 0 auto;
+    border-bottom: 1px solid #e5e5e5;
+    text-align: center;
+    padding-bottom: 20px;
 }
-.pw_find_area {
-  margin: 30px 10px;
+.rvw-main-left {
+    float: left;
 }
-.pw_find_tit01 {
-  text-align: center;
-  font-size: 30px;
-  margin-bottom: 10px;
+.rvw-main-left>img {
+    width:100px;
+    height:100px;
 }
-.pw_find_tit02 {
-  text-align: center;
-  font-size: 11px;
+.rvw-main-right {
+    float: left;
+    height: 100px;
+    width: 380px;
+    overflow: hidden;
+    text-align: center;
+    padding-top: 24px;
+    vertical-align: center;
+    padding-left: 11px;
+    color:#666;
 }
-.pw_find_txt {
-  text-align: center;
+.rvw-main-area {
+    position:relative;
 }
-.pw_find_id {
-  width: 300px;
-  height: 40px;
-  margin-top: 25px;
-  margin-bottom: 5px;
-  border: 1px solid rgba(178, 178, 178, 0.76);
-  padding-left: 10px;
+.rvw-hr {
+    width: 535px;
+    height: 25px;
+    background: #e5e5e5;
+    position: absolute;
+    top: 110px;
+    left: -28px;
 }
-.pw_find_email {
-  width: 300px;
-  height: 40px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  border: 1px solid rgba(178, 178, 178, 0.76);
-  padding-left: 10px;
+.rvw-select-star {
+    margin-top: 20px;
+    float: left;
+    padding-top:15px;
+    border-top: 10px solid #e5e5e5;
 }
-.pw_find_confirm {
-  display: block;
-  margin: 5px auto;
-  width: 300px;
-  height: 40px;
-  border: 1px solid rgba(178, 178, 178, 0.76);
-  background-color: #333333;
-  color: white;
-  cursor: pointer;
-  padding-right: 108px;
+.rvw-select-subtit-wrapper {
+    width: 500px;
+    text-align: center;
 }
-.pw_find_input {
-  border: 1px solid black;
-  width: 300px;
-  height: 40px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  border: 1px solid rgba(178, 178, 178, 0.76);
-  padding-left: 10px;
+.rvw-select-subtit-wrapper>span {
+    margin: 0 auto;
+    width: 100%;
+    color: #666;
+    font-size: 28px;
+    font-weight: 700;
+}
+.rvw-star-area {
+    margin-top: 10px;
+    position: relative;
+    border-bottom: 1px solid #e5e5e5;
+    height: 63px;
+    cursor: pointer;
+}
 
+.rvw-star-area>ul {
+    position: absolute;
+    left: 153px;
+    top: 4px;
 }
-.pwFind_btn_bundle {
-  height: 50px;
-  position: fixed;
-  bottom: 100px;
-  background-color: #00c8b5;
-  width: 480px;
+.rvw-star-area>ul>li>img {
+    position: absolute;
+    z-index:5;
 }
-.pwFind_btn_enroll{
-  color: white;
-  background-color: #9bce26;
-  line-height: 50px;
-  width: 100%;
-  padding-right: 94px;
-  cursor: pointer;
-  padding-left: 0;
+.rvw-star-area>ul>li {
+    /* float:left; */
+    margin-left:5px;
+    position: relative;
+    width: 26px;
+    height: 25px;
+    display: inline-block;
 }
-/* 로그인 끝 */
-</style>
-
-
-
+.rvw-star-fill {
+    top:0;
+    left:13px;
+    position:absolute;
+    display: block;
+    height:26px;
+    background:#f27370;
+    z-index:4;
+    /* width: 50%; */
+}
+.rvw-text-textarea {
+    width:480px;
+    height:180px;
+    background: #f4f4f4;
+    margin-top: 20px;
+}
+.rvw-text-area{
+    float:left;
+}
+.rvw-text-subtit {
+    text-align: center;
+    margin-top: 33px;
+    color:#666;
+    font-size: 21px;
+    font-weight: 600;
+}
+.rvw-input-textarea {
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    width: 480px;
+    height: 180px;
+    padding: 20px;
+}
+.rvw-photo-upload {
+    width: 100%;
+    margin-top:40px;
+    height: 80px;
+    float: left;
+    position: relative;
+    border:1px solid #e5e5e5;
+}
+.rvw-photo-upload>p {
+    text-align: center;
+    position: absolute;
+    top: 24px;
+    left: 169px;
+}
+.rvw-btns-bundle {
+    width: 100%;
+    height: 60px;
+    float: left;
+    margin-top:40px;
+}
+.btn-cancel {
+    width: 50%;
+    height: 68px;
+    border: 1px solid #c5cbd0;
+    color: #555;
+    font-size: 16px;
+    font-weight: 500;
+}
+.btn-cancel:hover {
+    background: #c2c2c2;
+    cursor: pointer;
+}
+.btn-enroll {
+    width: 50%;
+    height: 68px;
+    background-color: #dadde3;
+    border: 1px solid #d3d6da;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+}
+.btn-enroll:hover {
+    cursor: pointer;
+    background-color: #7c9d41;
+}
+.rvw-star-area>ul>:nth-child(1):hover>.rvw-star-fill {
+    background:red;
+}
