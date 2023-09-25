@@ -411,6 +411,7 @@ a, button {
   width: 1280px;
   min-width: 1280px;
   margin-bottom: 50px;
+  margin: 0 auto;
 }
 .Container {
   padding: 30px;

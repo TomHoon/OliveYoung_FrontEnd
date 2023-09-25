@@ -3,62 +3,6 @@
         <!-- 헤더시작 -->
         <Header></Header>
         <!-- 헤더끝 -->
-        <!-- GNB시작 -->
-        <div id="Gnb" class="main gen1">
-            <div id="gnbWrap">
-                <!-- 전체 카테고리 anchor 태그 > 추후 개발예정 -->
-                <a href="" id="btnGnbOpen">
-                    카테고리
-                </a>
-                <!-- anchor태그 클릭시 layer_all_menu > display block 처리하기 -->
-                <div class="layer_all_menu" id="gnbAllMenu"></div>
-                
-                <!-- 그 외 카테고리들 -->
-                <ul class="gnb_menu_list">
-                    <li>
-                        <a href="">
-                            <span>오특</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span>랭킹</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span>LUXE EIDT</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span>기획전</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span>세일</span>
-                        </a>
-                    </li>
-                        <li>
-                            <a href="">
-                                <span>기프트카드</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <span>멤버십/쿠폰</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <span>이벤트</span>
-                            </a>
-                        </li>
-                </ul>
-            </div>
-        </div>
-        <!-- GNB끝 -->
 
         <!-- 로그인 시작 -->
         <div class="login-wrapper add-margin-top">
