@@ -36,6 +36,64 @@
       </ul>
     </div>
   </div>
+
+  <!-- GNB시작 -->
+  <div id="Gnb" class="main gen1">
+    <div id="gnbWrap">
+      <!-- 전체 카테고리 anchor 태그 > 추후 개발예정 -->
+      <a href="" id="btnGnbOpen">
+        카테고리
+      </a>
+      <!-- anchor태그 클릭시 layer_all_menu > display block 처리하기 -->
+      <div class="layer_all_menu" id="gnbAllMenu"></div>
+
+      <!-- 그 외 카테고리들 -->
+      <ul class="gnb_menu_list">
+        <li>
+          <a href="">
+            <span>오특</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <span>랭킹</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <span>LUXE EIDT</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <span>기획전</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <span>세일</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <span>기프트카드</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <span>멤버십/쿠폰</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <span>이벤트</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- GNB끝 -->
+
 </template>
 
 <script>
@@ -223,4 +281,81 @@ button {
   background: url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_delivery_flag.png") right 2px/22px 20px no-repeat;
 }
 
+#Gnb {
+    position:relative;
+    width:100%;
+    min-width:1020px;
+    height:47px;
+    background:#fff;
+    border-top: 1px solid #ddd;
+    border-bottom: 2px solid #555;
+    z-index: 10;
+}
+
+#gnbWrap {
+    position:relative;
+    width: 1020px;
+    margin: 0 auto;
+}
+#btnGnbOpen {
+    float:left;
+    width:170px;
+    height:44px;
+    padding-left:27px;
+    border-right:1px solid #ddd;
+    border-left:1px solid #ddd;
+    line-height:44px;
+    color: #000;
+    font-size: 15px;
+    font-weight:700;
+    text-align:left;
+}
+a {
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+
+#btnGnbOpen:before {
+    content:"";
+    display:inline-block;
+    margin: 0 8px 0 0;
+    background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_menu_off.png") 0 14px no-repeat;
+    width:24px;
+    height:44px;
+    vertical-align:middle;
+}
+
+#Gnb .layer_all_menu {
+    position: absolute;
+    top:44px;
+    width:1020px;
+    border:2px solid #2f3030;
+    z-index:20;
+    display:none;
+}
+
+#Gnb .gnb_menu_list {
+    position:relative;
+    top: 0;
+    right: 0;
+}
+#Gnb .gnb_menu_list>li {
+    float:left;
+    margin-left:45px;
+}
+#Gnb .gnb_menu_list>li:first-child {
+    margin-left:50px;
+}
+
+#Gnb .gnb_menu_list>li>a{
+    display:block;
+    height:44px;
+    line-height:44px;
+    color:#000;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing:-.04em;
+}
 </style>
