@@ -6,10 +6,10 @@
         <li class="join" @click="goJoin">회원가입</li>
         <li v-if="!isLogin" class="login" @click="loginAndOut(1)">로그인</li>
         <li v-if="isLogin" class="login" @click="loginAndOut(0)">로그아웃</li>
-        <li class="cart">장바구니</li>
+        <li class="cart" @click="goCart()">장바구니</li>
         <li class="order">주문배송</li>
         <li class="customer">고객센터</li>
-        <li class="store" @click="goCart()">매장안내</li>
+        <li class="store" @click="goStore()">매장안내</li>
         <li class="ProductInsert" @click="productInsert">상품등록</li>
       </ul>
     </div>
@@ -38,7 +38,11 @@
 </template>
 
 <script>
+import basicMixin from '@/mixin/basicMixin';
+
 export default {
+  mixins: [basicMixin],
+
   data() {
     return {
       isLogin: false,
@@ -55,7 +59,12 @@ export default {
 
   methods: {
     goCart() {
-      this.$router.push('/cart');
+      if (localStorage.getItem('loginObj')) {
+        this.$router.push('/cart');
+      } else {
+        this.toastMsg("로그인 후 이용이 가능합니다.")
+        return false;
+      }
     },
     goJoin() {
       this.$router.push('/join');
