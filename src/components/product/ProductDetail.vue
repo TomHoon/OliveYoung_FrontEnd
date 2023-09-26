@@ -1126,7 +1126,7 @@
           </div>
 
           <div class="rvw-photo-upload">
-            <p>사진/동영상 첨부하기</p>
+            <p>사진 첨부하기</p>
           </div>
 
           <div class="rvw-btns-bundle">
