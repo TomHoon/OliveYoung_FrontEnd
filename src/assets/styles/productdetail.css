@@ -2365,7 +2365,8 @@ a {
     text-align: center;
     position: absolute;
     top: 24px;
-    left: 169px;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 .rvw-btns-bundle {
     width: 100%;
