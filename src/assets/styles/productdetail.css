@@ -2131,7 +2131,7 @@ a {
 }
 .star-point {
     background:url("https://static.oliveyoung.co.kr/pc-static-root/image/comm/ico_review_point_new_on.png") 0 0/112px auto no-repeat;
-    width:50%;
+    /* width:0%; */
     height:20px;
     display:inline-block;
 }
