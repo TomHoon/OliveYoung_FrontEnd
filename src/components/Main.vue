@@ -8,7 +8,7 @@
     <!-- slick 시작 -->
     <div id="Container">
       <div class="carousel-wrapper">
-        <Carousel :wrap-around="true">
+        <Carousel :autoplay="4000" :wrap-around="true">
           <Slide v-for="slide in slickImgs" :key="slide">
             <p class="slick-paragraph">
               <span class="mini-tit" v-html="slide.tit1">
@@ -25,7 +25,6 @@
           </Slide>
 
           <template #addons>
-            <Navigation/>
           </template>
         </Carousel>
       </div>
