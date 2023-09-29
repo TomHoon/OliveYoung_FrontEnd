@@ -371,7 +371,7 @@ export default {
       //   consultation_number: this.consultation_number
       // }
 
-      let result = await axios.post("/productInsert", {...this.test});
+      let result = await axios.post("http://oliveyoungproject.shop/productInsert", {...this.test});
       console.log('result >> ', result.data);
       this.$router.push('/productList');
 

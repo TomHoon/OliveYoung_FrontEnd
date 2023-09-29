@@ -49,7 +49,7 @@ export default {
     };
     },
     mounted() {
-      axios.get('/productList')
+      axios.get('http://oliveyoungproject.shop/productList')
           .then((res) => {
             this.productList = res.data;
             console.log("res", res);

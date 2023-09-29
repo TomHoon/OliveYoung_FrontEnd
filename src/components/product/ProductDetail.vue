@@ -824,7 +824,7 @@ export default {
     ModalWrapper,
   },
   async mounted() {
-    let { data } = await axios.post('/getProduct', {product_idx: this.$route.query.prdId});
+    let { data } = await axios.post('http://oliveyoungproject.shop/getProduct', {product_idx: this.$route.query.prdId});
 
     if (!data) {
       this.toastMsg('데이터가 없습니다.');
@@ -933,7 +933,7 @@ export default {
         review_content: this.review_content,
         review_score: this.review_score,
       }
-      let result = await axios.post("/reviewInsert",review등록 );
+      let result = await axios.post("http://oliveyoungproject.shop/reviewInsert",review등록 );
       console.log('result >> ', result.data);
       this.$refs.modal.closeModal();
     },

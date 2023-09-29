@@ -7,8 +7,30 @@
 
     <!-- slick 시작 -->
     <div id="Container">
+      <div class="carousel-wrapper">
+        <Carousel :wrap-around="true">
+          <Slide v-for="slide in slickImgs" :key="slide">
+            <p class="slick-paragraph">
+              <span class="mini-tit" v-html="slide.tit1">
+
+              </span>
+              <strong class="mini-strong" v-html="slide.tit2">
+
+              </strong>
+              <span class="mini-tit-span">{{ slide.tit3 }}</span>
+            </p>
+            <div class="carousel__item">
+              <img class="slideImg" :src="slide.img" />
+            </div>
+          </Slide>
+
+          <template #addons>
+            <Navigation/>
+          </template>
+        </Carousel>
+      </div>
       <div id="Contents">
-        <div class="main_full_banner">
+<!--        <div class="main_full_banner">
           <div class="banner_wrap slick_slider slick-initialized slick-slider" id="mainFullSlider">
             <button class="slick-prev slick-arrow">
               이전 슬라이드
@@ -31,7 +53,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div>-->
 
         <div class="main_mid_banner">
           <a href="" class="home_banner_top_split">
@@ -970,13 +992,18 @@
 <script>
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import 'vue3-carousel/dist/carousel.css'
+import { Carousel, Slide, Navigation } from 'vue3-carousel'
 
 export default {
   props: ['pageParams', 'transferObj'],
 
   components: { // 가져온 component 들을 등록합니다.
     Header,
-    Footer
+    Footer,
+    Carousel,
+    Slide,
+    Navigation,
   },
 
   mounted() {
@@ -984,7 +1011,40 @@ export default {
   },
 
   data() {
-    return {}
+    return {
+      slickImgs: [
+        {
+          img:'https://image.oliveyoung.co.kr/uploads/images/display/90000010001/1/7452961166793313522.jpg',
+          tit1: '일반식품 <br>',
+          tit2: '맛있는 것만<br>모아서<br>무료로',
+          tit3: '무료배송 채우는 식품꿀템'
+        },
+        {
+          img:'https://image.oliveyoung.co.kr/uploads/images/display/90000010001/1/311909504245462944.jpg',
+          tit1: '올영p!ck <br>',
+          tit2: '올리브영이<br>p!ck한<br>이 달의 브랜드',
+          tit3: '베스트 아이템 한정특가'
+        },
+        {
+          img:'https://image.oliveyoung.co.kr/uploads/images/display/90000010001/1/8604330952907240647.jpg',
+          tit1: '구달 <br>',
+          tit2: '레티놀을 더한<br>제주 흑당근으로<br>탄력 지키기',
+          tit3: '최대 23%할인'
+        },
+        {
+          img:'https://image.oliveyoung.co.kr/uploads/images/display/90000010001/1/875458587994252647.jpg',
+          tit1: '아도르 <br>',
+          tit2: '찰랑이는<br>머릿결에<br>향기 한 스푼',
+          tit3: '~20%, 카즈하 에디션 증정'
+        },
+        {
+          img:'https://image.oliveyoung.co.kr/uploads/images/display/90000010001/1/2988967576997005317.jpg',
+          tit1: '아로마티카 <br>',
+          tit2: '몸과 마음이<br>멜로우한<br>순간',
+          tit3: '강민경PICK 최대 25%할인'
+        },
+      ]
+    }
   },
   methods: {
     goDetail(prdId) {
@@ -1008,4 +1068,14 @@ export default {
 
 <style scoped src="@/assets/styles/main.css">
 
+</style>
+<style>
+.carousel__next {
+  right: 1030px;
+  top: 355px;
+}
+.carousel__prev {
+  left: 494px;
+  top: 355px;
+}
 </style>

@@ -479,7 +479,7 @@ export default {
             }
 
             //param 넘겨주고 회원가입
-            axios.post('/joinMember', param).then(function(result){
+            axios.post('http://oliveyoungproject.shop/joinMember', param).then(function(result){
                if(result.data === 1){
                   t.$refs.modal.modalOpen();  
                }else{
