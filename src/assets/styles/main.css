@@ -1354,7 +1354,7 @@ strong {
 }
 .mini-tit {
     display: block;
-    font-size: 18px;
+    font-size: 1vw; /* 18px */
     color: #000;
 }
 .mini-tit:after {
@@ -1369,13 +1369,13 @@ strong {
     display: block;
     width: 360px;
     margin-bottom: 10px;
-    font-size: 40px;
+    font-size: 2vw;
     color: #1f1f1f;
-    line-height: 56px;
+    line-height: 3vw;
     word-break: keep-all;
     font-weight: 400;
 }
 .mini-tit-span {
     color:#666;
-    font-size: 14px;
+    font-size: 1vw;
 }
