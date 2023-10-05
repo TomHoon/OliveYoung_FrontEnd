@@ -2065,6 +2065,9 @@ a {
     border-top :1px solid #e5e5e5;
     padding-top:15px;
 }
+.review_no {
+    text-align: center;
+}
 .prd-rvw-left {
     float:left;
     width:255px;

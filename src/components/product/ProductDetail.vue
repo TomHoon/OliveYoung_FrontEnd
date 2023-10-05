@@ -1,101 +1,8 @@
-<template>
+<template xmlns="http://www.w3.org/1999/html">
   <div class="wrapper">
         <!-- 헤더시작 -->
-        <!-- <Header></Header> -->
-        <div class="Header">
-            <div class="top_util">
-                <ul class="menu_list">
-                    <li class="test" @click="goStackLayer()">TestStack</li>
-                    <li class="join" @click="goJoin">회원가입</li>
-                    <li class="login" @click="goLogin">로그인</li>
-                    <li class="cart">장바구니</li>
-                    <li class="order">주문배송</li>
-                    <li class="customer">고객센터</li>
-                    <li class="store" @click="goDetails">매장안내</li>
-                    <li class="ProductInsert" @click="ProductInsert">상품등록</li>
-                </ul>
-            </div>
-
-            <div class="header_inner">
-                <h1>
-                    <a href="/">
-                        <img src="https://static.oliveyoung.co.kr/pc-static-root/image/comm/h1_logo.png" alt="올리브영">
-                    </a>
-                </h1>
-                <div class="search_box" id="w_search_box">
-                    <div class="placeholder_area">
-                        <input type="text" placeholder="검색어를 입력해주세요">
-                    </div>
-                    <button class="search-btn" id="searchSubmit">검색</button>
-                </div>
-                <ul class="mymenu-area">
-                    <li class="delivery" id="todayDeliveryContainer">
-                        <a href="javascript:;" id="tddlvr_header_today_icon" class="mymenu-layer">
-                            오늘드림
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        <Header></Header>
         <!-- 헤더끝 -->
-
-        <!-- GNB시작 -->
-        <div id="Gnb" class="main gen1">
-            <div id="gnbWrap">
-                <!-- 전체 카테고리 anchor 태그 > 추후 개발예정 -->
-                <a href="" id="btnGnbOpen">
-                    카테고리
-                </a>
-                <!-- anchor태그 클릭시 layer_all_menu > display block 처리하기 -->
-                <div class="layer_all_menu" id="gnbAllMenu"></div>
-                
-                <!-- 그 외 카테고리들 -->
-                <ul class="gnb_menu_list">
-                    <li>
-                        <a href="">
-                            <span>오특</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span>랭킹</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span>LUXE EIDT</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span>기획전</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <span>세일</span>
-                        </a>
-                    </li>
-                        <li>
-                            <a href="">
-                                <span>기프트카드</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <span>멤버십/쿠폰</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <span>이벤트</span>
-                            </a>
-                        </li>
-                </ul>
-
-            </div>
-        </div>
-        <!-- GNB끝 -->
         <div class="detail-container">
             <div class="detail-contents">
                 <div class="page-location">
@@ -574,17 +481,17 @@
           <div class="prd-rvw-list-area">
               <ul class="prd-rvw-ul">
                 <!--하나의 리뷰 시작-->
-                <li class="prd-rvw-li"  v-for="(item, idx) in reviewList" :key="idx">
+                  <li class="prd-rvw-li"  v-for="(item, idx) in reviewList" :key="idx">
                   <div class="prd-rvw-left">
                     <div class="prd-rvw-left-wrapper">
                       <a href="" class="prd-rvw-left-img-wrapper">
                         <img src="https://image.oliveyoung.co.kr/uploads/images/mbrProfile/2023/01/02/1672646269565.png?RS=79x60&CS=60x60" alt="">
                       </a>
                       <p class="user-nickname">
-                        <span>whiteBeauty</span>
+                        <span>{{ item.mid }}</span>
                       </p>
                       <p class="user-rank-area">
-                        <span class="user-rank">TOP481</span>
+                        <span class="user-rank">TOP4</span>
                       </p>
                       <p class="tag">
                         <span class="tag1">건성</span>
@@ -601,7 +508,7 @@
                         <span class="star-area">
                           <span class="star-point" :style="{ width: (item.review_score * 20) + '%' }"></span>
                         </span>
-                        <span class="score-date">2023.09.18</span>
+                        <span class="score-date">{{ item.review_reg_date }}</span>
                         <span class="icon-offline-store">
                           매장
                         </span>
@@ -651,6 +558,9 @@
                   </div>
                   <!--리뷰사진영역끝-->
                 </li>
+                <div class="review_no" v-if="this.reviewList == 0">
+                  <span>리뷰가 존재하지 않습니다.</span>
+                </div>
                 <!--하나의 리뷰 끝-->
 
               </ul>
@@ -664,83 +574,7 @@
 
     <!-- 상품설명, 구매정보, 리뷰, Q&A 끝-->
         <!-- 푸터시작 -->
-        <div class="footer">
-            <div class="conts1">
-                <ul class="footer-ul">
-                    <li>회사소개</li>
-                    <li>채용안내</li>
-                    <li>가맹점 개설문의</li>
-                    <li>상품입점 및 제휴문의</li>
-                    <li>사이버 감사실</li>
-                    <li>고객센터</li>
-                </ul>
-            </div>
-            <div class="conts2">
-                <div class="conts2-ul-wrapper">
-                    <ul class="conts2-ul">
-                        <li>
-                            <p class="conts2-ul-p">
-                                <a href="">
-                                    <img style="width:146px; height:24px;" src="https://static.oliveyoung.co.kr/pc-static-root/image/footer/foot_logo.png" alt="">
-                                </a>
-                            </p>
-                        </li>
-                        <li>
-                            <h3 class="conts2-ul-h3">씨제이 올리브영 주식회사</h3>
-                            <p>
-                                대표이사: 이동훈|사업자등록번호:809-81-22241
-                                <br>
-                                주소 : (12442) 서울특별시 강동구 강동대로 412, 33층 
-                                <br>
-                                호스팅사업자:cafe24
-                                <br>
-                                통신판매업신고번호:14-231-2341
-                                <br>
-                                이메일:gnsdl9079@gmail.com
-
-                            </p>
-                            <p>
-                            </p>
-                        </li>
-                        <li style="margin:45px 0 0 25px;">
-                            <a class="conts2-ul-lawlist" href="">
-                                이용약관 법적고지
-                            </a>
-                            <a class="conts2-ul-lawlist active-lawlist" href="">
-                                개인정보처리방침
-                            </a>
-                            <a class="conts2-ul-lawlist" href="">
-                                청소년처리방침
-                            </a>
-                            <a class="conts2-ul-lawlist" href="">
-                                영상정보처리기기 운영/관리방침
-                            </a>
-                            <a class="conts2-ul-lawlist" href="">
-                                이메일 무단수집거부
-                            </a>
-                        </li>
-                        <li style="margin:45px 0 0 25px;">
-                            <a class="conts2-ul-lawlist active-lawlist" style="color:#000" href="">
-                                하나은행 구매안전 서비스
-                            </a>
-                            <a class="conts2-ul-lawlist" href="">
-                                <p>
-                                    올리브영은 현금 결제한 금액에 대해
-                                    <br>
-                                    하나은행과 채무지급보증 계약을체결
-                                    <br>
-                                    하여 안전한 거래를 보장하고 있습니다
-                                    <br>
-                                </p>
-                            </a>
-                            <a style="color:#9a9a9a; font-size:14px; position:absolute; bottom:50px;" href="">
-                                서비스가입사실확인 
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+    <Footer></Footer>
         <!-- 푸터끝 -->
     <ModalWrapper ref="modal" :width="500" :height="871">
       <div class="rvw-popup-wrapper">
@@ -817,26 +651,15 @@
 import ModalWrapper from '@/components/ModalWrapper.vue';
 import axios from "axios";
 import basicMixin from "@/mixin/basicMixin.js";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 export default {
   mixins: [basicMixin],
   components:{
     ModalWrapper,
-  },
-  async mounted() {
-    let { data } = await axios.post('http://oliveyoungproject.shop/getProduct', {product_idx: this.$route.query.prdId});
-
-    if (!data) {
-      this.toastMsg('데이터가 없습니다.');
-      return;
-    }
-
-    this.detailInfo = data;
-
-    axios.get('/reviewList')
-    .then(response => { this.reviewList = response.data, console.log(this.reviewList)})
-    .catch(error => {console.log("에러 : ", error)})
-    
+      Footer,
+      Header
   },
   data() {
     return {
@@ -855,7 +678,23 @@ export default {
       review_score: '1',
       starWidth: ["100%", "0%", "0%", "0%", "0%"],
       reviewList: [],
+      review_reg_date: '',
     };
+  },
+  async mounted() {
+    let { data } = await axios.post('http://oliveyoungproject.shop/getProduct', {product_idx: this.$route.query.prdId});
+
+    if (!data) {
+      this.toastMsg('데이터가 없습니다.');
+      return;
+    }
+
+    this.detailInfo = data;
+
+    axios.post('/reviewList', {product_sell_name: this.detailInfo.product_sell_name})
+        .then(response => { this.reviewList = response.data, console.log(this.reviewList)})
+        .catch(error => {console.log("에러 : ", error)})
+
   },
   methods: {
     goStackLayer() {
