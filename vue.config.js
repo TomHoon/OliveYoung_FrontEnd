@@ -5,9 +5,9 @@ module.exports = defineConfig({
   devServer: {
     // historyApiFallback: true,
     // 💕운영
-    proxy: 'http://oliveyoungproject.shop'
+    //proxy: 'http://oliveyoungproject.shop'
 
     // 💕개발
-    //  proxy: 'http://localhost:8082'
+      proxy: 'http://localhost:8082'
   }
 })
