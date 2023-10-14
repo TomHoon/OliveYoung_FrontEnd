@@ -2363,6 +2363,7 @@ a {
     float: left;
     position: relative;
     border:1px solid #e5e5e5;
+    vertical-align: middle;
 }
 .rvw-photo-upload>p {
     text-align: center;

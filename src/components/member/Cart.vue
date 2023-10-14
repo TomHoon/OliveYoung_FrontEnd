@@ -383,9 +383,23 @@
 import {defineComponent} from "vue";
 import Footer from "@/components/Footer.vue";
 import Header from "@/components/Header.vue";
+// import axios from 'axios';
 
 export default defineComponent({
-  components: {Footer,Header}
+  components: {Footer,Header},
+  data() {
+    return {
+      username : '',
+    }
+  },
+
+  computed:{
+  },
+  mounted() {
+    this.username = localStorage.getItem('loginObj')
+    const userData = JSON.parse(this.userData)
+    console.log(userData.mid)
+  },
 })
 </script>
 <style scoped>
