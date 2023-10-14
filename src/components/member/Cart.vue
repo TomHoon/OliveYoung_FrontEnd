@@ -34,7 +34,7 @@
 
       <div class="membership-box-wrapper">
         <p class="membership-grade-info">
-          <strong>유저이름</strong>
+          <strong>{{ username }}</strong>
           님의 멤버십 등급은
           <span class="grade">BABY OLIVE</span>
           입니다
@@ -396,9 +396,7 @@ export default defineComponent({
   computed:{
   },
   mounted() {
-    this.username = localStorage.getItem('loginObj')
-    const userData = JSON.parse(this.userData)
-    console.log(userData.mid)
+    this.username = JSON.parse(localStorage.getItem('loginObj')).mid
   },
 })
 </script>
